@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="${product.title?default('')}，农家乐，民宿" />
+		<meta name="description" content="友鸣旅行网 （www.yomiing.com）为您提供最新最精准的农家乐资讯信息。" />
+		
+		<title>${product.title?default('')}_农家乐详情_友鸣旅行网</title>
+		<link rel="stylesheet" href="../../css/introduce.css" />
+		<link rel="stylesheet" href="../../css/index_fg.css" />
+		<link rel="stylesheet" href="../../css/ym-style.css" />
+		<link rel="stylesheet" href="../../css/library/rtt.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/farmstay.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/footer.css"/>
+		<link rel="stylesheet" href="../../css/library/bootstrap.min.css" />
+		<style type="text/css">
+			#navsearch{width: 1000px;}
+			.main-left{margin-left: -230px;}
+			.list-txt{height: 80px;}
+		</style>
+		<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/fg/jquery.slides.js"></script>
+		<script type="text/javascript" src="../../js/library/jquery.SuperSlide.js"></script>
+		<script type="text/javascript" src="../../js/fg/common_oper.js"></script>
+		<script type="text/javascript" src="../../js/fg/farmstayDetail.js"></script>
+		<script type="text/javascript" src="../../js/library/stickUp.min.js"></script>
+		<link rel="shortcut icon" href="../logo.ico" />
+		<script type="text/javascript">
+			var mt = 0;
+			window.onload = function() {
+				
+				$("#picList li").hover(function() {
+					var index = $(this).index();
+					var src = $("#picList").children("li:eq(" + index + ")").find("img").attr("src");
+					$("#singerPicDisplay img").attr("src", src);
+				});
+
+				var mydiv = document.getElementById("mydiv");
+				var mt = mydiv.offsetTop;
+				window.onscroll = function() {
+					var t = document.documentElement.scrollTop || document.body.scrollTop;
+					if(t > mt) {
+						mydiv.style.position = "fixed";
+						mydiv.style.margin = "0";
+						mydiv.style.top = "0";
+						mydiv.className = "nav-active";
+						$(".navbar-btn").show();
+					} else {
+						mydiv.style.margintop = "0";
+						mydiv.style.position = "static";
+						$(".navbar-btn").hide();
+					}
+				}
+
+				$('#mydiv').stickUp({
+					parts: {
+						0: 'mydiv1',
+						1: 'mydiv2',
+						2: 'mydiv3',
+						3: 'mydiv4',
+					},
+					itemClass: 'menuItem',
+					itemHover: 'active'
+				});
+			}
+		</script>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<#include "../top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<div id="intorduce" class="clearfix">
+			<div id="crumbs">
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">首页</a><span>></span></li>
+					<li>
+						农家乐<span>></span>
+					</li>
+					<li class="active">详细介绍</li>
+				</ol>
+			</div>
+
+			<div class="content-main clearfix">
+				<div class="main-left">
+					<div class="intorduce">
+						<div class="intorduce-img">
+							<div class="intorduce-title" style="border:none; height:60px;line-height: 60px;">
+								${product.title?default('')}
+								<div style="font-size: 14px; color:#999;">
+									${product.subhead?default('')}
+								</div>
+								<div class="main-right-fx">
+									<!-- 分享工具条 BEGIN -->
+									<div class="jiathis_style">
+										<a class="jiathis_button_qzone"></a>
+										<a class="jiathis_button_tsina"></a>
+										<a class="jiathis_button_tqq"></a>
+										<a class="jiathis_button_weixin"></a>
+										<a class="jiathis_button_renren"></a>
+										<a class="jiathis_button_xiaoyou"></a>
+										<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+										<a class="jiathis_counter_style"></a>
+									</div>
+									<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+									<!-- 分享工具条  END -->
+								</div>
+							</div>
+							<!--轮播-->
+							<div class="slider_box" id="slider_name">
+								<div class="mask"></div>
+								<ul class="silder_con">
+									<#list images as img>
+										<li class="silder_panel">
+											<a href="#" target="_self" class="f_l">
+												<img src="${img}" width="600" height="375" />
+											</a>
+										</li>
+									</#list>
+								</ul>
+								<ul class="silder_nav dec">
+									<#list images as img>
+										<li>
+											<a href="#" target="_self">
+												<img src="${img}" width="110" height="48" />
+											</a>
+										</li>
+									</#list>
+								</ul>
+							</div>
+							<!--活动细节 start-->
+							<div id="mydiv" style="z-index:20;">
+								<div class="navbar-inverse intorduce-nav ">
+									<ul class="navbar-nav">
+										<li class="menuItem">
+											<a href="#mydiv1">商品详情</a>
+										</li>
+										
+										<li class="menuItem">
+											<a href="#mydiv2">商家介绍</a>
+										</li>
+										<li class="menuItem active">
+											<a href="#mydiv3">购买须知</a>
+										</li>
+										<li class="menuItem">
+											<a href="#mydiv4">游客点评</a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div id="detail" class="intorduce-main">
+								<div id="mydiv1" class="menu_tab">
+									<div class="intorduce-title">商品详情</div>
+									${product.detail?default('')}
+								</div>
+
+								<div id="mydiv2" class="menu_tab">
+									<div class="intorduce-title">商家介绍</div>
+									暂时没有关于商家的介绍
+								</div>
+								<div id="mydiv3" class="menu_tab">
+									<div class="intorduce-title">购买须知</div>
+									${product.buynote?default('')}
+								</div>
+
+								<!--用户点评具体内容  start-->
+								<div id="mydiv4" class="menu_tab">
+									<div class="intorduce-title">游客点评</div>
+									暂时还没有游客点评记录
+								</div>
+							</div>
+							<!--用户点评具体内容  end-->
+						</div>
+					</div>
+				</div>
+				<div class="main-right ">
+					<div class="main-right-main price">
+						<i>单价(元)：</i><span>${product.price?default(0)}</span>
+					</div>
+					<dl class="main-right-main ">
+						<dd>已售 <span>${product.soldNum?default(0)}</span></dd>
+						<dd>评分 <span>5分</span></dd>
+						<dd>好评率 <span>90%</span></dd>
+					</dl>
+					<div class="main-right-main "><i>有效期</i>截止到2017.12.31周末、法定节假日通用</div>
+					<!--<div class="main-right-main btn ym-reserve" onclick="toApplyfor(${product.id?default(0)});">
+						立即订购
+					</div>-->
+					<div class="btn btn-warning" onclick="toApplyfor(${product.id?default(0)});" type="button" style="margin-left: 40%;">
+						立即订购
+					</div>
+					<div class="main-right-main-list ">
+						<div class="pr-tite ">本店其他</div>
+						<ul>
+							<#list others as pro>
+								<li>
+			                        <a href="/infoPath/farmDetail?proId=${pro.id?default(0)}">
+			                            <img class="ym-list-img" style="padding: 10px 0;" src="${pro.img?default('')}" width="100" height="80">
+			                            <div class="ym-list-main">
+			                                <div class="list-txt">
+			                                	${pro.title?default(0)}
+			                                	<br>
+			                                	￥${pro.price?default(0)}/份
+			                                </div>
+			                            </div>
+			                        </a>                                  
+	                    		</li>
+                    		</#list>
+						</ul>
+					</div>
+
+					<!--人气推荐(页面公共)start-->
+					<!--<div class="tabox " id="commonRecommend "></div>-->
+					<!--人气推荐(页面公共)end-->
+				</div>
+
+			</div>
+		</div>
+		
+		<!--返回顶部的工具-->
+		<!--<div id='rtt'></div>-->
+		<!--footer start-->
+		<#include "../footer.html">
+		<!--footer end-->
+	</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>装备基本信息-友鸣旅行网后台管理系统</title>
+    <meta name="description" content="友鸣旅行网后台管理系统">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="友鸣旅行网后台管理系统" />
+    
+    <link rel="icon" type="image/png" href="assets/i/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/logo.ico">
+    
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<script src="assets/js/echarts.min.js"></script>-->
+    <script src="assets/js/equip_manage.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body data-type="index">
+    <script src="assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <#include "menu.html">
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title  am-cf">装备数据</div>
+
+
+                            </div>
+                            <div class="widget-body  am-fr">
+
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button type="button" class="am-btn am-btn-default am-btn-success" onclick="window.location='/admin/equipAddPath'">
+                                                	<span class="am-icon-plus"></span> 新增
+                                                </button>
+                                                <button type="button" class="am-btn am-btn-default am-btn-warning">
+                                                	<span class="am-icon-archive"></span> 审核
+                                                </button>
+                                                <button type="button" class="am-btn am-btn-default am-btn-danger">
+                                                	<span class="am-icon-trash-o"></span> 删除
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                    <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                        <input id="keyword" name="keyword" type="text" class="am-form-field" placeholder="请输入关键词" value="${keyword}">
+                                        <span class="am-input-group-btn">
+            							<button onclick="searchEquip();" class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+          								</span>
+                                    </div>
+                                </div>
+
+                                <div class="am-u-sm-12">
+                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
+                                        <thead>
+                                            <tr>
+                                                <th>装备图</th>
+                                                <th>名称</th>
+                                                <th>押金</th>
+                                                <th>租金</th>
+                                                <th>上传人</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <#list page.list as e>
+                                            	<tr class="even gradeC">
+                                            		<td>
+	                                                    <img src="${e.equipPic?default('')}" class="tpl-table-line-img" alt="">
+	                                                </td>
+	                                                <td class="am-text-middle">${e.name?default('')}</td>
+	                                                <td class="am-text-middle">${e.deposit?default(0)}</td>
+	                                                <td class="am-text-middle">${e.rent?default(0)}</td>
+	                                                <td class="am-text-middle">${e.account?default('')}</td>
+	                                                <td class="am-text-middle">
+	                                                    <div class="tpl-table-black-operation">
+	                                                        <a href="/admin/equipEditPath?id=${e.id?default(0)}">
+	                                                            <i class="am-icon-pencil"></i> 编辑
+	                                                        </a>
+	                                                        <a href="javascript:deleteEquip(${e.id?default(0)})" class="tpl-table-black-operation-del">
+	                                                            <i class="am-icon-trash"></i> 删除
+	                                                        </a>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+                                            </#list>
+                                            
+                                            <!-- more data -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="am-u-lg-12 am-cf">
+
+                                    <div class="am-fr">
+                                        <ul class="am-pagination tpl-pagination">
+                                        	<li class="">
+                                            	共${page.totalRow?default(0)}条记录
+                                            </li>
+                                            
+                                            <!-- 前一页导航  -->
+                                            <#if page.pageNumber == 1>
+                                            	<li class="am-disabled">
+	                                            	<a href="/admin/userList?pageNumber=${page.pageNumber-1}&keyword=${keyword}">«</a>
+	                                            </li>
+                                            	<#else>
+                                            		<li class="">
+		                                            	<a href="/admin/userList?pageNumber=${page.pageNumber-1}&keyword=${keyword}">«</a>
+		                                            </li>
+                                            </#if>
+                                          	
+                                          	<!--中间5页导航-->
+                                            <#list 1..page.totalPage as i>
+                                            	<#if page.pageNumber -2 == i || page.pageNumber -1 == i || page.pageNumber == i || page.pageNumber + 1 == i || page.pageNumber + 2 == i>
+                                            		<#if page.pageNumber -2 == i && i gt 2>
+                                            				<li><a href="/admin/equipList?pageNumber=1&keyword=${keyword}">1</a></li>
+                                            				<li><span>...</span></li>
+                                            				<li><a href="/admin/equipList?pageNumber=${i}&keyword=${keyword}">${i}</a></li>
+                                            				<#elseif page.pageNumber +2 == i && i lt page.totalPage-1>
+                                            					<li><a href="/admin/equipList?pageNumber=${i}&keyword=${keyword}">${i}</a></li>
+                                            					<li><span>...</span></li>
+                                            					<li><a href="/admin/equipList?pageNumber=${page.totalPage}&keyword=${keyword}">${page.totalPage}</a></li>
+                                            				<#else>
+                                            					<#if page.pageNumber == i>
+	                                            					<li class="am-active"><a href="/admin/equipList?pageNumber=${i}&keyword=${keyword}">${i}</a></li>
+	                                            					<#else>
+	                                            						<li class=""><a href="/admin/equipList?pageNumber=${i}&keyword=${keyword}">${i}</a></li>
+	                                            				</#if>
+                                            			</#if>
+                                            	</#if>
+                                            </#list>
+                                            
+                                            <!-- 后一页导航 -->
+                                            <#if page.pageNumber == page.totalPage>
+                                            	<li class="am-disabled">
+	                                            	<a href="/admin/equipList?pageNumber=${page.pageNumber+1}&keyword=${keyword}">»</a>
+	                                            </li>
+                                            	<#else>
+                                            		<li class="">
+		                                            	<a href="/admin/equipList?pageNumber=${page.pageNumber+1}&keyword=${keyword}">»</a>
+		                                            </li>
+                                            </#if>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

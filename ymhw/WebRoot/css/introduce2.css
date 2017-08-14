@@ -1,0 +1,97 @@
+.sp-main .sp-list {
+	width: 238px !important;
+	height: auto !important
+}
+
+.sp-main .sp-list-img {
+	height: 160px;
+}
+
+.sp-main .sp-r {
+	width: 1015px !important;
+}
+
+.content-main .sp-tite {
+	height: 44px !important;
+	line-height: 44px !important;
+	margin-bottom: 15px;
+	border-bottom: 3px solid #eceef4;
+	height: 37px;
+}
+
+.content-main .sp-tite {
+	height: 44px !important;
+	line-height: 44px !important;
+}
+
+.content-main .sp-tite h5 {
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	height: 44px;
+	line-height: 44px;
+}
+
+.content-main .sp-tite-nav {
+	float: right;
+}
+
+.content-main .sp-tite-nav ul {
+	width: auto !important;
+}
+
+.content-main .sp-tite-nav ul li {
+	height: 44px;
+	font-size: 14px;
+	line-height: 44px;
+}
+
+.content-main .sp-tite-nav ul .on {
+	color: #f8b101;
+	display: block;
+	height: 44px;
+	font-size: 14px;
+	position: relative;
+	background-image: url(../../images/icons/tabnav-hover.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 70px;
+	border-radius: 0;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.content-main .sp-list-main {
+	border: 1px solid #eceef4;
+}
+
+#wrap {
+	position: relative;
+	padding: 10px;
+	overflow: hidden;
+}
+
+#gradient {
+	width: 100%;
+}
+
+#read-more {
+	padding: 5px;
+	color: #333;
+	margin: 0 auto;
+	width: 100px;
+}
+
+#read-more a {
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+}
+
+#read-more a: hover {
+	color: #000;
+}
+
+#mydiv .navbar-inverse .navbar-nav>.active>a {
+	color: #ff6e00 !important;
+	background-image: url(../../images/icons/tabnav-hover-2.png);
+}

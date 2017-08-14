@@ -1,0 +1,1 @@
+跑HttpSenderTest.java类去调用HttpSendr,java类，和三个架包即可

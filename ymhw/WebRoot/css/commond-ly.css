@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document 中文*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font-size:12px;font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+fieldset,img{border:0}
+img{display:block;}
+button,input,select,textarea{font-size:100%;outline:medium;}
+table{border-collapse:collapse;border-spacing:0}
+a{text-decoration:none}
+a:hover{text-decoration:none}
+.clear:after,.ltClear:after,.clearfix:after{content:'\20';display:block;height:0;clear:both}
+.clear,.ltClear,.clearfix{*zoom:1}
+.fl{float:left}
+.fr{float:right}
+.Arial{font-family:Arial}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{display:block;margin:0;padding:0}
+.marginb20{margin-bottom:40px!important;}

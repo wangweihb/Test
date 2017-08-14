@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="周边目的地，${record.info.subject?default('')}，恩施旅游线路" />
+		<meta name="description" content="友鸣旅行网 （www.yomiing.com）为您提供最新最精准的周边目的地资讯信息。" />
+		<title>${record.info.subject?default('')}_周边目的地详情_友鸣旅行网</title>
+		
+		<link rel="stylesheet" type="text/css" href="../../css/introduce.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/index_fg.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/ym-style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/library/rtt.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<style type="text/css">
+			#navsearch{width: 1000px;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SltXjVkL5pqz3mRtLUYo3107tLGvhmRI"></script>
+		<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/library/stickUp.min.js"></script>
+		<script type="text/javascript" src="../../js/fg/jquery.slides.js"></script>
+		<script type="text/javascript" src="../../js/library/jquery.SuperSlide.js"></script>
+		<script type="text/javascript" src="../../js/fg/common_oper.js"></script>
+
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#picList li").hover(function() {
+					var index = $(this).index();
+					var src = $("#picList").children("li:eq(" + index + ")").find("img").attr("src");
+					$("#singerPicDisplay img").attr("src", src);
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			var mt = 0;
+			window.onload = function() {
+				var mydiv = document.getElementById("mydiv");
+				var mt = mydiv.offsetTop;
+				window.onscroll = function() {
+					var t = document.documentElement.scrollTop || document.body.scrollTop;
+					if(t > mt) {
+						mydiv.style.position = "fixed";
+						mydiv.style.margin = "0";
+						mydiv.style.top = "0";
+						mydiv.className = "nav-active";
+						$(".navbar-btn").show();
+					} else {
+						mydiv.style.margintop = "0";
+						mydiv.style.position = "static";
+						$(".navbar-btn").hide();
+					}
+				}
+
+				$('#mydiv').stickUp({
+					parts: {
+						0: 'mydiv1',
+						1: 'mydiv2',
+						2: 'mydiv3',
+						3: 'mydiv4',
+						4: 'mydiv5',
+					},
+					itemClass: 'menuItem',
+					itemHover: 'active'
+				});
+			}
+		</script>
+		
+		<!----//End-dropdown--->
+		<!---//End-click-drop-down-menu----->
+	</head>
+
+	<body>
+		<#include "../top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<div id="intorduce" class="clearfix">
+			<div id="crumbs">
+				<ol class="breadcrumb" style="padding: 8px 15px;">
+					<li>
+						<a href="/">首页</a><span>></span></li>
+					<li>
+						<a href="/infoPath">周边目的地</a><span>></span></li>
+					<li class="active">详细介绍</li>
+				</ol>
+			</div>
+
+			<div class="content-main clearfix">
+				<div class="main-left" style="margin-left: -205px;">
+					<div class="intorduce">
+						<div class="intorduce-img" style="margin:20px 0;">
+							<div class="intorduce-title" style="border:none; height:70px;margin-top: 10px;">
+								${record.info.subject?default('')}
+								<div style="font-size: 14px;">
+									兴趣标签：
+									<span style="font-size: 15px;font-weight: bold; color:#ff7e42;">
+										<#list record.tags as tag>
+											${tag.tag_name?default('')} &nbsp;
+										</#list>
+									</span>
+								</div>
+								<div class="main-right-fx">
+									<!-- JiaThis Button BEGIN -->
+									<div class="jiathis_style">
+										<a class="jiathis_button_qzone"></a>
+										<a class="jiathis_button_tsina"></a>
+										<a class="jiathis_button_tqq"></a>
+										<a class="jiathis_button_weixin"></a>
+										<a class="jiathis_button_renren"></a>
+										<a class="jiathis_button_xiaoyou"></a>
+										<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+										<a class="jiathis_counter_style"></a>
+									</div>
+									<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+									<!-- JiaThis Button END -->
+								</div>
+							</div>
+						
+							<!--轮播-->
+							<div class="slider_box" id="slider_name">
+								<div class="mask"></div>
+								<ul class="silder_con">
+									<#list record.images as img>
+										<li class="silder_panel">
+											<a href="#" target="_self" class="f_l">
+												<img src="${img}" width="600" height="375" />
+											</a>
+										</li>
+									</#list>
+								</ul>
+								<ul class="silder_nav dec">
+									<#list record.images as img>
+										<li>
+											<a href="#" target="_self">
+												<img src="${img}" width="110" height="48" />
+											</a>
+										</li>
+									</#list>
+								</ul>
+							</div>
+
+						</div>
+						<!--活动细节 start-->
+						<div id="mydiv" style="z-index:20;">
+							<div class="navbar-inverse intorduce-nav ">
+								<ul class="navbar-nav">
+									<li class="menuItem active">
+										<a href="#mydiv1">简介</a>
+									</li>
+									<li class="menuItem ">
+										<a href="#mydiv2">农家乐</a>
+									</li>
+									<li class="menuItem">
+										<a href="#mydiv3">民宿</a>
+									</li>
+									<li class="menuItem">
+										<a href="#mydiv4">交通指南</a>
+									</li>
+									<li class="menuItem">
+										<a href="#mydiv5">游客点评</a>
+									</li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div id="adDetail" class="intorduce-main">
+							<div id="mydiv1" class="menu_tab">
+								<div class="intorduce-title">简介</div>
+								${record.info.desc?default('')}
+							</div>
+							<!--线路描述具体内容  start-->
+							<div id="mydiv2" class="menu_tab">
+								<div class="intorduce-title">农家乐</div>
+								<div class="in-main clearfix">
+
+									<div class="sp-r lh" style="display: block;">
+										<#list record.farmstays as f>
+											<div class="sp-list">
+												<div class="sp-list-img">
+													<a href="/infoPath/farmDetail?farmId=${f.id}">
+														<img src="${f.pic?default('')}">
+													</a>
+												</div>
+												<div class="sp-list-main">
+													<div class="sp-list-main-tite">
+														<div class="pr-sore">
+															<span class="star-new small-star">
+                                            		<span class="star-${f.commentScore?default(0)}"></span>
+															</span>
+															${f.commentScore?default(0)}分</div>
+														<span>${f.commentNum?default(0)}条短评</span></div>
+													<div class="sp-list-main-txt">${f.shopName?default('')}</div>
+												</div>
+											</div>
+										</#list>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+							<!--线路描述具体内容  end-->
+							<div id="mydiv3" class="menu_tab">
+								<div class="intorduce-title">民宿</div>
+								<div class="in-main clearfix">
+
+									<div class="sp-r lh" style="display: block;">
+										<#list record.hotels as h>
+											<div class="sp-list">
+												<div class="sp-list-img">
+													<a href="#">
+														<img src="${h.pic?default('')}">
+													</a>
+												</div>
+												<div class="sp-list-main">
+													<div class="sp-list-main-tite">
+														<div class="pr-sore">
+															<span class="star-new small-star">
+                                            		<span class="star-8"></span>
+															</span>
+															4分</div>
+														<span>55条短评</span></div>
+													<div class="sp-list-main-txt">民宿展示</div>
+												</div>
+											</div>
+										</#list>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+
+							<!--装备要求具体内容  end-->
+							<div id="mydiv4" class="menu_tab">
+								<div class="intorduce-title">交通指南</div>
+								${record.info.transportInfo?default('')}
+							</div>
+
+							<!--用户点评具体内容  start-->
+							<div id="mydiv5" class="menu_tab">
+								<div class="intorduce-title">游客点评<button type="button" class="btn "><i class="iconfont">&#xe7b4;</i>写点评</button></div>
+
+								<div id="wrap" class="intorduce-remark">
+									<div class="remark-list clearfix">
+										<div class="remark-list-l">
+											<div class="list-head"><img src="../../images/introduce/hade.jpeg"></div>
+											<div class="list-name">亚洲象</div>
+										</div>
+										<div class="remark-list-r">
+											<div class="list-header">
+												<div class="list-star"></div>
+												<div class="list-tite"> <i class="iconfont">&#xe7c0;</i>湖北省，恩施市境内<i class="iconfont">&#xe7a6;</i>2017-6-30 18:53</div>
+											</div>
+											<div class="list-boby">
+												<p>景区景色怡人，空气清新，户外绝佳</p>
+											</div>
+											<div class="list-footer"></div>
+										</div>
+									</div>
+									<div class="remark-list clearfix">
+										<div class="remark-list-l">
+											<div class="list-head"><img src="../../images/introduce/hade2.jpeg"></div>
+											<div class="list-name">感性的猫</div>
+										</div>
+										<div class="remark-list-r">
+											<div class="list-header">
+												<div class="list-star"></div>
+												<div class="list-tite"> <i class="iconfont">&#xe7c0;</i>湖北省，恩施市境内<i class="iconfont">&#xe7a6;</i>2017-5-25 16:20</div>
+											</div>
+											<div class="list-boby">
+												<p>被恩施的山水美到了</p>
+											</div>
+											<div class="list-footer"></div>
+										</div>
+									</div>
+									
+								</div>
+								<div id="read-more"></div>
+							</div>
+							<!--用户点评具体内容  end-->
+						</div>
+					</div>
+				</div>
+				<div class="main-right">
+					<div class="main-right-map">
+						<div id="infoLocation" style="width: 260px;height: 220px;overflow: hidden;margin-bottom:10px;font-family:"微软雅黑";"></div>
+						<!--百度地图的这个js必须写在这个div下面，原因目前不详-->
+						<script ype="text/javascript" charset="utf-8">
+						// 百度地图API功能
+						var map = new BMap.Map("infoLocation");
+						var point = new BMap.Point(109,30);
+						map.centerAndZoom(point,12);
+						// 创建地址解析器实例
+						var myGeo = new BMap.Geocoder();
+						var loc = "${record.info.provice?default('湖北省')}${record.info.city?default('恩施州')}${record.info.region?default('恩施市')}";
+//						loc += "${record.info.subject?default('')}";
+						var loc2 = "${record.info.region?default('恩施市')}";
+						
+						// 将地址解析结果显示在地图上,并调整地图视野
+						myGeo.getPoint(loc2, function(point){
+							if (point) {
+								map.centerAndZoom(point, 13);
+								var marker = new BMap.Marker(point);  		// 创建标注
+								map.addOverlay(marker);               		// 将标注添加到地图中
+								marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+								map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+							}else{
+//								alert("您选择地址没有解析到结果!");
+							}
+						}, loc2);
+					</script>
+					</div>
+					<div class="main-right-main" style="margin-top: 80px;">
+						<div class="pr-tite">概述</div>
+						<p><i class="iconfont">&#xe77e;</i>旅游时节：${record.info.travelSeason?default('')}</p>
+						<p><i class="iconfont">&#xe7a6;</i>开放时间：${record.info.openStartTime?default('')}～${record.info.openEndTime?default('')}</p>
+						<p><i class="iconfont">&#xe7d2;</i>等级：${record.info.grade?default(1)}A</p>
+						<p><i class="iconfont">&#xe7a7;</i>建议游玩：${record.info.duration?default('')}</p>
+						<p><i class="iconfont">&#xe7c7;</i>电话：${record.info.contactNumber?default('')}</p>
+					</div>
+					<div class="main-right-main">
+						<div class="pr-tite">用户推荐</div>
+						<ul>
+							<li>设备齐全的<span class="score"><span class="score-6">&nbsp;</span>
+								<p>60分</p>
+								</span>
+							</li>
+							<li>舒适度<span class="score"><span class="score-8">&nbsp;</span>
+								<p>80分</p>
+								</span>
+							</li>
+							<li>特色指数<span class="score"><span class="score-7">&nbsp;</span>
+								<p>70分</p>
+								</span>
+							</li>
+							<li>周边环境<span class="score"><span class="score-8">&nbsp;</span>
+								<p>80分</p>
+								</span>
+							</li>
+							<li>服务态度<span class="score"><span class="score-9">&nbsp;</span>
+								<p>90分</p>
+								</span>
+							</li>
+						</ul>
+					</div>
+
+					<!--人气推荐(页面公共)start-->
+					<div class="tabox" id="commonRecommend">
+					</div>
+					<!--人气推荐(页面公共)end-->
+
+				</div>
+			</div>
+		</div>
+		
+		<!--返回顶部的工具-->
+		<div id='rtt'></div>
+		<#include "../footer.html">
+	
+		<script type="text/javascript">
+			jQuery(".tabox").slide({
+				delayTime: 0
+			});
+		</script>
+		<!--点击查看更多-->
+	</body>
+
+</html>

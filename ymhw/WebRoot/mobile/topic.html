@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="keywords" content="友鸣分享，友鸣论坛，话题圈">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>话题论坛_友鸣旅行网</title>
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/wap.css">
+		<style>
+			.am-list-thumb {
+				padding-left: 0;
+				padding-right: 1rem !important;
+			}
+			
+			.am-sticky-placeholder {
+				position: fixed;
+				background-color: rgba(255, 255, 255, 0.00) !important;
+				padding: 0 10%;
+			}
+			
+			.am-navbar-default .am-navbar-nav {
+				background-color: rgba(29, 29, 29, 0.95);
+			}
+			
+			.am-navbar-default .am-navbar-nav a {
+				color: rgba(153, 153, 153, 1.00)
+			}
+			
+			.am-navbar-default .am-navbar-nav .hover {
+				color: #fff
+			}
+			
+			.pet_content_main {
+				padding: 0 !important;
+				background-color: #ddd;
+			}
+			
+			.am-list-news-default .am-list .pet_list_one_block {
+				padding-bottom: 20px;
+				margin-bottom: 0;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			.pet_article_user_info {
+				color: #333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="am-tabs um car-rental topic" data-am-tabs>
+			<header data-am-widget="header" class="am-header am-header-default pet_head_block">
+				<!--<div class="am-header-left am-header-nav "> <a href="#left-link" class="iconfont pet_head_jt_ico">&#xe601;</a> </div>-->
+				<div style="padding-top:8px;">
+					<ul class="am-tabs-nav am-nav am-nav-tabs">
+						<li class="am-active">
+							<a href="#tab1">推荐</a>
+						</li>
+						<li>
+							<a href="#tab2">我的</a>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<div class="am-tabs-bd">
+				<div class="am-tab-panel am-active am-in" id="tab1">
+					<div data-am-widget="tabs" class="am-tabs am-tabs-d2">
+						<ul class="am-tabs-nav am-cf">
+							<li class="am-active">
+								<a href="[data-tab-panel-0]">美图</a>
+							</li>
+							<li class="">
+								<a href="[data-tab-panel-1]">美文</a>
+							</li>
+							<li class="">
+								<a href="[data-tab-panel-2]">美食</a>
+							</li>
+							<li class="">
+								<a href="[data-tab-panel-3]">线路</a>
+							</li>
+						</ul>
+						<div class="am-tabs-bd">
+
+							<div data-tab-panel-0 class="am-tab-panel am-active">
+								<ul class="am-list">
+									<#list topic1s as t>
+										<li class="am-g am-list-item-desced pet_list_one_block">
+											<a href="/mobile/topicDetailPath?id=${t.id?default(0)}">
+												<div class="pet_article_user_block">
+													<div class="pet_article_user_img">
+														<div class="pet_article_user_shadow"></div>
+														<div class="pet_article_user_title">${t.title?default('')}</div>
+														<img src="${t.pic?default('')}" alt=""></div>
+													<div class="pet_article_user_info">
+														<div class="pet_article_user_info_ico"><img src="${t.headshot?default('')}" alt=""></div>
+														${t.account?default('')}
+													</div>
+												</div>
+											</a>
+										</li>
+										<!--缩略图在标题右边-->
+									</#list>
+								</ul>
+							</div>
+							<div data-tab-panel-1 class="am-tab-panel ">
+								<ul class="am-list">
+									<#list topic2s as t>
+										<!--缩略图在标题右边-->
+
+										<li class="am-g am-list-item-desced pet_list_one_block">
+											<a href="/mobile/topicDetailPath?id=${t.id?default(0)}">
+												<div class="pet_article_user_block">
+													<div class="pet_article_user_img">
+														<div class="pet_article_user_shadow"></div>
+														<div href="/mobile/topicDetailPath?id=${t.id?default(0)}" class="pet_article_user_title">${t.title?default('')}</div>
+														<img src="${t.pic?default('')}" alt=""></div>
+													<a href="leaderList.html" class="pet_article_user_info">
+														<div class="pet_article_user_info_ico"><img src="${t.headshot?default('')}" alt=""></div>
+														${t.account?default('')} </a>
+												</div>
+											</a>
+										</li>
+									</#list>
+								</ul>
+							</div>
+							<div data-tab-panel-2 class="am-tab-panel ">
+								<ul class="am-list">
+									<#list topic3s as t>
+										<!--缩略图在标题右边-->
+										<li class="am-g am-list-item-desced pet_list_one_block">
+											<a href="/mobile/topicDetailPath?id=${t.id?default(0)}">
+												<div class="pet_article_user_block">
+													<div class="pet_article_user_img">
+														<div class="pet_article_user_shadow"></div>
+														<div href="/mobile/topicDetailPath?id=${t.id?default(0)}" class="pet_article_user_title">${t.title?default('')}</div>
+														<img src="${t.pic?default('')}" alt=""></div>
+													<a href="leaderList.html" class="pet_article_user_info">
+														<div class="pet_article_user_info_ico"><img src="${t.headshot?default('')}" alt=""></div>
+														${t.account?default('')} </a>
+												</div>
+											</a>
+										</li>
+									</#list>
+								</ul>
+							</div>
+							<div data-tab-panel-3 class="am-tab-panel ">
+								<ul class="am-list">
+									<#list topic4s as t>
+										<!--缩略图在标题右边-->
+										<li class="am-g am-list-item-desced pet_list_one_block">
+											<a href="/mobile/topicDetailPath?id=${t.id?default(0)}">
+												<div class="pet_article_user_block">
+													<div class="pet_article_user_img">
+														<div class="pet_article_user_shadow"></div>
+														<div href="/mobile/topicDetailPath?id=${t.id?default(0)}" class="pet_article_user_title">${t.title?default('')}</div>
+														<img src="${t.pic?default('')}" alt=""></div>
+													<a href="leaderList.html" class="pet_article_user_info">
+														<div class="pet_article_user_info_ico"><img src="${t.headshot?default('')}" alt=""></div>
+														${t.account?default('')} </a>
+												</div>
+											</a>
+										</li>
+									</#list>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="am-tab-panel" id="tab2">
+					<div class="pet_kjdt_nr">
+						<div class="pet_kjdt_block">
+							<div class="pet_kjdt_user">
+								<div class="pet_kjdt_user_l"> <img src="img/qq1.png" alt=""> </div>
+								<div class="pet_kjdt_user_r">
+									<div class="pet_kjdt_user_time"><i class="iconfont">&#xe617; </i> 19:15</div>
+									<div class="pet_kjdt_user_r_title">Super invincible 菁</div>
+									<div class="pet_kjdt_user_r_info">美国</div>
+								</div>
+							</div>
+							<div class="pet_kjdt_user_r_font">2015Q3谷歌商店下载量系App Store近两倍 收入却落后80%，Google Play的应用下载量远远超过苹果的App Store，不过，苹果在应用收益方面仍然大幅领先于谷歌。</div>
+							<div class="pet_kjdt_user_r_font_img">
+								<figure data-am-widget="figure" class="am am-figure am-figure-default " data-am-figure="{  pureview: 'true' }"> <img src="img/fl02.png" data-rel="img/fl02.png" alt="春天的花开秋天的风以及冬天的落阳" /> </figure>
+								<div class="pet_kjdt_user_r_like"><i class="am-icon-heart"></i> Super invincible、V.NPCat 等93人喜欢</div>
+								<div class="pet_kjdt_user_pl">
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq8.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">折跃中的执政猫</div>
+											<div class="pet_kjdt_user_pl_block_info">总会想起妖怪们的记忆 看着人类生死离别 相爱相恨 似乎他们才是最能体会到人世间冷暖的 但他们却又不懂人类的想法 就这么看着寂寞着。</div>
+										</div>
+									</div>
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq6.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">思念着你</div>
+											<div class="pet_kjdt_user_pl_block_info">嗯呢，超爱OD，每首歌都很喜欢...不过渣渣离队太让人心碎了。</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pet_kjdt_block">
+							<div class="pet_kjdt_user">
+								<div class="pet_kjdt_user_l"> <img src="img/qq1.png" alt=""> </div>
+								<div class="pet_kjdt_user_r">
+									<div class="pet_kjdt_user_time"><i class="iconfont">&#xe617; </i> 20:15</div>
+									<div class="pet_kjdt_user_r_title">What Do You Mean</div>
+									<div class="pet_kjdt_user_r_info">加拿大</div>
+								</div>
+							</div>
+							<div class="pet_kjdt_user_r_font">他总会回来的，并且带来惊喜……不要说什么傻话了，喜欢一个人不容易，我就是这么觉得。现在他真的回来了，他开始想到回来了，或者……他其实一直没有离开过。ellen秀上的他已经那么让人欣慰了，现在他不负众望，他回来了！</div>
+							<div class="pet_kjdt_user_r_font_img">
+								<figure data-am-widget="figure" class="am am-figure am-figure-default " data-am-figure="{  pureview: 'true' }"> <img src="img/fl01.png" data-rel="img/fl01.png" alt="春天的花开秋天的风以及冬天的落阳" /> </figure>
+								<div class="pet_kjdt_user_r_like"><i class="am-icon-heart"></i> Super invincible、V.NPCat 等93人喜欢</div>
+								<div class="pet_kjdt_user_pl">
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq8.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">折跃中的执政猫</div>
+											<div class="pet_kjdt_user_pl_block_info">总会想起妖怪们的记忆 看着人类生死离别 相爱相恨 似乎他们才是最能体会到人世间冷暖的 但他们却又不懂人类的想法 就这么看着寂寞着。</div>
+										</div>
+									</div>
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq6.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">思念着你</div>
+											<div class="pet_kjdt_user_pl_block_info">嗯呢，超爱OD，每首歌都很喜欢...不过渣渣离队太让人心碎了。</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pet_kjdt_block">
+							<div class="pet_kjdt_user">
+								<div class="pet_kjdt_user_l"> <img src="img/qq1.png" alt=""> </div>
+								<div class="pet_kjdt_user_r">
+									<div class="pet_kjdt_user_time"><i class="iconfont">&#xe617; </i> 19:15</div>
+									<div class="pet_kjdt_user_r_title">Super invincible 菁</div>
+									<div class="pet_kjdt_user_r_info">美国</div>
+								</div>
+							</div>
+							<div class="pet_kjdt_user_r_font">2015Q3谷歌商店下载量系App Store近两倍 收入却落后80%，Google Play的应用下载量远远超过苹果的App Store，不过，苹果在应用收益方面仍然大幅领先于谷歌。</div>
+							<div class="pet_kjdt_user_r_font_img">
+								<figure data-am-widget="figure" class="am am-figure am-figure-default " data-am-figure="{  pureview: 'true' }"> <img src="http://s.amazeui.org/media/i/demos/pure-1.jpg?imageView2/0/w/640" data-rel="http://s.amazeui.org/media/i/demos/pure-1.jpg" alt="春天的花开秋天的风以及冬天的落阳" /> </figure>
+								<div class="pet_kjdt_user_r_like"><i class="am-icon-heart"></i> Super invincible、V.NPCat 等93人喜欢</div>
+								<div class="pet_kjdt_user_pl">
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq8.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">折跃中的执政猫</div>
+											<div class="pet_kjdt_user_pl_block_info">总会想起妖怪们的记忆 看着人类生死离别 相爱相恨 似乎他们才是最能体会到人世间冷暖的 但他们却又不懂人类的想法 就这么看着寂寞着。</div>
+										</div>
+									</div>
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq6.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">思念着你</div>
+											<div class="pet_kjdt_user_pl_block_info">嗯呢，超爱OD，每首歌都很喜欢...不过渣渣离队太让人心碎了。</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pet_kjdt_block" style="border-bottom:none">
+							<div class="pet_kjdt_user">
+								<div class="pet_kjdt_user_l"> <img src="img/qq1.png" alt=""> </div>
+								<div class="pet_kjdt_user_r">
+									<div class="pet_kjdt_user_time"><i class="iconfont">&#xe617; </i> 19:15</div>
+									<div class="pet_kjdt_user_r_title">Super invincible 菁</div>
+									<div class="pet_kjdt_user_r_info">美国</div>
+								</div>
+							</div>
+							<div class="pet_kjdt_user_r_font">2015Q3谷歌商店下载量系App Store近两倍 收入却落后80%，Google Play的应用下载量远远超过苹果的App Store，不过，苹果在应用收益方面仍然大幅领先于谷歌。</div>
+							<div class="pet_kjdt_user_r_font_img">
+								<figure data-am-widget="figure" class="am am-figure am-figure-default " data-am-figure="{  pureview: 'true' }"> <img src="http://s.amazeui.org/media/i/demos/pure-1.jpg?imageView2/0/w/640" data-rel="http://s.amazeui.org/media/i/demos/pure-1.jpg" alt="春天的花开秋天的风以及冬天的落阳" /> </figure>
+								<div class="pet_kjdt_user_r_like"><i class="am-icon-heart"></i> Super invincible、V.NPCat 等93人喜欢</div>
+								<div class="pet_kjdt_user_pl">
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq8.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">折跃中的执政猫</div>
+											<div class="pet_kjdt_user_pl_block_info">总会想起妖怪们的记忆 看着人类生死离别 相爱相恨 似乎他们才是最能体会到人世间冷暖的 但他们却又不懂人类的想法 就这么看着寂寞着。</div>
+										</div>
+									</div>
+									<div class="pet_kjdt_user_pl_block">
+										<div class="pet_kjdt_user_pl_block_l"><img src="img/qq6.png" alt=""></div>
+										<div class="pet_kjdt_user_pl_block_r">
+											<div class="pet_kjdt_user_pl_block_name">思念着你</div>
+											<div class="pet_kjdt_user_pl_block_info">嗯呢，超爱OD，每首歌都很喜欢...不过渣渣离队太让人心碎了。</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+			<ul class="am-navbar-nav am-cf am-avg-sm-4">
+				<li>
+					<a href="/mobile/" class="">
+						<span class="am-icon-home"></span>
+						<span class="am-navbar-label">主页</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/informationPath" class="">
+						<span class="am-icon-map-marker"></span>
+						<span class="am-navbar-label">目的地</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/topicPath" class="hover">
+						<span class="am-icon-comments"></span>
+						<span class="am-navbar-label">话题</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/personPath" class="">
+						<span class="am-icon-user"></span>
+						<span class="am-navbar-label">我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+		<script>
+			$(function() {
+
+				// 动态计算新闻列表文字样式
+				auto_resize();
+				$(window).resize(function() {
+					auto_resize();
+				});
+				$('.am-list-thumb img').load(function() {
+					auto_resize();
+				});
+				$('.pet_article_like li:last-child').css('border', 'none');
+
+				function auto_resize() {
+					$('.pet_list_one_nr').height($('.pet_list_one_img').height());
+					// alert($('.pet_list_one_nr').height());
+				}
+				$('.pet_article_user').on('click', function() {
+					if($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')) {
+						$('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+					} else {
+						$('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+					}
+				});
+
+				$('.pet_head_gd_ico').on('click', function() {
+					$('.pet_more_list').addClass('pet_more_list_show');
+				});
+				$('.pet_more_close').on('click', function() {
+					$('.pet_more_list').removeClass('pet_more_list_show');
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>租车商户添加-友鸣旅行网后台管理系统</title>
+		<meta name="description" content="友鸣旅行网后台管理系统">
+		<meta name="keywords" content="index">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="apple-mobile-web-app-title" content="友鸣旅行网后台管理系统" />
+
+		<link rel="icon" type="image/png" href="assets/i/logo.ico">
+		<link rel="apple-touch-icon-precomposed" href="assets/i/logo.ico">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<script src="assets/js/jquery.min.js"></script>
+		<!--<script src="assets/js/echarts.min.js"></script>-->
+		<script src="assets/js/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/distpicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/car_manage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//省市区联动的设置
+				var distpicker = $('#distpicker');
+			  	distpicker.distpicker({
+			    	province: '湖北省',
+			    	city: '恩施土家族苗族自治州',
+			    	district: '恩施市'
+			  	});
+			  	
+			  	$.getJSON("/admin/portSellers", function(datas) {
+			  		$("#userId").empty();
+			  		$.each(datas, function(i) {
+			  			var option = '<option value = "'+datas[i].id+'">'+datas[i].account+'</option>';
+			  			$("#userId").append(option);
+			  		});
+			  	});
+			});
+		</script>
+	</head>
+
+	<body data-type="index">
+		<script src="assets/js/theme.js"></script>
+		<div class="am-g tpl-g">
+			<#include "menu.html">
+				<!-- 内容区域 -->
+				<div class="tpl-content-wrapper">
+
+					<div class="row-content am-cf">
+						<div class="row">
+							<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+								<div class="widget am-cf">
+									<div class="widget-head am-cf">
+										<div class="widget-title am-fl">租车商户数据上传</div>
+										<div class="widget-function am-fr">
+											<a href="javascript:;" class="am-icon-cog"></a>
+										</div>
+									</div>
+									<div class="widget-body am-fr">
+
+										<form class="am-form tpl-form-border-form tpl-form-border-br">
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">商户名称 <span class="tpl-form-line-small-title">Name</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="name" name="name" value="" placeholder="">
+													<small>请输入2-20文字</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">组织机构代码 <span class="tpl-form-line-small-title">Code</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="code" name="code" value="" placeholder="">
+													<small>请输入正确的组织机构代码</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">门店联系电话 <span class="tpl-form-line-small-title">Tel</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="tel" name="tel" value="" placeholder="">
+													<small>固话和移动电话都可</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">负责人姓名 <span class="tpl-form-line-small-title">Lmname</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="lmname" name="lmname" value="" placeholder="">
+													<small>可不填</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">负责人(单位)昵称 <span class="tpl-form-line-small-title">Lmname</span></label>
+												<div class="am-u-sm-9">
+													<select id="userId" name="userId" data-am-selected="{searchBox: 1}" style="display: none;">
+													</select>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">负责人身份证号 <span class="tpl-form-line-small-title">Idcard</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="idcard" name="idcard" value="" placeholder="">
+													<small>请输入18位的身份证号</small>
+												</div>
+											</div>
+		                                    
+		                                    <div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">地址<span class="tpl-form-line-small-title">Address</span></label>
+												<div class="am-u-sm-9">
+													<div  id="distpicker" style="display: inline;">
+														<select name="provice"></select>
+														<select name="city"></select>
+														<select name="region"></select>
+														<input name="street" type="text" placeholder="街道地址以及门牌号">
+													</div>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">备注 <span class="tpl-form-line-small-title">Note</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="note" name="note" value="" placeholder="">
+													<small>填写其他说明信息</small>
+												</div>
+											</div>
+											
+											
+											<div class="am-form-group">
+												<div class="am-u-sm-9 am-u-sm-push-3">
+													<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/amazeui.datatables.min.js"></script>
+		<script src="assets/js/dataTables.responsive.min.js"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+
+</html>

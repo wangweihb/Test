@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣会员 ">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>会员登录_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//分析cookie值，显示上次的登陆信息  
+				var userNameValue = getCookieValue("userName");
+				$("input").attr("value", userNameValue);
+				var passwordValue = getCookieValue("password");
+				$("password").attr("value", passwordValue);
+
+				$("#remember").click(function() {
+					var isChecked = document.getElementById("remember").checked;
+					if(isChecked) {
+						setCookie("userName", $("#input").val(), 24, "/");
+						setCookie("password", $("#password").val(), 24, "/");
+					}
+				});
+			});
+			var log = function() {
+				var account = $("#input").val().trim();
+				var password = $("#password").val().trim();
+				if(isNullOrEmpty(account) || isNullOrEmpty(password)) {
+					alert("用户名或密码不能为空！");
+				} else {
+					$("#loginform").submit();
+				}
+			}
+			document.onkeydown = function(event) {
+				e = event ? event : (window.event ? window.event : null);
+				if(e.keyCode == 13) {
+					//执行的方法 
+					log();
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="registerWrap">
+			<form action="/login" method="post" id="loginform">
+				<div id="loginWrap">
+					<div id="loginWrap-l"></div>
+					<div id="loginBox">
+						<div class="loginRow">
+							<div class="loginHeader activedHeader">登录友鸣户外</div>
+						</div>
+
+						<div class="loginRow loginrowLeft">
+							<input class="loginInput1" type="text" name="input" id="input" placeholder="请输入邮箱/手机号" />
+
+						</div>
+
+						<div class="loginRow loginrowLeft">
+							<input class="loginInput1" type="password" name="password" id="password" placeholder="输入密码" />
+						</div>
+
+						<div class="loginRow loginrowLeft" style="margin-bottom:0">
+							<input id="remember" name="rem" type="checkbox" />
+							<span>记住账号密码</span>
+							<a href="/login/resetPwdPath" style="float:right">忘了密码？</a>
+
+						</div>
+
+						<div class="loginRow button2" onclick="log();" style="margin-bottom:0">
+							登录
+						</div>
+						<div class="loginRow loginrowLeft" style="margin-bottom:0">
+							没有账户？
+							<a href="/registerPath">注册</a>
+						</div>
+						<span>
+					<#if loginMsg??>
+						${loginMsg}
+						<#else>
+					</#if>
+				</span>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--引用尾部-->
+	</body>
+
+</html>

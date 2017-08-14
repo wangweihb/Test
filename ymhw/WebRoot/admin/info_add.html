@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>周边目的地信息上传-友鸣旅行网后台管理系统</title>
+		<meta name="description" content="友鸣旅行网后台管理系统">
+		<meta name="keywords" content="index">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="apple-mobile-web-app-title" content="友鸣旅行网后台管理系统" />
+
+		<link rel="icon" type="image/png" href="assets/i/logo.ico">
+		<link rel="apple-touch-icon-precomposed" href="assets/i/logo.ico">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/jquery.timepicker.css"/>
+		<link rel="stylesheet" href="../wangEditor-2.1.23/dist/css/wangEditor.css"/>
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<script src="assets/js/jquery.min.js"></script>
+		<!--<script src="assets/js/echarts.min.js"></script>-->
+		<script src="assets/js/distpicker.data.js"></script>
+		<script src="assets/js/distpicker.js"></script>
+		<script src="assets/js/jquery.timepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../wangEditor-2.1.23/dist/js/wangEditor.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/info_manage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("input[type='file']").change(function(e){
+					var file = e.target.files[0];
+					if(!(/^image\/.*$/i.test(file.type)))
+			        {
+			            alert("请上传图片");
+						return;
+			        }
+					
+					var size = Math.round(file.size / 1024 / 1024);
+					if (size > 2) {
+						alert("图片大小不能超过2M");
+						return;
+					}
+					
+					var reader = new FileReader();
+					reader.readAsDataURL(file);
+					reader.onload = function(e) {
+						$("#equipImg").attr("src", e.target.result);
+					}
+				});
+				
+				
+				//省市区联动的设置
+				var distpicker = $('#distpicker');
+			  	distpicker.distpicker({
+			    	province: '湖北省',
+			    	city: '恩施土家族苗族自治州',
+			    	district: '恩施市'
+			  	});
+			  	
+			  	$('#openStartTime').timepicker({ 'timeFormat': 'H:i' });
+				$('#openEndTime').timepicker({ 'timeFormat': 'H:i' });
+				
+				//富文本编辑框的配置
+				var editor1 = new wangEditor('contDesc');
+				editor1.config.uploadImgUrl = '/manage/wangUpload';
+				editor1.config.uploadImgFileName = 'ymFileName';
+				// 避免上面编辑器的 dropPanel 被下面的编辑器遮挡，保证下面的编辑器的 z-index 要小于上面的编辑器
+			    editor1.$editorContainer.css('z-index', 50);
+			    editor1.create();
+			    // 初始化编辑器的内容
+				editor1.$txt.html('<p>请输入内容的简要描述...</p>');
+				
+				var transportEditor = new wangEditor("transportInfo");
+				transportEditor.config.uploadImgUrl = '/manage/wangUpload_transportInfo';
+				transportEditor.config.uploadImgFileName = 'fileName_transportInfo';
+				transportEditor.$editorContainer.css('z-index', 10);
+				transportEditor.create();
+			});
+		</script>
+	</head>
+
+	<body data-type="index">
+		<script src="assets/js/theme.js"></script>
+		<div class="am-g tpl-g">
+			<#include "menu.html">
+				<!-- 内容区域 -->
+				<div class="tpl-content-wrapper">
+
+					<div class="row-content am-cf">
+						<div class="row">
+							<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+								<div class="widget am-cf">
+									<div class="widget-head am-cf">
+										<div class="widget-title am-fl">周边目的地信息上传</div>
+										<div class="widget-function am-fr">
+											<a href="javascript:;" class="am-icon-cog"></a>
+										</div>
+									</div>
+									<div class="widget-body am-fr">
+
+										<form class="am-form tpl-form-border-form tpl-form-border-br">
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Subject</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="name" name="name" value="" placeholder="">
+													<small>请填写标题2-20字左右。</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">类型 <span class="tpl-form-line-small-title">Type</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select name="carType" data-am-selected="{searchBox: 1}" style="display: none;">
+													    <option value="1">休闲旅游</option>
+														<option value="2">激情户外</option>
+														<option value="3">家庭活动</option>
+														<option value="4">民宿营地</option>
+													</select>
+		                                        </div>
+		                                    </div>
+		                                    
+		                                    <div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">景区等级 <span class="tpl-form-line-small-title">Grade</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select name="carType" data-am-selected="{searchBox: 1}" style="display: none;">
+													    <option value="1">1A</option>
+														<option value="2">2A</option>
+														<option value="3">3A</option>
+														<option value="4" selected>4A</option>
+														<option value="5">5A</option>
+													</select>
+		                                        </div>
+		                                    </div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">相关标签 <span class="tpl-form-line-small-title">Tag</span></label>
+												<div class="am-u-sm-9">
+													<label class="am-checkbox-inline">
+												        <input type="checkbox" name="types" value="1"> 烧烤
+												    </label>
+												    <label class="am-checkbox-inline">
+												        <input type="checkbox" name="types" value="2"> 露营
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="3"> 徒步
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="4"> 行摄
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="5"> 采摘
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="6"> 滑雪
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="7"> 登山
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="8"> 探险
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="9"> 垂钓
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="10"> 溯溪
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="11"> 漂流
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="12"> 冲浪
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="13"> 美食
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="14"> 休闲
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="15"> 度假
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="16"> 背包客
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="17"> 旅拍
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="18"> 境外
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="19"> 商旅
+												    </label>
+												    <label class="am-checkbox-inline">
+												      	<input type="checkbox" name="types" value="20"> 休闲娱乐
+												    </label>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-weibo" class="am-u-sm-3 am-form-label">装备图 <span class="tpl-form-line-small-title">Images</span></label>
+												<div class="am-u-sm-9">
+													<div class="am-form-group am-form-file">
+														<div class="tpl-form-file-img">
+															<img id="equipImg" src="assets/img/a5.png" alt="">
+														</div>
+														<button type="button" class="am-btn am-btn-danger am-btn-sm">
+    													<i class="am-icon-cloud-upload"></i> 添加图像</button>
+														<input id="equipPic" name="equipPic" type="file" multiple="">
+													</div>
+
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">最佳季节 <span class="tpl-form-line-small-title">TravelSeason</span></label>
+												<div class="am-u-sm-9">
+													<input name="travelSeason" type="text" placeholder="">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">建议游玩时间 <span class="tpl-form-line-small-title">Duration</span></label>
+												<div class="am-u-sm-9">
+													<input name="duration" type="text" placeholder="">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">联系电话 <span class="tpl-form-line-small-title">ContactNumber</span></label>
+												<div class="am-u-sm-9">
+													<input name="contactNumber" type="text" placeholder="">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">价格<span class="tpl-form-line-small-title">TotalPrice</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" name="totalPrice" placeholder="">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">开放时间<span class="tpl-form-line-small-title">OpenTime</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" id="openStartTime" name="openStartTime" value="00:00" class="time">
+													--
+													<input type="text" id="openEndTime" name="openEndTime" value="00:00" class="time">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">地址<span class="tpl-form-line-small-title">Telephone</span></label>
+												<div class="am-u-sm-9">
+													<div  id="distpicker" style="display: inline;">
+														<select name="provice"></select>
+														<select name="city"></select>
+														<select name="region"></select>
+														<input name="street" type="text" placeholder="街道地址以及门牌号">
+													</div>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-intro" class="am-u-sm-3 am-form-label">简要描述</label>
+												<div class="am-u-sm-9">
+													<textarea id="contDesc" name="contDesc" rows="4" cols="20"></textarea>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-intro" class="am-u-sm-3 am-form-label">交通指南</label>
+												<div class="am-u-sm-9">
+													<textarea id="transportInfo"  name="transportInfo" rows="4" cols="20"></textarea>
+												</div>
+											</div>
+
+											<div class="am-form-group">
+												<div class="am-u-sm-9 am-u-sm-push-3">
+													<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/amazeui.datatables.min.js"></script>
+		<script src="assets/js/dataTables.responsive.min.js"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+
+</html>

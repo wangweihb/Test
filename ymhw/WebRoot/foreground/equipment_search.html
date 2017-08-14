@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="户外装备租赁，休闲旅游，恩施户外">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+        
+		<title>装备搜索_友鸣旅行网</title>
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/equipment.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/fg/searchActivity.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+	</head>
+
+	<body style=" background-color:#f2f2f2">
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<!--公共顶部   start-->
+
+		<!--活动搜索页内容 start-->
+		<div id="activitysearchwrap">
+			<!--面包屑导航 start-->
+			<div id="activitysearch_bread">
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">主页</a>
+					</li>
+					<li>
+						<a href="#">租赁装备</a>
+					</li>
+					<li class="active">装备类型：登山</li>
+				</ol>
+			</div>
+			<!--面包屑导航 end-->
+
+			<!--多选项区域  start-->
+			<div id="activitysearch_options">
+				<div id="activitysearch_option1" class="bottomline" style="height:60px;">
+					<div class="optionTip">
+						你已经选择
+					</div>
+					<div class="selectbox">
+
+						<ul>
+							<li><input type="checkbox" name="待定" value="1" data-labelauty="休闲"></li>
+							<li><input type="checkbox" name="content" value="2" data-labelauty="乡村游"></li>
+							<div class="clearfix"></div>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+				<div id="activitysearch_option1" class="bottomline" style="height:60px;">
+					<div class="optionTip">
+						装备类型：
+					</div>
+
+					<div class="selectbox">
+						<ul>
+							<li><input type="checkbox" name="待定" value="1" data-labelauty="休闲"></li>
+							<li><input type="checkbox" name="content" value="2" data-labelauty="乡村游"></li>
+							<li><input type="checkbox" name="content" value="3" data-labelauty="徒步"></li>
+							<li><input type="checkbox" name="content" value="4" data-labelauty="露营"></li>
+							<li><input type="checkbox" name="content" value="5" data-labelauty="烧烤"></li>
+							<li><input type="checkbox" name="content" value="6" data-labelauty="摄影"></li>
+							<li><input type="checkbox" name="content" value="7" data-labelauty="滑雪"></li>
+							<li><input type="checkbox" name="content" value="8" data-labelauty="登山"></li>
+							<li><input type="checkbox" name="content" value="9" data-labelauty="探险"></li>
+							<li><input type="checkbox" name="content" value="10" data-labelauty="骑行"></li>
+							<li><input type="checkbox" name="content" value="11" data-labelauty="攀岩"></li>
+							<li><input type="checkbox" name="content" value="12" data-labelauty="背包"></li>
+							<li><input type="checkbox" name="content" value="13" data-labelauty="其他"></li>
+							<div class="clearfix"></div>
+						</ul>
+						<input type="hidden" id="xxx" name="xxx" value="" />
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+				<div id="activitysearch_option2" class="bottomline">
+					<div class="optionTip">
+						分类：
+					</div>
+					<!--<div class="">
+						<ul>
+							<li>本周</li>
+							<li>下周</li>
+							<li>本月</li>
+							<li>下月</li>
+							<li>自定义</li>
+						</ul>
+					</div>-->
+					<div class="selectbox" style="border:none">
+						<ul>
+							<li><input type="checkbox" name="待定" value="1" data-labelauty="本周"></li>
+							<li><input type="checkbox" name="content" value="2" data-labelauty="下周"></li>
+							<li><input type="checkbox" name="content" value="3" data-labelauty="本月"></li>
+							<li><input type="checkbox" name="content" value="4" data-labelauty="下月"></li>
+							<li><input type="checkbox" name="content" value="5" data-labelauty="自定义"></li>
+						</ul>
+						<input type="hidden" id="xxx" name="xxx" value="" />
+					</div>
+				</div>
+
+			</div>
+			<!--多选项区域  end-->
+
+			<!--更多选项  start-->
+			<div id="activitysearch_moreoptions">
+				<ul id="tabAll">
+					<li id="tabSuggest" onclick="tabOpt('tabSuggest');">推荐</li>
+					<li id="tabComprehensive" class="clickedOption" onclick="tabOpt('tabComprehensive');">综合</li>
+					<li id="tabSales" onclick="tabOpt('tabSales');">销量</li>
+					<li id="tabPrice" onclick="tabOpt('tabPrice');">价格</li>
+				</ul>
+				<div id="priceSearch">
+					<form action="" method="">
+						<label style="vertical-align: top;">价格区间：</label>
+						<input id="startPrice" type="text" />
+						<label style="vertical-align: top;">--</label>
+						<input id="endPrice" type="text" style="" />
+					</form>
+				</div>
+			</div>
+			<!--更多选项   end-->
+
+			<!--下方内容展示 start-->
+			<div id="activitysearchshow">
+				<!--活动搜索内容展示 start-->
+				<div id="activitysearch_left_show" style="padding:0 ; background-color:inherit">
+					<!--内容一-->
+					<div id="search-hot">
+						<div class="search-hot-bot">
+							<ul>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+								<li>
+									<a href="#"><img src="../images/equipment/1.jpg"></a>
+									<div class="search-txt">
+										<a href="#" class="gname">KlatterMusen 攀山鼠 Ratatosk 2.0 "松鼠" 双肩背包专业滑雪包登山包 30升 4002</a>
+										<h5>租金：<span>20/天</span></h5>
+										<h5>押金： <em>￥800.00</em></h5>
+										<h6><a>查看</a></h6>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!--活动搜索内容展示 end-->
+
+				<!--其他 start-->
+				<div id="activitysearch_right_othershow" style="margin-left:0">
+					<div id="hotRoute">
+						<div id="hotRoute_top">
+							<span>热门线路</span>
+						</div>
+
+						<div id="hotRoute_bottom">
+
+							<!--线路一-->
+							<div id="hotRoute1" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp; 15320
+									</span>
+								</div>
+							</div>
+
+							<!--线路二-->
+							<div id="hotRoute2" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp; 15320
+									</span>
+								</div>
+							</div>
+
+							<!--线路三-->
+							<div id="hotRoute3" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp; 15320
+									</span>
+								</div>
+							</div>
+
+							<!--线路四-->
+							<div id="hotRoute4" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp; 15320
+									</span>
+								</div>
+							</div>
+
+							<!--线路五-->
+							<div id="hotRoute5" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp; 15320
+									</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--热门线路 end-->
+
+					<!--月最佳领队 start-->
+					<!--<div id="bestLeader">
+						<div id="bestLeader_top">
+							最佳领队
+						</div>
+						<div id="bestLeader_bottom">
+							<a><img src="../images/testLeader.png"/></a>
+						</div>
+					</div>-->
+					<!--月最佳领队 start-->
+
+					<!--广告区域 start-->
+					<!--广告区域 end-->
+				</div>
+				<!--其他 end-->
+				<div class="clearfix"></div>
+			</div>
+			<!--下方内容展示 end-->
+
+		</div>
+		<!--活动搜索页内容 start-->
+		<div style="clear: both;">
+			<#include "footer.html">
+		</div>
+
+		<!--footer start-->
+
+	</body>
+
+</html>

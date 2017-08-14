@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>农家乐信息上传-友鸣旅行网后台管理系统</title>
+		<meta name="description" content="友鸣旅行网后台管理系统">
+		<meta name="keywords" content="index">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="apple-mobile-web-app-title" content="友鸣旅行网后台管理系统" />
+
+		<link rel="icon" type="image/png" href="assets/i/logo.ico">
+		<link rel="apple-touch-icon-precomposed" href="assets/i/logo.ico">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/jquery.timepicker.css"/>
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<script src="assets/js/jquery.min.js"></script>
+		<!--<script src="assets/js/echarts.min.js"></script>-->
+		<script src="assets/js/jquery.timepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("input[type='file']").change(function(e){
+					var file = e.target.files[0];
+					if(!(/^image\/.*$/i.test(file.type)))
+			        {
+			            alert("请上传图片");
+						return;
+			        }
+					
+					var size = Math.round(file.size / 1024 / 1024);
+					if (size > 2) {
+						alert("图片大小不能超过2M");
+						return;
+					}
+					
+					var reader = new FileReader();
+					reader.readAsDataURL(file);
+					reader.onload = function(e) {
+						$("#farmstayImg").attr("src", e.target.result);
+					}
+				});
+			  	
+			  	$('#serviceStartTime').timepicker({ 'timeFormat': 'H:i' });
+				$('#serviceEndTime').timepicker({ 'timeFormat': 'H:i' });
+				
+				//加载周边目的地信息的标题
+				$.getJSON("/admin/portInfoTiles",function(datas){
+					$("#destinationId").empty();
+					$.each(datas, function(index) {
+						$("#destinationId").append("<option value='"+datas[index].info_id+"'>"+datas[index].subject+"</option>")
+					});
+				});
+				
+			});
+		</script>
+	</head>
+
+	<body data-type="index">
+		<script src="assets/js/theme.js"></script>
+		<div class="am-g tpl-g">
+			<#include "menu.html">
+				<!-- 内容区域 -->
+				<div class="tpl-content-wrapper">
+
+					<div class="row-content am-cf">
+						<div class="row">
+							<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+								<div class="widget am-cf">
+									<div class="widget-head am-cf">
+										<div class="widget-title am-fl">农家乐信息上传</div>
+										<div class="widget-function am-fr">
+											<a href="javascript:;" class="am-icon-cog"></a>
+										</div>
+									</div>
+									<div class="widget-body am-fr">
+
+										<form class="am-form tpl-form-border-form tpl-form-border-br">
+											
+											<div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">所属周边目的地的 <span class="tpl-form-line-small-title">Type</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select id="destinationId" name="destinationId" data-am-selected="{searchBox: 1}" style="display: none;">
+													    
+													</select>
+		                                        </div>
+		                                    </div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">店铺名称<span class="tpl-form-line-small-title">Info</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="destinationId" name="destinationId" value="" placeholder="">
+													<small>必填，长度控制在2-20个字符</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-weibo" class="am-u-sm-3 am-form-label">代表图 <span class="tpl-form-line-small-title">Images</span></label>
+												<div class="am-u-sm-9">
+													<div class="am-form-group am-form-file">
+														<div class="tpl-form-file-img">
+															<img id="farmstayImg" src="assets/img/a5.png" alt="">
+														</div>
+														<button type="button" class="am-btn am-btn-danger am-btn-sm">
+    													<i class="am-icon-cloud-upload"></i> 添加图像</button>
+														<input id="pic" name="pic" type="file" multiple="">
+													</div>
+
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label class="am-u-sm-3 am-form-label">营业时间<span class="tpl-form-line-small-title">ServiceTime</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" id="serviceStartTime" name="serviceStartTime" value="00:00" class="time">
+													--
+													<input type="text" id="serviceEndTime" name="serviceEndTime" value="00:00" class="time">
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">停车信息<span class="tpl-form-line-small-title">ParkInfo</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="parkInfo" name="parkInfo" value="" placeholder="">
+													<small>建议填写</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">特色活动<span class="tpl-form-line-small-title">SpecialAct</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="SpecialAct" name="SpecialAct" value="" placeholder="">
+													<small>建议填写</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">其他设施<span class="tpl-form-line-small-title">OtherEquip</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="otherEquip" name="otherEquip" value="" placeholder="">
+													<small>建议填写</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">额外免费服务<span class="tpl-form-line-small-title">AddedService</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="addedService" name="addedService" value="" placeholder="">
+													<small>建议填写</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">注意事项<span class="tpl-form-line-small-title">Attention</span></label>
+												<div class="am-u-sm-9">
+													<textarea class="" rows="2" id="attention" placeholder="注意事项"></textarea>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">总费用<span class="tpl-form-line-small-title">Cost</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="cost" name="cost" value="" placeholder="">
+													<small>必须填写数字</small>
+												</div>
+											</div>
+
+											<div class="am-form-group">
+												<div class="am-u-sm-9 am-u-sm-push-3">
+													<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/amazeui.datatables.min.js"></script>
+		<script src="assets/js/dataTables.responsive.min.js"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+
+</html>

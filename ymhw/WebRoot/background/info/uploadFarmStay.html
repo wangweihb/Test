@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>友鸣旅行网后台-上传农家乐信息</title>
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta name="keywords" content="">
+    	<meta name="description" content="">
+    	<link href="../../css/library/bootstrap.min.css" rel="stylesheet">
+    	<link href="../../wangEditor-2.1.23/dist/css/wangEditor.min.css" rel="stylesheet">
+    	<link href="../../css/bg/jquery.timepicker.css" rel="stylesheet"/>
+    	<link href="../../css/bg/bootstrap-datepicker.css" rel="stylesheet"/>
+    	<link href="../../css/bg/site.css" />
+    	<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/jquery.timepicker.min.js" ></script>
+		<script type="text/javascript" src="../../js/bg/info/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/farmStay.js"></script>
+		<script type="text/javascript" src="../../js/bg/comm-service.js"></script>
+	</head>
+	<body>
+	<form id= "" method="post" action="/manage/infoFarmUpload" enctype="multipart/form-data"  class="form-horizontal container" role="form">
+		<div>
+			<div><h1>农家乐信息上传</h1></div>
+			<hr />
+			<div>
+				<div><h3>预定须知：</h3></div>
+				<div>
+					<div class="form-group">
+	                	<label for="inputEmail3" class="col-sm-2 control-label">所属周边目的地 ：</label>
+	                    <div class="col-sm-10">
+	                    	<!--引入此段代码和公共业务逻辑js即可-->
+	                    	<select id="deflaut_dest" name="dest" style="width: 200px;">
+	                    		<option>请选择</option>
+	                    	</select>
+	                    </div>
+					</div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">店铺名称(必填)：</label>
+                    <div class="col-sm-10">
+                    	<input id="shopName"  class="form-control" type="text" name="shopName" />
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">营业时间：</label>
+                    <div class="col-sm-10">
+                    	<input type="text" id="serviceStartTime" name="serviceStartTime" value="00:00" class="time">
+						--
+						<input type="text" id="serviceEndTime" name="serviceEndTime" value="00:00" class="time">
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">停车信息：</label>
+                    <div class="col-sm-10">
+                    	<input id=""  class="form-control" type="text" name="parkInfo" value="" placeholder="是/否方便停车 是/否有自家的停车位"/>
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">特色活动：</label>
+                    <div class="col-sm-10">
+                    	<input id=""  class="form-control" type="text" name="specialAct" value="" placeholder="如  当季旅游活动、晚会表演等（商户可填“无”）"/>
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">其他设施：</label>
+                    <div class="col-sm-10">
+                    	<input id=""  class="form-control" type="text" name="otherEquip" value="" placeholder="如 儿童游乐设施、儿童座椅、母婴室等（商户可填“无”）"/>
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">额外免费服务：</label>
+                    <div class="col-sm-10">
+                    	<input id=""  class="form-control" type="text" name="addedService" value="" placeholder="如 停车位、热水、无线网络等（商户可填“无”）"/>
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">注意事项：</label>
+                    <div class="col-sm-10">
+                    	<input id=""  class="form-control" type="text" name="attention" value="" placeholder="如 外带酒水、少数名族习俗、信仰、预定方式、成团接送服务等。"/>
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">总费用(元)：</label>
+                    <div class="col-sm-2">
+                    	<input id="allFee"  class="form-control" type="text" name="cost" placeholder="只能填写数字" />
+                    </div>
+				</div>
+				<!--展示图片-->
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">代表图： <small>(只支持图片文件,建议尺寸 200 * 150)</small></label>
+					<input class="col-sm-4 " id="pic" name="pic" accept="image/gif,image/png,image/jpeg" type="file" />
+		           
+		            <div class="col-sm-3 " >
+					<img id="tmpImg" src="" width="200" height="150"/>
+		            
+		            </div>
+				</div>
+				<div><h3>费用包含：</h3></div>
+				<div class="form-group">
+					<div class="col-sm-offset-1">
+                		<textarea id="feePart_farm"  name="" rows="4" cols="20"></textarea>
+                </div>
+				
+				<!--<div><h3>产品介绍：</h3></div>
+				<div class="form-group">
+					<div class="col-sm-offset-1">
+						<textarea id="productDesc_farm"  name="productDesc" rows="4" cols="20"></textarea>
+					</div>
+				</div>-->
+				<hr />
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">添加产品（菜） ：</label>
+					<div class="col-sm-10">
+						<a class="btn btn-default" href="javascript:addModule();" role="button">添加</a>
+					</div>
+				</div>
+				<hr />
+				<div id = "allchild">
+					<div id="nullModule" name="childModule" class="onechild"  style="display: none;">
+						<span class="glyphicon glyphicon-remove" style="vertical-align: super; float: right;" onclick="return remModule(this);"></span>
+						<div  class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">产品标题 ：</label>
+							<div class="col-sm-10">
+								<input  type="text" name="proTitle" maxlength="45" />
+							</div>
+						</div>
+						<div  class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">产品价格 ：</label>
+							<div class="col-sm-10">
+								<input type="text" name="proPrice" maxlength="45" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">产品图： <small></small></label>
+							<input class="col-sm-4 " name="proPicFile" onchange="return changePic(this);" accept="image/gif,image/png,image/jpeg" type="file" />
+				            <img name="tmpProPic" src="" width="100" height="80"/>
+							<input type="hidden" name="proPic" value="" />
+						</div>
+					</div>
+					<hr>
+				</div>
+				<!--<img id="test" src="../../images/discount1.jpg" />-->
+				<div class="info-btn col-sm-offset-4">
+					<input type="submit" class="btn btn-default" value="提交"/>
+					<!--<button id="sub"  type="button" class="btn btn-default">提交</button>-->
+				</div>
+			</div>
+		</div>
+	</form>
+	</body>
+	<script type="text/javascript" src="../../wangEditor-2.1.23/dist/js/wangEditor.min.js"></script>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="恩施旅游线路,${act.title?default('')}">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/r_fixedmenu.css" />
+		<link rel="stylesheet" href="../css/library/rtt.css" />
+		<style type="text/css">
+			.fixed{top: 50px;position: fixed;right: 350px;}
+			#topcontent{color: #eee !important;}
+			.singer .ym-sidelist-tite{height: 32px; line-height: 32px;}
+			.article-nav-fixed{top: 50px;}
+		</style>
+		<link rel="shortcut icon" href="../logo.ico" />
+		<title>${act.title?default('')}_旅游线路详情_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.SuperSlide.js"></script>
+		<script type="text/javascript" src="../js/fg/common_oper.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/library/scrollTop.js"></script>
+		<script type="text/javascript" src="../js/library/stickUp.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#picList li").hover(function() {
+					var index = $(this).index();
+					var src = $("#picList").children("li:eq(" + index + ")").find("img").attr("src");
+					$("#singerPicDisplay img").attr("src", src);
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			var mt = 0;
+			window.onload = function() {
+
+				var mydiv = document.getElementById("mydiv");
+				var mt = mydiv.offsetTop;
+				window.onscroll = function() {
+					var t = document.documentElement.scrollTop || document.body.scrollTop;
+					if(t > mt) {
+						mydiv.style.position = "fixed";
+						mydiv.style.margin = "0";
+						mydiv.style.top = "0";
+						mydiv.className = "nav-active";
+						$(".navbar-btn").show();
+					} else {
+						mydiv.style.margintop = "0";
+						mydiv.style.position = "static";
+						$(".navbar-btn").hide();
+					}
+				}
+
+				$('#mydiv').stickUp({
+					parts: {
+						0: 'routeDescInfo',
+						1: 'travelPlanInfo',
+						2: 'coststatement',
+						3: 'requiredEquipInfo',
+						4: 'noticeInfo',
+						5: 'commentInfo',
+					},
+					itemClass: 'menuItem',
+					itemHover: 'active'
+				});
+			}
+		</script>
+		<script type="text/javascript" src="../js/fg/download_fg.js" /></script>
+		<script type="text/javascript" src="../js/fg/actitvityDisplay.js"></script>
+	</head>
+
+	<body class="body-bj">
+		<!--引用头部-->
+		<#include "top.html">
+		<!--返回顶部的工具-->
+		<div id='rtt'></div>
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<!--活动详情  start-->
+		<div class="singer">
+			<div class="content1160 clearfix">
+				<div class="singerPicDisplay"> <img src="${act.pic}" /> </div>
+				<div class="singerData">
+					<div class="singerData-tite">${act.title?default('')}  ${act.desc?default('')}</div>
+					<div class="ym-star">
+						<span class="star-new small-star">
+					<span class="star-5"></span>
+						</span>
+					</div>
+					<div class="singerData-tr">
+						<div class="singerData-tr-money" style="border-right:1px solid #ddd"><sup>¥${act.cost?default(0.0)}</sup><br><span>优惠价</span></div>
+						<div class="singerData-tr-money">97%<br><span>满意度</span></div>
+					</div>
+					<ul class="singerData-list">
+						<li>需要${act.totalNum}人</li>
+						<li>报名${act.enteredNum}人</li>
+						<li>剩余${act.totalNum - act.enteredNum}人</li>
+						<li>确认${act.confirmedNum}人</li>
+					</ul>
+					<div class="singerData-txt">
+						<p><span>活动时间：</span>${(act.startTime?string("yyyy-MM-dd"))!} - ${(act.endTime?string("yyyy-MM-dd"))!}</p>
+						<p><span>集合地点：</span>${act.gatherPlace}</p>
+						<p><span>目&nbsp;&nbsp;的 &nbsp;地：</span>${act.destination}</p>
+						<p><span>交通工具：</span>
+							<#if act.vehicle==1>
+								自驾
+								<#elseif act.vehicle==2>
+									空调旅游大巴
+									<#elseif act.vehicle==3>
+										飞机
+										<#elseif act.vehicle==4>
+											火车
+											<#else>
+												轮船
+							</#if>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix">
+						<a class="singerData-fx" href="http://www.jiathis.com/share" class="jiathis jiathis_txt jialike" target="_blank"><i class="iconfont">&#xe7b5;</i>分享有礼</a>
+						<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+						<a class="singerData-fx"><i class="iconfont">&#xe775;</i>收藏</a>
+						<div class="ym-reserve" onclick="signup(${act.id});"> 马上报名 </div>
+					</div>
+				</div>
+			</div>
+			<!--活动详情左边  start-->
+			<div class="content1180-three clearfix singe-main">
+				<div id="mydiv" style="z-index:20;">
+					<div class="navbar-inverse">
+						<ul class="navbar-nav">
+							<li class="menuItem">
+								<a href="#routeDescInfo">线路描述</a>
+							</li>
+							<li class="menuItem">
+								<a href="#travelPlanInfo">行程安排</a>
+							</li>
+							<li class="menuItem">
+								<a href="#coststatement">费用说明</a>
+							</li>
+							<li class="menuItem">
+								<a href="#requiredEquipInfo">建议装备</a>
+							</li>
+							<li class="menuItem">
+								<a href="#noticeInfo">预定须知</a>
+							</li>
+							<li class="menuItem">
+								<a href="#commentInfo">报名提醒</a>
+							</li>
+						</ul>
+						<div class="navbar-btn" style="display: none;">
+							<a href="javascript:signup(${act.id});">马上报名</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="content-left">
+					<!--活动细节 start-->
+					<div id="adDetail" style="margin-top:0;" class="singer-main">
+						<!--线路描述具体内容  start-->
+						<div id="routeDescInfo" class="menu_tab">
+							<div class="adDetail-title"><i></i>线路描述</div>
+							${act.routeDesc?default('')}
+						</div>
+						<!--线路描述具体内容  end-->
+
+						<!--行程安排具体内容  start-->
+						<div id="travelPlanInfo" class="menu_tab">
+							<div class="adDetail-title travelPlanInfo-tite"><i></i>行程安排</div>
+							${act.travelPlan?default('')}
+						</div>
+						<!--行程安排具体内容  end-->
+
+						<!--装备要求具体内容  start-->
+
+						<div id="coststatement" class="menu_tab">
+							<div class="adDetail-title"><i></i>费用说明</div>
+							${act.feeDesc?default('')}
+						</div>
+						<!--装备要求具体内容  end-->
+
+						<!--装备要求具体内容  start-->
+						<div id="requiredEquipInfo" class="menu_tab">
+							<div class="adDetail-title"><i></i>建议装备</div>
+							${act.requiredEquip?default('')}
+						</div>
+						<!--装备要求具体内容  end-->
+
+						<!--预定须知具体内容  start-->
+
+						<div id="noticeInfo" class="menu_tab">
+							<div class="adDetail-title">
+								<i></i>预定须知
+							</div>
+							${act.notice?default('')}
+						</div>
+						<!--预订须知具体内容  end-->
+
+						<!--用户点评具体内容  start-->
+						<div id="commentInfo" class="menu_tab">
+							<div class="adDetail-title"><i></i>报名提醒</div>
+							<div class="commentInfo-s">
+								${act.enroll?default('')}
+							</div>
+						</div>
+						<!--用户点评具体内容  end-->
+					</div>
+				</div>
+				<!--活动细节 end-->
+				<!--活动详情左边  end-->
+
+				<!--活动详情右边  start-->
+				<div class="content-right singer-right">
+					<!--人气推荐(页面公共)start-->
+					<div class="content-right">
+						<div class="article-nav">
+							<!--人气推荐(页面公共)start-->
+							<div class="tabox" id="commonRecommend"></div>
+						</div>
+					</div>
+					<!--人气推荐(页面公共)end-->
+					<div class="clearfix"></div>
+				</div>
+				<!--活动详情右边  end-->
+			</div>
+		</div>
+		<!--引用底部-->
+		<div style="clear: both;">
+			<#include "footer.html">
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		$(window).scroll(function() {
+			var winTop = $(window).scrollTop();
+			var winBottom = $(document).height() - $(window).height() - winTop;
+			// 浮动工具栏的高度 724 底部工具栏的高度361
+			var maxBottom = 724 + 361 - $(window).height();
+			if(winTop >= 620) {
+				$('.article-nav').addClass('article-nav-fixed');
+				if (winBottom <= maxBottom) {
+					$("#commonRecommend").addClass('small-recommend');
+				} else{
+					$("#commonRecommend").removeClass('small-recommend');
+				}
+			} else {
+				$('.article-nav').removeClass('article-nav-fixed');
+			}
+		});
+	});
+</script>

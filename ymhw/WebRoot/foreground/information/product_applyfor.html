@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="周边目的地，恩施农家乐，恩施旅游线路" />
+		<meta name="description" content="友鸣旅行网 （www.yomiing.com）为您提供最新最精准的周边目的地、农家乐和民宿资讯信息。" />
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<title>${product.title?default('')}_农家乐产品购买_周边目的地_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js">
+		</script>
+		<script type="text/javascript" src="../js/public/tool.js">
+		</script>
+		<script type="text/javascript" src="../js/library/jquery.datetimepicker.js">
+		</script>
+		<script type="text/javascript" src="../js/fg/farmproduct_applyfor.js"></script>
+
+	</head>
+	<form id="alipayform" method="post" action="#">
+		<input type="hidden" id="trade_billNo" name="trade_billNo" value="" />
+		<input type="hidden" id="trade_proName" name="trade_proName" value="" />
+		<input type="hidden" id="trade_proDesc" name="trade_proDesc" value="" />
+		<input type="hidden" id="trade_total" name="trade_total" value="" />
+	</form>
+
+	<body style="background: #f4f5f6;">
+		<div id="topwarp" style="border-bottom: 1px solid rgb(235, 156, 20);">
+			<div class="y-container">
+				<div id="toplogo">
+					<a href="/"> <img src="../images/logo.png" height="60px" /> </a>
+				</div>
+				<!--搜索-->
+				<div class="topwarp-demo">
+					<div class="demo">
+						<ul class=" wizard_step ">
+							<li id="step1Contentli" class="current active_step">
+								<a href="#"> 填写订单 <em> </em> <i> </i> </a>
+							</li>
+							<!--<li id="step2Contentli">
+								<a href="#"> 填写联系人 <em> </em> <i> </i> </a>
+							</li>
+							<li id="step3Contentli">
+								<a href="#"> 确定预订 <em> </em> <i> </i> </a>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="carrentForm" action="#" method="post">
+			<!--订单基本信息 start-->
+			<div id="paWrap">
+				<div>
+					<div id="sign-up" class="clearfix">
+						<div class="sign－up-r">
+							<div class="sign－up-r_tit"> <i class="iconfont"> &#xe7b4; </i> 订单详情 </div>
+							<div class="sign－up-r-main ">
+								<p class="left dashed"> 
+									价格(元)
+									<span id="price" class="right green">${product.price?default(0)}</span> 
+								</p>
+								<p class="left dashed"> 
+									数量
+									<span id="proNum" class="right green"> 1 </span> 
+								</p>
+								<p class="left" style="color:#898989"> 
+									总金额 (元)
+									<span class="right" style="color:rgb(235, 156, 20); font-size:24px">
+                        				<label id="total"> ${product.price?default(0)} </label>
+                        				<input type="hidden" id="cost" name="cost" value="${product.price?default(0)}" />
+                        			</span> 
+								</p>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<!--<a id="signup-a" class="sign-yes" href="javascript:toOrder();"> 确认订购</a>-->
+						
+						<!--填写订单信息 start-->
+						<div class="sign-up-l sign-up-l-w" id="step1Content" style="display: block;width: 785px !important;">
+							<div class="sign-up-l-tite"> <i class="iconfont"> &#xe7b4; </i> 订单需要填写的内容 </div>
+							<dl class="sign-up-form">
+								<dd class="clearfix">
+									<div class="sign-up-form-l"> 姓名： </div>
+									<div class="sign-up-form-r">
+										<input type="hidden" id="productId" name="productId" value="${product.id?default(0)}" />
+										<input class="singn-up-btn" type="text" id="lmname" name="lmname" />
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l"> 电话号码： </div>
+									<div class="sign-up-form-r">
+										<input class="singn-up-btn" type="text" id="lmnameTel" name="lmnameTel" />
+									</div>
+								</dd>
+							</dl>
+							<div class="sign-up-l-tite"> <i class="iconfont"> &#xe7b4; </i> 其他内容确认： </div>
+							<dl class="sign-up-form">
+								<dd class="clearfix">
+									<div class="sign-up-form-l">
+										项目名称：
+									</div>
+									<div class="sign-up-form-r">
+										<small>${product.title?default('')}</small>
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">
+										其他参数：
+									</div>
+									<div class="sign-up-form-r">
+										<small>
+											${product.subhead?default('')}
+										</small>
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">
+										数量：
+									</div>
+									<div class="sign-up-form-r">
+										<input class="min" name="" type="button" value="-" />
+										<input class="valuation_box" id="num" name="num" type="text" value="1" readonly = "readonly"/>
+										<input class="increase" name="" type="button" value="+" /> 
+									</div>
+								</dd>
+							</dl>
+
+							<dl class="sign-up-form" style="margin-top:30px;">
+								<dd class="clearfix">
+									<dd class="clearfix">
+										<div class="sign-up-form-l"> 各项服务说明： </div>
+										<div class="sign-up-form-r">
+											<p style="overflow-y:scroll;height:200px;"> 租车说明、订单填写内容说明、取还车说明、费用说明、取消订单 <br> 以下为每项服务的说明详情 <br>
+												<br> 租车说明 <br> • 年龄在18~65周岁之间 <br> • 租车人取得有效驾驶证等证件并未被吊销，同时所持驾照与所租车型相符，否则租赁公司将无法为您提供汽车租赁服务 <br> • 为确保租客的人生财产安全我们暂时不对新手、孕妇、65岁以上老人及伤残人士等提供租车出行服务。 <br>
+												<br> 订单填写内容说明 <br> • 用户在填写订单时应该确保所填信息准确无误，避免造成无法提车。 <br> • 用户根据实际情况选取自己所需的服务，以更好地适应自己的出行。 <br> • 确保自己取得的驾驶证能正常使用。 <br>
+												<br> 取还车说明 <br> • 携带本人身份证或户口簿以及本人驾驶证到门店或者约定服务点办理取车手续 <br> • 身份证原件或户口簿等证件信息应与预定服务时所填写的一直，否则会造成无法提车 <br> • 取车时会刷取（信用卡）一定的金额作为租车授予权，还车时结算费用，然后再解冻授予权 <br> • 还车时会重新刷去您信用卡2000元作为违章预授权，30日左右解冻 <br>
+												<br> • 费用说明 <br> • 1、客户需要延期还车的应及时办理相关手续，未办理相关手续且未经租赁商同意而强行租车的，租赁商有权强制性收回车辆，强行不还车的用户除了支付正常的正常的租金外，还需要支付超期部分的300％的违约金 <br> • 2、用户还车在21:00到次日8:00整取还车的将收取夜间服务费用 <br> • 3、在异地或异店还车的将收取一定的服务费用 <br> • 4、因为租赁商原因无法按照订单派车的将会为用户免费升级车型，若只能更换成降级车辆应退还相应的差价。如果不能接受降级车辆的租赁商应全额退还订单所支付费用 <br> • 5、由于租客自身原因（酒驾、毒驾等）导致租车公司无法提供租车服务的，租车公司不承担责任。 <br> • 6、费用中不包含路桥费、停车费以及因交通法规罚款费用等费用。 <br>
+												<br> • 油费计算 <br> • 一般情况下车为满油，还车时也应该保证满油还车 <br> • 还车燃油多于取车时，则退还多于部分燃油费用，若还车时燃油少于取车时的然后则补交燃油差价并支付一定的服务费用 <br> • 取车时建议您拍照记录油表位置，还车时加油到原位置即可 <br>
+												<br> 取消订单说明 <br> 1、普通时段取消订单不收取任何违约金 <br> 2、节假日期间网上支付的订单取消时有可能产生违约金 <br> 3、车辆租金会适时调整，建议提前预定车辆，以免租车公司租金上涨和车辆紧张短缺 <br>
+											</p>
+										</div>
+									</dd>
+								</dd>
+							</dl>
+							<div class="pa_next">
+								<a href="javascript:toOrder();"> 确认订购 </a>
+							</div>
+						</div>
+						<!--填写订单信息 end-->
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+	<#include "../footer.html">
+
+</html>

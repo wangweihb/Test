@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="360-site-verification" content="63f8f259e47093ad29d1dac94bc39164" />
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/new_bbs.css" />
+		<!--Luara样式文件-->
+		<link rel="stylesheet" href="../css/slider_nav.css" />
+		<link rel="stylesheet" href="../css/top.css" />
+		<link rel="stylesheet" type="text/css" href="../css/onlineCustomService.css"/>
+		
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/lubotu.js"></script>
+		<script type="text/javascript" src="../js/fg/download_fg.js"></script>
+		<script type="text/javascript" src="../js/library/common_v2.js"></script>
+		<script type="text/javascript" src="../js/fg/index_fg.js"></script>
+		<script type="text/javascript" src="../js/fg/yxk_bbs.js"></script>
+		<script type="text/javascript" src="../js/library/owl.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/library/bdslide.js" ></script>
+		<script type="text/javascript" src="../js/fg/home_ly.js"></script>
+        <script type="text/javascript" src="../js/library/jquery.SuperSlide.js"></script>
+        <script type="text/javascript" src="../js/fg/common_oper.js"></script>
+       	<script src="../js/public/onlineCustomService.js" type="text/javascript" charset="utf-8"></script>
+       	<script type="text/javascript">
+       		jQuery(function() {
+				yxk.bbs.newHome();
+				jQuery("#slider").slide({
+					titCell: ".slider-controlNav a",
+					mainCell: ".slider-item",
+					effect: "left",
+					delayTime: 200,
+					autoPlay: true
+				});
+				jQuery("#slider").slide({
+					titCell: ".slider-controlNav a",
+					mainCell: ".slider-caption",
+					delayTime: 200,
+					autoPlay: true
+				});
+			});
+       	</script>
+		<meta name="keywords" content="友鸣户外，恩施旅游线路，恩施团建拓展 ，户外装备租赁，恩施户外景点 ，恩施大峡谷 ">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<link rel="shortcut icon" href="../logo.ico" />
+		<title>友鸣旅行网-引领体验的新旅游-恩施旅游线路，恩施团建拓展 ，户外装备租赁，恩施户外景点 </title>
+        		<style>
+			.module-list {
+				margin-top: 20px;
+	            width: 880px;
+	            margin-left: -5px;
+			}
+			
+			.module-list .item {
+				width: 100%;
+				margin-bottom: 0;
+			}
+			
+			.owl-item {
+				padding: 5px;
+			}
+			
+			.module-list .item img {
+				width: 100%;
+				height: 240px;
+			}
+			.ym-towlist ul li a{
+				width: 422px;
+				border-left: none;
+				line-height: 34px;
+				float: left;
+			}
+		</style>
+
+
+	</head>
+
+	<body>
+		<#include "top.html">
+		<!--顶部区域 start-->
+		
+		<!--顶部区域 end-->
+		
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+				<!--悬浮菜单栏   start-->
+				<div class="slide-nav" id="float-menu">
+					<div class="snav-cont clearfix">
+						<ul class="tabl fl">
+							<li class="l1"><span class=""> 周边休闲游</span></li>
+							<li class="l2"><span class=""> 国内深度游</span></li>
+							<li class="l4"><span class=""> 特色主题游</span></li>
+							<li class="l6"><span class="">攻略精选</span></li>
+<!--							<li class="l8"><span class="">分享论坛</span></li>
+-->							<li class="l3"><span>分享论坛</span></li>
+							<li class="l7"><span class="">友鸣公益</span></li>
+<!--							<li class="l5"><span>地方特色</span></li>
+-->						</ul>
+
+						<!--周边休闲游栏  start-->
+						<div class="tabcont fl" style="display: none;">
+							<#list activities as act>
+								<#if act_index == 0>
+									<div class="dl1 clearfix" >
+										<div class="fl aimg">
+											<img src="${act.pic?default("")}" width="93" height="68" alt=""></div>
+										<div class="fr acont">
+											<h4><a href="activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>快乐周末</p>
+										</div>
+									</div>
+								</#if>
+								
+								<#if act_index == 1>
+									<div class="dl1 dl2 clearfix">
+										<div class="fr aimg">
+											<img src="${act.pic?default("")}" width="100" height="68" alt=""></div>
+										<div class="fl acont">
+											<h4><a href="activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>快乐周末</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3">
+								<h3>快速导航</h3>
+								<p class="clearfix">
+									<a href="/activity/actListByType?type=hot" target="_blank" title="全部">全部</a>
+									<a href="/activity/actListByType?type=weekend" target="_blank" title="">AA制</a>
+									<a href="/activity/actListByType?type=hot" target="_blank" title="">自由结伴</a>
+									<a href="/activity/actListByType?type=graduate" target="_blank" title="">俱乐部精选</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">精品推荐</a>
+									<a href="/activity/actListByType?type=enshi" target="_blank" title="">美丽恩施</a>
+								</p>
+							</div>
+						</div>
+						<!--周边休闲游栏  end-->
+						
+						<!--国内深度游栏  start-->
+						<div class="tabcont fl" style="display: none;">
+							<#list activities as act>
+								<#if act_index == 2>
+									<div class="dl1 clearfix">
+										<div class="fl aimg">
+											<img src="${act.pic?default("")}" width=93" height="68" alt=""></div>
+										<div class="fr acont">
+											<h4><a href="activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>休闲游</p>
+										</div>
+									</div>
+								</#if>
+								
+								<#if act_index == 3>
+									<div class="dl1 dl2 clearfix">
+										<div class="fr aimg">
+											<img src="${act.pic?default("")}" width="100" height="68" alt=""></div>
+										<div class="fl acont">
+											<h4><a href="activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>乡村游</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3">
+								<h3>快速导航</h3>
+								<p class="clearfix">
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="全部">全部</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">秘境西藏 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">多彩云南</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">旖旎新疆 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">宝岛台湾 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">青岛大连 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">海南风情 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">内蒙草原 </a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">秦晋风云 </a>
+								</p>
+							</div>
+						</div>
+						<!--国内深度游栏  end-->
+						
+						<!--特色主题游栏  start-->
+						<div class="tabcont fl" style="display: none;">
+							<#list activities as act>
+								<#if act_index == 0>
+									<div class="dl1 clearfix">
+										<div class="fl aimg">
+											<img src="${act.pic?default("")}" width="93" height="68" alt=""></div>
+										<div class="fr acont">
+											<h4>
+												<a href="/activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>${(act.startTime?string("yyyy-MM-dd"))!}始</p>
+										</div>
+									</div>
+								</#if>
+								<#if act_index == 2>
+									<div class="dl1 dl2 clearfix">
+										<div class="fr aimg">
+											<img src="${act.pic?default("")}" width="100" height="68" alt=""></div>
+										<div class="fl acont">
+											<h4>
+												<a href="/activity/display?activityId=${act.id}" target="_blank" title="">${act.title?default("")}</a></h4>
+											<p>${(act.startTime?string("yyyy-MM-dd"))!}始</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3">
+								<h3>快速导航</h3>
+								<p class="clearfix">
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">全部</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">全球旅拍</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">异域风情</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">西部神游</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">世界邮轮</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">毕业旅行</a>
+									<a href="/activity/actListByType?type=suggest" target="_blank" title="">激情自驾</a>
+								</p>
+							</div>
+						</div>
+						<!--特色主题游栏  end-->
+						
+						<!--攻略栏  start-->
+						<div class="tabcont fl ">
+							<#list strategie0s as s>
+								<#if s_index == 1>
+									<div class="dl1 clearfix ">
+										<div class="fl aimg ">
+											<img src="../images/other/dest_eq.png" width="93 " height="68 " alt=" "></div>
+										<div class="fr acont ">
+											<h4><a href="/strategyDetailPath?id=${s.id} " target="_blank " title=" ">${s.title?default(" ")}</a></h4>
+											<p>目的地</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<#list strategie1s as s>
+								<#if s_index == 1>
+									<div class="dl1 dl2 clearfix ">
+										<div class="fr aimg ">
+											<img src="../images/other/card_eq.png" width="100 " height="68 " alt=" "></div>
+										<div class="fl acont ">
+											<h4><a href="/strategyDetailPath?id=${s.id}" target="_blank " title=" ">${s.title?default(" ")}</a></h4>
+											<p>机票</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3 ">
+								<h3>快速导航</h3>
+								<p class="clearfix ">
+									<a href="/strategyPath" target="_blank " title=" ">目的地</a>
+									<a href="/strategyPath" target="_blank " title=" ">机票</a>
+									<a href="/strategyPath" target="_blank " title=" ">信用卡</a>
+									<a href="/strategyPath" target="_blank " title=" ">酒店民宿</a>
+									<a href="/strategyPath" target="_blank " title=" ">摄影</a>
+									<a href="/strategyPath" target="_blank " title=" ">自驾</a>
+									<a href="/strategyPath" target="_blank " title=" ">签证</a>
+								</p>
+							</div>
+						</div>
+						<!--攻略栏  end-->
+						
+						<!--分享栏  start-->
+						<div class="tabcont fl " style="display: none; ">
+							<#list art1s as art>
+								<#if art_index == 1>
+									<div class="dl1 clearfix ">
+										<div class="fl aimg ">
+											<img src="${art.pic?default( "")} " width="93 " height="68 " alt=" "></div>
+										<div class="fr acont ">
+											<h4><a href="/article/display?id=${art.id} " target="_blank " title=" ">${art.title?default(" ")}</a></h4>
+											<p>美图</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<#list art2s as art>
+								<#if art_index == 1>
+									<div class="dl1 dl2 clearfix ">
+										<div class="fr aimg ">
+											<img src="${art.pic?default( "")} " width="100 " height="68 " alt=" "></div>
+										<div class="fl acont ">
+											<h4><a href="/article/display?id=${art.id} " target="_blank " title=" ">${art.title?default(" ")}</a></h4>
+											<p>美文</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3 ">
+								<h3>快速导航</h3>
+								<p class="clearfix ">
+									<a href="/sharePath " target="_blank " title=" ">全部</a>
+									<a href="/sharePath " target="_blank " title=" ">美图</a>
+									<a href="/sharePath " target="_blank " title=" ">美文</a>
+									<a href="/sharePath " target="_blank " title=" ">美食</a>
+									<a href="/sharePath " target="_blank " title=" ">线路</a>
+								</p>
+							</div>
+						</div>
+						<!--分享栏  end-->
+						
+						<!--公益栏  start-->
+						<div class="tabcont fl " style="display: none; ">
+							<#list welfare1s as w>
+								<#if w_index == 0>
+									<div class="dl1 clearfix ">
+										<div class="fl aimg ">
+											<img src="${w.pic?default( "")} " width="93 " height="68 " alt=" "></div>
+										<div class="fr acont ">
+											<h4><a href="/welfare/detail?id=${w.id} " target="_blank " title=" ">${w.title?default("")}</a></h4>
+											<p>助学</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<#list welfare3s as w>
+								<#if w_index == 0>
+									<div class="dl1 dl2 clearfix ">
+										<div class="fr aimg ">
+											<img src="${w.pic?default( "")} " width="100 " height="68 " alt=" "></div>
+										<div class="fl acont ">
+											<h4><a href="/welfare/detail?id=${w.id} " target="_blank " title=" ">${w.title?default(" ")}</a></h4>
+											<p>义工</p>
+										</div>
+									</div>
+								</#if>
+							</#list>
+							<div class="dl3 ">
+								<h3>快速导航</h3>
+								<p class="clearfix ">
+									<a href="/welfare " target="_blank " title=" ">助学</a>
+									<a href="/welfare " target="_blank " title=" ">义工</a>
+									<a href="/welfare " target="_blank " title=" ">救助</a>
+									<a href="/welfare " target="_blank " title=" ">环保</a>
+								</p>
+							</div>
+						</div>
+						<!--公益栏  end-->
+						
+						<div class="tabcont fl" style="display: none;">
+							<div class="dl1 clearfix">
+								<div class="fl aimg">
+									<img src="../images/welface/demo1.png" width="93" height="68" alt=""></div>
+								<div class="fr acont">
+									<h4><a href="#" target="_blank" title="">拯救动物</a></h4>
+									<p>动物们表演的不是欢乐，而是悲剧</p>
+								</div>
+							</div>
+							<div class="dl1 dl2 clearfix">
+								<div class="fr aimg">
+									<img src="../images/welface/demo2.png" width="100" height="68" alt="旅"></div>
+								<div class="fl acont">
+									<h4><a href="#" target="_blank" title="">孤儿保障</a></h4>
+									<p>您的点滴关爱，可能会改写一名孤儿的生命故事！</p>
+								</div>
+							</div>
+							<div class="dl3">
+								<h3>快速导航</h3>
+								<p class="clearfix">
+									<a href="/welfare" title="全部">全部</a>
+									<a href="/welfare" target="_blank" title="助学">助学</a>
+									<a href="/welfare" target="_blank" title="义工 ">义工 </a>
+									<a href="/welfare" target="_blank" title="救济">救济</a>
+									<a href="/welfare" target="_blank" title="环保 ">环保 </a>
+									<a href="/welfare" target="_blank" title="其他 ">其他 </a>
+								</p>
+							</div>
+						</div>
+						<div class="tabcont fl" style="display: none;">
+							<div class="dl1 clearfix">
+								<div class="fl aimg">
+									<img src="../images/special/region1.jpg" width="93" height="68" alt=""></div>
+								<div class="fr acont">
+									<h4><a href="#"  title="">醉人恩施</a></h4>
+									<p>看不完的美景，吃不完的美食</p>
+								</div>
+							</div>
+							<div class="dl1 dl2 clearfix">
+								<div class="fr aimg"><img src="../images/special/region2.jpg" width="100" height="68" alt=""></div>
+								<div class="fl acont">
+									<h4><a href="#"  title="">秀丽大理</a></h4>
+									<p>苍山洱海，蝴蝶泉边，大理的风花雪月在静谧中悠远，美得不经意却那么沁人心脾。</p>
+								</div>
+							</div>
+							<div class="dl3">
+								<h3>快速导航</h3>
+								<p class="clearfix">
+									<a href="#"  title="">全部</a>
+									<a href="#"  title="">恩施特色</a>
+									<a href="#"  title="">西北风情</a>
+									<a href="#"  title="">云南游玩</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="navcontent" >
+					<ul>
+						<li class="hover important-li">
+							<a href="/" style="width: 140px;background-color: rgb(173, 120, 30);">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<!--图片轮播区域  start-->
+		<div class="lubo">
+			<ul class="lubo_box">
+				<li style=" opacity: 1;">
+					<a href="activity/actlist-hot.html" style="background:url(../images/banner/index-hot-banner.jpg) center top no-repeat"></a>
+				</li>
+				<li style=" opacity: 0;">
+					<a href="" style="background:url(../images/banner/index-banner-2.jpg) center top no-repeat"></a>
+				</li>
+				<li style=" opacity: 0;;">
+					<a href="" style="background:url(../images/banner/index-banner-3.jpg) center top no-repeat"></a>
+				</li>
+			</ul>
+			<script type="text/javascript">
+				$(function() {
+
+					$(".lubo").lubo({
+
+					});
+
+				})
+			</script>
+		</div>
+		<!--图片轮播区域  end-->
+		<!--图片轮播区域  end-->
+		<!--内容区域  start-->
+        <!--周边目的地-->
+         <div  class="tabox content1160 information">
+              <div class="ym-tite-nav">
+                    <div class="ym-tite">周边目的地</div>
+                    <div class="ym-tite-item hd">
+                        <ul>
+                            <li class="on">休闲旅游 </li>
+                            <li class="">激情户外</li>
+                            <li class="">家庭活动 </li>
+                            <li class="">民宿营地</li>
+                        </ul>
+                    </div>
+                </div>
+              <div class="bd ym-list">
+                    <ul class="clearfix" style="display: block;">
+                    	<#list info1s as info>                        <li >
+                            <a  class="ym-list-img" href="/infoPath"> 
+                            	<img src="${info.img?default('')}">
+                                <div class="ym-list-main">
+                                    <div class="ym-list-main-tite">                                       					
+                                        <div class="ym-star"><span class="star-${info.commentScore?default(0)}"></span><i>${info.commentScore?default(0)}分</i></div>
+                                    </div>
+                                    <div class="list-txt">${info.subject?default('')}</div>
+                                </div>
+                            </a>    
+                        </li>
+                        </#list>
+                    </ul>
+                    <ul class="clearfix" style="display: none;">
+                        <#list info2s as info>                        <li >
+                            <a  class="ym-list-img" href="/infoPath"> 
+                            	<img src="${info.img?default('')}">
+                                <div class="ym-list-main">
+                                    <div class="ym-list-main-tite">                                       					
+                                        <div class="ym-star"><span class="star-${info.commentScore?default(0)}"></span><i>${info.commentScore?default(0)}分</i></div>
+                                    </div>
+                                    <div class="list-txt">${info.subject?default('')}</div>
+                                </div>
+                            </a>    
+                        </li>
+                        </#list>
+                    </ul>
+                    <ul class="clearfix" style="display: none;">
+                        <#list info3s as info>                        <li >
+                            <a  class="ym-list-img" href="/infoPath"> 
+                            	<img src="${info.img?default('')}">
+                                <div class="ym-list-main">
+                                    <div class="ym-list-main-tite">                                       					
+                                        <div class="ym-star"><span class="star-${info.commentScore?default(0)}"></span><i>${info.commentScore?default(0)}分</i></div>
+                                    </div>
+                                    <div class="list-txt">${info.subject?default('')}</div>
+                                </div>
+                            </a>    
+                        </li>
+                        </#list>
+                    </ul>
+                    <ul class="clearfix" style="display: none;">
+                        <#list info4s as info>                        <li >
+                            <a  class="ym-list-img" href="/infoPath"> 
+                            	<img src="${info.img?default('')}">
+                                <div class="ym-list-main">
+                                    <div class="ym-list-main-tite">                                       					
+                                        <div class="ym-star"><span class="star-${info.commentScore?default(0)}"></span><i>${info.commentScore?default(0)}分</i></div>
+                                    </div>
+                                    <div class="list-txt">${info.subject?default('')}</div>
+                                </div>
+                            </a>    
+                        </li>
+                        </#list>
+                    </ul>
+               </div>
+        </div>
+        <!--周边目的地end-->
+		<div class="content1160">
+			<div class="row clearfix">
+				<div class="content-left">
+					<!--热门活动 start-->
+                    <div  class="tabox">
+                      <div class="ym-tite-nav">
+                        <div class="ym-tite">热门活动</div>
+                        <div class="ym-tite-item hd">
+                            <ul>
+                                <li class=" ">精选推荐</li>
+                                <li class=" ">当季热门 </li>
+                                <li class=" ">毕业狂欢</li>
+                                <li class=" ">快乐周末 </li>
+                                <li class="on">西部神游</li>
+                            </ul>
+                        </div>
+                      </div>
+                      <div class="bd ym-list">
+                            <ul class="clearfix" style="display: block;">
+                            	<#list activities4 as act>
+                                <li >
+                                    <a href="activity/display?activityId=${act.id?default(0)}" class="ym-list-img effect-ruby" >
+										<figcaption>
+													<h2>精选推荐</h2>
+													<p> <i class="iconfont">&#xe7a6;${(act.startTime?string("yyyy-MM-dd"))!}</i>
+														<i class="iconfont" style="float:right;">&#xe77e;已报名${act.enteredNum?default(0)}人</i>
+													</p>
+												</figcaption>
+                                        <img src="${act.pic?default('')}" alt="${act.title?default('')}">
+                                        <div class="y-state">报名中</div>         
+                                        <div class="ym-list-main">
+                                            <div class="list-txt">${act.title?default('')}</div>
+                                            <div class="act-price">￥${act.cost?default(0)}<span>元</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                </#list>
+                            </ul>
+                            <ul class="clearfix" style="display: block;">
+                            	<#list activities2 as act>
+                                <li >
+                                    <a href="activity/display?activityId=${act.id?default(0)}" class="ym-list-img effect-ruby" >
+										<figcaption>
+													<h2>当季热门</h2>
+													<p> <i class="iconfont">&#xe7a6;${(act.startTime?string("yyyy-MM-dd"))!}</i>
+														<i class="iconfont" style="float:right;">&#xe77e;已报名${act.enteredNum?default(0)}人</i>
+													</p>
+												</figcaption>
+                                        <img src="${act.pic?default('')}" alt="${act.title?default('')}">
+                                        <div class="y-state">报名中</div>         
+                                        <div class="ym-list-main">
+                                            <div class="list-txt">${act.title?default('')}</div>
+                                            <div class="act-price">￥${act.cost?default(0)}<span>元</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                </#list>
+                            </ul>
+                            <ul class="clearfix" style="display: block;">
+                            	<#list activities3 as act>
+                                <li >
+                                    <a href="activity/display?activityId=${act.id?default(0)}" class="ym-list-img effect-ruby" >
+										<figcaption>
+													<h2>毕业狂欢</h2>
+													<p> <i class="iconfont">&#xe7a6;${(act.startTime?string("yyyy-MM-dd"))!}</i>
+														<i class="iconfont" style="float:right;">&#xe77e;已报名${act.enteredNum?default(0)}人</i>
+													</p>
+												</figcaption>
+                                        <img src="${act.pic?default('')}" alt="${act.title?default('')}">
+                                        <div class="y-state">报名中</div>         
+                                        <div class="ym-list-main">
+                                            <div class="list-txt">${act.title?default('')}</div>
+                                            <div class="act-price">￥${act.cost?default(0)}<span>元</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                </#list>
+                            </ul>
+                            <ul class="clearfix" style="display: block;">
+                            	<#list activities as act>
+                                <li >
+                                    <a href="activity/display?activityId=${act.id?default(0)}" class="ym-list-img effect-ruby" >
+										<figcaption>
+													<h2>快乐周末</h2>
+													<p> <i class="iconfont">&#xe7a6;${(act.startTime?string("yyyy-MM-dd"))!}</i>
+														<i class="iconfont" style="float:right;">&#xe77e;已报名${act.enteredNum?default(0)}人</i>
+													</p>
+												</figcaption>
+                                        <img src="${act.pic?default('')}" alt="${act.title?default('')}">
+                                        <div class="y-state">报名中</div>         
+                                        <div class="ym-list-main">
+                                            <div class="list-txt">${act.title?default('')}</div>
+                                            <div class="act-price">￥${act.cost?default(0)}<span>元</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                </#list>
+                            </ul>
+                            <ul class="clearfix" style="display: block;">
+                            	<#list activities5 as act>
+                                <li >
+                                    <a href="activity/display?activityId=${act.id?default(0)}" class="ym-list-img effect-ruby" >
+										<figcaption>
+													<h2>西部神游</h2>
+													<p> <i class="iconfont">&#xe7a6;${(act.startTime?string("yyyy-MM-dd"))!}</i>
+														<i class="iconfont" style="float:right;">&#xe77e;已报名${act.enteredNum?default(0)}人</i>
+													</p>
+												</figcaption>
+                                        <img src="${act.pic?default('')}" alt="${act.title?default('')}">
+                                        <div class="y-state">报名中</div>         
+                                        <div class="ym-list-main">
+                                            <div class="list-txt">${act.title?default('')}</div>
+                                            <div class="act-price">￥${act.cost?default(0)}<span>元</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                </#list>
+                            </ul>
+                       </div>
+                     </div>
+
+					<!--广告通栏865x110  -->
+					<div class="advert-2" >
+						<a href="/carRent"><img src="../images/banner/580x120.jpg" alt="3" /></a>
+						<a href="/applyfoLeaderPath"><img src="../images/banner/280x120.jpg" alt="3" /></a>
+					</div>
+					<!--装备租赁 start-->
+                    <div  class="tabox">
+                          <div class="ym-tite-nav">
+                                <div class="ym-tite">装备租赁</div>
+                                <a  class="more" href="/carRent">更多</a>
+                            </div>
+                      <div class="clearfix">
+									<ul class="clearfix" style="  float:left; margin-left: -20px;">
+										<li class="con-z"> <img src="../images/equipment/1-1.jpg" /> 
+                                             <div class="discount"> <p>店面优惠</p><span>15元/天</span> </div>                   
+                                        <p class="absolute">户外帐篷防潮垫自动充气垫单人可拼接便携加厚双人旅行睡垫野餐垫</p>
+										</li>
+										<li class="con-z"> <img src="../images/equipment/1-2.jpg" />
+                                            <div class="discount"> <p>店面优惠</p><span>15元/天</span> </div>                   
+                                               <p class="absolute">人双人金属扣加厚帆布吊床</p>
+										</li>
+										<li class="con-z"> <img src="../images/equipment/1-7.jpg" />  
+                                            <div class="discount"> <p>店面优惠</p><span>15元/天</span> </div> 
+                                            <p class="absolute">帐篷户外2秒速开 3-4人帐篷 全自动双人多人防雨露营</p>
+										</li>
+									</ul>
+                       </div>
+                             </div>
+					<!--广告通栏865x110  -->
+					<div class="advert" ><a href="/applyfoLeaderPath"><img src="../images/banner/880x120.jpg" alt="3" /></a></div>
+					<!--精选攻略 start-->
+                    <div  class="tabox">
+                          <div class="ym-tite-nav">
+                                <div class="ym-tite">精选攻略</div>
+                                <div class="ym-tite-item hd">
+                                    <ul>
+                                        <li class="on">目的地</li>
+                                        <li class=" ">机票 </li>
+                                        <li class=" ">信用卡</li>
+                                        <li class=" ">酒店民宿 </li>
+                                        <li class="">摄影</li>
+                                        <li class=" "> 自驾</li>
+                                        <li class=" ">签证</li>
+                                    </ul>
+                                </div>
+                            </div>
+                          <div class="bd ym-towlist">
+                                <ul class="clearfix" style="display: block;">
+		                            <li>
+		                                <#list strategie0s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie0s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie1s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie1s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+                                </ul>
+                                <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie1s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie1s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie2s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie2s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+		                        <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie2s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie2s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie3s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie3s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+		                        <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie3s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie3s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie4s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie4s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+		                        <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie4s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie4s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie5s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie5s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+		                        <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie5s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie5s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie6s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie6s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+		                        <ul class="clearfix" style="display: none;">
+                                	<li>
+		                                <#list strategie0s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie0s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+			                        <li>
+		                                <#list strategie6s as s>
+		                                	<a href="/strategyDetailPath?id=${s.id}">${s.title}</a><br />
+			                            </#list>
+			                            <#if (strategie6s ? size > 0)>
+			                                <a href="/strategyPath">更多</a>
+			                            </#if>
+			                        </li>
+		                        </ul>
+                           </div>
+                     </div>
+					<!--活动攻略 start-->
+					<div id="activitywarp">
+						<!--头部 start-->
+						<div id="activitynav2">
+							<div id="activitynavleft2">
+								<div id="tabNav-2">
+									<p>热门话题</p>
+								</div>
+								<!--            <div class="more"><a href="/actSearchPath">更多</a></div>
+-->
+								<ul id="tabNav2">
+									<li id="t1">
+										<a id="t1-a" class="tabnav-hover" href="javascript:tabnav('tabNav2','t1','step-box2');">美图</a>
+									</li>
+									<li id="t2">
+										<a id="t2-a" class="tabnav-link" href="javascript:tabnav('tabNav2','t2','step-box2');">美文</a>
+									</li>
+									<li id="t3">
+										<a id="t3-a" class="tabnav-link" href="javascript:tabnav('tabNav2','t3','step-box2');">美食</a>
+									</li>
+									<li id="t4">
+										<a id="t4-a" class="tabnav-link" href="javascript:tabnav('tabNav2','t4','step-box2');">线路</a>
+									</li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+							<!--活动导航 end-->
+						</div>
+						<div id="step-box2">
+							<!-----------第一栏---------->
+							<div id="step-box2-1" class="box_item" style="display:block;">
+								<div class="Raiders row">
+									<div class="Raiders-middle">
+										<#list art1s as art>
+											<a href="/article/display?id=${art.id}" class="Raiders-mian "> <img src="${art.pic}" width="218" height="140">
+												<div class="Raiders-m-title">
+         											 <div class="Raiders-m-img"><img src="${art.headshot?default('')}"  width="54" height="54"></div>
+													<div class="Raiders-m-name">作者：${art.account}</div>
+														 <div class="Raiders-m-txt">${art.title}...</div>
+												</div>
+												<!--<p>类别 : 美图 </p>-->
+											</a>
+										</#list>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-----------第二栏---------->
+							<div id="step-box2-2" class="box_item" style="display:none;">
+								<div class="Raiders row">
+									<div class="Raiders-middle">
+										<#list art2s as art>
+											<a href="/article/display?id=${art.id}" class="Raiders-mian "> <img src="${art.pic}" width="218" height="140">
+												<div class="Raiders-m-title">
+         											 <div class="Raiders-m-img"><img src="${art.headshot?default('')}"  width="54" height="54"></div>
+													<div class="Raiders-m-name">作者：${art.account}</div>
+														 <div class="Raiders-m-txt">${art.title}...</div>
+												</div>
+												<!--<p>类别 : 美图 </p>-->
+											</a>
+										</#list>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-----------第三栏---------->
+							<div id="step-box2-3" class="box_item" style="display:none;">
+								<div class="Raiders row">
+									<div class="Raiders-middle">
+										<#list art3s as art>
+											<a href="/article/display?id=${art.id}" class="Raiders-mian "> <img src="${art.pic}" width="218" height="140">
+												<div class="Raiders-m-title">
+         											 <div class="Raiders-m-img"><img src="${art.headshot?default('')}"  width="54" height="54"></div>
+													<div class="Raiders-m-name">作者：${art.account}</div>
+														 <div class="Raiders-m-txt">${art.title}...</div>
+												</div>
+												<!--<p>类别 : 美图 </p>-->
+											</a>
+										</#list>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-----------第四栏---------->
+							<div id="step-box2-4" class="box_item" style="display:none;">
+								<div class="Raiders row">
+									<div class="Raiders-middle">
+										<#list art4s as art>
+											<a href="/article/display?id=${art.id}" class="Raiders-mian "> <img src="${art.pic}" width="218" height="140">
+												<div class="Raiders-m-title">
+         											 <div class="Raiders-m-img"><img src="${art.headshot?default('')}"  width="54" height="54"></div>
+													<div class="Raiders-m-name">作者：${art.account}</div>
+														 <div class="Raiders-m-txt">${art.title}...</div>
+												</div>
+												<!--<p>类别 : 美图 </p>-->
+											</a>
+										</#list>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--领队展示-->
+					<div class="index-leader ">
+                          <div class="ym-tite-nav">
+                                <div class="ym-tite">友鸣领队</div>
+                                <a  class="more" href="/user/leaderListPath">更多</a>
+                            </div>
+						<div class="ndex-leader-main">
+							<div class="containerItem">
+								<div style="opacity: 1; display: block;" id="owl-demo2" class="owl-carousel module-list owl-theme">
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group.jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>九子</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(2).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>山大王</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(1).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>梁小怡</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(3).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>Very Wang</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(4).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>陈陈</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(5).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>大秋</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(6).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>黄家家</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(7).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>章小鱼</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(8).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>南歌</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(9).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>灵子</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(10).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>洛克飞鸟</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(11).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>漫游天际</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(12).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>洛尼</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+									<div class="owl-wrapper-outer">
+										<div class="item">
+											<a><img src="../images/group/group(13).jpg" style="display: block;" class="lazyOwl" alt="guoup" height="307" width="236"> </a>
+											<div class="owl-hover">
+												<h1>梦龙</h1>
+												<p>友鸣领队</p>
+											</div>
+										</div>
+									</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+					<!--领队展示 end-->
+				</div>
+				<!--右边  start-->
+				<div class="content-right" style="margin-top:20px;">
+					<!--人气推荐(页面公共)start-->
+                    <div  class="tabox" id= "commonRecommend">
+					
+                          <!--<div class="ym-sidelist-nav">
+                                <div class="ym-sidelist-tite">人气推荐</div>
+                                <div class="ym-sidelist-item hd">
+                                    <ul>
+                                        <li class="">租车</li>
+                                        <li class=" ">目的地</li>
+                                        <li class=" on">活动 </li>
+                                    </ul>
+                                </div>
+                            </div>
+                          <div class="bd ym-sidelist">
+                                <ul class="clearfix" style="display: block;" id="suggestCars">
+                                    <li >
+                                        <a href="/carRent"> 
+                                            <img  class="ym-list-img"  src="../images/index/huati-2.jpg">
+                                            <div class="ym-list-main">
+                                                <div class="list-txt">租车信息。。。。.</div>
+                                            </div>
+                                        </a>                                   
+                                    </li>
+                                </ul>
+                                <ul class="clearfix" style="display: none;" id="suggestActs">
+                                    <li >
+                                        <a href="/activity/actListByType?type=hot"> 
+                                            <img  class="ym-list-img"  src="../images/index/huati-2.jpg">
+                                            <div class="ym-list-main">
+                                                <div class="list-txt">活动。。。。</div>
+                                            </div>
+                                        </a>                                   
+                                    </li>
+                                </ul>
+								     <ul class="clearfix" style="display: none;" id="suggestDestinations">
+                                    <li >
+                                        <a href="/infoPath"> 
+                                            <img  class="ym-list-img"  src="../images/index/huati-2.jpg">
+                                            <div class="ym-list-main">
+                                                <div class="list-txt">目的地。。。</div>
+                                            </div>
+                                        </a>                                   
+                                    </li>
+                                </ul>
+
+                           </div>-->
+                     </div>
+                     <!--人气推荐(页面公共)end-->
+                     
+					<div class="index-advertisement">
+						<a href="/activity/actListByType?type=graduate"><img src="../images/banner/280x350-2.jpg"></a>
+					</div>
+					<div id="services">
+						<div id="equip">
+							<h4>公益活动<span>分享快乐</span></h4>
+						</div>
+						<ul>
+							<a href="/welfare/">
+							<li class="clearfix">
+								<div class="col-lg-4" style="padding:0"><img src="../images/about/about-img_10.png" width="100%" height="100%"></div>
+								<div class="col-lg-8" style="padding-right:0">
+									<h5> 致那些在一起的青春！！</h5>
+									<p>流逝的青春，翻转的年轮，如同一粒倔强的昙花种子</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-lg-4" style="padding:0"><img src="../images/index/wKgByU-rhU-0M2EUAABYY2TKeFM65.jpg" width="68" height="68"></div>
+								<div class="col-lg-8" style="padding-right:0">
+									<h5> 很爱住旅馆</h5>
+									<p>各具特色的客栈是旅行的一种风景，</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-lg-4" style="padding:0"><img src="../images/index/wKgBtE_1PtrCeEuGAAApmdbk9Do58.jpg" width="68" height="68"></div>
+								<div class="col-lg-8" style="padding-right:0">
+									<h5>“骑行·中国梦”路线图发布</h5>
+									<p>曾经风和日丽曾经看着风筝滑翔在天空的岁月里</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-lg-4" style="padding:0"><img src="../images/index/wKgByU_hovqo4nXDAABEaif-NVE79.jpg" width="68" height="68"></div>
+								<div class="col-lg-8" style="padding-right:0">
+									<h5>背包旅行</h5>
+									<p>那风风火火的岁月，都塞在了背包里</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="col-lg-4" style="padding:0"><img src="../images/index/wKgBsU_1VKv1p1MOAAAomhHsG1g33.jpg" width="68" height="68"></div>
+								<div class="col-lg-8" style="padding-right:0">
+									<h5> 最爱攀岩</h5>
+									<p>岩壁上留下的足迹，是你我心中最美的坚毅</p>
+								</div>
+							</li>
+							</a>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="index-advertisement"> 
+						<a href="/activity/actListByType?type=suggest"><img src="../images/banner/280x350.jpg"></a>
+					</div>
+					<div class="index-advertisement"> 
+						<a href="/activity/actListByType?type=weekend"><img src="../images/banner/ingde-300-2.jpg"></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!--footer start-->
+		<#include "footer.html">
+		<!--footer end-->
+		
+		<!--在线客服  start-->
+		<#include "onlineCustomServiceDiv.html">
+		<!--在线客服  end -->
+	</body>
+
+</html>

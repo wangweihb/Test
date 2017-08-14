@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣公益，${welfare.title?default('')}">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>${welfare.title?default('')}_公益活动详情_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/welfare.css" />
+		<link rel="stylesheet" href="../css/library/rtt.css" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+		</style>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/scrollTop.js"></script>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<div class="exhibition">
+			<div id="activitysearch_bread">
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">主页</a>
+					</li>
+					<li>
+						<a href="#">公益项目</a>
+					</li>
+					<li class="active">正文</li>
+				</ol>
+			</div>
+			<div class="exhibition-main">
+				<div class="exhibition-l">
+					<div class="exhibition-top">
+						<div class="exhibition-tite">
+							<h1>${welfare.title?default('')}</h1>
+							<div class="exhibition-tit"> ${welfare.publishTime?default("时间不详")}　来源: 友鸣旅行网 </div>
+						</div>
+						<div class="exhibition-text">
+							<div class="exhibition-text-r clearfix">
+								${welfare.content?default('')}
+							</div>
+						</div>
+					</div>
+					<div class="exhibition-bot">
+						<textarea range="28&amp;0" class="publisher_textarea" node-type="textEl">发表您的意见</textarea>
+					</div>
+				</div>
+				<div class="exhibition-r">
+					<div class="welfare-r-proj">
+						<dl class="clearfix">
+							<dt><span>公益 ⋅ </span>在行动</dt>
+							<dd class="welfare-action"> <img src="../images/welfare/welfare_demo4.png">
+								<h5>“母亲邮包”项目介绍<br>
+            					<span>发起人：友鸣官方</span> </h5>
+							</dd>
+							<dd class="welfare-action"> <img src="../images/welfare/welfare_demo5.png">
+								<h5>“温暖童心”项目介绍<br>
+            					<span>发起人：友鸣官方</span> </h5>
+							</dd>
+							<dd class="welfare-action"> <img src="../images/welfare/welfare_demo1.png">
+								<h5>博爱助学计划<br>
+            					<span>发起人：友鸣官方</span> </h5>
+							</dd>
+							<dd class="welfare-action"> <img src="../images/welfare/welfare_demo2.png">
+								<h5>[安老]温暖工程<br>
+            					<span>发起人：友鸣官方</span> </h5>
+							</dd>
+							<dd class="welfare-action"> <img src="../images/welfare/welfare_demo3.png">
+								<h5>“孤儿保障大行动”<br>
+            					<span>发起人：友鸣官方</span> </h5>
+							</dd>
+						</dl>
+					</div>
+					<div class="exhibition-gg"><img src="../images/index/300x400-2.jpg"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+			<!--悬浮分享功能-->
+			<script>
+				window._bd_share_config = {
+					"common": {
+						"bdSnsKey": {},
+						"bdText": "",
+						"bdMini": "2",
+						"bdMiniList": false,
+						"bdPic": "",
+						"bdStyle": "0",
+						"bdSize": "32"
+					},
+					"slide": {
+						"type": "slide",
+						"bdImg": "0",
+						"bdPos": "right",
+						"bdTop": "250"
+					},
+					"image": {
+						"viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+						"viewText": "分享到：",
+						"viewSize": "16"
+					},
+					"selectShare": {
+						"bdContainerClass": null,
+						"bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+					}
+				};
+				with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script>
+
+		</div>
+		<!--返回顶部的工具-->
+		<div id='rtt'></div>
+		<#include "footer.html">
+	</body>
+
+</html>

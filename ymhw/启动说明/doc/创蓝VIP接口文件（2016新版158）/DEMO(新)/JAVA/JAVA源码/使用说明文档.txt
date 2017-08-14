@@ -1,0 +1,1 @@
+HttpSenderTest.java是方法，需要去调用HttpSender.java类，需要加上public class HttpSender{}

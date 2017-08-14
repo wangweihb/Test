@@ -1,0 +1,116 @@
+#top{
+	width:1000px !important;
+}
+#nav{
+	width:1000px !important;
+}
+#navcontent ul li a {
+    width: 100px !important;
+}
+.art-body
+{
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 600px;
+}
+
+
+
+
+.forum-tite label{
+	
+	float:left;
+	font-size:16px;
+	color:#333;
+	width:100%;
+}
+.forum-tite label span{
+	font-size:12px;
+	color:#999;
+}
+
+.forum-tite input{
+	float:left;
+	width:100%;
+	font-size:14px;
+	color:#333;
+	line-height:32px;
+	padding:0 10px;
+	margin:15px 0;
+}
+
+.forum-tab{
+	
+}
+
+.forum-tab h5{
+	
+	float:left;
+	font-size:16px;
+	color:#333;
+	width:100%;
+	font-weight:inherit;
+}
+.forum-tab h5 span{
+	font-size:12px;
+	color:#999;
+}
+.forum-tab label{
+	position:relative;
+}
+.forum-tab a{
+	float:left;
+	font-size:14px;
+	color:#333;
+	display:block;
+	line-height:32px;
+	padding:0 20px;
+	margin:15px;
+}
+.forum-tab input{
+	border:#C9C9C9 1px solid;
+	width:68px;
+	height:32px;;
+	float:left;
+	left:0;
+	top:0;
+	position:absolute;
+}
+#routeDescEx{
+	margin-top:15px;
+	
+}
+.forum-tab a:hover{
+	background-color:#F8B101;
+	color:#FFFFFF;
+}
+
+.forum-hover{
+	background-color:#F8B101;
+	color:#FFFFFF !important;
+}
+.publisarticle-btn{
+	background-color:#EDEDED;
+	margin:15px 0 30px 0;
+	height:40px;
+	line-height:40px;
+	padding-left:15px;
+	
+}
+.button1{
+	width:150px;
+	float:right;
+}
+.button2{
+	width:150px;
+	background-color:hsla(0,0%,100%,0.00) !important;
+	color:#999 !important;
+	float:right;
+}
+.forum-tab ul{
+	margin-top: 30px;
+}
+.forum-tab ul li{
+	float: left;
+	width: 120px;
+}

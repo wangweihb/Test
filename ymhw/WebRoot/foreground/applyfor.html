@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css" />
+		<meta name="keywords" content="友鸣领队">
+		<meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<link rel="shortcut icon" href="../logo.ico" />
+
+		<title>领队申请_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/fg/register.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.datetimepicker.js"></script>
+
+		<script type="text/javascript" src="../js/fg/leader-applyfor.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<div id="topwarp" style="border-bottom: 1px solid rgb(235, 156, 20);">
+			<div class="y-container">
+				<div id="toplogo">
+					<a href="/"><img src="../images/logo.png" height="60px" /></a>
+				</div>
+
+				<!--搜索-->
+				<div class="topwarp-demo">
+					<div class="demo">
+						<ul class=" wizard_step ">
+							<li id="step1Contentli" class="current active_step">
+								<a href="javascript:toStep(1);">
+									填写信息<em></em><i></i>
+								</a>
+							</li>
+							<li id="step2Contentli">
+								<a href="javascript:toStep(2);">
+									上传证件<em></em><i></i>
+								</a>
+							</li>
+							<li id="step3Contentli">
+								<a href="javascript:toStep(3);">
+									提交审核<em></em><i></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="leaderForm" action="/user/applyforLeader" method="post" enctype="multipart/form-data">
+			<!--领队申请   start-->
+			<div id="paWrap">
+
+				<!--领队基本信息 start-->
+				<div id="step1Content" style="display: block;">
+					<div class="scTitle">
+						<h3>成为领队</h3>
+						<p>只有具备了相应的能力和知识，才能在户外照顾自己，从而有余力有机会照顾他人，户外领队将分初级、中级和高级，每个等级都包括 组织协调能力、野外生存技能、通过技能、通联与定位、自救互救五种能力的评级
+						</p>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div>
+						<div style="display: inline-block;">
+							<div class="sc1_row">
+								姓名：<input type="text" name="name" id="name" /> &nbsp;&nbsp;性别：
+								<select name="sex">
+									<option value="0">男</option>
+									<option value="1">女</option>
+								</select>
+							</div>
+
+							<div class="sc1_row">
+								手机：<input type="text" name="telphone" /> &nbsp;&nbsp;固定电话：
+								<input type="text" name="fixedNumber" />
+
+							</div>
+							<div class="sc1_row">
+								&nbsp;&nbsp;QQ：<input type="text" name="qq" />
+							</div>
+						</div>
+						<!--头像区域-->
+						<div style="display: inline-block;float: right;">
+							<input type="file" id="headUpload" style="display: none;" name="headUpload" draggable="true" single />
+							<label style="vertical-align: top; height: 30px;">上传头像 （建议尺寸300*300）： </label>
+							<img id="headImg" onclick="document.getElementById('headUpload').click();" src="../images/head_default.png" height="160" width="130" style="border: 1px solid #CFCFCF" />
+							<input type="hidden" id="headShot" name="headShot" />
+						</div>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div class="sc1_row">
+						证件类型:
+						<select name="certificateType">
+							<option value="0">身份证</option>
+							<option value="1">护照</option>
+							<option value="2">导游证</option>
+						</select>
+						&nbsp;&nbsp;证件号：<input type="text" name="certificateNum" />
+					</div>
+
+					<div class="sc1_row">
+						居住地:
+						<select name="country">
+							<option value="0">中国大陆</option>
+							<option value="1">港澳地区</option>
+							<option value="2">台湾</option>
+						</select>
+						&nbsp;&nbsp;省&nbsp;&nbsp;份：
+						<input type="text" name="province" />
+						<!--<select>
+							<option>湖北</option>
+							<option>北京</option>
+							<option>山西</option>
+						</select>-->
+						&nbsp;&nbsp;城市：
+						<input type="text" name="city" />
+						<!--<select>
+							<option>武汉</option>
+							<option>恩施</option>
+						</select>-->
+					</div>
+
+					<div class="sc1_row">
+						地址：
+						<input type="text" name="address" />
+					</div>
+
+					<div class="sc1_row">
+						应急联系人：
+						<input type="text" name="emergencyPerson" /> 电话：
+						<input type="text" name="emergencyPhone" /> 关系：
+						<!--<input type="text" name="" style="width: 120px;"/>-->
+						<select name="emergencyRelation">
+							<option value="1">家人</option>
+							<option value="2">朋友</option>
+							<option value="3">同学</option>
+							<option value="4">同事</option>
+						</select>
+					</div>
+					<hr class="dotLine" />
+
+					<div class="sc1_row" style="text-align: center;">
+						请阅读并确认友鸣官方领队管理条例
+						<input type="checkbox" id="readProcal" />
+					</div>
+
+					<div class="pa_next">
+						<a href="javascript:affrim();">确认</a>
+					</div>
+				</div>
+				<!--领队基本信息 end-->
+
+				<!--上传证件    start-->
+				<div id="step2Content" style="display: none;">
+					<div class="scTitle">
+						<h3>上传证件</h3>
+						<p>请上传符合领队资料有关的证件给予我们审核</p>
+					</div>
+					<!--<hr class="dotLine" />-->
+
+					<div id="mainLicense">
+						<div>
+							<div class="sc1_row">
+								<label style="width: 12%;">证件照正面:</label>
+								<input type="file" id="imgUpload1" style="display: none;" name="imgUpload1" draggable="true" single />
+								<a href="javascript:document.getElementById('imgUpload1').click();" class="sc1_btn1">上传证件正面照</a>
+								<!--<input type="text" style="width: 350px;" />-->
+								<input type="hidden" id="certificateFront" name="certificateFront" value="" />
+							</div>
+							<div id="imgUpload1Content" class="imgBox"></div>
+							<img src="../images/licenseDemo2.png" style="vertical-align: top;margin-left: 20px; float:right" />
+						</div>
+						<div>
+							<div class="sc1_row">
+								<label style="width: 12%;">证件照背面:</label>
+								<input type="file" id="imgUpload2" style="display: none;" name="imgUpload2" draggable="true" single />
+								<a href="javascript:document.getElementById('imgUpload2').click();" class="sc1_btn1">上传证件背面照</a>
+								<!--<input type="text" style="width: 350px;" />-->
+								<input type="hidden" id="certificateBack" name="certificateBack" value="" />
+							</div>
+							<div id="imgUpload2Content" class="imgBox">
+								<img />
+							</div>
+							<img src="../images/licenseDemo1.png" style="vertical-align: top;margin-left: 20px;float:right" />
+						</div>
+
+						<div>
+							<div class="sc1_row">
+								<label style="width: 12%;">手持证件:</label>
+								<input type="file" id="imgUpload3" style="display: none;" name="imgUpload3" draggable="true" single />
+								<a href="javascript:document.getElementById('imgUpload3').click();" class="sc1_btn1">上传手持证件照</a>
+								<!--<input type="text" style="width: 350px;" />-->
+								<input type="hidden" id="certificateHander" name="certificateHander" value="" />
+							</div>
+							<div id="imgUpload3Content" class="imgBox">
+								<img />
+							</div>
+							<img src="../images/licenseDemo3.png" style="vertical-align: top;margin-left: 20px;float:right" />
+						</div>
+
+					</div>
+
+					<div style="height:30px;line-height:30px;border-bottom: 1px dashed #D3D3D3;">
+						其他相关证书（导游证/英语等级证）
+					</div>
+					<div>
+						<div class="sc1_row">
+							<label style="width: 12%;">其他证件：</label>
+							<input type="file" id="imgUpload4" style="display: none;" name="imgUpload4" draggable="true" single />
+							<a href="javascript:document.getElementById('imgUpload4').click();" class="sc1_btn1">上传其他证件照</a>
+							<!--<input type="text" style="width: 350px;" />-->
+							<input type="hidden" id="otherCertificate" name="otherCertificate" value="" />
+						</div>
+						<div id="imgUpload4Content" class="imgBox">
+							<img />
+						</div>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div class="pa_next">
+						<a href="javascript:toNext(2,3);">确认</a>
+					</div>
+				</div>
+				<!--上传证件    end-->
+
+				<!--上传履历   start-->
+				<div id="step3Content" style="display: none;">
+					<div class="scTitle">
+						<h3>我的履历</h3>
+						<p>履历越详细越容易通过审核</p>
+					</div>
+					<hr class="dotLine" />
+
+					<div class="sc1_row">
+						<label style="width: 15%;">人生格言:</label>
+						<input type="text" name="motto" style="width: 84%;" placeholder="80字以内" />
+					</div>
+
+					<div class="">
+						<label style="width: 15%;">户外履历：</label>
+						<textarea name="outdoorExperience" style="vertical-align: top;width: 84%;height: 200px;" placeholder="填写户外履历会更快更好通过哦"></textarea>
+					</div>
+
+					<div class="" style="margin-top: 10px;">
+						<label style="width: 15%;">学习培训经历：</label>
+						<textarea name="studyExperience" style="vertical-align: top;width: 84%;height: 200px;" placeholder="填写学习培训经历，客人会更加青睐你哦"></textarea>
+					</div>
+
+					<div class="sc1_row">
+						<label style="width: 15%;">履历上传:</label>
+						<input type="file" id="expUpload" style="display: none;" name="expUpload" draggable="true" single />
+						<a href="javascript:document.getElementById('expUpload').click();">点击上传</a>
+						仅支持文档格式，注明活动项目/时间/人员调配/活动照片
+					</div>
+					<hr class="dotLine" />
+
+					<div class="pa_next">
+						<a href="javascript:check();">提交审核</a>
+					</div>
+
+				</div>
+				<!--上传履历   end-->
+
+			</div>
+		</form>
+		<!--领队申请    end-->
+
+		<!--<div>
+			<#include "footer.html">
+		</div>-->
+
+	</body>
+
+</html>

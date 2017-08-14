@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="../../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../../css/public_fg.css" />
+		<link rel="stylesheet" href="../../css/index_fg.css" />
+		<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="stylesheet" href="../../css/check.css">
+		<link rel="shortcut icon" href="../../logo.ico"/>
+		<title>友鸣旅行网-装备上传结果</title>
+		<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/public/tool.js" ></script>
+		<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/checkList.js"></script>	
+		
+	</head>
+	<body>
+		<!--公共顶部   start-->
+		
+		<div id="mainWrap">
+			<div >
+				<table class="table table-bordered">
+				   <caption>已上传活装备列表</caption>
+				   <thead>
+				      <tr>
+				         <th>装备名称</th>
+				         <th>上传时间</th>
+				         <th>审核结果</th>
+				         <th>审核意见</th>
+				         <th>操作</th>
+				      </tr>
+				   </thead>
+				   <tbody>
+				   	  <#list equips as equip>
+				   	  	<tr>
+				         <td>${equip.name}</td>
+				         <td>${equip.uploadTime?default("")?string("yyyy-MM-dd")}</td>
+				         <td>
+				         	<#if (equip.checkStatus) == 3>
+				         		通过
+				         	</#if>
+				         	<#if (equip.checkStatus) == 2>
+				         		未通过
+				         	</#if>
+				         	<#if (equip.checkStatus) == 1>
+				         		未审核
+				         	</#if>
+				         </td>
+				         <td>${equip.checkMsg}</td>
+				         <td>
+				         	<#if (equip.checkStatus) == 2>
+				         		<a href="/manage_equip/edit?id=${equip.id}">修改</a>
+				         		<#else>
+				         			无
+				         	</#if>
+				         	
+				         </td>
+				       </tr>
+				   	  </#list>
+				   </tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+		
+		<!--引用尾部-->
+		<#include "footer.html">
+	</body>
+</html>

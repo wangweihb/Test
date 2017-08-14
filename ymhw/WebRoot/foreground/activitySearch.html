@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="恩施旅游线路">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+        
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<style type="text/css">
+			#topcontent{line-height: 30px;color: #eee !important;}
+		</style>
+		<title>旅游线路搜索_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/searchActivity.js"></script>
+	</head>
+
+	<body style=" background-color:#f2f2f2">
+		<!--引用头部-->
+        <#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent" >
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<!--公共顶部   start-->
+
+		<!--活动搜索页内容 start-->
+		<div id="activitysearchwrap">
+			<!--面包屑导航 start-->
+			<div id="activitysearch_bread">
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">主页</a>
+					</li>
+					<li class="active">
+						<a href="#">活动搜索</a>
+					</li>
+					<!--<li><a href="#">热门活动</a></li>
+				  <li class="active">兴趣类型：徒步</li>-->
+				</ol>
+			</div>
+			<!--面包屑导航 end-->
+
+			<!--多选项区域  start-->
+			<div id="activitysearch_options">
+				<div id="activitysearch_option2" class="bottomline">
+					<div class="optionTip">热门类型：
+					</div>
+
+					<div class="selectbox">
+						<ul>
+							<li><input type="checkbox" name="hotType" value="1" onclick="javascript:multiSearch();" data-labelauty="快乐周末"></li>
+							<li><input type="checkbox" name="hotType" value="2" onclick="multiSearch();" data-labelauty="当季热门"></li>
+							<li><input type="checkbox" name="hotType" value="3" onclick="multiSearch();" data-labelauty="毕业狂欢"></li>
+							<li><input type="checkbox" name="hotType" value="4" onclick="multiSearch();" data-labelauty="企业拓展"></li>
+							<li><input type="checkbox" name="hotType" value="5" onclick="multiSearch();" data-labelauty="魅力恩施 "></li>
+							<div class="clearfix"></div>
+						</ul>
+						<input type="hidden" id="xxx" name="xxx" value="" />
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="activitysearch_option1" class="bottomline">
+					<div class="optionTip">活动类型：
+					</div>
+
+					<div class="selectbox" style="height: 120px;">
+						<ul>
+							<li><input type="checkbox" name="contentType" value="1" onclick="multiSearch();" data-labelauty="休闲"></li>
+							<li><input type="checkbox" name="contentType" value="2" onclick="multiSearch();" data-labelauty="乡村游"></li>
+							<li><input type="checkbox" name="contentType" value="3" onclick="multiSearch();" data-labelauty="烧烤"></li>
+							<li><input type="checkbox" name="contentType" value="4" onclick="multiSearch();" data-labelauty="露营"></li>
+							<li><input type="checkbox" name="contentType" value="5" onclick="multiSearch();" data-labelauty="滑雪"></li>
+							<li><input type="checkbox" name="contentType" value="6" onclick="multiSearch();" data-labelauty="摄影"></li>
+							<li><input type="checkbox" name="contentType" value="7" onclick="multiSearch();" data-labelauty="垂钓"></li>
+							<li><input type="checkbox" name="contentType" value="8" onclick="multiSearch();" data-labelauty="背包"></li>
+							<li><input type="checkbox" name="contentType" value="9" onclick="multiSearch();" data-labelauty="登山"></li>
+							<li><input type="checkbox" name="contentType" value="10" onclick="multiSearch();" data-labelauty="攀岩"></li>
+							<li><input type="checkbox" name="contentType" value="11" onclick="multiSearch();" data-labelauty="探险"></li>
+							<li><input type="checkbox" name="contentType" value="13" onclick="multiSearch();" data-labelauty="漂流"></li>
+							<li><input type="checkbox" name="contentType" value="14" onclick="multiSearch();" data-labelauty="越野 "></li>
+							<li class="left-space"><input type="checkbox" name="contentType" value="15" onclick="multiSearch();" data-labelauty="真人CS"></li>
+							<li><input type="checkbox" name="contentType" value="16" onclick="multiSearch();" data-labelauty="溯溪 "></li>
+							<li><input type="checkbox" name="contentType" value="17" onclick="multiSearch();" data-labelauty="潜水 "></li>
+							<div class="clearfix"></div>
+						</ul>
+						<input type="hidden" id="xxx" name="xxx" value="" />
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+				<div id="activitysearch_option3" class="bottomline">
+					<div class="optionTip">
+						出发日期：
+					</div>
+					<div class="selectbox" style="border:none">
+						<ul>
+							<li><input type="radio" name="timeType" value="1" onclick="multiSearch();" data-labelauty="本周"></li>
+							<li><input type="radio" name="timeType" value="2" onclick="multiSearch();" data-labelauty="下周"></li>
+							<li><input type="radio" name="timeType" value="3" onclick="multiSearch();" data-labelauty="本月"></li>
+							<li><input type="radio" name="timeType" value="4" onclick="multiSearch();" data-labelauty="下月"></li>
+							<!--<li><input type="checkbox" name="timeType" value="5" data-labelauty="自定义"></li>-->
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<!--多选项区域  end-->
+
+			<!--更多选项  start-->
+			<!--<div id="activitysearch_moreoptions">
+				<ul id="tabAll">
+					<li id="tabSuggest" onclick="tabOpt('tabSuggest');">推荐</li>
+					<li id="tabComprehensive" class="clickedOption" onclick="tabOpt('tabComprehensive');">综合</li>
+					<li id="tabSales" onclick="tabOpt('tabSales');">销量</li>
+					<li id="tabPrice" onclick="tabOpt('tabPrice');">价格</li>
+				</ul>
+				<div id="priceSearch">
+					<form action="" method="">
+						<label style="vertical-align: top;">价格区间：</label>
+						<input id="startPrice" type="text" />
+						<label style="vertical-align: top;">--</label>
+						<input id="endPrice"   type="text" style="" />
+					</form>										
+				</div>
+			</div>-->
+			<!--更多选项   end-->
+
+			<!--下方内容展示 start-->
+			<div id="activitysearchshow">
+
+				<!--活动搜索内容展示 start-->
+				<div id="activitysearch_left_show">
+
+					<!--内容一-->
+					<#list activities as act>
+						<div id="activityDispaly1" class="aboutDisplay">
+							<div class="aboutDisplay_left">
+								<a href="/activity/display?activityId=${act.id}">
+									<img src="${act.pic}" />
+								</a>
+							</div>
+							<div class="aboutDisplay_middle">
+
+								<div class="descTip2">
+									<a href="/activity/display?activityId=${act.id}">${act.title}</a>
+								</div>
+								<div class="descTip3">
+									<span>
+									<#if act.desc?length lt 30>
+										${act.desc?default("")}
+										<#else>
+										${act.desc?default("")}
+									</#if>
+								</span>
+								</div>
+								<div class="descTip4">
+									<span>
+									友鸣官方
+								</span>
+								</div>
+							</div>
+
+							<div class="aboutDisplay_right">
+								<div class="otherdesc1">
+									<div class="stressed1">${act.cost}</div>
+									<span>促销价</span>
+								</div>
+								<div class="otherdesc2">
+									<button type="text" class="otherdesc-button btn btn-default"> <a href="/activity/display?activityId=${act.id}">报名</a></button>
+								</div>
+
+							</div>
+						</div>
+					</#list>
+					<div class="clearfix"></div>
+				</div>
+				<!--活动搜索内容展示 end-->
+
+				<!--其他 start-->
+				<div id="activitysearch_right_othershow" style="width: 280px;">
+					<div id="hotRoute">
+						<div id="hotRoute_top">
+							<span>热门线路</span>
+						</div>
+
+						<div id="hotRoute_bottom">
+							<#list hotActivities as hotAct>
+								<!--线路一-->
+								<div id="hotRoute1" class="routeContent" onclick="javascript:goToDisplay(${hotAct.id})">
+									<div class="routepic">
+										<a href="#">
+											<img src="${hotAct.pic}" />
+										</a>
+									</div>
+									<div class="routeDesc">
+										<h4>${hotAct.title}</h4>
+										<p>${hotAct.desc}</p>
+
+									</div>
+								</div>
+							</#list>
+							<div class="clearfix"></div>
+						</div>
+						<div class="index-advertisement">
+							<img src="../images/index/300x400-2.jpg">
+						</div>
+
+					</div>
+					<!--热门线路 end-->
+
+					<!--月最佳领队 start-->
+					<!--<div id="bestLeader">
+						<div id="bestLeader_top">
+							最佳领队
+						</div>
+						<div id="bestLeader_bottom">
+							<a><img src="../images/testLeader.png"/></a>
+						</div>
+					</div>-->
+					<!--月最佳领队 start-->
+
+					<!--广告区域 start-->
+
+					<!--广告区域 end-->
+				</div>
+				<!--其他 end-->
+				<div class="clearfix"></div>
+			</div>
+			<!--下方内容展示 end-->
+
+		</div>
+		<!--活动搜索页内容 start-->
+		<div style="clear: both;">
+			<#include "footer.html">
+		</div>
+
+		<!--footer start-->
+
+	</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>友鸣后台-周边目的地信息管理</title>
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta name="keywords" content="">
+    	<meta name="description" content="">
+    	<link href="../../css/library/bootstrap.min.css" rel="stylesheet">
+    	<link href="../../wangEditor-2.1.23/dist/css/wangEditor.min.css" rel="stylesheet">
+    	<link href="../../css/bg/jquery.timepicker.css" rel="stylesheet"/>
+    	<link href="../../css/bg/bootstrap-datepicker.css" rel="stylesheet"/>
+    	<link href="../../css/bg/info_manage.css" rel="stylesheet"/>
+    	<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/jquery.timepicker.min.js" ></script>
+		<script type="text/javascript" src="../../js/bg/info/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/info_manage.js"></script>
+		
+	</head>
+	<body>
+		<form id= "main" method="post" action="/manage/infoUpload" enctype="multipart/form-data" class="form-horizontal container" role="form">
+		<div>
+			<div><h1>周边目的地信息上传</h1></div>
+			<hr />
+			<div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">标题 ：</label>
+                    <div class="col-sm-10">
+                    	<input id="infoTitle"  class="form-control" type="text" name="infoTitle" />
+                    </div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">具体地址 ：</label>
+					<div id="distpicker" class="col-sm-6" style="display: inline-block;">
+					  <select name="provice"></select>
+					  <select name="city"></select>
+					  <select name="region"></select>
+					</div>
+					<label for="inputEmail3" class="col-sm-1 control-label">街道地址 </label>
+                    <div class="col-sm-3">
+                    	<input  class="form-control" type="text" name="streetAddress" />
+                    </div>
+                </div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">类型：</label>
+					<div  class="col-sm-10">
+						<select name="type">
+							<option value="1">休闲旅游</option>
+							<option value="2">激情户外</option>
+							<option value="3">家庭活动</option>
+							<option value="4">民宿营地</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">开放时间：</label>
+                    <div class="col-sm-10">
+                    	<input type="text" id="openStartTime" name="openStartTime" value="00:00" class="time">
+						--
+						<input type="text" id="openEndTime" name="openEndTime" value="00:00" class="time">
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">最佳季节 ：</label>
+                    <div class="col-sm-10">
+                    	<input id="travelSeason" name="travelSeason"  class="form-control" type="text" placeholder="如 春秋季" />
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">建议游玩时长 ：</label>
+                    <div class="col-sm-10">
+                    	<input id="duration" name="duration"  class="form-control" type="text" placeholder="如 4-5小时" />
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">联系电话：</label>
+                    <div class="col-sm-10">
+                    	<input id="contactNumber" name="contactNumber"  class="form-control" type="text"/>
+                    </div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">景区等级划分：</label>
+					<div  class="col-sm-10">
+						<select name="grade">
+							<option value="1">1A</option>
+							<option value="2">2A</option>
+							<option value="3">3A</option>
+							<option value="4">4A</option>
+							<option value="5">5A</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">价格(单位：元)：</label>
+                    <div class="col-sm-10">
+                    	<input id="totalPrice" name="totalPrice"  class="form-control" type="text" placeholder="输入数字"/>
+                    </div>
+				</div>
+				<hr />
+				<div class="form-group">
+					<div class="col-sm-2 left-float" style="height: 200px;">
+						<label for="inputEmail3" class="control-label">主题图： <small>(只支持图片文件,建议尺寸  x * y,4~8张为宜)</small></label>
+					</div>
+					<div class="col-sm-9 left-float">
+						<div style="height: 45px;">
+							<input id="subjectImg"  name="subjectImg" accept="image/gif,image/png,image/jpeg" type="file" multiple/>
+						</div>
+	                    <div id="imgContainer" class="col-sm-12" style="border: 1px solid gainsboro;">
+							<!--<img id="tmpImg" src="" width="180" height="150"/>-->
+	                    </div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">相关标签 ：<br><small>(多选)  </small><br><br></label>
+					<div  class="clo-sm-10  info-dx">
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="1" />烧烤</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="2" />露营</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="3" />徒步</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="4" />行摄</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="5" />采摘</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="6" />滑雪</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="7" />登山</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="8" />探险</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="9" />垂钓</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="10" />溯溪</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="11" />漂流</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="12" />冲浪</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="13" />美食</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="14" />休闲</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="15" />度假</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="16" />背包客</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="17" />旅拍</label>
+						<label class="checkbox inline"> <input type="checkbox" name="infoTag" value="18" />境外</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="19" />商旅</label>
+						 <label class="checkbox inline"><input type="checkbox" name="infoTag" value="20" />休闲娱乐</label>
+	                     <!--<div class="clearfix"></div>-->
+					</div>
+				</div> 
+				<hr />
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">简要描述 ：</label>
+					<div class="col-sm-10">
+						<textarea id="contDesc" name="contDesc" rows="4" cols="20"></textarea>
+					</div>
+				</div>
+				<div  class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">交通指南：</label>
+					<div class="col-sm-10">
+						<textarea id="transportInfo"  name="transportInfo" rows="4" cols="20"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">农家乐信息：</label>
+					<div class="col-sm-10">
+						(可以添加多个，没有可以不填，请提交本页面信息后单独为此目的地上传)&nbsp;&nbsp;
+						<a href="#">转向</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">民宿信息：</label>
+					<div class="col-sm-10">
+						(可以添加多个，没有可以不填，请提交本页面信息后单独为此目的地上传)&nbsp;&nbsp;
+						<a href="#">转向</a>
+					</div>
+				</div>
+				<!--<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">子模块编辑 ：</label>
+					<div class="col-sm-10">
+						<a class="btn btn-default" href="javascript:addModule();" role="button">添加新模块</a>
+					</div>
+				</div>
+				<hr />
+				<div id = "allchild">
+					<div id="nullModule" name="childModule" class="onechild"  style="display: none;">
+						<span class="glyphicon glyphicon-remove" style="vertical-align: super; float: right;" onclick="return remModule(this);"></span>
+						<div  class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">子模块标题 ：</label>
+							<div class="col-sm-10">
+								<input id="nullTitle" type="text" name="childInfoTitleNull" maxlength="45" />
+							</div>
+						</div>
+						<div  class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">子模块内容 ：</label>
+							<div class="col-sm-10">
+								<textarea id="nullChildInfoDesc"  name="childInfoDescNull" rows="4" cols="20"></textarea>
+							</div>
+						</div>
+					</div>
+					<hr>
+				</div>-->
+				</div>
+				<div class="info-btn col-sm-offset-4">
+					<button id="sub"  type="button" class="btn btn-warning">提交</button>
+				</div>
+			</div>
+		</div>
+		</form>			
+
+	</body>
+	
+	<script type="text/javascript" src="../wangEditor-2.1.23/dist/js/wangEditor.min.js"></script>
+	<script type="text/javascript" src="../js/library/distpicker.data.js"></script>
+	<script type="text/javascript" src="../js/library/distpicker.js"></script>
+</html>

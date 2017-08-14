@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>收银台</title>
+		<link href="../../css/pay/reset.css" rel="stylesheet" type="text/css">
+		<script src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script src="../../js/library/mtjsencrypt.min.js"></script>
+		<link href="../../css/pay/main.css" rel="stylesheet" type="text/css">
+		<script>
+			var lastClickTime;
+			var orderNo = "14946785875481612924";
+			$(function() {
+				$('.PayMethod12 ul li').each(function(index, element) {
+					$('.PayMethod12 ul li').eq(5 * index + 4).css('margin-right', '0')
+				});
+
+				//支付方式选择
+				$('.PayMethod12 ul li').click(function(e) {
+					$(this).addClass('active').siblings().removeClass('active');
+				});
+
+				$(".pay_li").click(function() {
+					$(".pay_li").removeClass("active");
+					$(this).addClass("active");
+				});
+				//点击立即支付按钮
+				$(".immediate_pay").click(function() {
+					//判断用户是否选择了支付渠道
+					if(!$(".pay_li").hasClass("active")) {
+						message_show("请选择支付功能");
+						return false;
+					}
+					//获取选择的支付渠道的li
+					var payli = $(".pay_li[class='pay_li active']");
+					if(payli[0]) {
+//						prepay(payli.attr("data_power_id"), payli.attr("data_product_id"));
+
+						var payChannelId = payli.attr("data_power_id");
+						var billNo=$("#billNo").val();
+						var proDesc=$("#proDesc").val();
+						var proName=$("#proName").val();
+						var cost =$("#cost").val();
+//						window.location = "/pay/start?payChannelId="+payChannelId+"&billNo="+billNo+"&proName="+proName+"&proDesc="+proDesc+"&cost=" +cost;
+						window.location = "/pay/start_act?payChannelId="+payChannelId+"&billNo="+billNo;
+					} else {
+						message_show("请重新选择支付功能");
+					}
+				});
+
+				$('.mt_agree').click(function(e) {
+					$('.mt_agree').fadeOut(300);
+				});
+
+				$('.mt_agree_main').click(function(e) {
+					return false;
+				});
+
+				//弹窗
+				// 		$('.pay_sure12').click(function(e) {
+				// 			$(this).fadeOut();
+				// 		});
+
+				$('.pay_sure12-main').click(function(e) {
+					//e. stopPropagation();
+					return false;
+				});
+			});
+
+			//预下单
+			function prepay(powerId, proId) {
+				var now = new Date().getTime();
+				if((now - lastClickTime) < 2 * 1000) { //点击时间间隔不能小于2s
+					message_show("手真快，慢点");
+					return;
+				} else {
+					lastClickTime = now;
+				}
+
+				$.ajax({
+					type: "POST",
+					dataType: "JSON",
+					url: "/newsdk/v1.0/prepay/" + powerId,
+					async: false,
+					data: {
+						orderNo: orderNo,
+						proId: proId
+					},
+					success: function(data) {
+						if(data.extra != undefined) {
+							if('3000000011' == powerId) { //支付宝
+								$('.pay_sure12').fadeIn();
+								window.open("/newsdk/v1.0/goZhiFuBao_pc/" + orderNo);
+							} else if('3000000021' == powerId) { //微信
+								window.location.href = "/newsdk/v1.0/goWeixin_pc/" + orderNo + "?" + data.extra;
+							} else if('3000000031' == powerId) { //银联
+								$('.pay_sure12').fadeIn();
+								window.open("/newsdk/v1.0/goYinLian_pc/" + orderNo);
+							} else if('3000000041' == powerId) { //京东
+								$('.pay_sure12').fadeIn();
+								window.open("/newsdk/v1.0/goJingDong_pc/" + orderNo);
+							} else if('3000000051' == powerId) { //点卡支付
+								window.location.href = "/newsdk/v1.0/goChargeCard_pc/" + orderNo;
+							}
+						} else {
+							message_show("支付遇到问题：" + data.errorMsg + "(错误码：" + data.errorCode + ")");
+							//confirm("该支付方式出现故障，请选择其他支付方式！(错误码："+data.errorCode+")");
+							return false;
+						}
+					}
+				});
+			}
+
+			function callback_pc() {
+				window.location.href = "/newsdk/notify/v1.1/callback_pc/14946785875481612924";
+			}
+
+			function hide() {
+				$('.pay_sure12').fadeOut(300);
+			}
+			
+			
+			
+		</script>
+
+	</head>
+
+	<body style="background-color:#f9f9f9">
+		<!--弹窗开始-->
+		<div class="pay_sure12">
+			<div class="pay_sure12-main">
+				<h2>支付确认</h2>
+				<h3 class="h3-01">请在新打开的页面进行支付！<br><strong>支付完成前请不要关闭此窗口。</strong></h3>
+				<div class="pay_sure12-btngroup">
+					<a class="immediate_button immediate_payComplate" onclick="callback_pc();">已完成支付</a>
+					<a class="immediate_button immediate_payChange" onclick="hide();">更换支付方式</a>
+				</div>
+				<p>支付遇到问题？请联系 <span class="f12 blue">明天云平台</span> 客服获得帮助。</p>
+			</div>
+		</div>
+		<!--弹窗结束-->
+		<!--导航-->
+		<div class="w100 navBD12">
+			<div class="w1080 nav12">
+				<div class="nav12-left">
+					<a href="http://www.yomiing.com"><img src="../../images/pay/logo12.png"></a>
+					<img class="hidden-xs" src="../../images/pay/logo-tip12.png">
+				</div>
+				<div class="nav12-right">
+					<img class="show-lg" src="../../images/pay/phone12.png">
+					<img class="show-xs" src="../../images/pay/phone12-xs.png">
+				</div>
+			</div>
+		</div>
+		<!--订单金额-->
+		<div class="w1080 order-amount12">
+			<ul class="order-amount12-left">
+				<li>
+					<span>商品名称：</span>
+					<span>${proName?default('')}</span>
+					<input type="hidden" id="proName" name="proName" value="${proName?default('')}" />
+				</li>
+				<li>
+					<span>商品描述：</span>
+					<span>${proDesc?default('')}</span>
+					<input type="hidden" id="proDesc" name="proDesc" value="${proDesc?default('')}" />
+				</li>
+				<li>
+					<span>订单编号：</span>
+					<span>${billNo?default('')}</span>
+					<input type="hidden" id="billNo" name="billNo" value="${billNo?default('')}" />
+				</li>
+			</ul>
+			<div class="order-amount12-right">
+				<span>订单金额：</span>
+				<strong>${cost?default(0.0)}</strong>
+				<input type="hidden" id="cost" name="cost" value="${cost?default(0.0)}" />
+				<span>元</span>
+			</div>
+		</div>
+		<!--支付方式-->
+		<div class="w1080 PayMethod12">
+			<div class="row">
+				<h2>支付方式</h2>
+				<ul>
+					<li class="pay_li active" data_power_id="3000000011" data_product_id="3000000001">
+						<i class="i1"></i>
+						<span>支付宝</span>
+					</li>
+
+					<li class="pay_li" data_power_id="2100000001" data_product_id="3000000001">
+						<i class="i2"></i>
+						<span>微信支付</span>
+					</li>
+
+					<!--<li class="pay_li" data_power_id="3000000031" data_product_id="3000000001">
+						<i class="i3"></i>
+						<span>银联支付</span>
+					</li>
+
+					<li class="pay_li" data_power_id="3000000041" data_product_id="3000000001">
+						<i class="i4"></i>
+						<span>京东支付</span>
+					</li>
+
+					<li class="pay_li" data_power_id="3000000051" data_product_id="3000000001">
+						<i class="i5"></i>
+						<span>充值卡</span>
+					</li>-->
+					<form id="form" action="http://trans.itppay.com/newsdk/api/v1.0/cli/order_api/0" method="post">
+						<input type="hidden" id="orderInfo" name="orderInfo" value="">
+					</form>
+					
+				</ul>
+			</div>
+		</div>
+		<!--立即支付-->
+		<div class="w1080 immediate-pay12">
+			<div class="immediate-pay12-right">
+				<span>需支付：<strong>${cost?default(0.0)}</strong>元</span>
+				<a class="immediate_pay">立即支付</a>
+			</div>
+		</div>
+		<div class="mt_agree">
+			<div class="mt_agree_main">
+				<h2>提示信息</h2>
+				<p id="errorContent" style="text-align:center;line-height:36px;"></p>
+				<a class="close_btn" onClick="message_hide()">确定</a>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="w1080 footer12">
+			<!--<p>京ICP证150892号 京ICP备15001719号－10</p>-->
+			<p>友鸣户外咨询策划有限责任公司版权所有 ©2015-2020。</p>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		function message_show(message) {
+			$("#errorContent").html(message);
+			$('.mt_agree').fadeIn(300);
+		}
+
+		function message_hide() {
+			$('.mt_agree').fadeOut(300);
+		}
+	</script>
+
+</html>

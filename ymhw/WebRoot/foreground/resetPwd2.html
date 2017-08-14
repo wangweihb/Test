@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣找回密码">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>找回密码第二步_友鸣旅行网</title>
+		
+		<link type="text/css" href="../css/password.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/fg/resetPwd.js"></script>
+		<script type="text/javascript">
+			//导航定位
+			$(function() {
+				// $(".nav li:eq(2) a:first").addClass("navCur")
+				//验证手机 邮箱 
+				$(".selyz").change(function() {
+					var selval = $(this).find("option:selected").val();
+					if(selval == "0") {
+						$(".sel-yzsj").show()
+						$(".sel-yzyx").hide()
+					} else if(selval == "1") {
+						$(".sel-yzsj").hide()
+						$(".sel-yzyx").show()
+					}
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="topwarp" style="border-bottom: 1px solid rgb(235, 156, 20); height:70px !important;">
+			<div id="top">
+				<div id="toplogo" style="margin-top:10px;">
+					<a href="/"><img src="../images/logo.png" height="50px" /></a>
+				</div>
+				<div class="top-tel" style="padding-top:15px;">
+					<h6>找回密码</h6>
+				</div>
+				<!--搜索-->
+
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="web-width">
+				<div class="for-liucheng">
+					<div class="liulist"></div>
+					<div class="liulist  for-cur"></div>
+					<div class="liulist"></div>
+					<div class="liulist"></div>
+					<div class="liutextbox">
+						<div class="liutext"><em>01</em><strong>填写账户名</strong></div>
+						<div class="liutext for-cur"><em>02</em><strong>验证身份</strong></div>
+						<div class="liutext"><em>03</em><strong>设置新密码</strong></div>
+					</div>
+				</div>
+				<!--for-liucheng/-->
+				<form id="pwdForm" action="/login/resetPwdPath3" method="get" class="forget-pwd">
+					<dl>
+						<dt>验证方式：</dt>
+						<dd>
+							<select class="selyz">
+								<option value="0">通过手机验证</option>
+								<!--<option value="1">通过邮箱验证</option>-->
+							</select>
+						</dd>
+						<div class="clears"></div>
+					</dl>
+					
+					<dl class="sel-yzsj">
+						<dt>已验证手机：</dt>
+						
+						<dd><input placeholder="请输入短信验证码" name="vbcode" id="vbcode" autocapitalize="off" myholder="已验证手机" type="text" value=""/></dd>
+						<div class="clears"></div>
+						<input type="hidden" id = "telphoneHidden" name="telphoneHidden" value="${telphone}" />
+					</dl>
+					<!--<dl class="sel-yzyx">
+						<dt>已验证邮箱：</dt>
+						<dd><input placeholder="已验证邮箱" name="mobile" id="mobile" autocapitalize="off" myholder="已验证邮箱" type="text" /></dd>
+						<div class="clears"></div>
+					</dl>-->
+					<dl>
+						<dt>手机校验码：</dt>
+						<dd>
+							<!--<input placeholder="验证码"  style="width:40%; margin-right:5%" name="mobile" id="mobile" autocapitalize="off" myholder="验证码" type="text" />-->
+							<button id="sendBut" style="width:84%" onclick="return sendsms();">通过手机*******${last4}获取短信验证码</button></dd>
+						<div class="clears"></div>
+					</dl>
+					<input type="hidden" name="userId" id="userId" value="${user.id}" />
+					<div class="subtijiao"><input type="submit" value="提交" /></div>
+				</form>
+				<!--forget-pwd/-->
+			</div>
+			<!--web-width/-->
+		</div>
+		<!--content/-->
+
+	</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="恩施旅游线路，旅游精选攻略,${strategy.title?default('')}">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>${strategy.title?default('')}_精选攻略详情_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/introduce.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/library/rtt.css" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+			#navsearch{width: 1000px;}
+		</style>
+		<script src="../js/library/jquery-1.11.3.min.js"></script>
+		<script src="../js/library/bootstrap.min.js"></script>
+		<script src="../js/library/jquery.SuperSlide.js"></script>
+		<script src="../js/library/scrollTop.js"></script>
+		<script src="../js/fg/common_oper.js"></script>
+		<link rel="shortcut icon" href="../logo.ico" />
+	</head>
+
+	<body>
+
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<!--导航区域 end-->
+		<!--内容区域  start-->
+		<div class="banner400">
+			<img class="content1000" src="../images/banner/raiders-banner.jpg">
+			<img class="banner400-bj" src="../images/banner/raiders-banner.jpg">
+		</div>
+
+		<!--收藏-->
+		<div class="ym-release ">
+			<div class="content1000">
+				<div class="content-left">
+					<div class="ym-release-name">原创
+						<a href="#"> 友鸣官方</a>
+					</div>
+					<div class="ym-release－tite">${strategy.time}</div>
+				</div>
+				<div class="content-right">
+					<a class="ym-release-share">分享</a>
+					<a class="ym-release-collection">收藏</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content1000 clearfix" style="margin-bottom: 50px;">
+
+			<div class="content-left">
+				<div class="raider-main">
+					<div class="article flight">
+						<div class="article-tite">${strategy.title}</div>
+						<div class="article-txt">
+							${strategy.content?default('')}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-right">
+				<div class="article-nav">
+					<!--人气推荐(页面公共)start-->
+					<div class="tabox" id="commonRecommend"></div>
+				</div>
+			</div>
+		</div>
+		<!--footer start-->
+		<#include "footer.html">
+		<!--返回顶部的工具-->
+		<div id='rtt'></div>
+		<!--footer end-->
+		<script type="text/javascript">
+			jQuery(".tabox").slide({
+				delayTime: 0
+			});
+		</script>
+		<script>
+			$(function() {
+				$(window).scroll(function() {
+					var winTop = $(window).scrollTop();
+					var winBottom = $(document).height() - $(window).height() - winTop;
+					// 浮动工具栏的高度 724 底部工具栏的高度361
+					var maxBottom = 724 + 361 - $(window).height();
+					if(winTop >= 600) {
+						$('.article-nav').addClass('article-nav-fixed');
+						if (winBottom <= maxBottom) {
+							$("#commonRecommend").addClass('small-recommend');
+						} else{
+							$("#commonRecommend").removeClass('small-recommend');
+						}
+					} else {
+						$('.article-nav').removeClass('article-nav-fixed');
+					}
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

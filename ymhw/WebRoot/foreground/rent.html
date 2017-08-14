@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣租车包车，户外装备租赁，周边目的地">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>租车包车、装备租赁_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="../css/library/jquery.range.css" />
+		<link rel="stylesheet" href="../css/equipment.css" />
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.datetimepicker.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.range.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.SuperSlide.js"></script>
+		<script charset="utf-8" type="text/javascript" src="../js/fg/car_rent.js"></script>
+	</head>
+
+	<body style="background-color: #f2f3f5;">
+
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<div class="tabox content1160">
+			<div class="hd cr-nav">
+				<ul class="clearfix">
+					<li class=""><i class="rental-icon-1">&nbsp;</i>租车 </li>
+					<li class=" "><i class="rental-icon-2">&nbsp;</i>旅游包车</li>
+					<li class=" " style="border-right: 1px solid #ddd;"><i class="rental-icon-3">&nbsp;</i>租赁装备 </li>
+					<li class="on" style="border-right: 1px solid #ddd;"><i class="rental-icon-1">&nbsp;</i>周边目的地</li>
+					
+				</ul>
+			</div>
+			<div id="cr-main" class="bd">
+				<!--租车   end-->
+				<ul class="clearfix" style="display: none;">
+					<div class="cr-main-top">
+						<div class=" cr-main-nav clearfix">
+							<div class="cr-main-4">
+								<div class="cr-main-txt">取车门店</div>
+								<select id="cr-main-factory" style="border:solid 1px #e0e0e0;width: 200px;">
+									<option value="">恩施市</option>
+									<option value="">利川市</option>
+
+								</select>
+							</div>
+							<div class="cr-main-4">
+								<div class="cr-main-txt">取车时间</div>
+								<div class="input-group">
+									<input type="text" class="form-control datepick_ws" id="rentStartTime" name="rentStartTime" value="" />
+									<span class="input-group-btn">
+	                            		<button class="btn btn-default" id="" disabled> 
+	                            			<span class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+								</div>
+							</div>
+							<div class="cr-main-4">
+								<div class="cr-main-txt">还车时间</div>
+								<div class="input-group">
+									<input type="text" class="form-control datepick_ws" id="rentEndTime" name="rentEndTime" value="" />
+									<span class="input-group-btn">
+                            <button class="btn btn-default" id="" disabled> <span class="glyphicon glyphicon-calendar"></span> </button>
+									</span>
+								</div>
+							</div>
+							<div class="cr-main-pj">
+								<div class="cr-main-btn"><span>租期: 1天，不限里程</span>
+									<a class="cr-m-r-zc" href="javascript:chooseCar();">马上选车</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cr-main-m">
+						<div class="content1160">
+							<div class="cr-m-l">
+								<div class="cr-m-l-t">
+									<div class="cr-m-l-nav">车型</div>
+									<ul class="cr-m-l-t-m clearfix">
+										<li class="on" id="0"> <i class="cr-m-l-img cr-img-0-click"></i> <i class="cr-m-l-t-cx">不限</i> </li>
+										<li class="off" id="1"> <i class="cr-m-l-img cr-img-1"></i> <i class="cr-m-l-t-cx">舒适型轿车</i> </li>
+										<li class="off" id="2"> <i class="cr-m-l-img cr-img-2"></i> <i class="cr-m-l-t-cx">经济型轿车</i> </li>
+										<li class="off" id="3"> <i class="cr-m-l-img cr-img-3"></i> <i class="cr-m-l-t-cx">MVP</i> </li>
+										<li class="off" id="4"> <i class="cr-m-l-img cr-img-4"></i> <i class="cr-m-l-t-cx">豪华型轿车</i> </li>
+										<li class="off" id="5"> <i class="cr-m-l-img cr-img-5"></i> <i class="cr-m-l-t-cx">SUV</i> </li>
+										<li class="off" id="6"> <i class="cr-m-l-img cr-img-6"></i> <i class="cr-m-l-t-cx">7座商务型轿车</i> </li>
+										<li class="off" id="7"> <i class="cr-m-l-img cr-img-7"></i> <i class="cr-m-l-t-cx">旅游大巴车</i> </li>
+									</ul>
+								</div>
+								<div class="cr-m-l-m">
+									<div class="cr-m-l-nav"> 价格<span>(元)</span> </div>
+									<input id="price" class="range-slider" type="hidden" value="300,900" />
+								</div>
+								<div class="cr-m-l-m">
+									<div class="cr-m-l-nav"> 手自排&nbsp;&nbsp; </div>
+									<label style="margin-right:10px;">
+                                		<input type="radio" class="szp" name="szp" data-labelauty="手动" value="0" />
+                            		</label>
+									<label>
+                                		<input type="radio" class="szp" name="szp" data-labelauty="自动" value="1" checked />
+                            		</label>
+								</div>
+								<div class="cr-m-l-b">
+									<div class="cr-m-l-nav">品牌</div>
+									<ul>
+										<li>
+											<a href="">不限</a>
+										</li>
+										<li>
+											<a href="">本田</a>
+										</li>
+										<li>宝马</li>
+										<li>现代</li>
+										<li>纳智捷</li>
+										<li>三菱</li>
+										<li>奥迪</li>
+										<li>保时捷</li>
+										<li>丰田</li>
+										<li>奔驰</li>
+										<li>荣威</li>
+										<li>雪佛兰</li>
+										<li>别克</li>
+										<li>路虎</li>
+										<li>起亚</li>
+										<li>长城</li>
+										<li>马自达</li>
+										<div class="clearfix"></div>
+									</ul>
+								</div>
+							</div>
+							<div class="cr-m-r" id="carInfoDiv">
+								<div class="cr-m-r-pj">
+									<div class="cr-m-r-img"><img src="../images/zc/0103.png"></div>
+									<div class="cr-m-r-txt">
+										<div class="cr-m-r-nav">大众朗逸</div>
+										<div class="cr-m-r-main">三厢 | 1.6自动 | 乘坐5人 </div>
+										<ul>
+											<li class="cr-h1">热门</li>
+											<li class="cr-h2">新车型</li>
+										</ul>
+									</div>
+									<div class="cr-m-r-money"><i>限时优惠</i><br> 日均价¥
+										<span>184 </span>元</div>
+									<div class="cr-m-r-btn">
+										<a class="cr-m-r-zc" target="_blank" href="/carRent/applyforPath">租车</a>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</ul>
+				<!--租车   end-->
+
+				<!--旅游包车   start-->
+				<ul class="clearfix" style="display: none;">
+					<div class="cr-main-top ">
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite">服务商</div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="bcType" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="bcType" value="1" data-labelauty="友鸣官方">
+								</li>
+								<li>
+									<input type="radio" name="bcType" value="2" data-labelauty="其他">
+								</li>
+							</ul>
+						</div>
+						<div class="cr-main-nav-se ">
+							<div class="cr-main-tite"> 目的地 </div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="location" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="location" value="1" data-labelauty="北京">
+								</li>
+								<li>
+									<input type="radio" name="location" value="2" data-labelauty="云南">
+								</li>
+								<li>
+									<input type="radio" name="location" value="3" data-labelauty="广西">
+								</li>
+								<li>
+									<input type="radio" name="location" value="4" data-labelauty="青海">
+								</li>
+								<li>
+									<input type="radio" name="location" value="4" data-labelauty="海南">
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=" ym-list chartered">
+						<ul>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/beijing.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">北京包车</div>
+										<div class="act-price">￥500<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/guining.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">桂林阳朔</div>
+										<div class="act-price">￥800<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/hlbr.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">呼伦贝尔包车线路</div>
+										<div class="act-price">￥1000<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/qinghai.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">青海环线租车</div>
+										<div class="act-price">￥800<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/sanya.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">三亚租车</div>
+										<div class="act-price">￥1300<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/wunong.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">武隆包车</div>
+										<div class="act-price">￥300<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/xian.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">西安包车</div>
+										<div class="act-price">￥500<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="ym-bc-list-img" href="#"> <img src="../images/zc/xgll.png">
+									<div class="discount">
+										<span>包车服务</span> </div>
+									<div class="ym-list-main">
+
+										<div class="list-txt">香格里拉到丽江包车</div>
+										<div class="act-price">￥800<span>／台天</span></div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</ul>
+				<!--旅游包车   end-->
+
+				<!--装备租赁   start-->
+				<ul class="clearfix" style="display: none;">
+					<div class="cr-main-top ">
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite">服务商</div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="source" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="source" value="1" data-labelauty="友鸣官方">
+								</li>
+								<li>
+									<input type="radio" name="source" value="2" data-labelauty="用户闲置">
+								</li>
+							</ul>
+						</div>
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite"> 装备类型 </div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="type" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="type" value="1" data-labelauty="露营烧烤">
+								</li>
+								<li>
+									<input type="radio" name="type" value="2" data-labelauty="休闲游玩">
+								</li>
+								<li>
+									<input type="radio" name="type" value="3" data-labelauty="自驾摄影">
+								</li>
+								<li>
+									<input type="radio" name="type" value="4" data-labelauty="骑行垂钓">
+								</li>
+								<li>
+									<input type="radio" name="type" value="5" data-labelauty="登山攀岩">
+								</li>
+							</ul>
+						</div>
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite"> 装备 </div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="待定" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="1" data-labelauty="折叠椅">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="户外餐桌">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="遮阳伞">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="餐垫">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="烧烤架子">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="帐篷">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="睡袋">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="充气垫">
+								</li>
+								<li>
+									<input type="radio" name="待定" value="2" data-labelauty="头灯">
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<ul id="equipUl" class="clearfix ym-list " style="  float:left; margin-left: -20px;">
+						<#list equips as equip>
+							<li class="con-z">
+								<a href="javascript:show(${equip.id?default(0)})">
+									<img src="${equip.equipPic?default('')}">
+									<div class="discount">
+										<p>租金：${equip.rent?default(0)}元/天</p>
+										<!--<span></span>--> 
+									</div>
+									<p class="absolute">${equip.name?default('')} 押金：${equip.deposit?default(0)} ${equip.provice?default('')}${equip.city?default('')}</p>
+								</a>
+							</li>
+						</#list>
+					</ul>
+				</ul>
+				<!--装备租赁   end-->
+
+				<!--周边目的地     start-->
+				<ul class="clearfix" style="display: block;">
+					<div class="cr-main-top ">
+						<!--<div class="cr-main-nav-se">
+							<div class="cr-main-tite">服务商</div>
+							<ul class="clearfix">
+								<li>
+									<input type="checkbox" name="source" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="checkbox" name="source" value="1" data-labelauty="友鸣官方">
+								</li>
+								<li>
+									<input type="checkbox" name="source" value="2" data-labelauty="用户闲置">
+								</li>
+							</ul>
+						</div>-->
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite"> 分类 </div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="infoType" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="infoType" value="1" data-labelauty="休闲旅游">
+								</li>
+								<li>
+									<input type="radio" name="infoType" value="2" data-labelauty="激情户外">
+								</li>
+								<li>
+									<input type="radio" name="infoType" value="3" data-labelauty="家庭活动">
+								</li>
+								<li>
+									<input type="radio" name="infoType" value="4" data-labelauty="民宿营地">
+								</li>
+							</ul>
+						</div>
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite"> 相关标签 </div>
+							<ul class="clearfix" style="height: 60px;">
+								<li>
+									<input type="radio" name="infoTag" value="0" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="1" data-labelauty="烧烤">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="2" data-labelauty="露营">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="3" data-labelauty="徒步">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="4" data-labelauty="行摄">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="5" data-labelauty="采摘">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="6" data-labelauty="滑雪">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="7" data-labelauty="登山">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="8" data-labelauty="探险">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="9" data-labelauty="垂钓">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="10" data-labelauty="溯溪">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="11" data-labelauty="漂流">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="12" data-labelauty="冲浪">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="13" data-labelauty="美食">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="14" data-labelauty="休闲">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="15" data-labelauty="度假">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="16" data-labelauty="背包客">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="17" data-labelauty="旅拍">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="18" data-labelauty="境外">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="19" data-labelauty="商旅">
+								</li>
+								<li>
+									<input type="radio" name="infoTag" value="20" data-labelauty="休闲娱乐">
+								</li>
+							</ul>
+						</div>
+						<div class="cr-main-nav-se">
+							<div class="cr-main-tite"> 地区 </div>
+							<ul class="clearfix">
+								<li>
+									<input type="radio" name="region" value="" data-labelauty="全部">
+								</li>
+								<li>
+									<input type="radio" name="region" value="利川市" data-labelauty="利川市">
+								</li>
+								<li>
+									<input type="radio" name="region" value="巴东县" data-labelauty="巴东县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="宣恩县" data-labelauty="宣恩县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="来凤县" data-labelauty="来凤县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="鹤峰县" data-labelauty="鹤峰县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="建始县" data-labelauty="建始县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="咸丰县" data-labelauty="咸丰县">
+								</li>
+								<li>
+									<input type="radio" name="region" value="恩施市" data-labelauty="恩施市">
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<ul id="infoUl" class="clearfix ym-list " style="  float:left; margin-left: -20px;">
+						<#list infos as info>
+							<li class="con-z">
+								<a href="/infoPath/detail?id=${info.info_id?default(0)}">
+									<img src="${info.img?default('')}">
+									<div class="discount">
+										<p>
+											<#if info.type==1>
+												休闲旅游
+												<#elseif info.type==2>
+													激情户外
+												<#elseif info.type==3>
+													家庭活动
+												<#else>
+													民宿营地
+											</#if>
+										</p>
+									</div>
+									<p class="absolute">${info.subject?default('')} &nbsp;&nbsp; ${info.provice?default('')}${info.region?default('')}
+									</p>
+								</a>
+							</li>
+						</#list>
+					</ul>
+				</ul>
+				<!--周边目的地   end-->
+
+			</div>
+		</div>
+		<!--周边目的地end-->
+		<!--引用尾部-->
+
+	</body>
+	<div id="equipment-parinforma" class="clearfix equipment-parinforma">
+		<div class="parinforma" id="t1-box-con1">
+			<div class="parinforma-l">
+				<img id="equipPic" src="../images/outdoor_expansion/yewai-img-1.png">
+			</div>
+			<div class="parinforma-txt">
+				<dl>
+					<dt id="name">折叠椅</dt>
+					<dd><span>价格/时限：</span><span id="showPrice"></span></dd>
+					<dd><span>地区：</span><span id="region"></span></dd>
+					<dd><span>送货方式：</span><span id="sendWay"></span></dd>
+					<dd><span>租赁方式：</span><span id="rentWay"></span></dd>
+					<dd><span>是否有货：</span><span id="supplyTension"></span></dd>
+					<dd><span>损坏损偿：</span><span id="damage"></span></dd>
+					<dd><span>联系QQ：</span><span id="qq"></span></dd>
+					<dd><span>固话：</span><span id="fixnumber"></span></dd>
+					<dd><span>手机：</span><span id="telphone"></span></dd>
+				</dl>
+			</div>
+			<div class="closebtn" id="close" onclick="clo();"></div>
+		</div>
+	</div>
+	<div class="parinforma-body"></div>
+	<#include "footer.html">
+	<script type="text/javascript">
+		var param = "${param?default('car')}";
+		var index = 0;
+		if("car"==param) {
+			index = 0;
+		} else if("equip"==param) {
+			index = 2;
+		} else if("info"==param) {
+			index = 3;
+		}
+		jQuery(".tabox").slide({
+			delayTime: 0,trigger:"click",defaultIndex:index
+		});
+	</script>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣会员">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>会员注册_友鸣旅行网</title>
+
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/register.js"></script>
+
+	</head>
+
+	<body>
+		<div class="registerWrap">
+			<form action="" method="post" id="registerform">
+				<!--注册内容 start-->
+				<div id="formbox">
+
+					<div class="tr">
+						<div class="re-list">
+							<input checked="checked" type="radio" name="registerType" value="0" />手机注册
+						</div>
+						<div class="re-list">
+							<input type="radio" name="registerType" value="1" />邮箱注册
+						</div>
+					</div>
+
+					<div class="tr">
+						<div class="tr_mid">
+							<input type="text" name="account" id="account" placeholder="用户名" value="" class="registerInput1" onblur="return checkAccount();" />
+						</div>
+						<div class="tr_right" id="accountTip">
+
+						</div>
+					</div>
+
+					<div class="tr">
+						<div class="tr_mid">
+							<input type="text" name="telphone" id="telphone" value="" placeholder="手机号" class="registerInput1" onblur="return checkTelphone();" />
+						</div>
+						<div class="tr_right" id="telphoneTip">
+						</div>
+					</div>
+
+					<div class="tr">
+						<div class="tr_mid">
+							<input type="text" name="email" id="email" value="" placeholder="邮箱如：yonming@163.com " class="registerInput1" onblur="return checkEmail();" />
+						</div>
+						<div class="tr_right" id="emailTip">
+						</div>
+					</div>
+
+					<div class="tr">
+						<div class="tr_mid">
+							<input type="password" name="password" id="password" value="" placeholder="密码" class="registerInput1" onblur="checkPassword();" />
+						</div>
+						<div class="tr_right" id="passwordTip">
+						</div>
+					</div>
+
+					<div class="tr">
+						<div class="tr_mid">
+							<input type="password" name="repassword" id="repassword" value="" placeholder="确认密码" class="registerInput1" onblur="checkRepassword();" />
+						</div>
+						<div class="tr_right" id="repasswordTip">
+
+						</div>
+					</div>
+
+					<!--短信验证码（手机注册）-->
+					<div class="tr" id="smsRegDiv" style="display: block;">
+						<div class="tr_mid">
+							<input type="text" name="smsCode" id="smsCode" value="" placeholder="短信验证码" class="registerInput2" />
+							<div id="sendvbCode">
+								<a href="javascript:sendsms();">
+									<span id="smsSpan" style="font-size: 13px;">发送短信</span>
+								</a>
+							</div>
+						</div>
+						<div class="tr_right" id="verifyCodeTip">
+
+						</div>
+					</div>
+
+					<!--图片验证码（邮件注册）-->
+					<div class="tr" id="emailRegDiv" style="display: none;">
+						<div class="tr_mid">
+							<input type="text" name="validateCode" id="validateCode" value="" placeholder="验证码" class="registerInput2" />
+							<div id="validateCodeRegion">
+								<img id="validateCodePic" src="/verifycode/getCode" width="100" height="25" />
+								<a href="javascript:refreshCode();">
+									<span style="font-size: 13px;">刷新验证码</span>
+								</a>
+							</div>
+						</div>
+						<div class="tr_right" id="verifyCodeTip">
+							<#if msg??>
+								${msg}
+								<#else>
+							</#if>
+						</div>
+					</div>
+					<div class="tr_mid">
+						<button class="buttonA" onclick="reg();">立即注册</button>
+					</div>
+					<div class="tr_mid clearfix" style="font-size:14px; margin-top:20px;">
+						<div style="float:right;">
+							同意
+							<a target="_blank" href="/serviceAgreePath">网站服务协议</a>
+						</div>
+						<div style="float:left">
+							已有友鸣账号？
+							<a href="/loginPath">登录</a>
+						</div>
+
+					</div>
+					<!--注册内容 end-->
+			</form>
+			</div>
+	</body>
+
+</html>

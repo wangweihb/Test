@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="装备租赁">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>装备信息修改、审核_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/equip.js"></script>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<form id="equipForm" action="" method="post" enctype="multipart/form-data">
+			<!--装备上传   start-->
+			<div id="paWrap">
+
+				<!--领队基本信息 start-->
+				<div id="step1Content" style="display: block;">
+					<div class="scTitle">
+						<h3>装备信息</h3>
+						<p>填写装备基本信息、价格、使用说明等信息(所有信息必须填写，如果没有内容填“无”)</p>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div>
+						<div style="display: inline-block;">
+							<div class="sc1_row">
+								<input type="hidden" id="id" name="id" value="${equip.id}" /> 名称：
+								<input type="text" id="name" name="name" id="name" value="${equip.name}" />
+							</div>
+
+							<div class="sc1_row">
+								租金：<input type="text" id="rent" name="rent" value="${equip.rent}" />
+								<!--&nbsp;&nbsp;押金：<input type="text" name="deposit"/>-->
+
+							</div>
+							<div class="sc1_row">
+								押金：<input type="text" id="deposit" name="deposit" value="${equip.deposit}" />
+							</div>
+						</div>
+						<!--头像区域-->
+						<div style="display: inline-block;float: right;">
+							<input type="file" id="equipUpload" style="display: none;" name="equipUpload" draggable="true" single />
+							<label style="vertical-align: top; height: 30px;">活动图片 ： </label>
+							<img id="equipPic" onclick="document.getElementById('equipUpload').click();" src="${equip.equipPic}" height="160" width="200" style="border: 1px solid #CFCFCF" />
+						</div>
+					</div>
+
+					<hr class="dotLine" />
+					<div class="">
+						<label style="width: 15%;">使用说明：</label>
+						<textarea id="directions" name="directions" value="${equip.directions}" style="vertical-align: top;width: 84%;height: 150px;" placeholder="400字以内"></textarea>
+					</div>
+
+					<div class="" style="margin-top: 10px;">
+						<label style="width: 15%;">注意事项：</label>
+						<textarea id="attention" name="attention" value="${equip.attention}" style="vertical-align: top;width: 84%;height: 100px;" placeholder="200字以内"></textarea>
+					</div>
+
+					<hr class="dotLine" />
+
+					<#if (session.ymhwUser.roleId)==1>
+						<div class="sc1_row">
+							是否推荐：
+							<select id="isRecommend" name="isRecommend">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 是否置顶：
+							<select id="topStr" name="topStr">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</div>
+						<div class="sc1_row">
+							是否通过：
+							<select id="isPass" name="isPass">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</div>
+						<div class="" style="margin-top: 10px;">
+							<label style="width: 15%;">审核意见：</label>
+							<textarea id="checkMsg" name="checkMsg" value="" style="vertical-align: top;width: 60%;height: 80px;" placeholder="100字以内"></textarea>
+						</div>
+					</#if>
+
+					<div class="pa_next">
+						<#if (session.ymhwUser.roleId)==2>
+							<a href="javascript:updateEquip();">修改</a>
+						</#if>
+						<#if (session.ymhwUser.roleId)==1>
+							<a href="javascript:checkEquip();">审核</a>
+						</#if>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--装备上传       end-->
+
+		<!--<div>
+			<#include "footer.html">
+		</div>-->
+
+	</body>
+
+</html>

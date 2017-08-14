@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="恩施旅游线路， 恩施团建拓展 ，恩施户外">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>团建拓展_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/outdoor_expansion.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+		</style>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.luara.0.0.1.min.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.SuperSlide.js"></script>
+		<script type="text/javascript" src="../js/library/lubotu.js"></script>
+		<script type="text/javascript" src="../js/fg/index_fg.js"></script>
+		<script type="text/javascript" src="../js/fg/expansion.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+
+		<script type="text/javascript">
+			/* ==== slider nameSpace ==== */
+			var slider = function() {
+				/* ==== private methods ==== */
+				function getElementsByClass(object, tag, className) {
+					var o = object.getElementsByTagName(tag);
+					for(var i = 0, n = o.length, ret = []; i < n; i++) {
+						if(o[i].className == className) ret.push(o[i]);
+					}
+					if(ret.length == 1) ret = ret[0];
+					return ret;
+				}
+
+				function setOpacity(obj, o) {
+					if(obj.filters) obj.filters.alpha.opacity = Math.round(o);
+					else obj.style.opacity = o / 100;
+				}
+				/* ==== Slider Constructor ==== */
+				function Slider(oCont, speed, iW, iH, oP) {
+					this.slides = [];
+					this.over = false;
+					this.S = this.S0 = speed;
+					this.iW = iW;
+					this.iH = iH;
+					this.oP = oP;
+					this.oc = document.getElementById(oCont);
+					this.frm = getElementsByClass(this.oc, 'div', 'slide');
+					this.NF = this.frm.length;
+					this.resize();
+					for(var i = 0; i < this.NF; i++) {
+						this.slides[i] = new Slide(this, i);
+					}
+					this.oc.parent = this;
+					this.view = this.slides[0];
+					this.Z = this.mx;
+					/* ==== on mouse out event ==== */
+					this.oc.onmouseout = function() {
+						this.parent.mouseout();
+						return false;
+					}
+				}
+				Slider.prototype = {
+					/* ==== animation loop ==== */
+					run: function() {
+						this.Z += this.over ? (this.mn - this.Z) * .4 : (this.mx - this.Z) * .4;
+						this.view.calc();
+						var i = this.NF;
+						while(i--) this.slides[i].move();
+					},
+					/* ==== resize  ==== */
+					resize: function() {
+						this.wh = this.oc.clientWidth;
+						this.ht = this.oc.clientHeight;
+						this.wr = this.wh * this.iW;
+						this.r = this.ht / this.wr;
+						this.mx = this.wh / this.NF;
+						this.mn = (this.wh * (1 - this.iW)) / (this.NF - 1);
+					},
+					/* ==== rest  ==== */
+					mouseout: function() {
+						this.over = false;
+						setOpacity(this.view.img, this.oP);
+					}
+				}
+				/* ==== Slide Constructor ==== */
+				Slide = function(parent, N) {
+					this.parent = parent;
+					this.N = N;
+					this.x0 = this.x1 = N * parent.mx;
+					this.v = 0;
+					this.loaded = false;
+					this.cpt = 0;
+					this.start = new Date();
+					this.obj = parent.frm[N];
+					this.txt = getElementsByClass(this.obj, 'div', 'text');
+					this.img = getElementsByClass(this.obj, 'img', 'diapo');
+					this.bkg = document.createElement('div');
+					this.bkg.className = 'backgroundText';
+					this.obj.insertBefore(this.bkg, this.txt);
+					if(N == 0) this.obj.style.borderLeft = 'none';
+					this.obj.style.left = Math.floor(this.x0) + 'px';
+					setOpacity(this.img, parent.oP);
+					/* ==== mouse events ==== */
+					this.obj.parent = this;
+					this.obj.onmouseover = function() {
+						this.parent.over();
+						return false;
+					}
+				}
+				Slide.prototype = {
+					/* ==== target positions ==== */
+					calc: function() {
+						var that = this.parent;
+						// left slides
+						for(var i = 0; i <= this.N; i++) {
+							that.slides[i].x1 = i * that.Z;
+						}
+						// right slides
+						for(var i = this.N + 1; i < that.NF; i++) {
+							that.slides[i].x1 = that.wh - (that.NF - i) * that.Z;
+						}
+					},
+					/* ==== HTML animation : move slides ==== */
+					move: function() {
+						var that = this.parent;
+						var s = (this.x1 - this.x0) / that.S;
+						/* ==== lateral slide ==== */
+						if(this.N && Math.abs(s) > .5) {
+							this.obj.style.left = Math.floor(this.x0 += s) + 'px';
+						}
+						/* ==== vertical text ==== */
+						var v = (this.N < that.NF - 1) ? that.slides[this.N + 1].x0 - this.x0 : that.wh - this.x0;
+						if(Math.abs(v - this.v) > .5) {
+							this.bkg.style.top = this.txt.style.top = Math.floor(2 + that.ht - (v - that.Z) * that.iH * that.r) + 'px';
+							this.v = v;
+							this.cpt++;
+						} else {
+							if(!this.pro) {
+								/* ==== adjust speed ==== */
+								this.pro = true;
+								var tps = new Date() - this.start;
+								if(this.cpt > 1) {
+									that.S = Math.max(2, (28 / (tps / this.cpt)) * that.S0);
+								}
+							}
+						}
+						if(!this.loaded) {
+							if(this.img.complete) {
+								this.img.style.visibility = 'visible';
+								this.loaded = true;
+							}
+						}
+					},
+					/* ==== light ==== */
+					over: function() {
+						this.parent.resize();
+						this.parent.over = true;
+						setOpacity(this.parent.view.img, this.parent.oP);
+						this.parent.view = this;
+						this.start = new Date();
+						this.cpt = 0;
+						this.pro = false;
+						this.calc();
+						setOpacity(this.img, 100);
+					}
+				}
+				/* ==== public method - script initialization ==== */
+				return {
+					init: function() {
+						// create instances of sliders here
+						// parameters : HTMLcontainer name, speed (2 fast - 20 slow), Horizontal ratio, vertical text ratio, opacity
+						this.s1 = new Slider("slider", 5, 1.84 / 3, 1 / 3.2, 70);
+						setInterval("slider.s1.run();", 16);
+					}
+				}
+			}();
+		</script>
+		<link rel="shortcut icon" href="../logo.ico" />
+	</head>
+
+	<body>
+
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<!--公共顶部   start-->
+
+		<!--顶部区域 end-->
+		<!--图片轮播区域  start-->
+		<div class="outdoor-banner "><img src="../images/banner/index-banner.jpg">
+		</div>
+		<!--图片轮播区域  end-->
+		<div class="characteristic " style="background: #f5f5f5;">
+			<div class="characteristic-con">
+				<div class="characteristic-main">
+					<div class="characteristic-icon-1"></div>
+					<h5>因地制宜的项目策划</h5>
+					<p>为企业、单位及组织量身定制特色活动，追求活动趣味和有用有效的两全其美！ </p>
+				</div>
+				<div class="characteristic-main">
+					<div class="characteristic-icon-3"></div>
+					<h5>深度整合的域内资源</h5>
+					<p>更丰富的选择；同时对活动的安全、质量、费用等统一规范管理，为客户呈现极致拓展体验</p>
+				</div>
+				<div class="characteristic-main">
+					<div class="characteristic-icon-2"></div>
+					<h5>后期优质制作及推广</h5>
+					<p>专业的后期制作，并利用平台优势对企业进行宣传推广，让拓展的效用最大化</p>
+				</div>
+
+				<div class="clearfix"></div>
+
+			</div>
+		</div>
+		<!--内容区域  start-->
+		<div id="outdoor-main">
+
+			<div id="activitywarp2" class="row  outdoor-l" style="margin:0">
+				<!--活动导航 start-->
+
+				<div id="activitynav2">
+					<div id="activitynavleft2">
+						<div id="tabNav-2">
+							<p>户外拓展</p>
+						</div>
+
+						<ul id="tabNav2">
+							<li id="t1" onclick="tabnav('tabNav2','t1','step-box2')">
+								<a class="tabnav-hover" href="javascript:tabnav('tabNav2','t1','step-box2');">野外拓展</a>
+							</li>
+							<li id="t2" onclick="tabnav('tabNav2','t2','step-box2')">
+								<a class="tabnav-link" href="javascript:tabnav('tabNav2','t2','step-box2');">水上拓展 </a>
+							</li>
+							<li id="t3" onclick="tabnav('tabNav2','t3','step-box2')">
+								<a class="tabnav-link" href="javascript:tabnav('tabNav2','t3','step-box2');">场地拓展 </a>
+							</li>
+							<li id="t4" onclick="tabnav('tabNav2','t4','step-box2')">
+								<a class="tabnav-link" href="javascript:tabnav('tabNav2','t4','step-box2');">旅游拓展 </a>
+							</li>
+							<li id="t5" onclick="tabnav('tabNav2','t5','step-box2')">
+								<a class="tabnav-link" href="javascript:tabnav('tabNav2','t5','step-box2');">主题特色 </a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<!--活动导航 end-->
+					<div id="step-box2">
+						<!-----------第一栏---------->
+						<div id="t1-box" class="box_item" style="display:block;">
+							<div class="clearfix">
+								<div class="parinforma" id="t1-box-con1">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-1.png" style="height:320px;">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：野外露营</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											1.提供一个轻松自在团队气氛,让参与者彼此了解、彼此信任，破除人际藩篱,建立相互依存相互信任的关系。<br></br>
+											2.跳出框架式的思维，建立开放的心胸，消除个体间的冲突，加强有效管理冲突及共同解决问题的能力。<br></br>
+											3.引导参加者经历完整之团队发展四阶段(形成期、风暴期、规范期、表现期)藉此了解团队现况，凝聚共识，增加向心力达到团队建立的目标。<br></br>
+											适合公司管理层人员和企业优秀员工</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t1-box-con2">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-2.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：真人CS</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											1.有效的隐蔽和保护自己　　<br></br>
+											2.团队协作中不要逞个人英雄</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t1-box-con3">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-3.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：攀岩速降</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											有效的沟通可以让自己更加明确自己的职责让团队更顺利的完成任务。个人的成绩离不开团队的协作</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t1-box-con4">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-4.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：定向穿越</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											定向穿越(Pedestrianism)是指在徒步区域里主要靠徒步行走去完成起点到终点的穿越里程，中间可能要跨越山岭、丛林、沙漠、雪原、溪流、峡谷等地貌的一种户外活动。<br></br>
+											适合基层管理人员和企业优秀员工</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t1-box-con5">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-5.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：山野晚会</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											增加拓展中的趣味性，让队员理解并更加深刻的认识自己已深深融入团队大家庭</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t1-box-con6">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/yewai-img-6.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：登峰人生路</h4>
+
+										<p>拓展训练项目性质：野外拓展<br></br>
+											打造钢七连团队，不抛弃不放弃就能到达顶峰俯瞰最美风景</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+
+							</div>
+							<div class="parinforma-body"></div>
+							<div class="lease-main-r">
+								<div id="lease-project">
+									<li id="movie1" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-1.png">
+										<div class="pname">野外露营</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+									<li id="movie2" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-2.png">
+										<div class="pname">真人CS</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+									<li id="movie3" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-3.png">
+										<div class="pname">攀岩速降</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+									<li id="movie4" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-4.png">
+										<div class="pname">定向穿越</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+									<li id="movie5" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-5.png">
+										<div class="pname">山野晚会</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+									<li id="movie6" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/yewai-img-6.png">
+										<div class="pname">登峰人生路</div>
+										<div class="pinfo">拓展训练项目性质：野外拓展</div>
+									</li>
+
+									<div style="clear:both"></div>
+								</div>
+							</div>
+						</div>
+						<!-----------第二栏---------->
+						<div id="t2-box" class="box_item" style="display:none;">
+							<div class="clearfix">
+								<div class="parinforma" id="t2-box-con1">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-1.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：漂流</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											1、只有团队间彼此深切的合作才能很好的完成最终目标<br></br>
+											2、增加拓展中的趣味性
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t2-box-con2">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-2.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：闸阀泅渡</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											人尽其才，才能充分发挥团队的潜能。在管理中，让学有所长的人到能发挥他们优势的岗位上去。
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t2-box-con3">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-3.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：河上拔河</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											在激烈的团队竞争中，一个人的不努力会导致整个团队的失败。在团队中做好自己就是对团队的最大贡献
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t2-box-con4">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-4.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：建桥过河</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											强调团队的协作能力和领导的创新、决策能力。通过游戏让团队成员发挥出各自的解决问题能力，认识到团队合作的重要性，并使其通过培训提升良好的精神面貌，从而把游戏中的启迪运用的工作中，放松与学习兼备，不失为一项好的选择。
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t2-box-con5">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-5.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：盛夏溯溪</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											考验团队间的真诚、团结、友爱与协作。<br></br>
+											该项目适合企业基层管理和企业优秀员工。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t2-box-con6">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/shui-img-6.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：飞夺浮桥</h4>
+
+										<p>拓展训练项目性质：水上拓展<br></br>
+											泥泞难免，只要方向正确就能到达你的彼岸。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+
+							</div>
+							<div class="parinforma-body"></div>
+							<div class="lease-main-r">
+								<div id="lease-project">
+									<li id="movie1" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-1.png">
+										<div class="pname">漂流</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+									<li id="movie2" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-2.png">
+										<div class="pname">闸阀泅渡</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+									<li id="movie3" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-3.png">
+										<div class="pname">河上拔河</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+									<li id="movie4" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-4.png">
+										<div class="pname">建桥过河</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+									<li id="movie5" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-5.png">
+										<div class="pname">盛夏溯溪</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+									<li id="movie6" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/shui-img-6.png">
+										<div class="pname">飞夺浮桥</div>
+										<div class="pinfo">拓展训练项目性质：水上拓展</div>
+									</li>
+
+									<div style="clear:both"></div>
+								</div>
+							</div>
+						</div>
+						<!-----------第三栏---------->
+						<div id="t3-box" class="box_item" style="display:none;">
+							<div class="clearfix">
+								<div class="parinforma" id="t3-box-con1">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-1.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：盲人方正</h4>
+
+										<p>拓展训练项目性质：场地拓展<br></br>
+											如果单纯改善熟练程度和技巧对结果的改善是缓慢的，只有用现有的知识去创意，才会得到效益的最大化。
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t3-box-con2">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-2.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：高空单杠</h4>
+
+										<p>拓展训练项目性质：场地拓展<br></br>
+											本训练是一个操作较困难的项目。它能够帮助学员建立临危不惧的自信心，挖掘自身的潜力；培养心理调节能力，增加自我控制能力和自我管理能力；提高勇于把握机遇的胆略。因此，本游戏特别适合于基层员工和基层管理人员参加，通过他们的奋力一跃，挑战自我心理极限。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t3-box-con3">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-3.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：高空绳网</h4>
+
+										<p>
+											培养队员挑战自我的精神和勇气，培养合作精神和协调能力<br></br>学会在没有选择的情况下接纳工作上的伙伴，增进队员的责任感与自我牺牲精神<br></br>
+											培养队员面对困难永远向上，勇攀高峰的精神和信心<br></br>
+											锻炼个人的手脚协调能力、肢体力量及身体的平衡能力
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t3-box-con4">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-4.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：空中断桥</h4>
+
+										<p>拓展训练项目性质：场地拓展<br></br>
+											目标管理；善于抓住各种机遇，果断行动；坚持忍耐；挑战体能极限；克服逃避本性和自我惰性；激发个人潜能；学会关爱他人；学会正确面对困境，积极处理危机。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t3-box-con5">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-5.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：勇攀天梯</h4>
+
+										<p>拓展训练项目性质：场地拓展<br></br>
+											学会群体决策；角色定位；面对困境寻求解决问题的科学方法；人力资源合理利用；演绎人生苦旅，一步一个脚印扎实工作；工作目标的确定与实现；为他人奉献；双人条件下的沟通交流
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t3-box-con6">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/chang-img-6.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：企业军训</h4>
+
+										<p>拓展训练项目性质：场地拓展<br></br>
+											为企业打造有这军人一般坚强意志和统一的协调能力和绝对的服从力
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+
+							</div>
+							<div class="parinforma-body"></div>
+							<div class="lease-main-r">
+								<div id="lease-project">
+									<li id="movie1" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-1.png">
+										<div class="pname">盲人方正</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+									<li id="movie2" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-2.png">
+										<div class="pname">高空单杠</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+									<li id="movie3" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-3.png">
+										<div class="pname">高空绳网</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+									<li id="movie4" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-4.png">
+										<div class="pname">空中断桥</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+									<li id="movie5" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-5.png">
+										<div class="pname">勇攀天梯</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+									<li id="movie5" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/chang-img-6.png">
+										<div class="pname">企业军训</div>
+										<div class="pinfo">拓展训练项目性质：场地拓展</div>
+									</li>
+
+									<div style="clear:both"></div>
+								</div>
+							</div>
+						</div>
+						<!-----------第四栏---------->
+						<div id="t4-box" class="box_item" style="display:none;">
+							<div class="clearfix">
+								<div class="parinforma" id="t4-box-con1">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-1.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：踏春赏花</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											放松心情，树立公司形象，扩大公司影响。让员工在公司中找到主人翁的位置。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t4-box-con2">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-2.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：垂钓烧烤</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											放松心情，强调团队分工协作、团队执行力和领导能力。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t4-box-con3">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-3.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：野外采摘</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											尊重别人的劳动成果、养成良好的个人品行。增加团队凝聚力。
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t4-box-con4">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-4.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：游览观光</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											团队重新上路，认识未知的自己。打造一支团队精英。
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t4-box-con5">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-5.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：万亩竹海</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											放松心情、再建激情增强凝聚力
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t4-box-con6">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/lv-img-6.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>拓展训练项目名称：红色旅游拓展</h4>
+
+										<p>拓展训练项目性质：旅游拓展<br></br>
+											缅怀先烈，寄托情怀，弘扬民族精神<br></br>
+											适合中高层管理和企业优秀员工</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+
+							</div>
+							<div class="parinforma-body"></div>
+							<div class="lease-main-r">
+								<div id="lease-project">
+									<li id="movie1" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-1.png">
+										<div class="pname">踏春赏花</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<li id="movie2" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-2.png">
+										<div class="pname">垂钓烧烤</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<li id="movie3" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-3.png">
+										<div class="pname">野外采摘</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<li id="movie4" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-4.png">
+										<div class="pname">游览观光</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<li id="movie5" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-5.png">
+										<div class="pname">万亩竹海</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<li id="movie6" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/lv-img-6.png">
+										<div class="pname">红色旅游</div>
+										<div class="pinfo">拓展训练项目性质：旅游拓展</div>
+									</li>
+									<div style="clear:both"></div>
+								</div>
+							</div>
+						</div>
+						<!-----------第五栏---------->
+						<div id="t5-box" class="box_item" style="display:none;">
+							<div class="clearfix">
+								<div class="parinforma" id="t5-box-con1">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/zhu-img-1.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>让我们的亲子多一份童年的快乐和记忆</h4>
+
+										<p>拓展训练项目性质：主题特色<br></br>
+											培养亲子活力，挖掘亲子潜力
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t5-box-con2">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/zhu-img-2.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>有一种赢叫团队荣耀 </h4>
+
+										<p>拓展训练项目性质：主题特色<br></br>
+											有一种赢叫团队荣耀
+
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t5-box-con3">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/zhu-img-3.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>保持专注和乐趣做朋友</h4>
+										<p>拓展训练项目性质：主题特色<br></br>
+											保持专注和乐趣做朋友
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+								<div class="parinforma" id="t5-box-con4">
+									<div class="parinforma-l">
+										<img src="../images/outdoor_expansion/zhu-img-4.png">
+
+									</div>
+									<div class="parinforma-txt">
+										<h4>打破平面思维，突破自我</h4>
+
+										<p>拓展训练项目性质：主题特色<br></br>
+											执行力和没有理由
+										</p>
+									</div>
+									<div class="closebtn"></div>
+								</div>
+
+							</div>
+							<div class="parinforma-body"></div>
+							<div class="lease-main-r">
+								<div id="lease-project">
+									<li id="movie1" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/zhu-img-1.png">
+										<div class="pname">让我们的亲子多一份童年的快乐和记忆</div>
+										<div class="pinfo">拓展训练项目性质：主题特色</div>
+									</li>
+									<li id="movie2" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/zhu-img-2.png">
+										<div class="pname">有一种赢叫团队荣耀</div>
+										<div class="pinfo">拓展训练项目性质：主题特色</div>
+									</li>
+									<li id="movie3" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/zhu-img-3.png">
+										<div class="pname">保持专注和乐趣做朋友</div>
+										<div class="pinfo">拓展训练项目性质：主题特色</div>
+									</li>
+									<li id="movie4" class="lease-project-main"> <img class="row1" src="../images/outdoor_expansion/zhu-img-4.png">
+										<div class="pname">打破平面思维，突破自我</div>
+										<div class="pinfo">拓展训练项目性质：主题特色</div>
+									</li>
+
+									<div style="clear:both"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--团队协作 start-->
+			<!--其他 start-->
+			<div id="activitysearch_right_othershow" style="margin-left:0; width:275px;">
+				<div id="hotRoute">
+					<div id="hotRoute_top">
+						<span>热门线路</span>
+					</div>
+
+					<div id="hotRoute_bottom">
+
+						<!--线路一-->
+						<!--<div id="hotRoute1" class="routeContent">
+								<div class="routepic">
+									<a href="#">
+										<img src="../images/hotroute1.jpg" />
+									</a>
+								</div>
+								<div class="routeDesc">
+									<p>湖北的"香格里拉"恩施秘境，中国的仙境，那道山谷</p>
+									<span>
+										<span class="glyphicon glyphicon-time text-primary"></span>&nbsp;&nbsp;
+										15320
+									</span>
+								</div>								
+							</div>-->
+
+					</div>
+
+				</div>
+			</div>
+			<!--其他 end-->
+
+			<div class="clearfix"></div>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="equipment-kualan container" style="padding:0"><img src="../images/equipment/kualan.jpg" width="100%"></div>
+
+		<div id="exhibition">
+			<div class="exhibition-tite">
+				<h4> 户外拓展活动</h4>
+				<p>利用崇山峻岭、翰海大川等自然环境设置情景，通过一系列精心设计的活动，使学员在解决问题、应对挑战的过程中<br>了解在何种情况下能使有限的知识和技能释放出最大的能量，如何开发出一直潜伏在你身上而您自己却从未真正了解的力量，怎样才能弄清您与他人的沟通和信任到底能深入到什么程度？<br>从而达到“磨练意志、完善人格、挑战自我、熔炼团队”的目的。
+				</p>
+			</div>
+			<div id="slider">
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg1.jpg" alt="">
+					<div class="text">
+						<span class="title">Prototype</span> Oostem's deep impulse flow is selectively regulated by a molecule originated in the prototype model, that creates its own variational principles, as oriented by the first local generation of terminable androids.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg2.jpg" alt="">
+					<div class="text">
+						<span class="title">Prototype</span> Oostem's deep impulse flow is selectively regulated by a molecule originated in the prototype model, that creates its own variational principles, as oriented by the first local generation of terminable androids.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg3.jpg" alt="">
+					<div class="text">
+						<span class="title">Prototype</span> Oostem's deep impulse flow is selectively regulated by a molecule originated in the prototype model, that creates its own variational principles, as oriented by the first local generation of terminable androids.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg4.jpg" alt="">
+					<div class="text">
+						<span class="title">Prototype</span> Oostem's deep impulse flow is selectively regulated by a molecule originated in the prototype model, that creates its own variational principles, as oriented by the first local generation of terminable androids.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607140829.jpg" alt="">
+					<div class="text">
+						<span class="title">Has been reduced</span> Paired hosts come out nicely after only two cycles now. Their size has been reduced to a half the original as planned, and indeed they show an evolutionary advantage in the process of fixing self-generated instructions. Plus, they are beautiful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607144743.jpg" alt="">
+					<div class="text">
+						<span class="title">By close-alikes</span> Now I have regained hopes in someday finding myself surrounded by close-alikes to us. However, they will not be audible, at least not in my life span. We resolved the low freq vibration a superior solution for our communicational goals ...
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607144750.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607144806.jpg" alt="">
+					<div class="text">
+						<span class="title">The zero level</span> Today a set of vibration came up from the zero level; we expect to launch the transitional program in no longer than five basetime units. Psykesoma? galore and we'll betray our very nature into infinite, unending 2D surfaces. We do need that vibration, and we will conquer its source.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607145307.jpg" alt="">
+					<div class="text">
+						<span class="title">Beautifully</span> To keep my sanity I wear the tactile sensors all the time. They translate beautifully; I can even see distances while still on Psykesoma. This was quite a discovery. We have grown more adaptable than expected.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/activity20160607145314.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg5.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg6.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg7.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg8.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+				<div class="slide">
+					<img class="diapo" src="../images/outdoor_expansion/activity/eg9.jpg" alt="">
+					<div class="text">
+						<span class="title">To bear</span> We did not expect their surface to produce such a carbon powder coat, though this is the best model so far. I shall have to bear with the inconveniences. They seem to establish a parallel communication through that carbon coat and I find myself unable to decodify the signal into anything meaningful.
+					</div>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+
+		</div>
+
+		<script type="text/javascript">
+			/* ==== start script ==== */
+			slider.init();
+			$("#t1-box .row1").click(function() {
+				$(".parinforma-body").css({
+					'display': 'block'
+				});
+				var picIndex = $("#t1-box .row1").index($(this));
+				var id = "t1-box-con" + (picIndex + 1);
+				$("#" + id).slideDown("normal");
+			})
+
+			$("#t2-box .row1").click(function() {
+				$(".parinforma-body").css({
+					'display': 'block'
+				});
+				var picIndex = $("#t2-box .row1").index($(this));
+				var id = "t2-box-con" + (picIndex + 1);
+				$("#" + id).slideDown("normal");
+			})
+
+			$("#t3-box .row1").click(function() {
+				$(".parinforma-body").css({
+					'display': 'block'
+				});
+				var picIndex = $("#t3-box .row1").index($(this));
+				var id = "t3-box-con" + (picIndex + 1);
+				$("#" + id).slideDown("normal");
+			})
+
+			$("#t4-box .row1").click(function() {
+				$(".parinforma-body").css({
+					'display': 'block'
+				});
+				var picIndex = $("#t4-box .row1").index($(this));
+				var id = "t4-box-con" + (picIndex + 1);
+				$("#" + id).slideDown("normal");
+			})
+			$("#t5-box .row1").click(function() {
+				$(".parinforma-body").css({
+					'display': 'block'
+				});
+				var picIndex = $("#t5-box .row1").index($(this));
+				var id = "t5-box-con" + (picIndex + 1);
+				$("#" + id).slideDown("normal");
+			})
+
+			$(".closebtn").click(function() {
+				$(".parinforma").hide();
+				$(".parinforma-body").css({
+					'display': 'none'
+				});
+			})
+		</script>
+
+		<!--footer start-->
+		<#include "footer.html">
+
+		<!--footer end-->
+	</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="../../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../../css/public_fg.css" />
+		<link rel="stylesheet" href="../../css/index_fg.css" />
+		<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="shortcut icon" href="../../logo.ico"/>
+		
+		<title>友鸣旅行网-装备上传</title>
+		<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+	    <script type="text/javascript" src="../../js/equip.js" ></script>
+	    <script type="text/javascript" src="../../js/public/tool.js"></script>
+	</head>
+	<body>
+		<form id="equipForm" action="/manage_equip/add" method="post" enctype="multipart/form-data">
+		<!--装备上传   start-->
+		<div id="paWrap">
+			
+			<!--领队基本信息 start-->
+			<div id="step1Content" style="display: block;">
+				<div class="scTitle">
+					<h3>装备上传</h3>
+					<p>填写装备基本信息、价格、使用说明等信息(所有信息必须填写，如果没有内容填“无”)</p>
+				</div>
+				
+				<hr class="dotLine"/>
+				
+				<div>
+					<div style="display: inline-block;">
+						<div class="sc1_row">
+							名称：<input type="text" id="name" name="name" id="name"/>
+						</div>
+						
+						<div class="sc1_row">
+							租金：<input type="text" id="rent" name="rent" />
+							<!--&nbsp;&nbsp;押金：<input type="text" name="deposit"/>-->
+							
+						</div>
+						<div class="sc1_row">
+							押金：<input type="text" id="deposit" name="deposit"/>
+						</div>
+					</div>
+					<!--头像区域-->
+					<div  style="display: inline-block;float: right;">
+						<input type="file" id="equipUpload" style="display: none;" name="equipUpload" draggable="true" single />
+						<label style="vertical-align: top; height: 30px;">装备图片 ： </label>
+						<img id="equipPic" onclick="document.getElementById('equipUpload').click();" src="../../images/head_default.png" height="160" width="200" style="border: 1px solid #CFCFCF"/>
+					</div>
+				</div>
+				
+				
+				<hr class="dotLine"/>
+				<div class="">
+					<label style="width: 15%;">使用说明：</label>					
+					<textarea id="directions" name="directions" style="vertical-align: top;width: 84%;height: 150px;" placeholder="400字以内"></textarea>
+				</div>
+				
+				<div class="" style="margin-top: 10px;">
+					<label style="width: 15%;">注意事项：</label>
+					<textarea id="attention" name="attention" style="vertical-align: top;width: 84%;height: 100px;" placeholder="200字以内"></textarea>
+				</div>
+				
+				<hr class="dotLine"/>	
+				
+				<div class="sc1_row" style="text-align: center;">
+					请阅读并确认友鸣官方领队管理条例
+					<input type="checkbox" />
+				</div>
+				
+				<div class="pa_next">
+					<a href="javascript:upload();">上传</a>
+				</div>
+			</div>
+		</div>
+		</form>
+		<!--装备上传       end-->
+		
+		<!--<div>
+			<#include "footer.html">
+		</div>-->
+		
+	</body>
+</html>

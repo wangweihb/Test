@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="恩施旅游线路，恩施户外，${act.title?default('')}">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>${act.title?default('')}_报名申请_旅游线路_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/signup.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.datetimepicker.js"></script>
+	</head>
+	<!--<form id="alipayform" method="post" action="/alipayapi.jsp">
+		<input type="hidden" id="trade_billNo" name="trade_billNo" value=""/>
+		<input type="hidden" id="trade_proName" name="trade_proName" value=""/>
+		<input type="hidden" id="trade_proDesc" name="trade_proDesc" value=""/>
+		<input type="hidden" id="trade_total" name="trade_total" value=""/>
+	</form>-->
+
+	<body style="background: #f4f5f6;">
+		<div id="topwarp" style="border-bottom: 1px solid rgb(235, 156, 20);">
+			<div class="y-container">
+				<div id="toplogo">
+					<a href="/"><img src="../images/logo.png" height="60px" /></a>
+				</div>
+
+				<!--搜索-->
+				<div class="topwarp-demo">
+					<div class="demo">
+						<ul class=" wizard_step ">
+							<li id="step1Contentli" class="current active_step">
+								<a href="#"> 填写订单<em></em><i></i> </a>
+							</li>
+							<li id="step2Contentli">
+								<a href="#"> 填写联系人<em></em><i></i> </a>
+							</li>
+							<li id="step3Contentli">
+								<a href="#"> 确定预订<em></em><i></i> </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="signupForm" action="#" method="post">
+			<!--订单基本信息   start-->
+			<div id="paWrap">
+				<div>
+					<div id="sign-up" class="clearfix">
+						<div class="sign－up-r">
+							<div class="sign－up-r_tit"><i class="iconfont">&#xe7b4;</i>费用明细</div>
+							<div class="sign－up-r-main ">
+								<p class="left">成人<span class="adult-num">1</span>×<span class="right"> ¥<span class="adult-price">${act.cost}</span></span>
+								</p>
+								<p class="left">儿童<span class="child-num">0</span>×<span class="right"> ¥<span class="child-price">${act.cost}</span></span>
+								</p>
+								<p class="left dashed">旅游意外险<span class="right"> ¥0</span></p>
+								<p class="left dashed">优惠金额<span class="right green"> -¥0</span></p>
+								<p class="left" style="color:#898989">总金额<span class="right" style="color:rgb(235, 156, 20); font-size:24px">
+              					¥<label id="total">${act.cost}</label>
+              </span></p>
+								<div class="clearfix"></div>
+							</div>
+							<a id="signup-a" class="sign-yes" href="#">确认报名</a>
+						</div>
+
+						<!--填写订单信息 start-->
+						<div class="sign-up-l sign-up-l-w" id="step1Content" style="display: block;width: 800px;">
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>出游信息</div>
+							<dl class="sign-up-form">
+								<input type="hidden" id="actId" name="actId" value="${act.id}" />
+								<dt class="clearfix">
+					              <div class="sign-up-form-l">活动名称：</div>
+					              <div class="sign-up-form-r">${act.title}</div>
+					              <input type="hidden" id="proName" name="proName" value="${act.title}" />
+					              <input type="hidden" id="proDesc" name="proDesc" value="${act.title}" />
+					            </dt>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">集结城市：</div>
+									<div class="sign-up-form-r">${act.departurePlace}</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">活动时间：</div>
+									<div class="sign-up-form-r">${act.startTime?string("yyyy-MM-dd")!}到${act.endTime?string("yyyy-MM-dd")!}</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">目的地：</div>
+									<div class="sign-up-form-r">${act.destination}</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">人数：</div>
+									<div class="sign-up-form-r">
+										<table id="valuation">
+											<tr class="valuation-main">
+												<td id="adultGroup">
+													<input class="min" name="" type="button" value="-" />
+													<input class="valuation_box" name="adultNum" type="text" value="1" disabled/>
+													<input class="increase" name="" type="button" value="+" /> 成人
+												</td>
+												<td id="childGroup"><input class="min" name="" type="button" value="-" />
+													<input class="valuation_box" name="childNum" type="text" value="0" disabled/>
+													<input class="increase" name="" type="button" value="+" /> 儿童
+												</td>
+											</tr>
+										</table>
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">&nbsp </div>
+									<div class="sign-up-form-r">
+										<p>如果您现在暂时未能获取同行人的详细信息，可先填写人数和您的信息，于支付前完善即可。</p>
+									</div>
+								</dd>
+								<!--<dd class="clearfix">
+              <div class="sign-up-form-l">报名人：</div>
+              <div class="sign-up-form-r">
+                <input class="singn-up-btn" name="lmname" id="name" type="text">
+              </div>
+            </dd>
+            <dd class="clearfix">
+              <div class="sign-up-form-l">&nbsp</div>
+              <div class="sign-up-form-r">
+                <input id="is_join" name="is_join" value="1" checked="" type="checkbox">
+              	  报名人是否参加（参加活动请勾选） </div>
+            </dd>
+            <dd class="clearfix">
+              <div class="sign-up-form-l">手机：</div>
+              <div class="sign-up-form-r">
+                <input class="singn-up-btn" name="lmname" id="name" type="text">
+              </div>
+            </dd>-->
+								<dd class="clearfix">
+									<div class="sign-up-form-l">备注：</div>
+									<div class="sign-up-form-r">
+										<textarea class="u-textarea u-text-frame" id="remark" name="remark" type="text" tabindex="9"></textarea>
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">特别提醒：</div>
+									<div class="sign-up-form-r">
+										<p>1、健康约定：为保证旅游安全，请旅游者出行前做一次必要的身体检查，凡有传染性疾病、心血管疾病、脑血管疾病、呼吸系统疾病、精神病、严重贫血病、大中型手术的恢复期病患者、孕妇及行动不便者请勿报名，如隐瞒参团发生事故，责任自负。代他人报名者，请如实、准确告知其他游客上述信息，并将其他游客的相关健康信息在备注框中如实填报。未填报，视为不存在健康问题。<br> 2、未成年人约定：本团拒绝未成年人（指未满十八周岁）单独报名参加，如有隐瞒未成年人身份信息的，法律责任自行承担。未成年人由成年人陪同参加的，成年人应该担负监督、保护的义务。（整团均为未成年人的团队除外。）
+											<br> 3、老年人约定：本次旅游行程对旅游者体能有一定要求；行程中可能途经高山或低谷地区，通常在平原生活的人会有身体不适或强烈的应激反应；火车、飞机、轮船、汽车等交通工具上均出现过老年人因身体不适而发生人身伤害事故，为保证旅游安全，老年人必须确保身体健康良好的情况下参加，如有特殊病史应及时告知本社工作人员，如有隐瞒身体健康状况的，不利后果和由此引发的一切费用由自行承担。
+											<br> 4、其他约定：男女一起报名，如无法同住者请在备注栏内注明；分开报名者，如一起参加活动需要安排同车同房，请在备注栏内注明；(该信息仅限您和工作人员可见，请放心填写。） </p>
+									</div>
+								</dd>
+							</dl>
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>其他费用</div>
+							<div class="sign-up-l-main">
+								<table class="amtTable" width="700">
+									<!-- <thead>
+                <tr>
+                  <th width="30"></th>
+                  <th>费用描述</th>
+                  <th width="80">单价</th>
+                  <th width="80">数量</th>
+                </tr>
+              </thead>-->
+									<tbody style="display: none;" id="feeLoad">
+										<tr>
+											<td colspan="4" align="center"><img src="http://static.youxiake.com/Public/assets/img/common/yxk-loading.gif" alt=""></td>
+										</tr>
+									</tbody>
+									<tbody id="feeList">
+										<tr>暂无</tr>
+										<!-- <tr>
+                  <td align="center"><input id="fee_price_0" value="750.00" type="hidden">
+                    <input id="fee_check_0" name="fee_check_5462" value="1" type="checkbox"></td>
+                  <td>单房差</td>
+                  <td>750.00</td>
+                  <td><input id="fee_num_0" name="fee_num_5462" class="u-input-small"  value="0" data-rule="fee" data-msg-fee="数量填写至少为 1 " disabled="" type="text"></td>
+                </tr>
+                <tr class="fee_error" id="fee_error_0">
+                  <td colspan="4" align="right"><span class="msg-box n-left" for="fee_num_0" style="display:none"></span></td>
+                </tr>-->
+									</tbody>
+								</table>
+							</div>
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>发票索取</div>
+							<div class="sign-up-l-main">
+								<p>发票开具有效期为出游归来后两个月内，点击“我的活动”在订单中在线填写索取发票申请。如有疑问请电询；</p>
+							</div>
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>游客信息</div>
+							<div class="sign-up-l-main">
+								<p>为了保障您的合法权益，请在付款之前准确、完整的填写出游人信息，出游人信息不完整会延误您的正常出游。因填写信息不完整、不准确造成的保险拒赔等问题，我司不承担相应责任。</p>
+							</div>
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>补充条款</div>
+							<div class="sign-up-l-main">
+								<p>为了保障您的合法权益，请在付款之前准确、完整的填写出游人信息，出游人信息不完整会延误您的正常出游。因填写信息不完整、不准确造成的保险拒赔等问题，我司不承担相应责任。</p>
+							</div>
+							<div class="pa_next">
+								<a href="javascript:next(1,2);">下一步</a>
+							</div>
+						</div>
+						<!--填写订单信息 end-->
+
+						<!--填写联系人 start-->
+						<div class="sign-up-l sign-up-l-w" id="step2Content" style="display: none;">
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>产品信息</div>
+							<dl class="sign-up-form">
+								<dt class="clearfix">
+					              <div class="sign-up-form-l">活动名称：</div>
+					              <div class="sign-up-form-r">${act.title}</div>
+					            </dt>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">活动时间：</div>
+									<div class="sign-up-form-r">${act.startTime?string("yyyy-MM-dd")!}到${act.endTime?string("yyyy-MM-dd")!}</div>
+								</dd>
+								<!--<dd class="clearfix">
+									<div class="sign-up-form-l">目的地：</div>
+									<div class="sign-up-form-r">${act.destination}</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">所需人数：</div>
+									<div class="sign-up-form-r">${act.totalNum}</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="sign-up-form-l">已参加人数：</div>
+									<div class="sign-up-form-r">${act.enteredNum}</div>
+								</dd>-->
+								<!--<dd class="clearfix">
+									<div class="sign-up-form-l">报名时间：</div>
+									<div class="sign-up-form-r" id="curTime">2016-2-2</div>
+								</dd>-->
+							</dl>
+							<div class="sign-up-l-tite"><i class="iconfont">&#xe7b4;</i>参加者信息</div>
+							<div class="sign-up-l-main">
+								<p>您的订单已经生成，为了保障您的合法权益，请准确、完整的填写游客证件信息，<span>出游人信息不完整会延误您的正常出游；</span>儿童如无相关证件，证件类型请选择“其他”并填写出生日期。因填写信息不完整，不准确造成的保险据赔等问题，我司不承担相应的责任。</p>
+								<p class="tebie">
+									1、同行人（包括报名人）信息填写完整才能支付订单<br> 2、如果报名人参加活动，则报名人信息必须填写（且最好作为联系人）
+									<br> 3、免费活动补充填写同行人（包括报名人）信息之后才算报名成功。
+								</p>
+							</div>
+							<div class="sign-up-l-main">
+								<dl class="sign-contacts">
+									<dt class="clearfix">联系人</dt>
+									<dd class="clearfix">
+										<div class="sign-up-form-l">真实名字：</div>
+										<div class="sign-up-form-r">
+											<input class="singn-up-btn" style="line-height: 30px;" name="lmname" id="lmname" type="text">
+										</div>
+
+									</dd>
+									<dd class="clearfix">
+										<div class="sign-up-form-l">证件类型：</div>
+										<div class="sign-up-form-r">
+											<select id="lmCertType" name="lmCertType">
+												<option selected="selected" value="0">二代身份证</option>
+												<option value="1">护照</option>
+												<option value="9">其他</option>
+											</select>
+										</div>
+
+									</dd>
+									<dd class="clearfix">
+										<div class="sign-up-form-l">证件号码：</div>
+										<div class="sign-up-form-r">
+											<input class="singn-up-btn" name="lmCertNumber" id="lmCertNumber" type="text" style="line-height: 30px;">
+										</div>
+
+									</dd>
+									<dd class="clearfix">
+										<div class="sign-up-form-l">手机号码：</div>
+										<div class="sign-up-form-r">
+											<input class="singn-up-btn" name="lmNumber" id="lmNumber" type="text" style="line-height: 30px;">
+										</div>
+									</dd>
+								</dl>
+							</div>
+							<div class="pa_next">
+								<a href="javascript:signup();">确认报名</a>
+							</div>
+						</div>
+						<!--填写联系人 end -->
+
+						<!--确认支付   start-->
+						<div class="sign-up-l sign-up-l-w" id="step2Content" style="display: none;"></div>
+						<!--确认支付   end-->
+					</div>
+				</div>
+			</div>
+			<!--订单基本信息 end-->
+			</div>
+			</div>
+		</form>
+	</body>
+
+</html>

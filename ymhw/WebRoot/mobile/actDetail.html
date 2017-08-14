@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="keywords" content="恩施旅游线路,${act.title?default('')}">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>${act.title?default('')}_旅游线路详情_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/wap.css">
+		<style>
+			.am-panel-bd {
+				font-size: 1.4rem;
+			}
+			
+			am-header-default .am-header-nav {
+				color: #eee;
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body style="background:#ececec">
+		<header data-am-widget="header" class="am-header am-header-default pet_head_block">
+			<div class="am-header-left am-header-nav ">
+				<a href="javascript:history.back();" class="iconfont pet_head_jt_ico">&#xe601;</a>
+			</div>
+			<h1 class="am-header-title pet_article_user">
+				<span class="pet_article_user_name">${act.title?default('')}</span>
+			</h1>
+		</header>
+		<div class="pet_mian activity-profile">
+			<!--<header data-am-widget="header" class="am-header am-header-default pet_head_block">
+				<div class="am-header-left am-header-nav ">
+					<a href="javascript:history.back();" class="iconfont pet_head_jt_ico">&#xe601;</a>
+				</div>
+			</header>-->
+			<div class="pet_hd_con_head"><img src="img/z1.jpg" alt="">
+				<a class="am-icon-btn am-icon-star am-animation-slide-top"></a>
+				<a class="am-icon-btn am-icon-share am-animation-slide-top"></a>
+			</div>
+			<div class="ym-main ym-border " style="margin-top:10px; background-color:#fff;">
+				<article data-am-widget="paragraph" class="am-paragraph am-paragraph-default pet_content_article" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+					<h1 class="pet_article_title">${act.title?default('')}</h1>
+
+					<div class="pet_article_user_time pet_hd_con_map"><i class="iconfont">&#xe632;</i>${act.destination?default('')}</div>
+					<div class="pet_article_user_time pet_hd_con_map"><i class="iconfont">&#xe615;</i>限额：${act.totalNum?default(0)}人</div>
+					<div class="pet_hd_con_gp">
+						<div class="pet_hd_con_gp_title">出行日期</div>
+						<div class="pet_article_user_time pet_hd_con_time"><i class="iconfont">&#xe617;</i>${(act.startTime?string("yyyy-MM-dd HH:mm"))!} ～ ${(act.endTime?string("yyyy-MM-dd HH:mm"))!}</div>
+						<div class="pet_hd_con_gp_list">
+							<div class="pet_hd_con_gp_list_sm">
+								<i>￥${act.cost?default(0)}</i> 友鸣官方
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+			<div class="ym-main">
+				<nav class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky sroll="auto">
+					<ul>
+						<li>
+							<a href="#about">线路</a>
+						</li>
+						<li>
+							<a href="#team">行程</a>
+						</li>
+						<li>
+							<a href="#ep">费用</a>
+						</li>
+						<li>
+							<a href="#second">须知</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="activity-main" style="width:100%">
+					<div class="am-panel am-panel-default" id="about">
+						<div class="am-panel-hd">线路描述</div>
+						<div class="am-panel-bd">
+							${act.routeDesc?default('')}
+						</div>
+					</div>
+					<div class="am-panel am-panel-default" id="team">
+						<div class="am-panel-hd">行程安排</div>
+						<div class="am-panel-bd">
+							${act.travelPlan?default('')}
+						</div>
+					</div>
+					<div class="am-panel am-panel-default" id="ep">
+						<div class="am-panel-hd">费用说明</div>
+						<div class="am-panel-bd">
+							${act.feeDesc?default('')}
+						</div>
+					</div>
+					<div class="am-panel am-panel-default" id="second">
+						<div class="am-panel-hd">预定须知</div>
+						<div class="am-panel-bd">
+							${act.notice?default('')}
+						</div>
+					</div>
+					<div class="am-panel am-panel-default">
+						<div class="am-panel-hd">建议装备</div>
+						<div class="am-panel-bd">
+							${act.requiredEquip?default('')}
+						</div>
+					</div>
+					<div class="am-panel am-panel-default">
+						<div class="am-panel-hd">报名提醒</div>
+						<div class="am-panel-bd">
+							${act.notice?default('')}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-am-widget="navbar" class=" am-g am-navbar am-cf am-navbar-default " id="">
+				<div class="am-navbar-nav am-cf">
+					<div class="am-u-sm-2">
+						<a class=""> <span class="am-icon-phone"></span> <span class="am-navbar-label">电话</span> </a>
+					</div>
+					<div class="am-u-sm-2">
+						<a class="" data-am-modal="{target: '#my-actions'}"> <span class="am-icon-share-alt"></span> <span class="am-navbar-label">转发</span> </a>
+					</div>
+					<div class="am-u-sm-2">
+						<a class=""> <span class="am-icon-star"></span> <span class="am-navbar-label">收藏</span> </a>
+					</div>
+					<div class="am-u-sm-6">
+						<a href="javascript:void(0);" style="color:#FFFFD6" class="" data-am-modal="{target: '#act-alert'}">马上报名 </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="am-modal-actions" id="my-actions">
+			<div class="am-modal-actions-group">
+				<ul class="am-list">
+					<li class="am-modal-actions-header">转发赚积分</li>
+					<li>
+						<a href="#"><span class="am-icon-wechat"></span> 分享到微信</a>
+					</li>
+					<li>
+						<a href="#"><span class="am-icon-qq"></span>分享给好友</a>
+					</li>
+					<li class="am-modal-actions-danger">
+						<a href="#"><span class="am-icon-twitter"></span> 分享到微博</a>
+					</li>
+				</ul>
+			</div>
+			<div class="am-modal-actions-group">
+				<button class="am-btn am-btn-secondary am-btn-block" data-am-modal-close="">取消</button>
+			</div>
+		</div>
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed am-no-layout am-active" style="bottom: 60px;">
+			<a href="#top" title=""> <img class="am-gotop-icon-custom" src="img/goTop.png"> </a>
+		</div>
+		
+		<!--活动报名弹框  start-->
+		<div class="am-modal am-modal-alert" tabindex="-1" id="act-alert">
+		  <div class="am-modal-dialog">
+		    <div class="am-modal-hd">活动报名</div>
+		    <div class="am-modal-bd">
+		      	电话：0718-8438881<br />
+		      	QQ：1084958899<br />
+		      	微信：18727715063
+		    </div>
+		    <div class="am-modal-footer">
+		      <span class="am-modal-btn">确定</span>
+		    </div>
+		  </div>
+		</div>
+		<!--活动报名弹框  end-->
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+	</body>
+
+</html>

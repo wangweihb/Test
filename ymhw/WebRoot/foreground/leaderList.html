@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣领队风采 ">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>领队风采_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+		</style>
+		<meta name="keywords" content="企业游 团建 户外装备租赁 农家乐民宿 恩施户外 恩施旅游线路    景点策划推广 国内经典旅游  旅游+">
+		<meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<link rel="shortcut icon" href="../logo.ico" />
+
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/index_fg.js"></script>
+	</head>
+
+	<body style="background: #1d476d;">
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<div class="leader">
+			<div class="container lr">
+				<div class="leader-tite">
+					<p>他们是爱玩会玩儿的旅行家,是最会折腾最懂套路的专业范儿,他们从来不会当你是上帝,而是志趣相投的伙伴、家人<br> 他们既是旅途的欢乐担当,又是安全和体验的保障,他们有颜值有技巧还时刻都激情四射
+						<br> 而这一切 都是为了让你享受旅途的快乐,他们还有一个性感的名字 叫朋友</p>
+				</div>
+				<div class="leader-main">
+					<ul class="clearfix" id="leaderUl">
+						<#list leaders as u>
+							<li>
+								<a class="" target="_blank">
+									<div class="img">
+										<img src="${u.headshot?default('')}">
+									</div>
+									<dl class="text">
+										<dt>${u.account?default('')}<i class="w"></i></dt>
+										<dd>人气值：<span class="pop">${u.praisedNum}</span></dd>
+										<dd>${u.motto?default('')}</dd>
+									</dl>
+								</a>
+							</li>
+						</#list>
+					</ul>
+					<div class="clear"></div>
+					<div class="paging">
+						<div class="paginition"> <span class="active">1</span>
+							<a>2</a>
+							<a>3</a>
+							<a>4</a>
+							<a>5</a>
+							<a title="下一页">&gt;</a>
+							<a title="最后一页">&gt;&gt;</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--引用底部-->
+
+		<#include "footer.html">
+	</body>
+
+</html>

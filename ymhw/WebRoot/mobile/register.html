@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="keywords" content="友鸣会员注册 ">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>会员注册_友鸣旅行网</title>
+
+		<link href="css/amazeui.min.css" rel="stylesheet" type="text/css">
+		<link href="css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="login-boxtitle">
+			<a href="#"><img alt="" src="" /></a>
+		</div>
+
+		<div class="res-banner">
+			<div class="res-main">
+				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
+				<div class="login-box">
+
+					<div class="am-tabs" id="doc-my-tabs">
+						<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+							<!--<li><a href="">邮箱注册</a></li>-->
+							<li class="am-active">
+								<a href="">手机号注册</a>
+							</li>
+						</ul>
+
+						<div class="am-tabs-bd">
+							<div class="am-tab-panel">
+								<form method="post">
+
+									<div class="user-email">
+										<label for="email"><i class="am-icon-envelope-o"></i></label>
+										<input type="email" name="" id="email" placeholder="请输入邮箱账号">
+									</div>
+									<div class="user-pass">
+										<label for="password"><i class="am-icon-lock"></i></label>
+										<input type="password" name="" id="password" placeholder="设置密码">
+									</div>
+									<div class="user-pass">
+										<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
+										<input type="password" name="" id="passwordRepeat" placeholder="确认密码">
+									</div>
+
+								</form>
+
+								<div class="login-links">
+									<label for="reader-me">
+											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+										</label>
+								</div>
+								<div class="am-cf">
+									<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+								</div>
+
+							</div>
+
+							<div class="am-tab-panel am-active">
+								<form method="post">
+									<div class="user-phone">
+										<label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
+										<input type="tel" name="" id="phone" placeholder="请输入手机号">
+									</div>
+									<div class="verification">
+										<label for="code"><i class="am-icon-code-fork"></i></label>
+										<input type="tel" name="" id="code" placeholder="请输入验证码">
+										<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
+											<span id="dyMobileButton">获取</span></a>
+									</div>
+									<div class="user-pass">
+										<label for="password"><i class="am-icon-lock"></i></label>
+										<input type="password" name="" id="password" placeholder="设置密码">
+									</div>
+									<div class="user-pass">
+										<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
+										<input type="password" name="" id="passwordRepeat" placeholder="确认密码">
+									</div>
+								</form>
+								<div class="login-links">
+									<label for="reader-me">
+											<input id="reader-me" type="checkbox"> 点击表示您同意友鸣旅行网
+											<a data-am-modal="{target: '#my-popup'}">《网站服务协议》</a>
+										</label>
+								</div>
+								<div class="am-cf">
+									<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+								</div>
+
+								<hr>
+							</div>
+
+							<script>
+								$(function() {
+									$('#doc-my-tabs').tabs();
+								})
+							</script>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="footer ">
+				<div class="footer-hd ">
+					<p>
+						<a href="/mobile/">友鸣主页</a>
+						<b>|</b>
+						<a href="/mobile/loginPath">登录</a>
+
+					</p>
+				</div>
+				<div class="footer-bd ">
+					<p>
+						<em>友鸣户外咨询策划有限责任公司版权所有 ©2015-2020。</em>
+					</p>
+				</div>
+			</div>
+			<div class="am-popup" id="my-popup">
+				<div class="am-popup-inner">
+					<div class="am-popup-hd">
+						<h4 class="am-popup-title">用户协议</h4>
+						<span data-am-modal-close class="am-close">&times;</span>
+					</div>
+					<div class="am-popup-bd">
+						<p style="font-size:1.4rem"> 友鸣自助户外活动网站以交流户外活动相关资讯和技术为目的，主要内容为户外爱好者提供活动信息和资料发布。<br> 友鸣自助户外活动网站除免费为户外活动爱好者提供网上交流之空间外，不提供网络服务以外之任何服务。
+							<br> 本网站发布的所有各种类型的活动，包括但不仅限于户外活动、旅行、登山等，均为参与者自发之组合，与本网站不存在任何组织、财务关系。若有活动冠以"友鸣"之名称，仅表明活动在友鸣自助户外活动网站上发布，并不表示活动为本网站所组织。本网站未曾授权也不会授权任何人或组织以友鸣自助户外活动网站之名义组织活动。
+							<br> 本网站论坛上的发言仅代表发言者之个人观点，不代表网站之立场。
+							<br>
+							<br> 在使用本网站之前请仔细阅读下列条款和条件。
+							<br> 请确认已经阅读并同意所有这些条款。如您不同意这些条款，请退出此网站。
+							<br> 友鸣自助户外活动网站可随时修改这些条款。如您在本网站修改这些条款后仍使用本网站，则表明您已经接受该变更。
+							<br>
+							<br> 一、用户必须对在本网站通过讨论、上传、电子邮件或其它方式送出的数据负全责，包括合法性、可靠性、合适性或版权问题。
+							<br> 二、任何人不得在电子公告服务系统中发布含有下列内容之一的信息：
+							<br> (一)反对宪法所确定的基本原则的；
+							<br> (二)危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+							<br> (三)损害国家荣誉和利益的；
+							<br> (四)煽动民族仇恨、民族歧视，破坏民族团结的；
+							<br> (五)破坏国家宗教政策，宣扬邪教和封建迷信的；
+							<br> (六)散布谣言，扰乱社会秩序，破坏社会稳定的；
+							<br> (七)散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+							<br> (八)侮辱或者诽谤他人，侵害他人合法权益的；
+							<br> (九)含有法律、行政法规禁止的其他内容的。
+							<br> 三、任何人不得从事其他违反国家有关规定的活动。
+							<br> 四、如果本网站发现有任何不当使用网站任何服务之情形，包括用户违反规定和提供虚假信息等；网站有权暂停或中止该用户使用本网站包括BBS在内的所有或者部分内容，保存记录并视情况向国家有关机关汇报。
+							<br> 五、凡因使用本网站引发的任何争议，均适用中华人民共和国法律，当事人可依法向中华人民共和国有管辖权的人民法院起诉，通过司法程序解决。
+							<br> 六、除非特别声明，本网站所有资料，包括文字、图片、音频、视频内容采用创作共享授权。你可以免费拷贝、分发、呈现和表演该内容，但是必须基于以下条款:1.署名。你必须明确标明作者的名字及出处。2.非商业用途。你不可将当前作品用于商业目的。3.保持一致。如果你基于当前作品更改、变换或构造新作品，你应当按照与当前协议完全相同的协议分发最终作品。
+							<br> 七、使用本网站，以及本网站提供的信息之规定与条件，都受到我们的免责事项。当您使使本网站时，表示您承认您已经参阅免责事项，而且也表示接受这些规定。
+							<br> 八、对发布于友鸣自助户外活动网站的数据、资料，网站不对其真实性、有效性提供担保，无论是明示或暗示，或任何性质的担保。在任何情况下，使用发布于友鸣户外网站之资料所遭到的损失或伤害，不管是直接、间接、特别、偶发、或随之而来的，友鸣户外网站不需对这些责任负责。此外，也不对本网站链接之第三方网站内容作任何担保。友鸣户外网站保留权利，得以不需通知访客，随时更改或删除本网站数据。
+							<br> 九、您确认并同意，您在使用发布于友鸣自助户外活动网站的资料与信息前，已对其进行了充分、必要的了解，愿意自行承担因此可能发生的一切风险与损失。本网站不对您通过本网站所了解并参加的任何活动、购买到的任何产品等的准确性、安全性、可靠性提供担保。
+							<br> 十、本网站仅作为信息交流的平台，对发布信息人的身份、能力的真实性以及信息来源的合法性没有审查义务；发布在网站的任何信息如果涉嫌侵权，由发布人本人承担由此导致的一切责任；任何发布在网站的活动计划，均不由网站组织或者管理，均不能以网站名义进行。任何加入活动的成员都应同意，网站所进行的审查行为是充分履行了其合理义务的表示。户外活动存在不可预知的危险性，请谨慎参加。
+							<br> 十一、友鸣自助户外活动网站不保证本网站保持正常运行，或本网站，其服务器或内容绝无病毒或类似有害特征，或本网站资料不因非正常途径被获取。在任何情况下本网站均对因使用或无法使用本网站或其内容而引起的任何损失（包括但不限于特别或相应损失，利润损失，数据丢失或业务中断等）概不承担责任。
+							<br> 十二、友鸣自助户外活动网站保护用户的隐私权。本网站可能需要收集用户真实姓名、身份证号码、联络方式等个人资料，以及网站浏览记录、论坛发言记录等访问记录。本网站不会将个人隐私资料透露给第三方，政府部门因法律需要除外。 十三、上述条款如部分无效，不影响其余条款的有效性。<br> 请仔细阅读并遵守下列注册条款：
+							<br> 1、注册会员必须遵守中华人民共和国的各项法律法规；
+							<br> 2、不得发布任何有关色情、违法、以及危害国家安全的言论；
+							<br> 3、严禁链接有关政治、色情、宗教迷信等违法信息；
+							<br> 4、承担一切因您的行为而直接或间接导致的民事或刑事法律责任；
+							<br> 5、互相尊重、遵守互联网络道德，严禁互相恶意攻击、漫骂；
+							<br> 6、管理员及版主有权保留或删除论坛中的任意内容；
+							<br> 7、本站网管拥有一切管理权力。
+							<br> 系统将会把部分信息以cookies方式保存在您的计算机中（不包含您的密码及个人信息）；此外您的电子邮件只是用来作为确认注册身份及发送密码使用，将不会作为商业用途。
+
+						</p>
+					</div>
+				</div>
+			</div>
+	</body>
+
+</html>

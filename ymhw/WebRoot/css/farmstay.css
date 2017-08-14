@@ -1,0 +1,65 @@
+.content-main {
+	width: 1170px;
+}
+
+.content-main .main-right {
+	width: 400px;
+	padding-left: 20px;
+}
+
+.main-right i {
+	width: 80px;
+	display: inline-block;
+	color: #999;
+	padding-left: 10px;
+}
+
+.main-right span {
+	color: #F8B101;
+}
+
+.main-right dl {
+	padding-left: 80px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+
+.main-right dd {
+	display: inline-block;
+	width: 32%;
+}
+
+.price span {
+	font: 700 34px arial, sans-serif;
+}
+
+.main-right .ym-reserve {
+	background-color: rgba(255, 110, 0, 1.00);
+	color: #fff;
+	padding: 0;
+	margin-left: 80px;
+	margin-top: 60px;
+}
+
+.main-right-main-list {
+	margin-top: 30px;
+	padding: 20px;
+	/*border: 1px solid #ddd;*/
+}
+
+.main-right-main-list .pr-tite {
+	padding: 3px 0 13px;
+	font-size: 16px;
+}
+
+.main-right-main-list li a {}
+
+.main-right-main-list li .ym-list-img {
+	width: 100px;
+	float: left;
+}
+
+.main-right-main-list li .list-txt {
+	width: 238px;
+	float: right;
+}

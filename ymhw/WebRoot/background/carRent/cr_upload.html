@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友鸣后台-车辆信息管理</title>
+    <meta name="description" content="">
+	<link href="../../css/library/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/jquery.datetimepicker.css" rel="stylesheet"/>
+	<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/library/jquery.datetimepicker.js"></script>
+	<script src="../../js/public/tool.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="../../js/bg/carRent/carRent_bg.js"></script>
+</head>
+<body>
+	<form id="main" method="post" action="/manage_carRent/upload" enctype="multipart/form-data" class="form-horizontal container" role="form">
+		<h1>商户车辆信息上传</h1>
+		<hr />
+		<!--车辆所在商户-->
+		<div class="form-group">
+			<label class="col-sm-2 control-label">所属商户:</label>
+			<div class="col-sm-4">
+				<select name="factoryId" id="factoryId" style="height: 30px;">
+					
+				</select>
+			</div>
+		</div>
+			
+		<!--车名-->
+		<div class="form-group">
+			<label  class="col-sm-2 control-label">车名称:</label>
+			<div class="col-sm-4">
+				<input type="text" id="carName" name="carName" class="form-control"/>
+			</div>
+			<label class="col-sm-2 control-label">(必填，品牌+车型)</label>
+		</div>
+		
+		<!--车型-->
+		<div class="form-group">
+			<label class="col-sm-2 control-label">车型:</label>
+			<div class="col-sm-4">
+				<select name="carType" style="height: 30px;">
+					<option value="1">舒适型轿车</option>
+					<option value="2">经济型轿车</option>
+					<option value="3">MVP</option>
+					<option value="4">豪华型轿车</option>
+					<option value="5">SUV</option>
+					<option value="6">7座商务型轿车</option>
+					<option value="7">旅游大巴车</option>
+				</select>
+			</div>
+		</div>
+		
+		<!--手自排型-->
+		<div class="form-group">
+			<label class="col-sm-2 control-label">手自排型:</label>
+			<div class="col-sm-4">
+				<select name="szpType" style="height: 30px;">
+					<option value="0">手动挡</option>
+					<option value="1">自动挡</option>
+				</select>
+			</div>
+		</div>
+		
+		<!--排量-->
+		<div class="form-group">
+			<label  class="col-sm-2 control-label">排量:</label>
+			<div class="col-sm-4">
+				<input type="text" name="sweptVolume" class="form-control" placeholder="1.6T"/>
+			</div>
+		</div>
+		
+		<!--可乘坐人数-->
+		<div class="form-group">
+			<label  class="col-sm-2 control-label">可乘坐人数:</label>
+			<div class="col-sm-4">
+				<input type="text" id="cntLimit" name="cntLimit" class="form-control"/>
+			</div>
+			<label class="col-sm-2 control-label">(必填，只能填写数字)</label>
+		</div>
+		
+		<!--门店地址-->
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">门店具体地址 ：</label>
+			<div id="distpicker" class="col-sm-6" style="display: inline-block;">
+			  <select name="provice" style="height: 30px;"></select>
+			  <select name="city" style="height: 30px;"></select>
+			  <select name="region" style="height: 30px;"></select>
+			</div>
+			
+			<label for="inputEmail3" class="col-sm-2 control-label">街道、门牌号 </label>
+            <div class="col-sm-2">
+            	<input  class="form-control" type="text" name="streetAddress" />
+            </div>
+        </div>
+        
+        <!--出租时间-->
+        <!--<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">出租时间 ：</label>
+			<div class="col-sm-8">
+				<div class="input-group col-sm-4" style="float: left;">
+					<input  type="text" class="form-control datepick_carRent" id="rentStartTime" name="rentStartTime" value="" />
+					<span class="input-group-btn">
+						<button class="btn btn-default" id="" disabled>
+							<span class="glyphicon glyphicon-calendar"></span>
+						</button>
+					</span>
+				</div>
+				<div class="col-sm-1" style="float: left; height: 30px; line-height: 30px;">
+					到
+				</div>
+            	<div class="input-group col-sm-4" style="float: left;">
+					<input  type="text" class="form-control datepick_carRent" id="rentEndTime" name="rentEndTime" value="" />
+					<span class="input-group-btn">
+					<button class="btn btn-default" id="" disabled>
+						<span class="glyphicon glyphicon-calendar"></span>
+					</button>
+					</span>
+				</div>
+			</div>
+		</div>-->
+		
+		<!--展示图片-->
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">主题图： <small>(只支持图片文件,建议尺寸 200 * 150)</small></label>
+			<input class="col-sm-4 " id="showpic" name="showpic" accept="image/gif,image/png,image/jpeg" type="file" />
+           
+            <div class="col-sm-3 " >
+			<img id="tmpImg" src="" width="200" height="150"/>
+            
+            </div>
+		</div>
+		
+        <!--价格-->
+		<div class="form-group">
+			<label  class="col-sm-2 control-label">价格:</label>
+			<div class="col-sm-4">
+				<input type="text" id="price" name="price" class="form-control"/>
+			</div>
+			<label class="col-sm-2 control-label">(只能填写数字)</label>
+		</div>
+        
+        <hr />
+        <div class="form-group">
+        	<div class="col-sm-offset-4">
+        		<button type="button" class="btn btn-warning" onclick="javascript:sub();">确认上传</button>
+        	</div>
+        </div>
+	</form>
+</body>
+<script type="text/javascript" src="../../js/library/distpicker.data.js"></script>
+<script type="text/javascript" src="../../js/library/distpicker.js"></script>
+</html>

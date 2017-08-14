@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣户外，恩施旅游线路，恩施团建拓展，团建拓展 " />
+		<meta name="description" content="友鸣旅行网 （www.yomiing.com）一个综合性的大众休闲旅游平台，提供的团建拓展的旅游活动" />
+
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+		</style>
+		<title>团建拓展_旅游线路_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+	</head>
+
+	<body style=" background-color:#f2f2f2">
+		<!--引用头部-->
+		<#include "../top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动
+								<img src="../images/hot.gif" alt="热门活动" style="position: absolute;top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<!--公共顶部   start-->
+
+		<!--banner开始-->
+		<div class="weekend-banner-5"></div>
+		</div>
+
+		<div class="page">
+			<div class="page-float">
+				<ul>
+					<li>
+						<a href="/activity/actListByType?type=weekend">快乐周末</a>
+					</li>
+					<li>
+						<a href="/activity/actListByType?type=hot">当季热门</a>
+					</li>
+					<li>
+						<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+					</li>
+					<li>
+						<a href="/activity/actListByType?type=expand">企业拓展</a>
+					</li>
+					<li>
+						<a href="/activity/actListByType?type=enshi">魅力恩施</a>
+					</li>
+				</ul>
+			</div>
+			<div class="page-main">
+				<!--导航-->
+				<div class="menu"><span>企业拓展</span></div>
+				<!--导航结束-->
+				<!--项目内容开始-->
+				<ul class="weekend">
+					<#list activities as act>
+						<li class="ym-itens">
+							<a class="page-left y-item-img" href="/activity/display?activityId=${act.id}">
+								<img src="${act.pic?default('')}" alt="${act.title?default('')}">
+							</a>
+							<div class="page-left weekend-txt">
+								<h4 class="y-link">
+                            	<a href="/activity/display?activityId=${act.id}">${act.title?default('')}</a>
+                                <span class="y-tit">${act.desc?default('')}</span>
+                            
+                            </h4>
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td>价　　格：</td>
+											<td class="f-money">
+												￥
+												<span class="price">
+                                            <em>${act.cost?default(0)}</em>
+                                          		  起(成人)
+                                        </span>
+												<span class="price">
+                                        <em>${act.cost?default(0)}</em>
+                                       		 起(儿童)
+                                    </span> </td>
+										</tr>
+										<tr>
+											<td>活动时间：</td>
+											<td>
+												<select>
+													<option>${(act.startTime?string("yyyy-MM-dd"))!} -- ${(act.endTime?string("yyyy-MM-dd"))!}</option>
+
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>集 合 地：</td>
+											<td>${act.gatherPlace?default("")}</td>
+										</tr>
+										<tr>
+											<td>报名人数：</td>
+											<td>${act.enteredNum?default(0)}人</td>
+										</tr>
+										<tr>
+											<td>剩余人数：</td>
+											<td>${act.totalNum - act.enteredNum}人</td>
+										</tr>
+									</tbody>
+								</table>
+								<a class="y-btn" href="/activity/signupPath?activityId=${act.id}">立即报名</a>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+		<!--项目内容结束-->
+		<div style="clear: both;">
+			<#include "../footer.html">
+		</div>
+
+	</body>
+
+</html>

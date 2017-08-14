@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="keywords" content="友鸣租车包车，户外装备租赁，周边目的地">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>租车包车_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/wap.css">
+	</head>
+
+	<body>
+		<div class="am-tabs um car-rental" data-am-tabs>
+			<header data-am-widget="header" class="am-header am-header-default pet_head_block" data-am-sticky="{animation: 'slide-top'}">
+				<div class="am-header-left am-header-nav ">
+					<a href="javascript:history.back();" class="iconfont pet_head_jt_ico">&#xe601;</a>
+				</div>
+				<div style="padding-top:8px;">
+					<ul class="am-tabs-nav am-nav am-nav-tabs">
+						<li class="am-active">
+							<a href="#tab1">租车</a>
+						</li>
+						<li>
+							<a href="#tab2">包车</a>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<div class="am-tabs-bd">
+				<!--租车业务 start-->
+				<div class="am-tab-panel am-active am-in" id="tab1">
+					<div class="pet_grzx_list">
+						<div class="pet_content_main pet_article_like_delete">
+							<div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+								<div class="am-list-news-bd">
+									<ul class="am-list">
+										<!--缩略图在标题右边-->
+										<#list cars as car>
+											<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+												<div class="am-u-sm-5 am-list-thumb">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#car-alert'}">
+														<img src="${car.showpic?default('')}" class="pet_list_one_img" alt="" />
+													</a>
+												</div>
+												<div class=" am-u-sm-7 am-list-main pet_list_one_nr">
+													<h3 class="am-list-item-hd pet_list_one_bt">
+														<a href="javascript:void(0);" class="" data-am-modal="{target: '#car-alert'}">
+															${car.name?default('')}
+														</a>
+													</h3>
+													<div class="am-list-txt">| ${car.price?default(0.0)} | 乘坐${car.cntLimit?default(0)}人 </div>
+													<div class="am-list-item-text pet_list_one_text">
+														<i class="am-btn-warning">热门</i>
+														<i class="am-btn-secondary">
+															<#if car.gearType == 0>
+																手动
+															</#if>
+															<#if car.gearType == 1>
+																自动
+															</#if>
+															 档
+														</i>
+													</div>
+												</div>
+											</li>
+										</#list>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--租车业务 end-->
+				
+				<!--包车业务 start-->
+				<div class="am-tab-panel" id="tab2">
+					<div class="pet_grzx_list">
+						<div class="pet_content_main pet_article_like_delete">
+							<div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+								<div class="am-list-news-bd">
+									<ul class="am-list">
+										<!--缩略图在标题右边-->
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/beijing.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														北京包车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥500／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/guining.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														桂林阳朔
+													</a>
+												</h3>
+												<div class="am-list-txt">￥800／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/hlbr.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														呼伦贝尔包车线路
+													</a>
+												</h3>
+												<div class="am-list-txt">￥1000／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/qinghai.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														青海环线租车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥1000／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/sanya.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														三亚租车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥1300／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/wunong.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														武隆包车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥300／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/xian.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														西安包车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥500／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-4 am-list-thumb">
+												<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+													<img src="../images/zc/xgll.png" class="pet_list_one_img" alt="" />
+												</a>
+											</div>
+											<div class=" am-u-sm-8 am-list-main pet_list_one_nr">
+												<h3 class="am-list-item-hd pet_list_one_bt">
+													<a href="javascript:void(0);" class="" data-am-modal="{target: '#baoche-alert'}">
+														香格里拉到丽江包车
+													</a>
+												</h3>
+												<div class="am-list-txt">￥800／台天 </div>
+												<div class="am-list-item-text pet_list_one_text"><i class="am-btn-warning">热门</i><i class="am-btn-secondary"> 租车服务</i></div>
+											</div>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--包车业务 end-->
+			</div>
+			
+			<!--底部导航 start-->
+			<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+				<ul class="am-navbar-nav am-cf am-avg-sm-4">
+					<li>
+						<a href="/mobile/" class="hover">
+							<span class="am-icon-home"></span>
+							<span class="am-navbar-label">主页</span>
+						</a>
+					</li>
+					<li>
+						<a href="/mobile/informationPath" class="">
+							<span class="am-icon-map-marker"></span>
+							<span class="am-navbar-label">目的地</span>
+						</a>
+					</li>
+					<li>
+						<a href="/mobile/topicPath" class="">
+							<span class="am-icon-comments"></span>
+							<span class="am-navbar-label">话题</span>
+						</a>
+					</li>
+					<li>
+						<a href="/mobile/personPath" class="">
+							<span class="am-icon-user"></span>
+							<span class="am-navbar-label">我的</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--底部导航 end-->
+		</div>
+		
+		<!--租车弹框  start-->
+		<div class="am-modal am-modal-alert" tabindex="-2" id="car-alert">
+		  <div class="am-modal-dialog">
+		    <div class="am-modal-hd">租车详情</div>
+		    <div class="am-modal-bd">
+		      	电话：0718-8438881<br />
+		      	QQ：1084958899
+		    </div>
+		    <div class="am-modal-footer">
+		      <span class="am-modal-btn">确定</span>
+		    </div>
+		  </div>
+		</div>
+		<!--租车弹框  end-->
+		
+		<!--包车弹框  start-->
+		<div class="am-modal am-modal-alert" tabindex="-1" id="baoche-alert">
+		  <div class="am-modal-dialog">
+		    <div class="am-modal-hd">包车联系</div>
+		    <div class="am-modal-bd">
+		      	电话：0718-8438881<br />
+		      	QQ：1084958899
+		    </div>
+		    <div class="am-modal-footer">
+		      <span class="am-modal-btn">确定</span>
+		    </div>
+		  </div>
+		</div>
+		<!--包车弹框  end-->
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+
+		<script>
+			$(function() {
+
+				// 动态计算新闻列表文字样式
+				auto_resize();
+				$(window).resize(function() {
+					auto_resize();
+				});
+				$('.am-list-thumb img').load(function() {
+					auto_resize();
+				});
+				$('.pet_article_like li:last-child').css('border', 'none');
+
+				function auto_resize() {
+					$('.pet_list_one_nr').height($('.pet_list_one_img').height());
+					// alert($('.pet_list_one_nr').height());
+				}
+				$('.pet_article_user').on('click', function() {
+					if($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')) {
+						$('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+					} else {
+						$('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+					}
+				});
+
+				$('.pet_head_gd_ico').on('click', function() {
+					$('.pet_more_list').addClass('pet_more_list_show');
+				});
+				$('.pet_more_close').on('click', function() {
+					$('.pet_more_list').removeClass('pet_more_list_show');
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣户外，恩施旅游线路，友鸣团建拓展 ，户外装备租赁，恩施户外景点，友鸣来源 ">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		
+		<link rel="shortcut icon" href="../logo.ico" />
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/about.css" />
+		<link rel="stylesheet" href="../css/to_top.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<style type="text/css">
+			#topcontent{color: #eee !important;}
+		</style>
+
+		<title>关于我们_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/index_fg.js"></script>
+		
+		<script>
+			$(function() {
+				//初始化置顶按钮位置
+				$('.to_top_btn').css('right', ($(window).width() - $('.container').width()) / 2 - $('.to_top_btn').width() + "px");
+
+				//置顶按钮  
+				$(window).scroll(function() {
+					if($(document).scrollTop() > 160) {
+						$('.to_top_btn').fadeIn();
+					} else {
+						$('.to_top_btn').fadeOut();
+					}
+				});
+				$('.to_top_btn').click(function() {
+					var timer = setInterval(function() {
+						if($(document).scrollTop() == 0) {
+							clearInterval(timer);
+						} else {
+							$(document).scrollTop($(document).scrollTop() - 30);
+						}
+					}, 5);
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<!--引用头部-->
+
+		<#include "top.html">
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		
+		<!--公共顶部   start-->
+		<!--banner  start-->
+		<div id="about-banner">
+			<div class="container">
+				<div class="about-banner-txt">
+					<h4>嘤其鸣矣  求其友声</h4>
+					<span></span>
+					<p>我们深知每一次旅行对的意义 我们有态度有追求
+						<br> 要做引领体验的新旅游
+						<br> 满足你最渴望的旅行姿势
+						<br> 一切都更简单而纯粹
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--banner  end-->
+
+		<!--about  start-->
+		<div id="about" class="about">
+			<div class="container">
+				<div>
+					<h3>关于友鸣</h3>
+					<span></span>
+					<p>“友鸣”来源于诗经“嘤其鸣矣 求其友声” ！<br> 几年前，在民大的一栋宿舍内，几个任性的大学生开始了他们的旅行梦！靠挤生活费做兼职做生意来赚旅费。。。做攻略找花样拗姿势。。。那些向往的远方被一一拿下，他们也用经验技巧帮很多身边的朋友去实现他们的旅行梦 ！现在，他们又聚集了一群旅业大神全新出发，只为帮更多的人实现他们的旅行梦！<br> 友鸣旅行网是一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。我们通过深度的资源整合搭建全面系统的信息资讯平台，为用户提供休闲旅游目的地、活动线路、装备租赁、租车包车等吃住行购等信息，并在此基础上提供相应的解决方案。
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="aboutgrids">
+			<div class="container">
+				<div class="about-grids">
+					<div class="about-grids-left lt-text">
+						<!--					<h4><a href="#">Typi non habent claritatem insitam </a></h4>
+-->
+						<h4>产品情怀</h4>
+						<p>旅行者的<span>需求和体验</span>是我们产品的根本<br> 坚持特色
+							<span>多元</span>的线路玩法<br> 坚持做
+							<span>“当地化”</span>精致小团<br> 坚持友鸣旅行培训出的
+							<span>领队带团</span><br> 坚持做引领
+							<span>体验的新旅游</span><br> 要让
+							<span>更多的人</span>参与友鸣的<span>旅行梦</span><br> 要让
+							<span>每一个</span>鸣友都能享受旅游的<span>快乐</span></p>
+
+					</div>
+					<div class="about-grids-right rt-img">
+						<a href="#"><img src="../images/about/about_3.png" width="100%" alt="" /></a>
+					</div>
+					<div class="clearfix"> </div>
+
+				</div>
+			</div>
+		</div>
+		<div id="about-Join">
+			<div class="container">
+				<img src="../images/about/icon.png" alt="" />
+				<h4 style="font-size:34px; color:#Fff; margin-top:20px;">友鸣领队</h4>
+				<p>
+					他们是爱玩会玩儿的旅行家, 是最会折腾最懂套路的专业范儿, 他们从来不会当你是上帝, 而是志趣相投的伙伴、家人
+					<br> 他们既是旅途的欢乐担当 又是安全和体验的保障, 他们有颜值有技巧还时刻都激情四射, 而这一切 都是为了让你享受旅途的快乐, 他们还有一个性感的名字 叫朋友
+				</p>
+				<!--<div class="about-Button"><a></a></div>
+--></div>
+		</div>
+		<!--about  end-->
+
+		<div class="about-blog" id="about-blog">
+			<div class="container">
+				<div class="about-blog-grids">
+					<div class="about-blog-grids-left lt-text">
+						<span>Yomiing</span>
+						<h4>这样的旅行 触手可及 </h4>
+						<p>没有时间 ？ 我们大都是周末出来活动，也就是你在家发霉的时间；小长假也是一定不会放过的，寒暑假、年假啊那就不用说啦</p>
+						<p>没有装备 ？我们有专业的装备租赁板块，上面的装备完全能满足你的需要，除了价低质优，我们的工作人员还会给你提供良心的专业建议</p>
+						<p>怎么收费 ？ 首先呢~ 活动的费用是以AA制为主导，然后活动组织者策划中会列出费用明细 ，最后呢我们平台会对收费标准进行监督 </p>
+						<p>不知道去哪儿？ 深度整合区域内优质俱乐部、徒步及各种景点、线路资源，每周至少30条游玩线路供你选择</p>
+
+					</div>
+					<div class="about-blog-grids-right rt-img">
+						<a href="#"><img src="../images/about/4.jpg" alt="" /></a>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="caption-imag">
+						<div class="round-shape">
+							<p>a</p>
+						</div>
+					</div>
+				</div>
+				<div class="about-blog-grids">
+					<div class="about-blog-grids-left">
+						<a href="#"><img src="../images/about/2.jpg" alt="" /></a>
+					</div>
+					<div class="about-blog-grids-right">
+						<span>Yomiing</span>
+						<h4>让旅途更快乐</h4>
+						<p>活动前 领队会提前选好线路，在网站和公众号发布详尽的活动公告，并安排好车辆及食宿等事宜； 可以提前跟同行队友在群里沟通交流、相互了解！</p>
+
+						<p>活动中 沿路你可以尽情赏景拍照，什么情歌对唱啊 即兴游戏啊自然是可以随心所欲的发挥，在满是当地特色菜品的餐桌前，当然就是大块吃肉大碗喝酒啦！</p>
+
+						<p>活动后 可以通过网站论坛、 微博、微信等，尽情的分享旅途的快乐和生活的乐趣 把那些照片、游记、线路、美食等等等都拿出来得瑟得瑟，没事也可以 相约一起散散步喝喝茶，当然喝点小酒打打麻将也是极好的！
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="caption-imag">
+						<div class="round-shape">
+							<p>a</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--活动详情  end-->
+		<div class="project-gallery">
+			<div class="gallery-grids">
+				<div class="gallery-grids-info">
+					<img src="../images/about/img3.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>钓鱼</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img1.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>露营</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img6.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>登山</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img8.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>骑行</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img9.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>漂流</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img4.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>潜水</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="project-portfolio">
+				<div class="container">
+					<h4>活动种类多样</h4>
+					<p>最丰富多活动，上山入海，骑行跑步，让我们和大自然360度全接触。多种多样活动让旅行不再单一，来这里感受从没体验过多极致享受吧</p>
+					<a href="/activity/actListByType?type=hot">了解更多</a>
+				</div>
+			</div>
+			<div class="gallery-grids">
+				<div class="gallery-grids-info">
+					<img src="../images/about/img2.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>夏令营</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img5.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>聚会</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img11.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>滑雪</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img10.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>徒步</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img13.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>摄影</p>
+					</div>
+				</div>
+				<div class="gallery-grids-info">
+					<img src="../images/about/img12.jpg" alt="" />
+					<div class="caption">
+						<h4>YOMIING</h4>
+						<span></span>
+						<p>冒险</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+
+		<div class="to_top_btn"></div>
+
+		<div class="contact">
+			<div class="container" id="contact">
+				<div class="gallery-txt"></div>
+			</div>
+		</div>
+		<!--引用底部-->
+
+		<#include "footer.html">
+	</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣论坛，友鸣分享">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>帖子发布_论坛_友鸣旅行网</title>
+
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/ym-style.css" />
+		<link rel="stylesheet" href="../css/article.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/article.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(':input').labelauty();
+			});
+			var login = function() {
+				window.location = "/loginPath";
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<!--公共顶部   start-->
+
+		<form action="/article/publish" method="post" id="articlePublishForm">
+			<div class="art-body">
+				<div class="scTitle">
+					<h3>发布话题<span>在这里你可以发布旅游感想／问题／心得／经验等话题，自由发布自由交流</span></h3>
+				</div>
+				<form>
+					<div class="row forum-tite">
+						<label>话题标题：<span>简短一些让其他人快速了解你的话题（1～50字）</span></label>
+						<input type="text" name="title" placeholder="写下你想说的话题或问题" />
+					</div>
+					<div class="row forum-tab">
+						<h5>选择板块：<span>选择发布板块，可多选</span></h5>
+						<div class="forum-tab">
+							<!--<a class="forum-hover" href="#">美图</a>
+						<a class="forum-hover" href="#">美文</a>
+						<a class="" href="#">美食</a>
+						<a class="" href="#">路线</a>-->
+							<ul style="padding-left: 60px;">
+								<li><input type="checkbox" name="type" value="1" data-labelauty="美图"></li>
+								<li><input type="checkbox" name="type" value="2" data-labelauty="美文"></li>
+								<li><input type="checkbox" name="type" value="3" data-labelauty="美食"></li>
+								<li><input type="checkbox" name="type" value="4" data-labelauty="路线"></li>
+							</ul>
+							<input type="hidden" id="types" name="types" value="" />
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+
+					<div class="sc1_row" style="height:300px;margin-top: 10px;">
+						<label class="pub-tite" style="width: 10%; float:left">帖子主题照片：</label>
+						<div class="sc2_row">
+							<input type="file" id="imgUpload" style="display: none;" name="imgUpload" draggable="true" single />
+							<a href="javascript:document.getElementById('imgUpload').click();" class="sc1_btn1">上传主题帖照片</a>
+							<p>添加一张照片作主题帖展示，建议尺寸（350*250）</p>
+						</div>
+						<div id="destination" class="sc1_img" style="width: 350px;height: 250px;"></div>
+						<input type="hidden" id="pic" name="pic" value="" />
+						<div class="clearfix"></div>
+					</div>
+
+					<div class="row" style="margin-top: 50px;">
+						<label>话题内容：<span></span></label>
+
+						<link type="text/css" href="../themes/default/css/ueditor.css" rel="stylesheet" />
+
+						<!--配置文件 -->
+						<script type="text/javascript" src="../ueditor.config.js"></script>
+						<!-- 编辑器源码文件 -->
+						<script type="text/javascript" src="../ueditor.all.js"></script>
+						<!-- 实例化编辑器 -->
+						<div id="contentEx" style="display: block;">
+
+							<!-- 加载编辑器的容器 -->
+							<script id="contentContainer" type="text/plain">
+								请输入您的旅游感想、问题、心得、经验
+							</script>
+							<input type="hidden" id="content" name="content" value="" />
+							<script type="text/javascript">
+								var ue = UE.getEditor('contentContainer', {
+									initialFrameHeight: 680,
+									maximumWords: 1000000 //允许的最大字符数
+								});
+							</script>
+						</div>
+					</div>
+					<div class="row">
+						<div class="publisarticle-btn">
+							<a href="/aboutHelpPath?param=agreement">请仔细阅读本网站发帖说明</a>
+							<div class="button1" onclick="share();">确认发布</div>
+							<!--<div class="button2">取消</div>-->
+						</div>
+					</div>
+			</div>
+			</form>
+			</div>
+
+			<!--引用尾部-->
+			<#include "footer.html">
+	</body>
+
+</html>

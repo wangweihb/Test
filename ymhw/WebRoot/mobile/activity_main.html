@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="keywords" content="恩施旅游线路">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>旅游线路_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/wap.css">
+		<style>
+			.am-list-thumb {
+				padding-right: 10px !important;
+				padding-left: 0px;
+			}
+			
+			.am-list-news-default .am-list-item-thumb-right .am-list-thumb {
+				max-height: 100%;
+				;
+				overflow: hidden;
+			}
+			
+			.pet_content_main .am-list-news-default .pet_list_one_text {
+				position: static;
+			}
+			
+			.pet_list_tytj_icon {
+				font-size: 1.2rem;
+				color: #999;
+				margin-bottom: 10px;
+			}
+			
+			.pet_list_tytj_icon i,
+			.pet_list_tytj_icon2 i {
+				margin-right: 5px;
+			}
+			
+			.pet_list_tytj_icon2 {
+				font-size: 1.2rem;
+				color: #999;
+				margin-top: 10px;
+			}
+			
+			.am-navbar-default .am-navbar-nav {
+				background-color: rgba(29, 29, 29, 0.95);
+			}
+			
+			.am-navbar-default .am-navbar-nav a {
+				color: rgba(153, 153, 153, 1.00)
+			}
+			
+			.am-navbar-default .am-navbar-nav .hover {
+				color: #fff
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="pet_mian">
+			<header data-am-widget="header" class="am-header am-header-default pet_head_block">
+				<div class="am-header-left am-header-nav ">
+					<a href="javascript:history.back();" class="iconfont pet_head_jt_ico">&#xe601;</a>
+				</div>
+				<h1 class="am-header-title pet_article_user"> <span class="pet_article_user_name">旅游线路</span> </h1>
+			</header>
+			<!--筛选-->
+			<div class="ym-fixed-nav">
+				<nav id="sort" class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky="" style="margin: 0px;">
+					<table width="100%" border="0" cellspacing="0">
+						<tr>
+							<td class="sort_left">
+								<div class="sort_cate">
+									<div class="sort_b">
+										<a href="#" onclick="return false;">
+											<div class="sort_b_inner"><i class="cate_default"></i><span>所有线路</span>
+												<div class="clear"></div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div class="sort_sort">
+									<div class="sort_b">
+										<a href="#" onclick="return false;">
+											<div class="sort_b_inner"><i class="cate_sort"></i><span>最新发布</span>
+												<div class="clear"></div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</td>
+							<td class="sort_right">
+								<div class="sort_tag">
+									<div class="sort_b">
+										<a href="#" onclick="return false;">
+											<div class="sort_b_inner"><i class="cate_tag"></i><span>发布者</span>
+												<div class="clear"></div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</nav>
+				<div class="push_msk"></div>
+			</div>
+			<!--弹出选项-->
+			<div id="sort_content">
+				<div class="asort">
+					<div class="hd">
+						<div class="wrap">
+							<div class="fl"><span>选择分类</span>
+								<div class="clear"></div>
+							</div>
+							<div class="fr am-icon-close"></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="ct">
+						<div class="wrap">
+							<ul class="choose_cate">
+								<li c_data="0" style="font-weight:700;">
+									<i style="background:none;width:0;margin-right:0;" class="s"></i>
+									<span>全部</span><i class="e"></i>
+								</li>
+								<li class="a_selected" style="font-weight:700;" c_data="1" style="background:#f7f7f7;"><i></i><span>精选推荐</span><i class="e"></i></li>
+								<li style="font-weight:700;" c_data="2" style="background:#f7f7f7;"><i></i><span>当季热门</span><i class="e"></i></li>
+								<li style="font-weight:700;" c_data="3" style="background:#f7f7f7;"><i></i><span>毕业狂欢</span><i class="e"></i></li>
+								<li style="font-weight:700;" c_data="4" style="background:#f7f7f7;"><i></i><span>快乐周末</span><i class="e"></i></li>
+								<li style="font-weight:700;" c_data="5" style="background:#f7f7f7;"><i></i><span>西部神游</span><i class="e"></i></li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="asort">
+					<div class="hd">
+						<div class="wrap">
+							<div class="fl"><span>选择排序</span>
+								<div class="clear"></div>
+							</div>
+							<div class="fr am-icon-close"></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="ct">
+						<div class="wrap">
+							<ul class="choose_sort">
+								<li class="a_selected" s_data="rec"><i class="s"></i><span>最新推荐</span><i class="e"></i></li>
+								<li s_data="like"><i class="s"></i><span>最多喜欢</span><i class="e"></i></li>
+								<li s_data="view"><i class="s"></i><span>最多浏览</span><i class="e"></i></li>
+								<li s_data="laster"><i class="s"></i><span>最新发布</span><i class="e"></i></li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="asort">
+					<div class="hd">
+						<div class="wrap">
+							<div class="fl"><i></i><span>发布者</span>
+								<div class="clear"></div>
+							</div>
+							<div class="fr am-icon-close"></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="ct">
+						<div class="wrap">
+							<ul>
+								<li t_data=""><i></i><span>官方</span><i class="e"></i></li>
+								<li t_data="1"><i></i><span>领队</span><i class="e"></i></li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--内容-->
+			<div class="pet_article_like">
+				<div class="pet_content_main pet_article_like_delete">
+					<div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+						<div class="am-list-news-bd">
+							<ul class="am-list" id="actList">
+								
+								<#list activities_1 as act>
+									<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+										<div class="pet_list_one_info">
+											<h3 class="am-list-item-hd pet_list_one_bt" style="float:left">
+												<a href="/mobile/actDetailPath?id=${act.id?default(0)}" class="">
+													${act.title?default('')}
+												</a>
+											</h3>
+											<div class="pet_list_one_info_r">
+												<div class="pet_list_tag pet_list_tag_xxs">
+													<i class="am-icon-clock-o"></i> ${(act.startTime?string("yyyy-MM-dd"))!}
+												</div>
+											</div>
+
+										</div>
+										<div class="am-u-sm-5 am-list-thumb">
+											<a href="/mobile/actDetailPath?id=${act.id?default(0)}" class="">
+												<img height="120" src="${act.pic?default('')}" alt="${act.title?default('')}" />
+											</a>
+										</div>
+										<div class=" am-u-sm-7 am-list-main pet_list_one_nr">
+											<div class="pet_list_tytj_icon"><i class="am-icon-bookmark"></i>
+												<#if act.property == 1>
+													AA旅行
+												<#elseif act.property == 2>
+													自由结伴
+												<#elseif act.property == 3>
+													户外拓展
+												</#if>
+											</div>
+											<div class="am-list-item-text pet_list_one_text">${act.desc?default('')}</div>
+											<div class="am-list-item-text ym-act-price">
+												￥<span>${act.cost?default(0)}</span>元
+											</div>
+											<div class="pet_list_tytj_icon2">
+												<i class="am-icon-eye"></i>64浏览
+												<!--<i class="am-icon-heart"></i>67-->
+												<i class="am-icon-comment"></i>28评论</div>
+										</div>
+									</li>
+								</#list>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+			<ul class="am-navbar-nav am-cf am-avg-sm-4">
+				<li>
+					<a href="/mobile/" class="" class="hover">
+						<span class="am-icon-home"></span>
+						<span class="am-navbar-label">主页</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/informationPath">
+						<span class="am-icon-map-marker"></span>
+						<span class="am-navbar-label">目的地</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/topicPath" class="">
+						<span class="am-icon-comments"></span>
+						<span class="am-navbar-label">话题</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/personPath" class="">
+						<span class="am-icon-user"></span>
+						<span class="am-navbar-label">我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+		<script language="javascript" src="js/zepto.min.js"></script>
+		<script language="javascript" src="js/script.js"></script>
+		<script>
+			var now_page = 1,
+				search_value = '';
+		</script>
+		<script>
+			$(function() {
+
+				// 动态计算新闻列表文字样式
+				auto_resize();
+				$(window).resize(function() {
+					auto_resize();
+				});
+				$('.am-list-thumb img').load(function() {
+					auto_resize();
+				});
+
+				$('.am-list > li:last-child').css('border', 'none');
+
+				function auto_resize() {
+					$('.pet_list_one_nr').height($('.pet_list_one_img').height());
+
+				}
+				$('.pet_nav_gengduo').on('click', function() {
+					$('.pet_more_list').addClass('pet_more_list_show');
+				});
+				$('.pet_more_close').on('click', function() {
+					$('.pet_more_list').removeClass('pet_more_list_show');
+				});
+				
+				$('.choose_cate li').on('click', function() {
+					var type = $(this).index();
+					$.getJSON("/mobile/portActsByType",{"type":type}, function(datas){
+						$("#actList").empty();
+						$.each(datas, function(i) {
+							var propertyStr = "AA旅行";
+							if (datas[i].property == 1) {
+								propertyStr = "AA旅行";
+							} else if(datas[i].property == 2) {
+								propertyStr = "自由结伴";
+							} else if(datas[i].property == 3) {
+								propertyStr = "户外拓展";
+							}
+							var li =    '<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">' +
+											'<div class="pet_list_one_info">' + 
+												'<h3 class="am-list-item-hd pet_list_one_bt" style="float:left">' + 
+													'<a href="/mobile/actDetailPath?id='+datas[i].id+'" class="">' + 
+														datas[i].title + 
+													'</a>' +
+												'</h3>' + 
+												'<div class="pet_list_one_info_r">' + 
+													'<div class="pet_list_tag pet_list_tag_xxs">' + 
+														'<i class="am-icon-clock-o"></i>' +
+														datas[i].startTime.split(" ")[0] +
+													'</div>' + 
+												'</div>' + 
+											'</div>' + 
+											'<div class="am-u-sm-5 am-list-thumb">' +
+												'<a href="/mobile/actDetailPath?id='+datas[i].id+'" class="">' + 
+													'<img height="120" src="'+datas[i].pic+'" alt="'+datas[i].title +'" />' + 
+												'</a>' + 
+											'</div>' + 
+											'<div class=" am-u-sm-7 am-list-main pet_list_one_nr">' +
+												'<div class="pet_list_tytj_icon"><i class="am-icon-bookmark"></i>' + 
+													propertyStr +
+												'</div>' +
+												'<div class="am-list-item-text pet_list_one_text">' +
+													datas[i].desc + 
+												'</div>' +
+												'<div class="am-list-item-text ym-act-price">' +
+													'￥<span>' + datas[i].cost + '</span>元' +
+												'</div>' + 
+												'<div class="pet_list_tytj_icon2">' + 
+													'<i class="am-icon-eye"></i>'+rand()+'浏览' +
+													'<i class="am-icon-comment"></i>'+rand()+'评论' +
+												'</div>' +
+											'</div>' + 
+										'</li>';
+							$("#actList").append(li);
+						});
+					});
+				});
+			});
+			function selectFrom(lowerValue, upperValue) {
+			   var choices = upperValue - lowerValue + 1;
+			   return Math.floor(Math.random() * choices + lowerValue);
+			}
+			function rand() {
+				return selectFrom(20, 100);
+			}
+		</script>
+	</body>
+
+</html>

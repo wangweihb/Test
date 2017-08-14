@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="keywords" content="周边目的地，恩施农家乐，恩施旅游线路" />
+		<meta name="description" content="友鸣旅行网 （www.yomiing.com）为您提供最新最精准的周边目的地资讯信息。" />
+		<title>农家乐_周边目_友鸣旅行网</title>
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/wap.css">
+		<style>
+			.am-panel-bd {
+				font-size: 1.4rem;
+			}
+			am-header-default .am-header-nav {
+				color: #eee;
+				z-index: 1;
+			}
+			#top-nav a{
+				padding: padding: 5px 0.9rem !important;
+			}
+			
+			.scrollspy-nav ul li{text-align: center;}
+			.activity-profile .scrollspy-nav a{padding: 0px;}
+			.am-panel-bd img{margin-bottom: 0px;}
+			h2{
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body style="background:#ececec">
+		<header data-am-widget="header" class="am-header am-header-default pet_head_block">
+			<div class="am-header-left am-header-nav ">
+				<a href="javascript:history.back();" class="iconfont pet_head_jt_ico">&#xe601;</a>
+			</div>
+
+			<h1 class="am-header-title pet_article_user">
+				<span class="pet_article_user_name">${farm.shopName?default('')}</span>
+			</h1>
+		</header>
+		<div class="pet_mian">
+			<div class="am-slider am-slider-default" data-am-flexslider id="">
+			  <ul class="am-slides">
+			  	<#list images as img>
+					<li>
+						<img src="${img}" height="200"/>
+					</li>
+				</#list>
+			  </ul>
+			</div>
+			<br />
+			<div class="ym-farm-desc">
+				<h2>${farm.shopName?default('')}</h2>
+				<#if farm.commentScore == 1>
+					<i class="am-icon-star"></i>
+				<#elseif farm.commentScore == 2>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+				<#elseif farm.commentScore == 3>
+					<i class="am-icon-star"></i>
+    				<i class="am-icon-star"></i>
+    				<i class="am-icon-star"></i>
+				<#elseif farm.commentScore == 4>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+				<#elseif farm.commentScore == 5>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+					<i class="am-icon-star"></i>
+				</#if>
+				
+				${farm.commentScore?default(0)}分  ${product.subhead?default('')}<br />
+				总费用 ￥${product.price?default(0)}
+			</div>
+			<br />
+			<div>
+				<h2>套餐列表</h2>
+				<!--内容-->
+				<div class="pet_article_like">
+					<div class="pet_content_main pet_article_like_delete">
+						<div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+							<div class="am-list-news-bd">
+								<ul class="am-list" id="actList">
+									
+									<#list others as p>
+										<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
+											<div class="am-u-sm-5 am-list-thumb">
+												<a href="/mobile/farmDetail?farmId=${farm.id?default(0)}&proId=${p.id?default(0)}" class="">
+													<img height="120" src="${p.img?default('')}" alt="${p.title?default('')}" />
+												</a>
+											</div>
+											<div class="am-u-sm-7 ym-list-product">
+												<span>
+													${p.title?default('')}
+													(<#if p.type == 0>
+														吃
+													<#elseif p.type == 1>
+														住
+													<#elseif p.type == 2>
+														吃、住
+													</#if>)
+												</span><br />
+												<span class="product-price">￥${p.price?default(0)}</span>
+												<span class="product-price-tip">
+													,已售出 ${p.soldNum?default(0)}
+												</span>
+												<br />
+												<button type="button" class="am-btn am-btn-warning">购买</button>
+											</div>
+										</li>
+									</#list>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ym-farm-product-detail">
+				<h2>套餐详情</h2>
+				${product.detail?default('')}
+			</div>
+			<div class="ym-farm-product-buynote">
+				<h2>购买须知</h2>
+				${product.buynote?default('')}
+			</div>
+			<div class="ym-farm-product-comment">
+				<h2>评价</h2>
+				暂无用户点评
+			</div>
+		</div>
+		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
+			<ul class="am-navbar-nav am-cf am-avg-sm-4">
+				<li>
+					<a href="/mobile/" class="">
+						<span class="am-icon-home"></span>
+						<span class="am-navbar-label">主页</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/informationPath" class="hover">
+						<span class="am-icon-map-marker"></span>
+						<span class="am-navbar-label">目的地</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/topicPath" class="">
+						<span class="am-icon-comments"></span>
+						<span class="am-navbar-label">话题</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mobile/personPath" class="">
+						<span class="am-icon-user"></span>
+						<span class="am-navbar-label">我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="am-modal-actions" id="my-actions">
+			<div class="am-modal-actions-group">
+				<ul class="am-list">
+					<li class="am-modal-actions-header">转发赚积分</li>
+					<li>
+						<a href="#"><span class="am-icon-wechat"></span> 分享到微信</a>
+					</li>
+					<li>
+						<a href="#"><span class="am-icon-qq"></span>分享给好友</a>
+					</li>
+					<li class="am-modal-actions-danger">
+						<a href="#"><span class="am-icon-twitter"></span> 分享到微博</a>
+					</li>
+				</ul>
+			</div>
+			<div class="am-modal-actions-group">
+				<button class="am-btn am-btn-secondary am-btn-block" data-am-modal-close="">取消</button>
+			</div>
+		</div>
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed am-no-layout am-active" style="bottom: 60px;">
+			<a href="#top" title=""> <img class="am-gotop-icon-custom" src="img/goTop.png"> </a>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/amazeui.min.js"></script>
+		<script type="text/javascript">
+			 $('.am-slider-d1').flexslider({
+			  // options
+			  });
+		</script>
+	</body>
+
+</html>

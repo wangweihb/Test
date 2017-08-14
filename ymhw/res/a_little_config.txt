@@ -1,0 +1,16 @@
+#jdbcUrl = jdbc:mysql://127.0.0.1/ymhw?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+#user = root
+#password = 123456
+#mysql服务器版本 5.6.22
+#驱动包更新 5.1.20->5.1.35
+
+jdbcUrl = jdbc:mysql://ymhw2016.gotoip2.com/ymhw2016?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+user = ymhw2016
+password = k5x2u8k8
+devMode = true
+uploadPath = upload
+#rootPath = http://www.yomiing.com
+rootPath = http://localhost:8080
+
+#订单处理
+billAcepts=1502718072@qq.com

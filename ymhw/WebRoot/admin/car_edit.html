@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>车辆编辑-友鸣旅行网后台管理系统</title>
+		<meta name="description" content="友鸣旅行网后台管理系统">
+		<meta name="keywords" content="index">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="apple-mobile-web-app-title" content="友鸣旅行网后台管理系统" />
+
+		<link rel="icon" type="image/png" href="assets/i/logo.ico">
+		<link rel="apple-touch-icon-precomposed" href="assets/i/logo.ico">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<script src="assets/js/jquery.min.js"></script>
+		<!--<script src="assets/js/echarts.min.js"></script>-->
+		<script src="assets/js/car_manage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+			});
+		</script>
+	</head>
+
+	<body data-type="index">
+		<script src="assets/js/theme.js"></script>
+		<div class="am-g tpl-g">
+			<#include "menu.html">
+				<!-- 内容区域 -->
+				<div class="tpl-content-wrapper">
+
+					<div class="row-content am-cf">
+						<div class="row">
+							<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+								<div class="widget am-cf">
+									<div class="widget-head am-cf">
+										<div class="widget-title am-fl">车辆上传</div>
+										<div class="widget-function am-fr">
+											<a href="javascript:;" class="am-icon-cog"></a>
+										</div>
+									</div>
+									<div class="widget-body am-fr">
+
+										<form class="am-form tpl-form-border-form tpl-form-border-br">
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">车辆名称 <span class="tpl-form-line-small-title">Name</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="name" name="name" value="${car.name?default('')}" placeholder="">
+													<small>品牌+车型</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">所属商户 <span class="tpl-form-line-small-title">Factory</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select name="type" data-am-selected="{searchBox: 1}" style="display: none;">
+													  <#list factories as f>
+										              		<option value="${f.id?default(0)}" <#if car.factoryId==f.id>selected</#if>>${f.name?default('')}</option>
+										              </#list>
+													</select>
+		                                        </div>
+		                                    </div>
+		                                    
+		                                    <div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">车型 <span class="tpl-form-line-small-title">Type</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select name="carType" data-am-selected="{searchBox: 1}" style="display: none;">
+													    <option value="1" <#if car.type==1>selected</#if>>舒适型轿车</option>
+														<option value="2" <#if car.type==2>selected</#if>>经济型轿车</option>
+														<option value="3" <#if car.type==3>selected</#if>>MVP</option>
+														<option value="4" <#if car.type==4>selected</#if>>豪华型轿车</option>
+														<option value="5" <#if car.type==5>selected</#if>>SUV</option>
+														<option value="6" <#if car.type==6>selected</#if>>7座商务型轿车</option>
+														<option value="7" <#if car.type==7>selected</#if>>旅游大巴车</option>
+													</select>
+		                                        </div>
+		                                    </div>
+		                                    
+		                                    <div class="am-form-group">
+		                                        <label for="user-phone" class="am-u-sm-3 am-form-label">手自排类型 <span class="tpl-form-line-small-title">GearType</span></label>
+		                                        <div class="am-u-sm-9">
+		                                            <select name="carType" data-am-selected="{searchBox: 1}" style="display: none;">
+													    <option value="0" <#if car.gearType == 0>selected</#if>>手动档</option>
+														<option value="1" <#if car.gearType == 1>selected</#if>>自动挡</option>
+													</select>
+		                                        </div>
+		                                    </div>
+		                                    
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">最大可乘坐人数 <span class="tpl-form-line-small-title">Limit</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="cntLimit" name="cntLimit" value="${car.cntLimit?default(0)}" placeholder="">
+													<small>填写数字</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">排量 <span class="tpl-form-line-small-title">SweptVolume</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="sweptVolume" name="sweptVolume" value="${car.sweptVolume?default('')}" placeholder="">
+													<small>汽车排量，如1.2T</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-name" class="am-u-sm-3 am-form-label">日均价 <span class="tpl-form-line-small-title">Price</span></label>
+												<div class="am-u-sm-9">
+													<input type="text" class="tpl-form-input" id="price" name="price" value="${car.price?default(0)}" placeholder="">
+													<small>填写数字</small>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<label for="user-weibo" class="am-u-sm-3 am-form-label">车辆代表图 <span class="tpl-form-line-small-title">Images</span></label>
+												<div class="am-u-sm-9">
+													<div class="am-form-group am-form-file">
+														<div class="tpl-form-file-img">
+															<img id="equipImg" src="${car.showpic?default(0)}" alt="">
+														</div>
+														<button type="button" class="am-btn am-btn-danger am-btn-sm">
+    													<i class="am-icon-cloud-upload"></i> 更换图像</button>
+														<input id="equipPic" name="equipPic" type="file" multiple="">
+													</div>
+												</div>
+											</div>
+											
+											<div class="am-form-group">
+												<div class="am-u-sm-9 am-u-sm-push-3">
+													<button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/amazeui.datatables.min.js"></script>
+		<script src="assets/js/dataTables.responsive.min.js"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+
+</html>

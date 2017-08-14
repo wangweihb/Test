@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="装备租赁">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+		<title>装备上传_友鸣旅行网</title>
+		
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/equip.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<#include "top.html">
+
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+
+				<div id="navcontent">
+					<ul>
+						<li class="hover important-li">
+							<a href="/">主页</a>
+						</li>
+						<li id="actli" style="position:relative" class="">
+							<a href="#">热门活动<img src="../images/hot.gif" style="position: absolute;
+								top: -3px;right: -3px;">
+							</a>
+							<dl class="navdrop">
+								<dd>
+									<a href="/activity/actListByType?type=suggest">精选推荐</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=hot">当季热门</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=graduate">毕业狂欢</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=weekend">快乐周末</a>
+								</dd>
+								<dd>
+									<a href="/activity/actListByType?type=enshi">西部神游</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<a href="/infoPath">周边目的地</a>
+						</li>
+						<li>
+							<a href="/carRent?param=equip">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent?param=car">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">企游团建</a>
+						</li>
+						<!--<li>
+							<a href="/user/leaderListPath">领队风采</a>
+						</li>-->
+						<!--<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>-->
+						<li>
+							<a href="/specialtyPath">特产</a>
+						</li>
+						<li>
+							<a href="/strategyPath">精选攻略</a>
+						</li>
+						<li>
+							<a href="/integralMallPath">积分商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+		<form id="equipForm" action="/equip/add" method="post" enctype="multipart/form-data">
+			<!--装备上传   start-->
+			<div id="paWrap">
+
+				<!--领队基本信息 start-->
+				<div id="step1Content" style="display: block;">
+					<div class="scTitle">
+						<h3>装备上传</h3>
+						<p>填写装备基本信息、价格、使用说明等信息(所有信息必须填写，如果没有内容填“无”)</p>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div>
+						<div style="display: inline-block;">
+							<div class="sc1_row">
+								名称：<input type="text" id="name" name="name" />
+							</div>
+							<div class="sc1_row">
+								提供商：
+								<select id="provider" name="provider" style="width: 120px;">
+									<option value="0">友鸣官方</option>
+									<option value="1">其他装备提供商</option>
+								</select>
+							</div>
+							<div class="sc1_row">
+								类型： 露营烧烤 <input type="checkbox" name="types" value="1"> 休闲游玩 <input type="checkbox" name="types" value="2"> 自驾摄影 <input type="checkbox" name="types" value="3"> 骑行垂钓 <input type="checkbox" name="types" value="4"> 登山攀岩 <input type="checkbox" name="types" value="5">
+							</div>
+							<div class="sc1_row">
+								押金：<input type="text" id="deposit" name="deposit" placeholder="只能填写数字" />
+							</div>
+							<div class="sc1_row">
+								租金：<input type="text" id="rent" name="rent" placeholder="只能填写数字" />
+							</div>
+
+							<div class="sc1_row">
+								联系QQ：&nbsp;&nbsp;<input type="text" id="qq" name="qq" />
+							</div>
+
+							<div class="sc1_row">
+								固定电话：<input type="text" id="fixnumber" name="fixnumber" />
+							</div>
+
+							<div class="sc1_row">
+								手机号：&nbsp;&nbsp;&nbsp;<input type="text" id="telephone" name="telephone" />
+							</div>
+
+							<!--<div class="sc1_row">
+							价格（按天计算）：<input type="text" id="price" name="price" placeholder="只能填写数字"/>
+						</div>-->
+
+							<div class="sc1_row">
+								库存总数：<input type="text" id="total" name="total" placeholder="只能填写数字" />
+							</div>
+
+							<div class="sc1_row">
+								取货方式：
+								<select id="sendWay" name="sendWay" style="width: 80px;">
+									<option value="1">自取</option>
+									<option value="2">可送</option>
+								</select>
+							</div>
+
+							<div class="sc1_row">
+								租卖状态：
+								<select id="rentWay" name="rentWay" style="width: 80px;">
+									<option value="1">只租</option>
+									<option value="2">可卖</option>
+								</select>
+							</div>
+							<div class="sc1_row">
+								<label>具体地址 ：</label>
+								<div id="distpicker" style="display: inline-block;">
+									<select name="provice"></select>
+									<select name="city"></select>
+									<select name="region"></select>
+								</div>
+								<label>街道地址  ：</label>
+								<div style="display: inline-block;">
+									<input type="text" name="street" />
+								</div>
+							</div>
+
+						</div>
+						<!--头像区域-->
+						<div style="display: inline-block;float: right;">
+							<input type="file" id="equipUpload" style="display: none;" name="equipUpload" draggable="true" single />
+							<label style="vertical-align: top; height: 30px;">装备图片 ： </label>
+							<img id="equipPic" onclick="document.getElementById('equipUpload').click();" src="../images/head_default.png" height="250" width="300" style="border: 1px solid #CFCFCF" />
+						</div>
+					</div>
+
+					<hr class="dotLine" />
+					<div class="">
+						<label style="width: 15%;">损偿信息：</label>
+						<textarea id="damage" name="damage" style="vertical-align: top;width: 84%;height: 80px;" placeholder="100字以内"></textarea>
+					</div>
+					<br />
+					<div class="">
+						<label style="width: 15%;">使用说明：</label>
+						<textarea id="directions" name="directions" style="vertical-align: top;width: 84%;height: 150px;" placeholder="400字以内"></textarea>
+					</div>
+
+					<div class="" style="margin-top: 10px;">
+						<label style="width: 15%;">注意事项：</label>
+						<textarea id="attention" name="attention" style="vertical-align: top;width: 84%;height: 100px;" placeholder="200字以内"></textarea>
+					</div>
+
+					<hr class="dotLine" />
+
+					<div class="sc1_row" style="text-align: center;">
+						请阅读并确认友鸣官方领队管理条例
+						<input type="checkbox" />
+					</div>
+
+					<div class="pa_next">
+						<a href="javascript:upload();">上传</a>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--装备上传       end-->
+
+		<!--<div>
+			<#include "footer.html">
+		</div>-->
+		<script type="text/javascript" src="../js/library/distpicker.data.js"></script>
+		<script type="text/javascript" src="../js/library/distpicker.js"></script>
+	</body>
+
+</html>

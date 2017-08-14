@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="友鸣旅游活动">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+        
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css" />
+		<link rel="shortcut icon" href="../logo.ico" />
+		<title>旅游线路审核_友鸣旅行网</title>
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+		<script type="text/javascript" src="../js/fg/register.js"></script>
+		<script type="text/javascript" src="../js/library/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/library/jquery.datetimepicker.js"></script>
+
+		<script type="text/javascript" src="../js/fg/publishActivity.js"></script>
+		<style>
+			.demo li {
+				float: left;
+				width: 25% !important;
+				text-align: center;
+				position: relative;
+				z-index: 2;
+				font-weight: bold;
+				font-size: 14px;
+				line-height: 32px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--引用头部-->
+		<div id="topwarp" style="border-bottom: 1px solid rgb(235, 156, 20);">
+			<div class="y-container">
+				<div id="toplogo">
+					<a href="/"><img src="../images/logo.png" height="60px" /></a>
+				</div>
+
+				<!--搜索-->
+				<div class="topwarp-demo">
+					<div class="demo">
+						<ul class=" wizard_step ">
+							<li id="step1Contentli" class="current active_step">
+								<a href="javascript:toStep(1);">
+									活动简介<em></em><i></i>
+								</a>
+							</li>
+							<li id="step2Contentli">
+								<a href="javascript:toStep(2);">
+									活动类型<em></em><i></i>
+								</a>
+							</li>
+							<li id="step3Contentli">
+								<a href="javascript:toStep(3);">
+									活动内容<em></em><i></i>
+								</a>
+							</li>
+							<#if (session.ymhwUser.roleId==1 )>
+							<li id="step4Contentli">
+								<a href="javascript:toStep(4);">
+									其他设置<em></em><i></i>
+								</a>
+							</li>
+							</#if>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<form action="/activity/editAct" method="post" id="activityPublishForm">
+			<input type="hidden" name="actId" name="actId" value="${act.id}" />
+			<!--活动发布    start-->
+			<div id="paWrap" style="clear: both;">
+
+				<!--活动类型 start-->
+				<div id="step1Content" style="display: block;">
+					<div class="scTitle">
+						<h3>活动发布</h3>
+						<p>只有具备了相应的能力和知识，才能在户外环境里照顾自己，从而有余力有机会照顾他人。户外领队将分初级、中级和高级， 每个等级都包括组织协调能力、野外生存技能、通过技能、联通与定位、自救互救五种能力的评级。
+						</p>
+					</div>
+					<div class="sc1_row">
+						<label style="width: 10%;">活动性质:</label>
+						<select id="property" name="property" >
+							<#if act.property==1>
+							<option value="1" selected="selected">AA旅行</option>
+								<#else>
+									<option value="1">AA旅行</option>
+							</#if>
+							<#if act.property==1>
+							<option value="2" selected="selected">自由结伴</option>
+								<#else>
+									<option value="2">自由结伴</option>
+							</#if>
+							<#if act.property==1>
+							<option value="3" selected="selected">户外拓展</option>
+								<#else>
+									<option value="3">户外拓展</option>
+							</#if>
+						</select>
+					</div>
+					<div class="selectbox" style="width:100% !important;">
+						<div class="selectbox_label">活动类型:</div>
+						<ul class="actType">
+							<#if (act.type)?index_of( "1")!=-1>
+								<li><input type="checkbox" checked="checked" name="acttype" value="1" data-labelauty="快乐周末"></li>
+								<#else>
+									<li><input type="checkbox" checked="checked" name="acttype" value="1" data-labelauty="快乐周末"></li>
+							</#if>
+							<#if (act.type)?index_of( "2")!=-1>
+								<li><input type="checkbox" checked="checked" name="acttype" value="2" data-labelauty="当季热门"></li>
+								<#else>
+									<li><input type="checkbox" name="acttype" value="2" data-labelauty="当季热门"></li>
+							</#if>
+							<#if (act.type)?index_of( "3")!=-1>
+								<li><input type="checkbox" checked="checked" name="acttype" value="3" data-labelauty="毕业狂欢"></li>
+								<#else>
+									<li><input type="checkbox" name="acttype" value="3" data-labelauty="毕业狂欢"></li>
+							</#if>
+							<#if (act.type)?index_of( "4")!=-1>
+								<li><input checked="checked" type="checkbox" name="acttype" value="4" data-labelauty="企业拓展"></li>
+								<#else>
+									<li><input type="checkbox" name="acttype" value="4" data-labelauty="企业拓展"></li>
+							</#if>
+							<#if (act.type)?index_of( "5")!=-1>
+								<li><input checked="checked" type="checkbox" name="acttype" value="5" data-labelauty="亲子乐园"></li>
+								<#else>
+									<li><input type="checkbox" name="acttype" value="5" data-labelauty="亲子乐园"></li>
+							</#if>
+
+						</ul>
+						<input type="hidden" id="typeList" name="typeList" value="" />
+						<div class="clearfix"></div>
+					</div>
+
+					<div class="sc1_row">
+						<label style="width:10%;">活动标题:</label>
+						<input  type="text" id="title" name="title" style="width: 60%;" value="${act.title}" />
+						<div class="clearfix"></div>
+					</div>
+
+					<div class="">
+						<label style="width: 10%;">活动简介：</label>
+						<textarea  id="desc" name="desc" style="vertical-align: top;width: 84%;height: 120px;">${act.desc}</textarea>
+						<div class="clearfix"></div>
+					</div>
+
+					<!--<div class="sc1_row" style="height: 350px;">
+						<label style="width: 10%;">活动照片:</label>
+						<img width="300" height="300" style="margin-left: 80px;" src="${act.pic}" />
+					</div>-->
+					<div class="sc1_row" style="height:300px">
+						<label class="pub-tite" style="width: 10%; float:left">活动照片：</label>
+						<div class="sc2_row">
+							<input type="file" id="imgUpload" style="display: none;" name="imgUpload" draggable="true" single />
+							<a href="javascript:document.getElementById('imgUpload').click();" class="sc1_btn1">上传活动照片</a>
+							<p>添加一张照片作为活动主页展示，建议尺寸（350*250）</p>
+						</div>
+						<div id="destination" class="sc1_img">
+							<img src="${act.pic}" width="350" height="250" />
+						</div>
+						<input type="hidden" id="pic" name="pic" value="${act.pic}" />
+						<div class="clearfix"></div>
+					</div>
+
+					<div class="pa_next" style="margin-top: 20px;">
+						<a href="javascript:toNext(1,2);">下一项</a>
+					</div>
+				</div>
+				<!--活动类型 end-->
+
+				<!--活动简介 start-->
+				<div id="step2Content" style="display: none;">
+
+					<div class="sc2_title">
+						填写活动分类
+					</div>
+
+					<div class="selectbox">
+						<div class="selectbox_label">活动内容:</div>
+						<ul style="padding-left: 80px;">
+							<#if (act.content)?index_of( "1")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="1" data-labelauty="休闲"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="1" data-labelauty="休闲"></li>
+							</#if>
+							<#if (act.content)?index_of( "2")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="2" data-labelauty="乡村游"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="2" data-labelauty="乡村游"></li>
+							</#if>
+							<#if (act.content)?index_of( "3")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="3" data-labelauty="徒步"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="3" data-labelauty="徒步"></li>
+							</#if>
+							<#if (act.content)?index_of( "4")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="4" data-labelauty="露营"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="4" data-labelauty="露营"></li>
+							</#if>
+							<#if (act.content)?index_of( "5")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="5" data-labelauty="烧烤"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="5" data-labelauty="烧烤"></li>
+							</#if>
+							<#if (act.content)?index_of( "6")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="6" data-labelauty="摄影"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="6" data-labelauty="摄影"></li>
+							</#if>
+							<#if (act.content)?index_of( "7")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="7" data-labelauty="滑雪"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="7" data-labelauty="滑雪"></li>
+							</#if>
+							<#if (act.content)?index_of( "8")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="8" data-labelauty="登山"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="8" data-labelauty="登山"></li>
+							</#if>
+							<#if (act.content)?index_of( "9")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="9" data-labelauty="探险"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="9" data-labelauty="探险"></li>
+							</#if>
+							<#if (act.content)?index_of( "10")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="10" data-labelauty="骑行"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="10" data-labelauty="骑行"></li>
+							</#if>
+							<#if (act.content)?index_of( "11")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="11" data-labelauty="攀岩"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="11" data-labelauty="攀岩"></li>
+							</#if>
+							<#if (act.content)?index_of( "12")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="12" data-labelauty="背包"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="12" data-labelauty="背包"></li>
+							</#if>
+							<#if (act.content)?index_of( "13")!=-1>
+								<li><input checked="checked" type="checkbox" name="content" value="13" data-labelauty="其他"></li>
+								<#else>
+									<li><input type="checkbox" name="content" value="13" data-labelauty="其他"></li>
+							</#if>
+						</ul>
+						<input type="hidden" id="contentList" name="contentList" value="" />
+					</div>
+
+					<div class="sc2_title">
+						填写活动详细内容
+					</div>
+
+					<!--第一行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								出发地：
+							</div>
+							<div class="pa_row_left_content">
+								<input  type="text" id="departurePlace" name="departurePlace" value="${act.departurePlace}" />
+							</div>
+
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_right_label">
+								活动开始时间：
+							</div>
+							<div class="pa_row_right_content">
+								<div class="input-group">
+									<input  type="text" class="form-control datepick_ws" id="startTime" name="startTime" value="${(act.startTime?string(" yyyy-MM-dd "))!}" />
+									<span class="input-group-btn">
+			    					<button class="btn btn-default" id="" disabled>
+			    						<span class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--第二行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								目的地：
+							</div>
+							<div class="pa_row_left_content">
+								<input  id="destination" name="destination" value="${act.destination}" />
+							</div>
+
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_right_label">
+								活动结束时间：
+							</div>
+							<div class="pa_row_right_content">
+								<div class="input-group">
+									<input  type="text" class="form-control datepick_ws" id="endTime" name="endTime" value="${(act.endTime?string(" yyyy-MM-dd "))!}" />
+									<span class="input-group-btn">
+			    					<button class="btn btn-default datepick_btn_ws" id="" disabled>
+			    						<span class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--第三行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								集结地点：
+							</div>
+							<div class="pa_row_left_content">
+								<input  id="gatherPlace" name="gatherPlace" type="text" value="${act.gatherPlace}" />
+							</div>
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_right_label">
+								报名截止时间：
+							</div>
+							<div class="pa_row_right_content">
+								<div class="input-group">
+									<input  type="text" class="form-control datepick_ws" id="deadline" name="deadline" />
+									<span class="input-group-btn">
+			    					<button class="btn btn-default datepick_btn_ws" id="" disabled>
+			    						<span class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--第四行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								集结时间：
+							</div>
+							<div class="pa_row_left_content">
+								<div class="input-group">
+									<input  type="text" class="form-control datepick_ws" id="gatherTime" name="gatherTime" ${(act.gatherTime?string( "yyyy-MM-dd"))!} />
+									<span class="input-group-btn">
+			    					<button class="btn btn-default datepick_btn_ws" id="" disabled>
+			    						<span class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_right_label">
+								活动强度：
+							</div>
+							<input  type="text" id="intensityLevel" name="intensityLevel" value="${act.intensityLevel}" />
+
+						</div>
+					</div>
+
+					<!--第五行-->
+					<div class="pa_row">
+						活动景点：
+						<input  type="text" style="width: 500px;" value="${act.scenicSpot}" /> 突出活动特色
+					</div>
+
+					<!--第六行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								所需人数：
+							</div>
+							<div class="pa_row_left_content">
+								<input  type="text" id="totolNum" name="totolNum" value="${act.totalNum}" />
+							</div>
+						</div>
+						<div class="pa_row_right">
+							根据人数要求配备足够领队，一个领队最多25个人
+						</div>
+					</div>
+
+					<!--第七行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								联系电话：
+							</div>
+							<div class="pa_row_left_content">
+								<input  type="text" id="contactnumber" name="contactnumber" value="${act.contactnumber}" />
+							</div>
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_left_lable">
+								交通方式：
+							</div>
+							<div class="pa_row_left_content">
+								<select  id="vehicle" name="vehicle" style="width: 200px;margin-top: 0px;">
+									<#if act.vehicle==1>
+										<option value="1" selected>自驾</option>
+										<#else>
+											<option value="1">自驾</option>
+									</#if>
+									<#if act.vehicle==2>
+										<option value="2" selected>旅游大巴（包车）</option>
+										<#else>
+											<option value="2">旅游大巴（包车）</option>
+									</#if>
+									<#if act.vehicle==3>
+										<option value="3" selected>飞机</option>
+										<#else>
+											<option value="3">飞机</option>
+									</#if>
+									<#if act.vehicle==4>
+										<option value="4" selected>火车</option>
+										<#else>
+											<option value="4">火车</option>
+									</#if>
+									<#if act.vehicle==5>
+										<option value="5" selected>轮船</option>
+										<#else>
+											<option value="5">轮船</option>
+									</#if>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!--第八行-->
+					<div class="pa_row">
+						<div class="pa_row_left">
+							<div class="pa_row_left_lable">
+								活动费用：
+							</div>
+							<div class="pa_row_left_content">
+								<input  type="text" id="cost" name="cost" value="${act.cost}" />
+								<!--<span>费用根据经验预估清楚</span>-->
+							</div>
+						</div>
+						<div class="pa_row_right">
+							<div class="pa_row_left_lable">
+								优惠价：
+							</div>
+							<div class="pa_row_left_content">
+								<input  type="text" id="discountPrice" name="discountPrice" />
+							</div>
+						</div>
+					</div>
+
+					<div class=" pa_next">
+						<a href="javascript:toNext(2,3);">下一项</a>
+					</div>
+
+				</div>
+				<!--活动简介 end-->
+
+				<!--活动内容 start-->
+				<div id="step3Content" style="display: none;">
+					<div id="sc3Title" class="scTitle">
+						<h3>活动内容</h3>
+						<p>我们准备活动模板可以让你的活动更具有吸引力，请点击
+							<a href="#">活动帮助模板</a>
+						</p>
+					</div>
+					<div id="actTabWrap">
+						<ul id="actTab">
+							<li>
+								<a href="javascript:switchTab('routeDescEx');">线路描述</a>
+							</li>
+							<li>
+								<a href="javascript:switchTab('travelPlanEx');">行程安排</a>
+							</li>
+							<li>
+								<a href="javascript:switchTab('feeEx');">费用说明</a>
+							</li>
+							<li>
+								<a href="javascript:switchTab('requiredEquipEx');">建议装备</a>
+							</li>
+							<li>
+								<a href="javascript:switchTab('noticeEx');">预定须知</a>
+							</li>
+							<li>
+								<a href="javascript:switchTab('enrollEx');">报名提醒</a>
+							</li>
+						</ul>
+					</div>
+
+					<link type="text/css" href="../themes/default/css/ueditor.css" rel="stylesheet" />
+
+					<!--配置文件 -->
+					<script type="text/javascript" src="../ueditor.config.js"></script>
+					<!-- 编辑器源码文件 -->
+					<script type="text/javascript" src="../ueditor.all.js"></script>
+					<script type="text/javascript" src="../lang/zh-cn/zh-cn.js"></script>
+					<!-- 实例化编辑器 -->
+
+					<!--线路描述-->
+					<div id="routeDescEx" style="display: block;">
+
+						<!-- 加载编辑器的容器 -->
+						<script id="routeDescContainer" type="text/plain">
+							${act.routeDesc}
+						</script>
+						<input type="hidden" id="routeDesc" name="routeDesc" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('routeDescContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+							});
+						</script>
+					</div>
+
+					<!--行程安排-->
+					<div id="travelPlanEx" style="border: 1px solid red;display: none;">
+						<!-- 加载编辑器的容器 -->
+						<script id="travelPlanContainer" type="text/plain">
+							${act.travelPlan}
+						</script>
+						<input type="hidden" id="travelPlan" name="travelPlan" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('travelPlanContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+
+							});
+						</script>
+					</div>
+					
+					<!--费用说明-->
+					<div id="feeEx" style="border: 1px solid red;display: none;">
+						<!-- 加载编辑器的容器 -->
+						<script id="feeContainer" type="text/plain">
+							${act.feeDesc?default('')}
+						</script>
+						<input type="hidden" id="fee" name="fee" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('feeContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+
+							});
+						</script>
+					</div>
+
+					<!--建议装备-->
+					<div id="requiredEquipEx" style="border: 1px solid red;display: none;">
+						<!-- 加载编辑器的容器 -->
+						<script id="requiredEquipContainer" type="text/plain">
+							${act.requiredEquip?default('')}
+						</script>
+						<input type="hidden" id="requiredEquip" name="requiredEquip" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('requiredEquipContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+							});
+						</script>
+					</div>
+					
+					
+
+					<!--预定须知-->
+					<div id="noticeEx" style="border: 1px solid red;display: none;">
+						<!-- 加载编辑器的容器 -->
+						<script id="noticeContainer" type="text/plain">
+							${act.notice?default('')}
+						</script>
+						<input type="hidden" id="notice" name="notice" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('noticeContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+							});
+						</script>
+					</div>
+					
+					<!--报名提醒-->
+					<div id="enrollEx" style="border: 1px solid red;display: none;">
+						<!-- 加载编辑器的容器 -->
+						<script id="enrollContainer" type="text/plain">
+							${act.enroll?default('')}
+						</script>
+						<input type="hidden" id="enroll" name="enroll" value="" />
+						<script type="text/javascript">
+							var ue = UE.getEditor('enrollContainer', {
+								initialFrameHeight: 680,
+								maximumWords: 1000000 //允许的最大字符数
+							});
+						</script>
+					</div>
+
+					<!--<img src="/images/act1.jpg" />-->
+					<#if (session.ymhwUser.roleId==1 )>
+						<div class=" pa_next">
+							<a href="javascript:toNext(3,4);">下一步</a>
+						</div>
+						<#else>
+							<div id="publishBtn">
+								<a href="javascript:update();" class="sc3_btn" style="width: 120px;">确认修改</a>
+							</div>
+					</#if>
+
+				</div>
+				<!--活动内容 end-->
+				
+				<#if (session.ymhwUser.roleId==1 )>
+				<!--其他设置start-->
+				<div id="step4Content" style="display: none;">
+					<div style="height: 480px;">
+						<div id="sc4Title" class="scTitle">
+							<h3>其他设置</h3>
+							<p>管理员设置活动是否推荐、优惠价等信息</p>
+						</div>
+
+						<!--第一行-->
+						<div class="pa_row">
+							<div class="pa_row_left">
+								<div class="pa_row_left_lable">
+									提交领队：
+								</div>
+								<div class="pa_row_left_content">
+									<input  type="text" name="" value="${leaderName}" disabled="disabled"/>
+									<input type="hidden" name="leaders" value="" />
+								</div>
+							</div>
+						</div>
+
+						<!--第二行-->
+						<div class="pa_row">
+							<div class="pa_row_left">
+								<div class="pa_row_left_lable">
+									是否推荐：
+								</div>
+								<div class="pa_row_left_content">
+									<select id="isRecommend" name="isRecommend">
+										<option value="0">否</option>
+										<option value="1">是</option>
+									</select>
+								</div>
+							</div>
+							<div class="pa_row_right">
+								<div class="pa_row_left_lable">
+									是否置顶：
+								</div>
+								<div class="pa_row_left_content">
+									<select id="topStr" name="topStr">
+										<option value="0">否</option>
+										<option value="1">是</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<!--第三行-->
+						<div class="pa_row">
+							<div class="pa_row_left">
+								<div class="pa_row_left_lable">
+									是否通过：
+								</div>
+								<div class="pa_row_left_content">
+									<select id="isPass" name="isPass">
+										<option value="0">否</option>
+										<option value="1">是</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="" style="margin-top: 15px;">
+							<label style="width: 10%;font-size: 15px;font-family: " 微软雅黑 ";color: #333;">审核意见：</label>
+							<textarea id="checkMsg" name="checkMsg" style="vertical-align: top;width: 84%;height: 120px;"></textarea>
+							<div class="clearfix"></div>
+						</div>
+						<br />
+						<br />
+
+						<div id="publishBtn2">
+							<a href="javascript:update();" class="sc3_btn" style="width: 120px;">确认修改</a>
+						</div>
+					</div>
+
+				</div>
+				<!--其他设置end-->
+				</#if>
+
+			</div>
+			<!--活动发布    end-->
+		</form>
+
+		<div>
+			<#include "footer.html">
+		</div>
+	</body>
+
+</html>

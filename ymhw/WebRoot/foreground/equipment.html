@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="户外装备租赁，休闲旅游，恩施户外">
+        <meta name="description" content="友鸣旅行网（www.yomiing.com）一个综合性的大众休闲旅游平台，致力于为用户提供优质、便捷的休闲旅游解决方案。为用户提供旅游目的地、活动线路、装备租赁以及吃住行购等信息以及国内外深度游、景点策划推广、企业旅游团建、旅游+产品等服务。">
+        
+		<title>租赁装备_友鸣旅行网</title>
+		<link rel="stylesheet" href="../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/public_fg.css" />
+		<link rel="stylesheet" href="../css/index_fg.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/equipment.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+
+		<script type="text/javascript" src="../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/fg/download_fg.js"></script>
+		<script type="text/javascript" src="../js/library/common_v2.js"></script>
+		<script type="text/javascript" src="../js/equip.js"></script>
+		<script type="text/javascript" src="../js/lubotu.js"></script>
+		<script type="text/javascript" src="../js/public/tool.js"></script>
+
+		<link rel="shortcut icon" href="../logo.ico" />
+		<style>
+			.lubo {
+				width: 960px !important;
+				height: 394px !important;
+				min-width: 960px !important;
+			}
+			
+			.lubo_box {
+				position: relative;
+				width: 100%;
+				height: 396px;
+			}
+			
+			.lubo_box li {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 396px;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			
+			#ifocus_piclist {
+				position: absolute;
+			}
+			
+			#ifocus_piclist li {
+				width: 970px;
+				height: 400px;
+				overflow: hidden;
+			}
+			
+			#ifocus_piclist img {
+				width: 970px;
+				height: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部区域 start-->
+		<div id="topwarp">
+			<div id="top">
+				<div id="toplogo">
+					<a href="/"><img src="../images/logo.png" height="60px" /></a>
+				</div>
+				<div class="top-tel">
+					<h6>客服电话</h6>
+					<h4 style="font-size:18px; margin-top:5px;">＋800－400－500</h4>
+				</div>
+				<!--搜索-->
+				<div id="navsearch">
+					<div class="input-group" style="border:rgb(235, 156, 20) 1px solid;">
+						<label class="selectLable">
+          <select class="input-group-select">
+            <option>类型</option>
+            <option>热门</option>
+          </select>
+        </label>
+						<input type="text" placeholder="本季热门" class="form-control-select" />
+						<button type="text" class="btn btn-default" id="searchSub"> <span>搜索</span> </button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--顶部区域 end-->
+		<!--导航区域 start-->
+		<div id="navwarp">
+			<div id="nav">
+				<div class="J_Module" style="float:left">
+					<div class="tb-module  sm-cat-d1">
+						<div class="J_Module-top"></div>
+						<div class="cat-box J_CatBox">
+							<ul class="cat-list clearfix">
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">露营烧烤</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">餐桌</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">遮阳篷</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">烧烤架</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>烧烤露营</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">折叠椅</a></li>
+														<li><b>|</b><a href="#" targer="_blank">户外餐桌</a></li>
+														<li><b>|</b><a href="#" targer="_blank">遮阳伞</a></li>
+														<li><b>|</b><a href="#" targer="_blank">遮阳篷</a></li>
+														<li><b>|</b><a href="#" targer="_blank">餐垫</a></li>
+														<li><b>|</b><a href="#" targer="_blank">烧烤架</a></li>
+														<li><b>|</b><a href="#" targer="_blank">帐篷</a></li>
+														<li><b>|</b><a href="#" targer="_blank">睡袋</a></li>
+														<li><b>|</b><a href="#" targer="_blank">充气垫</a></li>
+														<li><b>|</b><a href="#" targer="_blank">铝膜地席</a></li>
+														<li><b>|</b><a href="#" targer="_blank">头灯</a></li>
+														<li><b>|</b><a href="#" targer="_blank">手电</a></li>
+														<li><b>|</b><a href="#" targer="_blank">营灯</a></li>
+														<li><b>|</b><a href="#" targer="_blank">炉头气罐</a></li>
+														<li><b>|</b><a href="#" targer="_blank">吊床</a></li>
+														<li><b>|</b><a href="#" targer="_blank">音响</a></li>
+														<li><b>|</b><a href="#" targer="_blank">药品箱</a></li>
+														<li><b>|</b><a href="#" targer="_blank">急救箱</a></li>
+													</ul>
+					</li>
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">休闲游玩</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">音响</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">登山杖</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">橡皮艇</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>休闲游玩</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">音响</a></li>
+														<li><b>|</b><a href="#" targer="_blank">登山杖</a></li>
+														<li><b>|</b><a href="#" targer="_blank">橡皮艇</a></li>
+														<li><b>|</b><a href="#" targer="_blank">旅游大巴</a></li>
+														<li><b>|</b><a href="#" targer="_blank">SUV</a></li>
+														<li><b>|</b><a href="#" targer="_blank">遮阳伞</a></li>
+														<li><b>|</b><a href="#" targer="_blank">望远镜</a></li>
+														<li><b>|</b><a href="#" targer="_blank">无人机</a></li>
+														<li><b>|</b><a href="#" targer="_blank">吊床</a></li>
+													</ul>
+					</li>
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">自驾摄影</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">SUV</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">轿车</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">相机</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>自驾摄影</h5>
+						<ul class="clearfix">
+							<li><b>|</b>
+								<a href="#" targer="_blank">SUV</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">轿车</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">相机</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">对讲机</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">望远镜</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">无人机</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">药品箱</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">GPS</a>
+							</li>
+							<li><b>|</b>
+								<a href="#" targer="_blank">急救包</a>
+							</li>
+						</ul>
+					</li>
+										
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">骑行垂钓</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">橡皮艇</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">救生衣</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">自行车</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>骑行垂钓</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">橡皮艇</a></li>
+														<li><b>|</b><a href="#" targer="_blank">救生衣</a></li>
+														<li><b>|</b><a href="#" targer="_blank">自行车</a></li>
+														<li><b>|</b><a href="#" targer="_blank">头盔</a></li>
+														<li><b>|</b><a href="#" targer="_blank">钓鱼伞</a></li>
+														<li><b>|</b><a href="#" targer="_blank">鱼竿</a></li>
+														<li><b>|</b><a href="#" targer="_blank">电动车</a></li>
+														<li><b>|</b><a href="#" targer="_blank">摩托车</a></li>
+														<li><b>|</b><a href="#" targer="_blank">急救包</a></li>
+													</ul>
+					</li>
+										
+										
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">登山攀岩</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">兵工铲</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">登山杖</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">登山绳</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>登山攀岩</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">兵工铲</a></li>
+														<li><b>|</b><a href="#" targer="_blank">登山杖</a></li>
+														<li><b>|</b><a href="#" targer="_blank">登山绳</a></li>
+														<li><b>|</b><a href="#" targer="_blank">安全带</a></li>
+														<li><b>|</b><a href="#" targer="_blank">冰镐</a></li>
+														<li><b>|</b><a href="#" targer="_blank">冰爪</a></li>
+														<li><b>|</b><a href="#" targer="_blank">头盔</a></li>
+														<li><b>|</b><a href="#" targer="_blank">下降器</a></li>
+														<li><b>|</b><a href="#" targer="_blank">GPS</a></li>
+														<li><b>|</b><a href="#" targer="_blank">望远镜</a></li>
+														<li><b>|</b><a href="#" targer="_blank">药品箱</a></li>
+													</ul>
+					</li>
+										
+										
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group">
+									<h4><a href="#" target="_blank">当前位置</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">省市</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">城市</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>所在地</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">湖北恩施</a></li>
+														<li><b>|</b><a href="#" targer="_blank">湖北宜昌</a></li>
+														<li><b>|</b><a href="#" targer="_blank">湖北武汉</a></li>
+														<li><b>|</b><a href="#" targer="_blank">神龙架</a></li>
+													</ul>
+					</li>
+									
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+								<li class="cat-group" style="border-bottom:none;">
+									<h4><a href="#" target="_blank">闲置租凭</a><s></s></h4>
+									<ul class="clearfix">
+										<li>
+											<a href="#" target="_blank">防晒</a>
+										</li>
+										<li>
+											<a href="#" target="_blank">头盔</a>
+										</li>
+									</ul>
+									<textarea>
+				<div class="clearfix">
+								<ul class="tag-list clearfix">
+										<li class="tag-group clearfix">
+						<h5>闲置租凭</h5>
+						<ul class="clearfix">
+														<li><b>|</b><a href="#" targer="_blank">防晒</a></li>
+														<li><b>|</b><a href="#" targer="_blank">头盔</a></li>
+														<li><b>|</b><a href="#" targer="_blank">护具</a></li>
+													</ul>
+					</li>
+									
+									</ul>
+												<ul class="hot-list">
+									</ul>
+								</div>
+				</textarea>
+								</li>
+							</ul>
+						</div>
+						<div class="cat-popup J_CatPopup cat-popup-expand"></div>
+					</div>
+				</div>
+				<div id="navcontent">
+					<ul>
+						<li class="hover">
+							<a href="/">主页</a>
+						</li>
+						<li style="position:relative">
+							<a href="/activity/actListByType?type=hot">热门活动<img src="../images/hot.gif" style="position: absolute;
+top: -3px;right: -3px;"></a>
+						</li>
+						<li>
+							<a href="/carRent">装备租赁</a>
+						</li>
+						<li>
+							<a href="/carRent">租车包车</a>
+						</li>
+						<li>
+							<a href="/outdoorPath">户外拓展</a>
+						</li>
+						<li>
+							<a href="/welfare">友鸣公益</a>
+						</li>
+						<li>
+							<a href="/sharePath">友鸣分享</a>
+						</li>
+						<li>
+							<a href="/aboutPath">关于我们</a>
+						</li>
+					</ul>
+				</div>
+				<div id="topcontent" style="width: 250px;">
+					<!--<a class="nav-icon-1"></a>
+					<a class="nav-icon-2"></a>
+					<a class="nav-icon-3"></a>-->
+					<#if (session.ymhwUser)?exists>
+						<#if (session.ymhwUser.roleId)==1> <span> ${session.ymhwUser.account?default("")}
+      <admin>
+      </span> <span class="dropdown"> <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span style="color: white;">个人中心</span> <span class="caret"></span> </a>
+							<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+								<li>
+									<a href="/publishActPath" style="color: black;">发布</a>
+								</li>
+								<li>
+									<a href="/checkActPath" style="color: black;">审核</a>
+								</li>
+								<li role="separator" class="divider" style="color: gainsboro;"></li>
+								<li>
+									<a href="/login/exit" style="color: black;">退出</a>
+								</li>
+							</ul>
+							</span>
+						</#if>
+						<#if (session.ymhwUser.roleId)==2> <span> ${session.ymhwUser.account?default("")}
+      <领队>
+      </span> <span class="dropdown"> <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 个人中心 <span class="caret"></span> </a>
+							<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+								<li>
+									<a href="/publishActPath" style="color: black;">活动发布</a>
+								</li>
+								<li>
+									<a href="/uploadEquipPath" style="color: black;">装备上传</a>
+								</li>
+								<li role="separator" class="divider"></li>
+								<li>
+									<a href="/activity/publishActResult" style="color: black;">发布结果</a>
+								</li>
+								<li>
+									<a href="/equip/equipsForUser" style="color: black;">上传结果</a>
+								</li>
+								<li>
+									<a href="/login/exit" style="color: black;">退出</a>
+								</li>
+							</ul>
+							</span>
+						</#if>
+						<#if (session.ymhwUser.roleId)==3> <span> ${session.ymhwUser.account?default("")}</span> <span class="dropdown"> <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 个人中心 <span class="caret"></span> </a>
+							<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+								<li>
+									<a href="/applyfoLeaderPath" style="color: black;">领队申请</a>
+								</li>
+								<li>
+									<a href="/user/getCheckResult" style="color: black;">申请结果</a>
+								</li>
+								<li role="separator" class="divider" style="color: gainsboro;"></li>
+								<li>
+									<a href="/login/exit" style="color: black;">退出</a>
+								</li>
+							</ul>
+							</span>
+						</#if>
+						<#else>
+							<a href="/registerPath">注册</a>|
+							<a href="/loginPath">登录</a>
+					</#if>
+				</div>
+			</div>
+		</div>
+		<!--导航区域 end-->
+
+		<!--banner 广告区域 start-->
+		<!--图片轮播区域  start-->
+		<div id="equipment">
+			<div id="ifocus">
+				<div class="lubo ">
+
+					<ul class="lubo_box ifocus_piclist">
+						<li style=" opacity: 1;">
+							<a href="" style="background:url(../images/equipment/banner/equipmentPath-banner-4.jpg) center top no-repeat"></a>
+						</li>
+						<li style=" opacity: 0;">
+							<a href="" style="background:url(../images/equipment/banner/equipmentPath-banner-3.jpg) center top no-repeat"></a>
+						</li>
+						<li style=" opacity: 0;">
+							<a href="" style="background:url(../images/equipment/banner/equipmentPath-banner-2.jpg) center top no-repeat"></a>
+						</li>
+					</ul>
+					<script type="text/javascript">
+						$(function() {
+
+							$(".lubo").lubo({
+
+							});
+
+						})
+					</script>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!--图片轮播区域  end-->
+
+		<div id="equipment-parinforma" class="clearfix equipment-parinforma">
+			<div class="parinforma" id="t1-box-con1">
+				<div class="parinforma-l">
+					<img id="equipPic" src="../images/outdoor_expansion/yewai-img-1.png">
+				</div>
+				<div class="parinforma-txt">
+					<dl>
+						<dt id="name">折叠椅</dt>
+						<dd><span>价格/时限：</span><span id="showPrice"></span></dd>
+						<dd><span>地区：</span><span id="region"></span></dd>
+						<dd><span>送货方式：</span><span id="sendWay"></span></dd>
+						<dd><span>租赁方式：</span><span id="rentWay"></span></dd>
+						<dd><span>是否有货：</span><span id="supplyTension"></span></dd>
+						<dd><span>损坏损偿：</span><span id="damage"></span></dd>
+						<dd><span>联系QQ：</span><span id="qq"></span></dd>
+						<dd><span>固话：</span><span id="fixnumber"></span></dd>
+						<dd><span>手机：</span><span id="telphone"></span></dd>
+					</dl>
+				</div>
+				<div class="closebtn" id="close" onclick="clo();"></div>
+			</div>
+		</div>
+		<div id="index-main">
+			<div class="row">
+				<div class="content_left" style="padding:0;">
+					<!--公司拓展  -->
+					<div id="equipment-main">
+						<!--活热门容 start-->
+						<div id="equipment-hot">
+							<div class="equipment-nav">
+								<h4>热门推荐</h4>
+							</div>
+							<div class="equipment-hot-bot">
+
+								<ul>
+									<li>
+										<a><img src="../images/equipment/equip-1.png" /></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">折叠椅</a>
+											<h5>价格/时限 ：     <span>10元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(1);">查看</a></h6>
+										</div>
+									</li>
+									<li>
+										<a><img src="../images/equipment/equip-2.png" /></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">折叠凳 </a>
+											<h5>价格/时限 ：     <span>1元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(2);">查看</a></h6>
+										</div>
+									</li>
+									<li>
+										<a><img src="../images/equipment/equip-3.png" /></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">户外餐桌</a>
+											<h5>价格/时限 ：     <span>15元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(3);">查看</a></h6>
+										</div>
+									</li>
+									<li>
+										<a><img src="../images/equipment/equip-4.png" /></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">遮阳伞</a>
+											<h5>价格/时限 ：     <span>20元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(4);">查看</a></h6>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="equipment-kualan">
+							<a href="/equip/add">
+								<img src="../images/equipment/kualan.jpg" width="100%">
+							</a>
+						</div>
+						<!--活动内容 start-->
+						<div id="equipment-group">
+							<div class="equipment-nav">
+								<h4>装备租赁</h4>
+							</div>
+							<div class="equipment-bot">
+								<ul>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-5.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">遮阳篷</a>
+											<h5>价格/时限 ：     <span>40元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(5);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-6.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">餐垫</a>
+											<h5>价格/时限 ：     <span>5元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(6);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-7.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">烧烤架</a>
+											<h5>价格/时限 ：     <span>50元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(7);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-8.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">帐篷整套</a>
+											<h5>价格/时限 ：     <span>（100、120、160）元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(8);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-9.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">帐篷、睡袋</a>
+											<h5>价格/时限 ：     <span>25元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(9);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-10.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">充气垫</a>
+											<h5>价格/时限 ：     <span>20元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(10);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-11.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">铝膜地席</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(11);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-12.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">头灯</a>
+											<h5>价格/时限 ：     <span>20元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(12);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-13.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">手电</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(13);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-14.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">营灯</a>
+											<h5>价格/时限 ：     <span>10元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(14);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-15.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">炉头气罐</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(15);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-16.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">吊床</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(16);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-17.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">兵工铲</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(17);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-18.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">登山杖</a>
+											<h5>价格/时限 ：     <span>10元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(18);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-19.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">背包雨罩</a>
+											<h5>价格/时限 ：     <span>10元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(19);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-20.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">充气枕眼罩</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(20);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-21.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">登山绳</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(21);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-22.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">安全带</a>
+											<h5>价格/时限 ：     <span>30元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(22);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-23.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">冰镐</a>
+											<h5>价格/时限 ：     <span>30元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(23);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-24.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">冰爪</a>
+											<h5>价格/时限 ：     <span>10元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(24);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-25.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">头盔</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(25);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-26.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">下降器</a>
+											<h5>价格/时限 ：     <span>5元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(26);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-27.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">GPS</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(27);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-28.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">望远镜</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(28);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-29.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">音响</a>
+											<h5>价格/时限 ：     <span>50元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(29);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-30.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">登山杖、橡皮艇</a>
+											<h5>价格/时限 ：     <span>150元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(30);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-31.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">救生衣</a>
+											<h5>价格/时限 ：     <span>15元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(31);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-32.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">自行车</a>
+											<h5>价格/时限 ：     <span>6~15元/1小时</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(32);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-33.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">钓鱼伞</a>
+											<h5>价格/时限 ：     <span>30元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(33);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-34.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">鱼竿</a>
+											<h5>价格/时限 ：     <span>20元/天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(34);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-35.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">电动车</a>
+											<h5>价格/时限 ：     <span>10——20元/1小时</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(35);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-36.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">摩托车</a>
+											<h5>价格/时限 ：     <span>50元/1小时</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(36);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-37.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">SUV</a>
+											<h5>价格/时限 ：     <span>议价</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(37);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-38.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">轿车</a>
+											<h5>价格/时限 ：     <span>议价</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(38);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-39.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">旅游大巴</a>
+											<h5>价格/时限 ：     <span>议价</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(39);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-40.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">相机、对讲机</a>
+											<h5>价格/时限 ：     <span>20元/1小时</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(40);">查看</a></h6>
+										</div>
+									</li>
+
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-41.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">望远镜、无人机</a>
+											<h5>价格/时限 ：     <span>议价</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(41);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-42.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">药品箱</a>
+											<h5>价格/时限 ：     <span>30元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(42);">查看</a></h6>
+										</div>
+									</li>
+									<li style="margin-left:0">
+										<a href="#"><img src="../images/equipment/equip-43.png"></a>
+										<div class="equipment-txt">
+											<a href="#" class="gname">急救包</a>
+											<h5>价格/时限 ：     <span>50元/1天</span></h5>
+											<h5>友鸣官方</h5>
+											<h6><a href="javascript:show(43);">查看</a></h6>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+
+						</div>
+						<!--活动攻略 start-->
+
+						<div class="clearfix"></div>
+					</div>
+					<!--右边  start-->
+
+				</div>
+
+				<div class="content_right">
+					<div id="recommend">
+						<!--tag标题-->
+						<div class="recommend-nav">
+							<h4>热门活动</h4></div>
+						<div id="hotRoute_bottom">
+							<#list hotActivities as hotAct>
+								<!--线路一-->
+								<div id="hotRoute1" class="routeContent" onclick="javascript:goToDisplay(${hotAct.id})">
+									<div class="routepic">
+										<a href="#">
+											<img src="${hotAct.pic?default(" ")}" />
+										</a>
+									</div>
+									<div class="routeDesc">
+										<h4>${hotAct.title?default("")}</h4>
+										<p>${hotAct.desc?default("")}</p>
+									</div>
+								</div>
+							</#list>
+							<div class="clearfix"></div>
+						</div>
+
+					</div>
+
+					<div class="index-guanggao">
+						<img src="../images/index/300x400-2.jpg">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+			</div>
+			<div class="clearfix" style="padding-bottom:15px;"></div>
+		</div>
+		<div class="parinforma-body"></div>
+		<!--footer start-->
+		<#include "footer.html">
+
+			<!--footer end-->
+
+			<script>
+				KISSY.add('sm-cat-d1', function(S) {
+
+					/**
+					 * 弹出菜单构造函数
+					 * @param {KISSY Node} container 弹出菜单容器节点
+					 * @constructor
+					 */
+					function Popup(container) {
+
+						var triggers = container.all('.cat-group'),
+							popup = container.one('.J_CatPopup');
+
+						this.container = container;
+						this._init(triggers, popup);
+
+					};
+
+					/**
+					 * 构造函数原型扩展
+					 * @prototype
+					 */
+					Popup.prototype = {
+
+						/**
+						 * 显示弹出菜单
+						 * @method show
+						 * @param {KISSY Node} trigger 触发弹出的分组
+						 * @param {KISSY Node} popup 弹出层节点
+						 */
+						show: function(trigger, popup) {
+
+							var self = this,
+								container = self.container,
+								offset = trigger.offset().top - container.offset().top;
+
+							//显示弹出层，并插入内容
+							popup.addClass('cat-popup-active');
+							popup.html(trigger.one('textarea').val());
+
+							//弹出层高度小于模块高度
+							if(popup.outerHeight() <= 290) {
+
+								var containerOffset = container.outerHeight() + container.offset().top,
+									popupOffset = popup.outerHeight() + trigger.offset().top;
+
+								if(containerOffset >= popupOffset) {
+									popup.css('top', offset);
+								} else {
+									popup.css('top', offset + containerOffset - popupOffset);
+								}
+							}
+
+							//弹出层高度大于模块高度
+							else {
+								popup.css('top', -1);
+							}
+
+						},
+
+						/**
+						 * 初始化入口
+						 * @method _init 
+						 * @param {KISSY Node} triggers 类目分组节点
+						 * @param {KISSY Node} popup 弹出层节点
+						 */
+						_init: function(triggers, popup) {
+
+							var self = this,
+								trigger,
+								timer;
+
+							//类目分组悬停
+							triggers.on('mouseenter', function(e) {
+
+								if(timer) {
+									clearTimeout(timer);
+									trigger.removeClass('cat-group-active');
+								}
+
+								trigger = S.one(e.currentTarget);
+
+								trigger.addClass('cat-group-active');
+								self.show(trigger, popup);
+
+							});
+
+							//类目分组移开
+							triggers.on('mouseleave', function(e) {
+
+								trigger = S.one(e.currentTarget);
+
+								timer = setTimeout(function() {
+									trigger.removeClass('cat-group-active');
+									popup.removeClass('cat-popup-active');
+								}, 200);
+
+							});
+
+							//弹出菜单悬停
+							popup.on('mouseenter', function(e) {
+
+								if(timer) {
+									clearTimeout(timer);
+								}
+
+								trigger.addClass('cat-group-active');
+
+							});
+
+							//弹出菜单移开
+							popup.on('mouseleave', function(e) {
+
+								timer = setTimeout(function() {
+									trigger.removeClass('cat-group-active');
+									popup.removeClass('cat-popup-active');
+								}, 200);
+
+							});
+
+						}
+
+					};
+
+					/**
+					 * 模块构造函数
+					 */
+					function X(box, module) {
+
+						var container = S.one(module);
+
+						//实例化弹出菜单
+						new Popup(container);
+
+					}
+
+					S.dpl = S.dpl || {};
+					return S.dpl['sm-cat-d1'] = X;
+
+				}, {
+					attach: false,
+					requires: []
+				});
+			</script>
+			<script>
+				(function(S) {
+
+					S.use('sm-cat-d1', function(S) {
+						new S.dpl['sm-cat-d1'](S.one('.J_Module')[0], S.one('.' + 'sm-cat-d1')[0]);
+					});
+
+				})(KISSY);
+			</script>
+	</body>
+
+</html>

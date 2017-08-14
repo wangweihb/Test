@@ -1,0 +1,560 @@
+Table: activity
+----------------+----------------------+------+-----+---------+---------
+ Field          | Type                 | Null | Key | Default | Remarks 
+----------------+----------------------+------+-----+---------+---------
+ id             | INT(10)              | NO   | PRI |         |         
+ title          | VARCHAR(30)          | YES  |     |         | 活动标题（控制在30字以内）
+ property       | INT(10)              | YES  |     | 1       | 活动性质    
+ type           | VARCHAR(200)         | YES  |     |         | 活动类型、范畴ID列表
+ content        | TINYTEXT(255)        | YES  |     |         | 活动内容ID列表
+ desc           | VARCHAR(150)         | YES  |     |         | 简要描述（限制在150内）
+ gatherPlace    | VARCHAR(100)         | YES  |     |         | 集合地点    
+ departurePlace | VARCHAR(100)         | YES  |     |         | 出发地     
+ destination    | VARCHAR(100)         | YES  |     |         | 目的地     
+ publishTime    | DATETIME(19)         | YES  |     |         | 活动发布时间  
+ startTime      | DATETIME(19)         | YES  |     |         | 活动开始时间  
+ endTime        | DATETIME(19)         | YES  |     |         | 活动结束时间  
+ deadline       | DATETIME(19)         | YES  |     |         | 活动截止时间  
+ gatherTime     | DATETIME(19)         | YES  |     |         | 活动集结时间  
+ intensityLevel | INT(10)              | YES  |     | 1       | 活动强度级别  
+ scenicSpot     | VARCHAR(50)          | YES  |     |         | 活动景点    
+ totalNum       | INT(10)              | YES  |     | 0       | 所需总人数   
+ enteredNum     | INT(10)              | YES  |     | 0       | 已经报名的人数 
+ confirmedNum   | INT(10)              | YES  |     | 0       | 已确认的人数  
+ contactnumber  | CHAR(12)             | YES  |     |         | 联系电话    
+ vehicle        | INT(10)              | YES  |     | 0       | 交通方式    
+ qqGroup        | VARCHAR(20)          | YES  |     |         | 联系QQ群   
+ cost           | FLOAT(12)            | YES  |     |         | 价格、费用   
+ childCost      | FLOAT(12)            | YES  |     | 0       | 儿童价     
+ disount        | FLOAT(12)            | YES  |     |         | 折扣（如8.5折）
+ discountPrice  | FLOAT(12)            | YES  |     |         | 优惠后的价格  
+ routeDesc      | LONGTEXT(2147483647) | YES  |     |         | 线路描述    
+ travelPlan     | LONGTEXT(2147483647) | YES  |     |         | 行程安排    
+ requiredEquip  | LONGTEXT(2147483647) | YES  |     |         | 装备要求    
+ notice         | LONGTEXT(2147483647) | YES  |     |         | 报名须知    
+ feeDesc        | LONGTEXT(2147483647) | YES  |     |         | 费用说明    
+ enroll         | LONGTEXT(2147483647) | YES  |     |         | 报名须知    
+ pic            | VARCHAR(800)         | NO   |     |         | 活动的图片路径(base64的字符串)
+ takers         | VARCHAR(200)         | YES  |     |         | 报名的人员ID列表（以英文状态下的“,”分割）
+ leaders        | VARCHAR(20)          | YES  |     |         | 领队ID列表（多个时以“,”分割）
+ top            | INT(10)              | YES  |     | 0       | 是否置顶 1-置顶
+ isRecommend    | INT(10)              | YES  |     | 0       | 是否推荐 1-推荐
+ checkStatus    | INT(10)              | YES  |     | 0       | 审核状态 0-未提交 1-提交未审核 2-审核未通过 3-审核通过
+ checkMsg       | VARCHAR(50)          | YES  |     |         | 审核意见    
+ isValid        | INT(10)              | YES  |     | 0       | 是否有效    
+----------------+----------------------+------+-----+---------+---------
+
+Table: activitybill
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         |         
+ billNo       | CHAR(20)     | NO   |     |         | 订单编号    
+ userId       | INT(10)      | NO   |     | 0       | 用户ID    
+ actId        | INT(10)      | NO   |     | 0       | 活动ID    
+ proName      | VARCHAR(100) | NO   |     |         | 产品名称    
+ proDesc      | VARCHAR(150) | NO   |     |         | 产品描述    
+ cost         | FLOAT(12)    | YES  |     |         | 付款金额    
+ createTime   | DATETIME(19) | YES  |     |         | 订单生成时间（即报名时间）
+ updateTime   | DATETIME(19) | YES  |     |         | 订单最后更新时间
+ status       | INT(10)      | YES  |     | 0       | 订单状态 0-待付款  1-付款完成 2-已关闭  9-订单异常
+ adultNum     | INT(10)      | NO   |     | 0       | 成人数量    
+ childNum     | INT(10)      | NO   |     | 0       | 儿童数量    
+ lmName       | VARCHAR(50)  | NO   |     |         | 联系人姓名   
+ lmNumber     | CHAR(15)     | NO   |     |         | 联系人电话   
+ lmCertType   | INT(10)      | YES  |     | 0       | 联系人证件号码 0-身份证 1-护照 9-其他
+ lmCertNumber | VARCHAR(30)  | NO   |     |         | 联系人证件号码 
+ remark       | VARCHAR(300) | NO   |     |         | 备注      
+--------------+--------------+------+-----+---------+---------
+
+Table: activityitem
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ id      | INT(10)     | NO   | PRI |         | 活动性质id  
+ name    | VARCHAR(50) | YES  |     |         | 性质名称    
+ isValid | INT(10)     | YES  |     |         | 是否有效    
+---------+-------------+------+-----+---------+---------
+
+Table: activityorderdetail
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         |         
+ orderNo      | CHAR(20)     | NO   |     |         | 订单号     
+ actId        | INT(10)      | NO   |     | 0       | 活动ID    
+ proName      | VARCHAR(100) | NO   |     |         | 产品名称    
+ proDesc      | VARCHAR(150) | NO   |     |         | 产品描述    
+ cost         | DECIMAL(10)  | YES  |     |         | 付款金额    
+ adultNum     | INT(10)      | NO   |     | 0       | 成人数量    
+ childNum     | INT(10)      | NO   |     | 0       | 儿童数量    
+ lmName       | VARCHAR(50)  | NO   |     |         | 联系人姓名   
+ lmNumber     | CHAR(15)     | NO   |     |         | 联系人电话   
+ lmCertType   | INT(10)      | YES  |     | 0       | 联系人证件号码 0-身份证 1-护照 9-其他
+ lmCertNumber | VARCHAR(30)  | NO   |     |         | 联系人证件号码 
+ updateTime   | DATETIME(19) | YES  |     |         | 订单最后更新时间
+--------------+--------------+------+-----+---------+---------
+
+Table: activityproperty
+---------+------------------+------+-----+---------+---------
+ Field   | Type             | Null | Key | Default | Remarks 
+---------+------------------+------+-----+---------+---------
+ id      | INT(10)          | NO   | PRI |         |         
+ name    | VARCHAR(50)      | YES  |     |         | 活动性质名称  
+ isValid | INT UNSIGNED(10) | NO   |     | 0       |         
+---------+------------------+------+-----+---------+---------
+
+Table: activitytype
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ id      | INT(10)     | NO   | PRI |         |         
+ name    | VARCHAR(50) | YES  |     |         | 活动类型名、范畴名
+ isValid | INT(10)     | YES  |     | 0       |         
+---------+-------------+------+-----+---------+---------
+
+Table: advice
+----------+--------------+------+-----+---------+---------
+ Field    | Type         | Null | Key | Default | Remarks 
+----------+--------------+------+-----+---------+---------
+ id       | INT(10)      | NO   | PRI |         |         
+ email    | VARCHAR(50)  | NO   |     |         | 邮箱      
+ telphone | VARCHAR(20)  | NO   |     |         | 电话      
+ content  | VARCHAR(200) | NO   |     |         | 建议内容    
+ time     | DATETIME(19) | YES  |     |         |         
+ isValid  | INT(10)      | NO   |     | 0       |         
+----------+--------------+------+-----+---------+---------
+
+Table: article
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         |         
+ title       | VARCHAR(50)  | NO   |     |         | 帖子标题    
+ types       | VARCHAR(200) | NO   |     |         | 帖子所属类型的列表（以“,”隔开）
+ pic         | VARCHAR(400) | NO   |     |         | 帖子主图路径  
+ content     | TEXT(65535)  | YES  |     |         | 帖子内容    
+ author      | INT(10)      | YES  |     |         | 发帖人     
+ publishTime | DATETIME(19) | YES  |     |         | 发帖时间    
+ scanNum     | INT(10)      | NO   |     | 0       | 浏览量     
+ praisedNum  | INT(10)      | NO   |     | 0       | 被赞次数    
+ isValid     | INT(10)      | YES  |     | 0       | 是否有效 0-无效  1-有效
+-------------+--------------+------+-----+---------+---------
+
+Table: car
+----------------+--------------+------+-----+-------------------+---------
+ Field          | Type         | Null | Key | Default           | Remarks 
+----------------+--------------+------+-----+-------------------+---------
+ id             | INT(10)      | NO   | PRI |                   |         
+ name           | VARCHAR(40)  | NO   |     |                   | 车名称     
+ type           | INT(10)      | NO   |     | 0                 | 车型 0-不限 1-舒适型轿车、2-经济型轿车、3-MVP、4-豪华型轿车、5-SUV、6-7座商务型轿车、7-旅游大巴车 
+ factoryId      | INT(10)      | NO   |     | 0                 | 所在门店    
+ gearType       | INT(10)      | NO   |     | 0                 | 挡位类型 0-手动挡 1-自动挡
+ cntLimit       | INT(10)      | NO   |     | 0                 | 可乘坐人数   
+ sweptVolume    | VARCHAR(20)  | NO   |     |                   | 排量      
+ price          | FLOAT(12)    | NO   |     | 0                 | 日均价     
+ total          | INT(10)      | NO   |     | 1                 | 库存总量(默认1辆)
+ status         | INT(10)      | NO   |     | 0                 | 组满状态 1-已租满 0-未租满（这里只是一个临时字段）
+ showpic        | VARCHAR(300) | NO   |     |                   | 车辆展示图片地址
+ lastUpdateTime | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 最后更新时间  
+ isValid        | INT(10)      | NO   |     | 0                 | 0-无效 1-有效
+----------------+--------------+------+-----+-------------------+---------
+
+Table: carfactory
+---------------+--------------+------+-----+-------------------+---------
+ Field         | Type         | Null | Key | Default           | Remarks 
+---------------+--------------+------+-----+-------------------+---------
+ id            | INT(10)      | NO   | PRI |                   |         
+ name          | VARCHAR(50)  | NO   |     |                   | 取车门店名字  
+ code          | CHAR(25)     | NO   |     |                   | 组织机构代码  
+ tel           | CHAR(15)     | NO   |     |                   | 门店联系电话  
+ lmname        | VARCHAR(25)  | NO   |     |                   | 联系人姓名   
+ idcard        | CHAR(20)     | NO   |     |                   | 身份证号    
+ userId        | INT(10)      | NO   |     | 0                 | 负责人     
+ provice       | VARCHAR(30)  | NO   |     |                   | 省       
+ city          | VARCHAR(30)  | NO   |     |                   | 城市      
+ region        | VARCHAR(30)  | NO   |     |                   | 区       
+ streetAddress | VARCHAR(40)  | NO   |     |                   | 门店具体地址  
+ checkStatus   | INT(10)      | NO   |     | 0                 | 审核状态 0-未提交 1-提交未审核 2-审核未通过 3-审核通过
+ checkMsg      | VARCHAR(100) | NO   |     |                   | 审核意见    
+ createTime    | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 创建时间    
+ isValid       | INT(10)      | NO   |     | 0                 | 0-无效 1-有效
+ note          | VARCHAR(100) | NO   |     |                   | 备注      
+---------------+--------------+------+-----+-------------------+---------
+
+Table: carorderdetail
+----------------+--------------+------+-----+-------------------+---------
+ Field          | Type         | Null | Key | Default           | Remarks 
+----------------+--------------+------+-----+-------------------+---------
+ id             | INT(10)      | NO   | PRI |                   |         
+ orderNo        | CHAR(20)     | NO   |     |                   | 订单号     
+ carId          | INT(10)      | NO   |     | 0                 | 车辆id    
+ num            | INT(10)      | NO   |     | 0                 | 租车数量    
+ lmname         | VARCHAR(50)  | NO   |     |                   | 租车联系人姓名 
+ lmnameIdcard   | CHAR(20)     | NO   |     |                   | 联系人身份证号 
+ lmnameTel      | CHAR(15)     | NO   |     |                   | 租车联系方式  
+ rentStartTime  | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 租用开始时间  
+ rentEndTime    | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 租用结束时间  
+ lastUpdateTime | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 最后更新时间  
+ isValid        | INT(10)      | NO   |     | 0                 | 0-无效 1-有效  付款成功则有效
+----------------+--------------+------+-----+-------------------+---------
+
+Table: carrentstatus
+---------+--------------+------+-----+------------+---------
+ Field   | Type         | Null | Key | Default    | Remarks 
+---------+--------------+------+-----+------------+---------
+ carId   | INT(10)      | NO   | PRI | 0          | 车辆id    
+ day     | DATE(10)     | NO   | PRI | 0000-00-00 | 租车日期(不包括时间)
+ status  | INT(10)      | NO   |     | 0          | 0-未组满 1-已租满
+ total   | INT(10)      | NO   |     | 0          | 车的总库存   
+ rented  | INT(10)      | NO   |     | 0          | 对应这天已租车辆数
+ note    | VARCHAR(100) | NO   |     |            | 备注      
+ isValid | INT(10)      | NO   |     | 0          | 0-无效 1-有效
+---------+--------------+------+-----+------------+---------
+
+Table: contact
+-------------+-------------+------+-----+---------+---------
+ Field       | Type        | Null | Key | Default | Remarks 
+-------------+-------------+------+-----+---------+---------
+ id          | INT(10)     | NO   | PRI |         |         
+ qq          | VARCHAR(15) | YES  |     |         | 公司QQ    
+ email       | VARCHAR(30) | YES  |     |         | 公司邮箱    
+ fixedphone  | VARCHAR(20) | YES  |     |         | 固定电话    
+ mobilephone | VARCHAR(20) | YES  |     |         | 移动电话    
+ fax         | VARCHAR(15) | YES  |     |         | 公司传真    
+ isValid     | INT(10)     | YES  |     |         | 是否有效    
+-------------+-------------+------+-----+---------+---------
+
+Table: equip
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ id            | INT(10)      | NO   | PRI |         |         
+ name          | VARCHAR(40)  | NO   |     |         | 装备名称    
+ types         | VARCHAR(30)  | NO   |     |         | 装备类型，用途,使用“,”隔开 1- 露营烧烤 2-休闲游玩 3-自驾摄影 4-骑行垂钓 5-登山攀岩
+ equipPic      | VARCHAR(200) | NO   |     |         | 装备显示的图片路径
+ deposit       | FLOAT(12)    | NO   |     |         | 押金      
+ rent          | FLOAT(12)    | NO   |     |         | 租金      
+ directions    | VARCHAR(400) | NO   |     |         | 使用说明（400字内）
+ attention     | VARCHAR(200) | NO   |     |         | 注意事项    
+ showPrice     | VARCHAR(50)  | NO   |     |         | 价格时限    
+ qq            | VARCHAR(20)  | NO   |     |         | 联系qq    
+ fixnumber     | VARCHAR(15)  | NO   |     |         | 联系固话    
+ telephone     | VARCHAR(15)  | NO   |     |         | 联系手机号   
+ provice       | VARCHAR(40)  | NO   |     |         | 所在省     
+ city          | VARCHAR(40)  | NO   |     |         | 所在城市    
+ region        | VARCHAR(40)  | NO   |     |         | 区       
+ street        | VARCHAR(40)  | NO   |     |         | 街道详细地址  
+ sendWay       | INT(10)      | NO   |     | 1       | 1-自取  2-可送
+ rentWay       | INT(10)      | NO   |     | 1       | 1-只租   2-可卖
+ provider      | INT(10)      | NO   |     | 0       | 0-友鸣官方 1-其他装备提供商
+ supplyTension | INT(10)      | NO   |     | 1       | 1-有货 2-紧缺
+ damage        | VARCHAR(100) | NO   |     |         | 损偿      
+ total         | INT(10)      | NO   |     | 0       | 库存总数    
+ rentedNum     | INT(10)      | NO   |     | 0       | 已经租用数量  
+ uploader      | INT(10)      | NO   |     | 0       | 上传领队    
+ uploadTime    | DATETIME(19) | YES  |     |         | 上传时间    
+ checkStatus   | TINYINT(3)   | NO   |     | 0       | 审核状态 0-未提交 1-提交未审核 2-审核未通过 3-审核通过
+ checkMsg      | VARCHAR(50)  | NO   |     |         | 审核意见    
+ isRecommend   | TINYINT(3)   | NO   |     | 0       | 是否推荐    
+ top           | TINYINT(3)   | NO   |     | 0       | 是否置顶    
+ isValid       | TINYINT(3)   | NO   |     | 0       | 是否有效 1-有效  0-有效
+---------------+--------------+------+-----+---------+---------
+
+Table: equiporderdetail
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ id        | INT(10)     | NO   | PRI |         |         
+ orderNo   | CHAR(20)    | NO   |     |         | 订单号     
+ equipName | VARCHAR(50) | NO   |     |         | 装备名称    
+-----------+-------------+------+-----+---------+---------
+
+Table: farmstay
+------------------+--------------+------+-----+---------+---------
+ Field            | Type         | Null | Key | Default | Remarks 
+------------------+--------------+------+-----+---------+---------
+ id               | INT(10)      | NO   | PRI |         |         
+ destinationId    | INT(10)      | NO   |     | 0       | 所属目的地ID(必填)
+ shopName         | VARCHAR(40)  | NO   |     |         | 店铺名称    
+ serviceStartTime | CHAR(10)     | NO   |     |         | 营业开始时间  
+ serviceEndTime   | CHAR(10)     | NO   |     |         | 营业结束时间  
+ parkInfo         | VARCHAR(200) | NO   |     |         | 停车信息    
+ specialAct       | VARCHAR(200) | NO   |     |         | 特色活动    
+ otherEquip       | VARCHAR(200) | NO   |     |         | 其他设施    
+ addedService     | VARCHAR(200) | NO   |     |         | 额外免费服务  
+ attention        | VARCHAR(200) | NO   |     |         | 注意事项    
+ cost             | FLOAT(12)    | YES  |     | 0       | 总费用     
+ feePart          | TEXT(65535)  | YES  |     |         | 费用包含    
+ productDesc      | TEXT(65535)  | YES  |     |         | 产品介绍    
+ address          | VARCHAR(50)  | NO   |     |         |         
+ pic              | VARCHAR(500) | NO   |     |         | 代表图片    
+ commentScore     | INT(10)      | NO   |     | 0       | 评分      
+ commentNum       | INT(10)      | NO   |     | 0       | 评价数     
+ updateTime       | DATETIME(19) | YES  |     |         | 最后更新时间  
+------------------+--------------+------+-----+---------+---------
+
+Table: feedback
+-----------------+----------------------+------+-----+---------+---------
+ Field           | Type                 | Null | Key | Default | Remarks 
+-----------------+----------------------+------+-----+---------+---------
+ id              | INT(10)              | NO   | PRI |         | 反馈问题的内容 
+ title           | VARCHAR(50)          | YES  |     |         | 问题标题    
+ content         | LONGTEXT(2147483647) | YES  |     |         |         
+ proposeTime     | DATETIME(19)         | YES  |     |         | 问题提出时间  
+ feedbackContent | LONGTEXT(2147483647) | YES  |     |         | 回答的内容   
+ feedbackTime    | DATETIME(19)         | YES  |     |         | 回答时间    
+ status          | INT(10)              | YES  |     |         | 处理状态 0-未处理 1-已处理
+ isValid         | INT(10)              | YES  |     |         | 是否有效    
+-----------------+----------------------+------+-----+---------+---------
+
+Table: hotel
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ id            | INT(10)      | NO   | PRI |         |         
+ destinationId | INT(10)      | NO   |     | 0       | 所属目的地的ID
+ houseType     | VARCHAR(100) | NO   |     |         | 房型      
+ bedType       | VARCHAR(100) | NO   |     |         | 床型      
+ aboutEquip    | VARCHAR(200) | NO   |     |         | 配套设施    
+ parkInfo      | VARCHAR(200) | NO   |     |         | 停车信息    
+ provice       | VARCHAR(30)  | NO   |     |         | 省       
+ city          | VARCHAR(30)  | NO   |     |         | 城市      
+ region        | VARCHAR(30)  | NO   |     |         | 区       
+ streetAddress | VARCHAR(40)  | NO   |     |         | 门店具体地址  
+ feePart       | TEXT(65535)  | YES  |     |         | 费用包含    
+ checkinType   | VARCHAR(100) | NO   |     |         | 入驻方式    
+ isCheckout    | INT(10)      | NO   |     | 0       | 是否退房 0-不能 1-能 默认不能
+ transportTip  | TEXT(65535)  | YES  |     |         | 交通指南    
+ aboutService  | TEXT(65535)  | YES  |     |         | 配套服务    
+ pic           | VARCHAR(500) | NO   |     |         | 代表图片    
+ updateTime    | DATETIME(19) | YES  |     |         | 最后更新时间  
+---------------+--------------+------+-----+---------+---------
+
+Table: info
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ info_id       | INT(10)      | NO   | PRI |         |         
+ subject       | TEXT(65535)  | NO   |     |         | 资讯主题    
+ desc          | TEXT(65535)  | NO   |     |         | 简要描述    
+ star          | INT(10)      | NO   |     | 1       | 好评星级    
+ subjectImg    | VARCHAR(500) | NO   |     |         | 主题图     
+ type          | INT(10)      | NO   |     | 1       | 1-休闲旅游 2-激情户外  3-家庭活动 4-民宿营地
+ openStartTime | CHAR(10)     | NO   |     |         | 开放开始时间  
+ openEndTime   | CHAR(10)     | NO   |     |         | 开放结束时间  
+ travelSeason  | VARCHAR(50)  | NO   |     |         | 最佳季节    
+ duration      | VARCHAR(40)  | NO   |     |         | 建议游玩时长  
+ contactNumber | VARCHAR(15)  | NO   |     |         | 联系电话    
+ grade         | INT(10)      | NO   |     | 1       | 景区等级划分 默认1级
+ totalPrice    | FLOAT(12)    | YES  |     |         | 价格      
+ provice       | VARCHAR(30)  | NO   |     |         | 省       
+ city          | VARCHAR(30)  | NO   |     |         | 城市      
+ region        | VARCHAR(30)  | NO   |     |         | 区       
+ streetAddress | VARCHAR(40)  | NO   |     |         | 门店具体地址  
+ transportInfo | TEXT(65535)  | YES  |     |         | 交通指南    
+ commentScore  | INT(10)      | NO   |     | 0       | 评分      
+ commentNum    | INT(10)      | NO   |     | 0       | 评论数     
+ createTime    | DATETIME(19) | YES  |     |         | 创建时间    
+---------------+--------------+------+-----+---------+---------
+
+Table: info_has_tag
+---------+---------+------+-----+---------+---------
+ Field   | Type    | Null | Key | Default | Remarks 
+---------+---------+------+-----+---------+---------
+ info_id | INT(10) | NO   | PRI |         |         
+ tag_id  | INT(10) | NO   | PRI |         |         
+---------+---------+------+-----+---------+---------
+
+Table: info_module
+----------------+-------------+------+-----+---------+---------
+ Field          | Type        | Null | Key | Default | Remarks 
+----------------+-------------+------+-----+---------+---------
+ info_module_id | INT(10)     | NO   | PRI |         |         
+ module_name    | VARCHAR(50) | NO   |     |         | 资讯子模块名  
+ module_type    | INT(10)     | NO   |     | 0       | 模块类型（待完善）
+ module_content | TEXT(65535) | YES  |     |         | 模块对应的富文本内容
+ parent_id      | INT(10)     | NO   |     | 0       |         
+----------------+-------------+------+-----+---------+---------
+
+Table: info_tag
+----------+--------------+------+-----+---------+---------
+ Field    | Type         | Null | Key | Default | Remarks 
+----------+--------------+------+-----+---------+---------
+ tag_id   | INT(10)      | NO   | PRI |         |         
+ tag_name | VARCHAR(50)  | NO   |     |         | 标签名字    
+ remark   | VARCHAR(200) | NO   |     |         | 备注      
+----------+--------------+------+-----+---------+---------
+
+Table: order
+----------------+---------------+------+-----+---------+---------
+ Field          | Type          | Null | Key | Default | Remarks 
+----------------+---------------+------+-----+---------+---------
+ id             | INT(10)       | NO   | PRI |         |         
+ userId         | INT(10)       | NO   |     | 0       | 用户id    
+ orderNo        | CHAR(20)      | NO   |     |         | 订单号     
+ type           | INT(10)       | NO   |     | 1       | 订单类型 1-活动订单 2-装备订单 3-车辆订单 4-农家乐中商品品订单
+ cost           | DECIMAL(10,2) | NO   |     |         | 总金额     
+ status         | INT(10)       | NO   |     | 0       | 0:待支付,1:支付中,2:支付成功,3:支付失败，4：已关闭
+ creatTime      | DATETIME(19)  | YES  |     |         | 订单创建时间  
+ lastUpdateTime | DATETIME(19)  | YES  |     |         | 订单最后更新时间
+ note           | VARCHAR(100)  | NO   |     |         | 备注      
+----------------+---------------+------+-----+---------+---------
+
+Table: permission
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ id             | INT(10)      | NO   | PRI |         |         
+ permissionCode | VARCHAR(100) | NO   |     |         | 权限代码    
+ permissionDesc | VARCHAR(100) | NO   |     |         | 权限描述    
+----------------+--------------+------+-----+---------+---------
+
+Table: product
+----------------+--------------+------+-----+-------------------+---------
+ Field          | Type         | Null | Key | Default           | Remarks 
+----------------+--------------+------+-----+-------------------+---------
+ id             | INT(10)      | NO   | PRI |                   |         
+ destId         | INT(10)      | NO   |     | 0                 | 对应周边目的地ID(增加这个冗余字段便于查询)
+ farmId         | INT(10)      | NO   |     | 0                 | 属于龙家乐的id
+ type           | INT(10)      | NO   |     | 0                 | 类型 0-吃 1-住 2-吃+住
+ title          | VARCHAR(50)  | NO   |     |                   | 产品标题    
+ subhead        | VARCHAR(50)  | NO   |     |                   | 副标题     
+ price          | DECIMAL(10)  | NO   |     | 0                 | 价格      
+ pics           | VARCHAR(800) | NO   |     |                   | 产品代表图   
+ buynote        | TEXT(65535)  | YES  |     |                   | 购买须知    
+ detail         | TEXT(65535)  | YES  |     |                   | 产品详情    
+ soldNum        | INT(10)      | NO   |     | 0                 | 已售次数    
+ createTime     | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 上传时间    
+ lastUpdateTime | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 最后更新时间  
+ isValid        | INT(10)      | NO   |     | 0                 |         
+----------------+--------------+------+-----+-------------------+---------
+
+Table: productorderdetail
+----------------+--------------+------+-----+-------------------+---------
+ Field          | Type         | Null | Key | Default           | Remarks 
+----------------+--------------+------+-----+-------------------+---------
+ id             | INT(10)      | NO   | PRI |                   |         
+ orderNo        | CHAR(20)     | NO   |     |                   | 订单号     
+ proId          | INT(10)      | NO   |     | 0                 | 菜品id    
+ num            | INT(10)      | NO   |     | 0                 | 商品订购数量  
+ lmname         | VARCHAR(50)  | NO   |     |                   | 租车联系人姓名 
+ lmnameTel      | CHAR(15)     | NO   |     |                   | 租车联系方式  
+ lastUpdateTime | DATETIME(19) | NO   |     | CURRENT_TIMESTAMP | 最后更新时间  
+ isValid        | INT(10)      | NO   |     | 0                 |         
+----------------+--------------+------+-----+-------------------+---------
+
+Table: role
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ id      | INT(10)     | NO   | PRI |         |         
+ name    | VARCHAR(20) | YES  |     |         | 角色名     
+ code    | VARCHAR(20) | YES  |     |         | 角色代码    
+ isValid | INT(10)     | YES  |     |         | 是否有效： 0-无效 1-有效
+---------+-------------+------+-----+---------+---------
+
+Table: role_permission
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ roleId       | INT(10)      | NO   | PRI |         |         
+ permissionId | INT(10)      | NO   | PRI |         |         
+ desc         | VARCHAR(100) | NO   |     |         | 备注、描述   
+--------------+--------------+------+-----+---------+---------
+
+Table: signup
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ id        | INT(10)     | NO   | PRI |         |         
+ actId     | INT(10)     | NO   |     |         | 活动id    
+ userId    | INT(10)     | NO   |     |         | 报名人ID   
+ adultNum  | INT(10)     | NO   |     | 0       | 成人数量    
+ childNum  | INT(10)     | NO   |     | 0       | 儿童数量    
+ lmName    | VARCHAR(20) | NO   |     |         | 联系人姓名   
+ lmNumber  | CHAR(15)    | NO   |     |         | 联系人电话   
+ lmEmail   | VARCHAR(32) | NO   |     |         | 联系人邮箱   
+ lmQq      | VARCHAR(20) | NO   |     |         | 联系人qq号  
+ totalCost | FLOAT(12)   | YES  |     |         | 最后总价格   
+ isValid   | INT(10)     | NO   |     | 0       | 0 - 无效 1- 有效
+-----------+-------------+------+-----+---------+---------
+
+Table: strategy
+---------+----------------------+------+-----+---------+---------
+ Field   | Type                 | Null | Key | Default | Remarks 
+---------+----------------------+------+-----+---------+---------
+ id      | INT(10)              | NO   | PRI |         |         
+ title   | VARCHAR(50)          | NO   |     |         | 攻略标题    
+ type    | INT(10)              | NO   |     | 0       | 类型：0-机票 1-东南亚目的地 2-其他目的地 3-骑行西藏
+ content | LONGTEXT(2147483647) | YES  |     |         | 攻略内容    
+ time    | DATETIME(19)         | YES  |     |         | 发布时间    
+ userId  | INT(10)              | NO   |     | 0       | 上传人     
+ isValid | INT(10)              | NO   |     |         | 是否有效 0  
+---------+----------------------+------+-----+---------+---------
+
+Table: user
+-------------------+--------------+------+-----+---------+---------
+ Field             | Type         | Null | Key | Default | Remarks 
+-------------------+--------------+------+-----+---------+---------
+ id                | INT(10)      | NO   | PRI |         |         
+ account           | VARCHAR(40)  | YES  |     |         | 用户名、昵称  
+ password          | VARCHAR(32)  | YES  |     |         | 密码      
+ email             | VARCHAR(30)  | YES  |     |         | 邮箱      
+ telphone          | VARCHAR(20)  | YES  |     |         | 电话号码    
+ roleId            | INT(10)      | YES  |     |         | 角色ID    
+ name              | VARCHAR(30)  | YES  |     |         | 姓名      
+ sex               | INT(10)      | YES  |     | 0       | 0-男 1-女 
+ headshot          | VARCHAR(400) | YES  |     |         | 个人头像base64编码值
+ fixedNumber       | CHAR(12)     | YES  |     |         | 固定电话    
+ qq                | VARCHAR(15)  | YES  |     |         |         
+ certificateType   | INT(10)      | YES  |     | 0       | 0-身份证 1-导游证 2-护照
+ certificateNum    | VARCHAR(20)  | YES  |     |         | 证件号码    
+ country           | INT(10)      | YES  |     | 0       | 0-中国 1-港澳 2-台湾
+ province          | VARCHAR(30)  | YES  |     |         | 省份      
+ city              | VARCHAR(30)  | YES  |     |         | 城市      
+ address           | VARCHAR(50)  | YES  |     |         | 详细地址    
+ emergencyPerson   | VARCHAR(30)  | YES  |     |         | 应急联系人姓名 
+ emergencyPhone    | CHAR(12)     | YES  |     |         | 应急联系人电话 
+ emergencyRelation | INT(10)      | YES  |     |         | 1-家人 2-朋友 3-同学 4-同事
+ certificateFront  | VARCHAR(400) | YES  |     |         | 证件照的正面的base64编码值
+ certificateBack   | VARCHAR(400) | YES  |     |         | 证件背面的base64值
+ certificateHander | VARCHAR(400) | YES  |     |         | 手持证件照base64值
+ otherCertificate  | VARCHAR(400) | YES  |     |         | 其他证书base64编码值
+ motto             | VARCHAR(80)  | YES  |     |         | 人生格言（限制在80个字内）
+ outdoorExperience | VARCHAR(300) | YES  |     |         | 户外履历（最多300）
+ studyExperience   | VARCHAR(300) | YES  |     |         | 学习配需经历  
+ experienceDoc     | VARCHAR(200) | YES  |     |         | 履历文档路径  
+ sellerName        | VARCHAR(200) | YES  |     |         | 商户或公司名称 
+ legalmanName      | VARCHAR(50)  | YES  |     |         | 法人代表姓名  
+ lmPID             | VARCHAR(25)  | YES  |     |         | 法人身份证号码 
+ lmPhone           | CHAR(15)     | YES  |     |         | 法人手机号码  
+ parterName        | VARCHAR(50)  | YES  |     |         | 合伙人姓名   
+ parterPIN         | VARCHAR(25)  | YES  |     |         | 合伙人身份证号码
+ parterPhone       | CHAR(15)     | YES  |     |         | 合伙人电话号码 
+ organCode         | VARCHAR(50)  | YES  |     |         | 组织机构代码  
+ bankNo            | VARCHAR(25)  | YES  |     |         | 银行卡账号   
+ alipayNo          | VARCHAR(32)  | YES  |     |         | 支付宝账号   
+ idcardPic         | VARCHAR(300) | YES  |     |         | 本人与身份证的合照路径
+ praisedNum        | INT(10)      | YES  |     | 0       |         
+ checkStatus       | INT(10)      | YES  |     | 0       | 审核状态 0-未提交 1-提交未审核 2-审核未通过 3-审核通过
+ checkMsg          | VARCHAR(100) | YES  |     |         | 审核意见（100字内）
+ isValid           | INT(10)      | YES  |     |         | 是否有效    
+-------------------+--------------+------+-----+---------+---------
+
+Table: welfare
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ id             | INT(10)      | NO   | PRI |         |         
+ title          | VARCHAR(50)  | NO   |     |         | 公益项目标题  
+ type           | INT(10)      | NO   |     | 0       | 公益分类 1-助学 2-义工 3-救济 4-环保
+ pic            | VARCHAR(400) | YES  |     |         |         
+ content        | TEXT(65535)  | YES  |     |         |         
+ author         | INT(10)      | YES  |     |         | 发起人     
+ publishTime    | DATETIME(19) | YES  |     |         | 发布时间    
+ deadline       | DATETIME(19) | YES  |     |         | 项目截至日期  
+ retransmissNum | INT(10)      | NO   |     | 0       | 转发次数    
+ isValid        | INT(10)      | NO   |     | 0       | 0-无效 1-有效
+----------------+--------------+------+-----+---------+---------
+

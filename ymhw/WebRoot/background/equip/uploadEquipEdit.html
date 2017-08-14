@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="../../css/library/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../../css/public_fg.css" />
+		<link rel="stylesheet" href="../../css/index_fg.css" />
+		<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="shortcut icon" href="../../logo.ico"/>
+		
+		<title>友鸣旅行网-装备信息修改、审核</title>
+		<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/public/tool.js" ></script>
+	    <script type="text/javascript" src="../../js/equip.js" ></script>
+	</head>
+	<body>
+		<form id="equipForm" action="" method="post" enctype="multipart/form-data">
+		<!--装备上传   start-->
+		<div id="paWrap">
+			
+			<!--领队基本信息 start-->
+			<div id="step1Content" style="display: block;">
+				<div class="scTitle">
+					<h3>装备信息</h3>
+					<p>填写装备基本信息、价格、使用说明等信息(所有信息必须填写，如果没有内容填“无”)</p>
+				</div>
+				
+				<hr class="dotLine"/>
+				
+				<div>
+					<div style="display: inline-block;">
+						<div class="sc1_row">
+							<input type="hidden" id="id" name="id" value="${equip.id}" />
+							名称：<input type="text" id="name" name="name" id="name" value="${equip.name}"/>
+						</div>
+						
+						<div class="sc1_row">
+							租金：<input type="text" id="rent" name="rent"  value="${equip.rent}"/>
+							<!--&nbsp;&nbsp;押金：<input type="text" name="deposit"/>-->
+							
+						</div>
+						<div class="sc1_row">
+							押金：<input type="text" id="deposit" name="deposit" value="${equip.deposit}"/>
+						</div>
+					</div>
+					<!--头像区域-->
+					<div  style="display: inline-block;float: right;">
+						<input type="file" id="equipUpload" style="display: none;" name="equipUpload" draggable="true" single />
+						<label style="vertical-align: top; height: 30px;">活动图片 ： </label>
+						<img id="equipPic" onclick="document.getElementById('equipUpload').click();" src="${equip.equipPic}" height="160" width="200" style="border: 1px solid #CFCFCF"/>
+					</div>
+				</div>
+				
+				
+				<hr class="dotLine"/>
+				<div class="">
+					<label style="width: 15%;">使用说明：</label>					
+					<textarea id="directions" name="directions" value="${equip.directions}" style="vertical-align: top;width: 84%;height: 150px;" placeholder="400字以内"></textarea>
+				</div>
+				
+				<div class="" style="margin-top: 10px;">
+					<label style="width: 15%;">注意事项：</label>
+					<textarea id="attention" name="attention" value="${equip.attention}" style="vertical-align: top;width: 84%;height: 100px;" placeholder="200字以内"></textarea>
+				</div>
+				
+				<hr class="dotLine"/>	
+				
+				<#if (session.ymhwUser.roleId)==1>
+					<div class="sc1_row">
+						是否推荐：
+						<select id="isRecommend" name="isRecommend">
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						是否置顶：
+						<select id="topStr" name="topStr" >
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+					</div>
+					<div class="sc1_row">
+						是否通过：
+						<select id="isPass" name="isPass">
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+					</div>
+					<div class="" style="margin-top: 10px;">
+						<label style="width: 15%;">审核意见：</label>
+						<textarea id="checkMsg" name="checkMsg" value="" style="vertical-align: top;width: 60%;height: 80px;" placeholder="100字以内"></textarea>
+					</div>
+				</#if>
+				
+				<div class="pa_next">
+					<#if (session.ymhwUser.roleId)==2>
+						<a href="javascript:updateEquipBg();">修改</a>
+					</#if>
+					<#if (session.ymhwUser.roleId)==1>
+						<a href="javascript:checkEquipBg();">审核</a>
+					</#if>
+				</div>
+			</div>
+		</div>
+		</form>
+		<!--装备上传       end-->
+		
+		<!--<div>
+			<#include "footer.html">
+		</div>-->
+		
+	</body>
+</html>

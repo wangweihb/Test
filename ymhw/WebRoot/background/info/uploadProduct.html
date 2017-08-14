@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>友鸣旅行网后台-上传农家乐信息</title>
+		<link rel="shortcut icon" href="../logo.ico" />
+		<meta name="keywords" content="">
+    	<meta name="description" content="">
+    	<link href="../../css/library/bootstrap.min.css" rel="stylesheet">
+    	<link href="../../wangEditor-2.1.23/dist/css/wangEditor.min.css" rel="stylesheet">
+    	<link href="../../css/bg/jquery.timepicker.css" rel="stylesheet"/>
+    	<link href="../../css/bg/bootstrap-datepicker.css" rel="stylesheet"/>
+    	<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/jquery.timepicker.min.js" ></script>
+		<script type="text/javascript" src="../../js/bg/info/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="../../js/public/tool.js"></script>
+		<script type="text/javascript" src="../../js/bg/info/info_product.js"></script>
+	</head>
+	<body>
+	<form id= "proaddForm" method="post" action="#" enctype="multipart/form-data"  class="form-horizontal container" role="form">
+		<div>
+			<div><h1>产品上传</h1></div>
+			<hr />
+			<div>
+				<div><h3>预定须知：</h3></div>
+				<div>
+					<div class="form-group">
+	                	<label for="inputEmail3" class="col-sm-2 control-label">所属周边目的地 ：</label>
+	                    <div class="col-sm-10">
+	                    	<!--引入此段代码和公共业务逻辑js即可-->
+	                    	<select id="deflaut_dest" name="destId" style="width: 200px;" onchange="getFarms(this);">
+	                    		<option>请选择</option>
+	                    	</select>
+	                    </div>
+					</div>
+				</div>
+				<div>
+					<div class="form-group">
+	                	<label for="inputEmail3" class="col-sm-2 control-label">所属农家乐 ：</label>
+	                    <div class="col-sm-10">
+	                    	<!--引入此段代码和公共业务逻辑js即可-->
+	                    	<select id="deflaut_farm" name="farmId" style="width: 200px;">
+	                    		<option>请选择</option>
+	                    	</select>
+	                    </div>
+					</div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">产品标题(必填)：</label>
+                    <div class="col-sm-10">
+                    	<input id="title"  class="form-control" type="text" name="title" placeholder="建议 门店名称+套餐信息" />
+                    </div>
+				</div>
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">副标题：</label>
+                    <div class="col-sm-10">
+                    	<input id="subhead"  class="form-control" type="text" name="subhead" placeholder="建议 简要描述产品优惠信息" />
+                    </div>
+				</div>
+				<!--<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">营业时间：</label>
+                    <div class="col-sm-10">
+                    	<input type="text" id="serviceStartTime" name="serviceStartTime" value="00:00" class="time">
+						--
+						<input type="text" id="serviceEndTime" name="serviceEndTime" value="00:00" class="time">
+                    </div>
+				</div>-->
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">产品类型：</label>
+                    <div class="col-sm-10">
+                    	<input type="radio" name="proType" value="0" /> 吃 &nbsp;&nbsp;&nbsp;&nbsp;
+                    	<input type="radio" name="proType" value="1" /> 住&nbsp;&nbsp;&nbsp;&nbsp;
+                    	<input type="radio" name="proType" value="2" checked="checked"/> 吃+住
+                    </div>
+				</div>
+				
+				<div class="form-group">
+                	<label for="inputEmail3" class="col-sm-2 control-label">价格(元)：</label>
+                    <div class="col-sm-2">
+                    	<input id="price"  class="form-control" type="text" name="price" placeholder="只能填写数字" />
+                    </div>
+				</div>
+				<!--展示图片-->
+				<div class="form-group">
+					<div class="col-sm-2 left-float" style="height: 200px;">
+						<label for="inputEmail3" class="control-label">主题图： <small>(只支持图片文件,建议尺寸  x * y,4~8张为宜)</small></label>
+					</div>
+					<div class="col-sm-9 left-float">
+						<div style="height: 45px;">
+							<input id="subjectImg"  name="subjectImg" accept="image/gif,image/png,image/jpeg" type="file" multiple/>
+						</div>
+	                    <div id="imgContainer" class="col-sm-12" style="border: 1px solid gainsboro;">
+							<!--<img id="tmpImg" src="" width="180" height="150"/>-->
+	                    </div>
+					</div>
+				</div>
+				
+				<div><h3>购买须知：</h3></div>
+				<div class="form-group">
+					<div class="col-sm-offset-1">
+                		<textarea id="product_buy"  name="product_buy" rows="4" cols="20"></textarea>
+                </div>
+				
+				<div><h3>产品详情：</h3></div>
+				<div class="form-group">
+					<div class="col-sm-offset-1">
+						<textarea id="product_detail"  name="product_detail" rows="4" cols="20"></textarea>
+					</div>
+				</div>
+				<hr />
+				
+				<!--<img id="test" src="../../images/discount1.jpg" />-->
+				<div class="info-btn col-sm-offset-4">
+					<!--<input type="submit" class="btn btn-default" value="提交"/>-->
+					<button id="sub"  type="button" class="btn btn-default" onclick="addProduct()">提交</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	</body>
+	<script type="text/javascript" src="../../wangEditor-2.1.23/dist/js/wangEditor.min.js"></script>
+</html>

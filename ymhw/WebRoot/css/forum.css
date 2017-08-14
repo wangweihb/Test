@@ -1,0 +1,93 @@
+#forum{
+	border:1px solid #D6DEE3;
+background: none repeat scroll 0 0 rgb(243, 243, 243);
+margin-bottom:30px;
+}
+hr{
+border-bottom:4px solid #E5EDF2;
+margin:0;
+}
+/*标题*/
+.forum-title{
+height: 45px;
+line-height: 30px;
+background: none repeat scroll 0 0 rgb(243, 243, 243);
+border-right: 0 solid #c2d5e3;
+padding:10px 15px;
+border-bottom:4px solid #E5EDF2;
+}
+.forum-title h4{
+	float:left;
+}
+.forum-share{
+	float:right;
+}
+/*内容*/
+.forum-right-main{
+	min-height:400px
+}
+.forum-main{
+	font: 12px/1.5 Tahoma,'Helvetica',SimSun,sans-serif;
+color: #444;
+}
+.forum-left{
+width: 164px;
+background: none repeat scroll 0 0 rgb(243, 243, 243);
+border-right: 0 solid #c2d5e3;float:left;
+padding:15px;
+
+
+
+}
+.portrait{
+	background-color:#FFFFFF;
+	padding:5px;
+	height:170px;
+}
+.portrait img{
+	height:160px;
+	width:100%
+}
+.information{
+}
+.information p{
+	color:#666666;
+	font-size:12px;
+}
+.information h5{
+	color:#000000;
+	line-height:32px;
+	margin-bottom:15px;
+}
+.forum-right{
+	float:left;
+	padding: 30px 30px 0 30px;
+	width:1004px;
+	background-color:#FFFFFF;
+	min-height:400px;
+}
+.forum-right p{
+font-size: 15px;
+line-height:32px;
+text-align:justify;
+margin-top:15px;
+
+}
+.forum-main-bot{
+	border-top: 1px dashed #ededed;
+	margin-top:30px;
+	line-height:46px;
+}
+.forum-main-bot em{
+	float:left;
+	font-style:normal;
+}
+.forum-main-bot p{
+	float:right;
+	margin:0
+}
+/*标题*/
+
+/*标题*/
+
+/*标题*/

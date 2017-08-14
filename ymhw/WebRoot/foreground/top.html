@@ -1,0 +1,185 @@
+<!--<link rel="stylesheet" href="../css/top.css" />-->
+<style type="text/css">
+	.ym-top-main{
+		margin: 0 auto;	
+		line-height: 30px;
+		background-color: #1c1c29;
+		height: 30px;
+		font-size: 12px;
+	}
+	.ym-top-main a{
+		text-decoration: none;
+		color: #fff;
+	}
+	.ym-top-main ul {
+		padding: 0;
+		margin: 0;
+	}
+	.ym-top-main ul li a{
+		line-height:30px;
+	    padding:0 10px;
+	}
+	.top-main-l {
+		float: left;
+	}
+	.ul-top-main-l li{
+		float: left;
+		padding: 0 20px 0 0;
+		list-style-type: none;
+	}
+	.top-main-r {
+		float: right;
+	}
+
+</style>
+<div class="ym-top-main">
+	<div class="content1160">
+		<div class="top-main-l">
+			<ul class="ul-top-main-l">
+				<li>
+					<a href="/aboutHelpPath?param=join" target="_parent">友鸣招聘</a>
+				</li>
+				<li>
+					<a href="/user/leaderListPath" target="_parent">领队风采</a>
+				</li>
+				<li>
+					<a href="/integralMallPath" target="_parent">友鸣商城</a>
+				</li>
+				<li>
+					<a readonly="true" href="javascript:void();" target="_parent">我的订单</a>
+				</li>
+			</ul>
+		</div>
+		<div class="top-main-r">
+			<div id="topcontent">
+				<a class="nav-icon-1"></a>
+				<a class="nav-icon-2"></a>
+				<a class="nav-icon-3"  href="#" onclick="toLogin();"></a>
+				<#if (session.ymhwUser)?exists>
+					<#if (session.ymhwUser.roleId)?exists && (session.ymhwUser.roleId)==1>
+						<span> 
+									${session.ymhwUser.account?default("")}
+									<管理员>
+								</span>
+						<span class="dropdown"> 
+									<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 
+										<span style="color: red;">个人中心</span> <span class="caret"></span>
+						</a>
+						<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+							<li>
+								<a href="/publishActPath" target="_parent" style="color: black;">发布</a>
+							</li>
+							<li>
+								<a href="/checkActPath" target="_parent" style="color: black;">审核</a>
+							</li>
+							<li role="separator" class="divider" style="color: gainsboro;"></li>
+							<li>
+								<a href="/login/exit" target="_parent" style="color: black;">退出</a>
+							</li>
+						</ul>
+						</span>
+					</#if>
+					<#if (session.ymhwUser.roleId)?exists && (session.ymhwUser.roleId)==2> <span> ${session.ymhwUser.account?default("")}
+						<领队>
+						</span> <span class="dropdown"> <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 个人中心 <span class="caret"></span> </a>
+						<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+							<li>
+								<a href="/publishActPath" target="_parent" style="color: black;">活动发布</a>
+							</li>
+							<li>
+								<a href="/uploadEquipPath" target="_parent" style="color: black;">装备上传</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="/activity/publishActResult" target="_parent" style="color: black;">发布结果</a>
+							</li>
+							<li>
+								<a href="/equip/equipsForUser" target="_parent" style="color: black;">上传结果</a>
+							</li>
+							<li>
+								<a href="/login/exit" target="_parent" style="color: black;">退出</a>
+							</li>
+						</ul>
+						</span>
+					</#if>
+					<#if (session.ymhwUser.roleId)?exists && (session.ymhwUser.roleId)==3> <span> ${session.ymhwUser.account?default("")}</span> <span class="dropdown"> <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 个人中心 <span class="caret"></span> </a>
+						<ul id="menu1" class="dropdown-menu" aria-labelledby="drop4">
+							<li>
+								<a href="/applyfoLeaderPath" target="_parent" style="color: black;">领队申请</a>
+							</li>
+							<li>
+								<a href="/user/getCheckResult" target="_parent" style="color: black;">申请结果</a>
+							</li>
+							<li role="separator" class="divider" style="color: gainsboro;"></li>
+							<li>
+								<a href="/login/exit" target="_parent" style="color: black;">退出</a>
+							</li>
+						</ul>
+						</span>
+					</#if>
+					<#else>
+						<a href="/registerPath" target="_parent">注册</a>|
+						<a href="/loginPath" target="_parent">登录</a>
+				</#if>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--顶部区域 start-->
+<div id="topwarp">
+	<div id="top">
+		<div id="toplogo">
+			<a href="/"><img src="../images/logo.png" height="60px" /></a>
+		</div>
+		<!--搜索-->
+		<a><img src="../images/logo2.jpg" style="float:left; margin-top:10px;" height="80px" /></a>
+
+		<div id="navsearch">
+			<div class="input-group">
+				<label class="selectLable">
+				          <select class="input-group-select select-type">
+				            <option value="1">热门活动</option>
+				            <option value="2">周边目的地</option>
+				            <option value="3">旅游攻略</option>
+				          </select>
+				        </label>
+				<input type="text" placeholder="本季热门" class="form-control-select" id="keyword" name="keyword" />
+				<button type="text" class="btn btn-default" id="searchSub"> <span>搜索</span> </button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--顶部区域 end-->
+<script type="text/javascript">
+ function toLogin()
+ {
+   //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
+   //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
+   var A=window.open("/login/qqLogin","TencentLogin", 
+   "width=600,height=480,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+ } 
+ $(function() {
+ 	$("#searchSub").click(function(){
+		var type = $(".select-type").val();
+		var keyword = $("#keyword").val();
+		if (keyword ==null || keyword == "") {
+			alert("请输入相应关键字!");
+			return;
+		} 
+		$.getJSON("/portRecords", {"type" : type, "keyword" : keyword}, function(res) {
+			if (res) {
+				if(type == 1) {
+					window.location = '/activity/display?activityId=' + res;
+				} else if (type == 2) {
+					window.location = '/infoPath/detail?id=' + res;
+				} else if (type == 3) {
+					window.location = '/strategyDetailPath?id=' + res;
+				}
+			} else{
+				alert("没有查询到该类型的记录!");
+			}
+		});
+	});
+ });
+</script>

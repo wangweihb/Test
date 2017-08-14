@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<title>支付完成</title>
+<link href="../../css/pay/reset.css" rel="stylesheet" type="text/css">
+<link href="../../css/pay/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../js/library/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	function againPay(){
+		$("#formId").submit();
+	}
+	
+	$(function(){
+//		if("success"&&"success"=="success"){
+//			if(""&&""=="Y"){
+//				window.location.href="http://www.itppay.com/help/toPayTest";
+//			}else{
+//				$(".payStatusSucess").show();
+//				if("0000000509"&&"0000000509"=="0000000509"){//当为体验支付时，显示返回体验页面按钮，且不进行读秒
+//					$(".Return_experienceBtn").css('display','block');
+//				}else{
+//					readSecond();
+//				}
+//			}
+//		}
+//		if("success"&&"success"=="fail"){
+//			$(".payStatusFail").show();
+//			if("0000000509"&&"0000000509"=="0000000509"){//当为体验支付时，显示返回体验页面按钮，且不进行读秒
+//				$(".Return_experienceBtn").css('display','block');
+//			}else{
+//				readSecond();
+//			}
+//		}
+//		readSecond();
+	});
+	
+	//5秒倒计时
+	var second=6;
+	var timeout = false; //启动及关闭按钮  
+	function readSecond()  
+	{  
+	  if(timeout){
+		  return false;  
+	  } 
+	  minusSecond();  
+	  setTimeout(readSecond,1000);
+	} 
+	function minusSecond(){
+		second--;
+		$(".second").html(second);
+		if(second==0){
+			timeout=true;
+			window.location.href="http://www.yomiing.com";
+		}
+	}
+</script>
+</head>
+
+<body style="background-color:#f9f9f9">
+<!--导航-->
+<div class="w100 navBD12">
+	<div class="w1080 nav12">
+		<div class="nav12-left">
+			<a href="http://www.yomiing.com"><img src="../../images/pay/logo12.png"></a>
+			<img class="hidden-xs" src="../../images/pay/logo-tip12.png">
+		</div>
+		<div class="nav12-right">
+			<img class="show-lg" src="../../images/pay/phone12.png">
+			<img class="show-xs" src="../../images/pay/phone12-xs.png">
+		</div>
+	</div>
+</div>
+<!--支付成功-->
+<#if res == 0>
+<div class="w1080 paystument12 payStatusSucess">
+	<h2><img src="../../images/pay/pay-success12.png"></h2>
+    <h3>
+    	<strong class="second">5</strong>
+        <span>秒后返回商户主页，点击</span><a href="http://www.yomiing.com">立即返回</a>
+    </h3>
+</div>
+</#if>
+<!--支付失败-->
+<#if res == 1>
+<div class="w1080 paystument12 payStatusFail">
+	<h2><img src="../../images/pay/pay-failed12.png"></h2>
+    <h3>
+    	<strong class="second">5</strong>
+        <span>秒后返回友鸣旅行网主页，点击</span><a href="http://www.yomiing.com">立即返回</a>
+    </h3>
+</div>
+</#if>
+<!--返回体验主页-->
+<a href="http://www.yomiing.com" class="immediate_pay Return_experienceBtn" style="display:none;">返回友鸣旅行网主页</a>
+<!--底部-->
+<div class="w1080 footer12">
+	<!--<p>京ICP证150892号 京ICP备15001719号－10</p>-->
+	<p>友鸣户外咨询策划有限责任公司版权所有 ©2015-2020。</p>
+</div>
+</body>
+</html>
+
