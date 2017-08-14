@@ -184,6 +184,7 @@ public class Config extends JFinalConfig
 		me.add(new SessionInViewInterceptor());
 		//TODO：使用全局拦截器，待定
 //		me.add(new ShiroInterceptor());
+		
 	}
 
 	/**
