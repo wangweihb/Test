@@ -57,7 +57,7 @@ public class Config extends JFinalConfig
 	 * 供shiro插件使用
 	 */
 	Routes routes;
-
+	//  8/16 8:15修改
 	/**
 	 * 配置常量-
 	 */
